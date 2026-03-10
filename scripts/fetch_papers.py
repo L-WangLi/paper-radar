@@ -41,6 +41,21 @@ RESEARCH_KEYWORDS = [
     "temporal convolutional network",
     "temporal transformer",
     "multivariate time series forecasting",
+    # Time Series Methods (transferable to RUL)
+    "Mamba state space model time series",
+    "time series foundation model",
+    "PatchTST",
+    "anomaly detection time series industrial",
+    "time series transformer",
+    # More RUL / PHM specific
+    "bearing fault diagnosis deep learning",
+    "LSTM remaining useful life",
+    "transfer learning fault diagnosis",
+    "domain adaptation predictive maintenance",
+    "physics-informed neural network degradation",
+    "graph neural network fault diagnosis",
+    "attention mechanism bearing",
+    "vibration signal deep learning",
 ]
 
 AI_FRONTIER_KEYWORDS = [
@@ -49,6 +64,9 @@ AI_FRONTIER_KEYWORDS = [
     "multimodal foundation model",
     "AI agent reasoning",
     "reinforcement learning human feedback",
+    "vision language model",
+    "test time compute scaling",
+    "model alignment",
 ]
 
 KEYWORD_WEIGHTS = {
@@ -72,13 +90,40 @@ KEYWORD_WEIGHTS = {
     "time series forecast": 5,
     "temporal transformer": 5,
     "multivariate time series": 5,
+    # New weights
+    "mamba": 6,
+    "state space model": 6,
+    "time series foundation": 7,
+    "patchtst": 6,
+    "anomaly detection": 5,
+    "bearing fault": 8,
+    "bearing remaining": 9,
+    "transfer learning": 5,
+    "domain adaptation": 5,
+    "physics-informed": 7,
+    "graph neural network": 5,
+    "attention mechanism": 4,
+    "vibration signal": 7,
+    "lstm": 4,
+    "degradation prediction": 8,
+    "health index": 7,
+    "prognostic": 8,
 }
 
 RSS_FEEDS = [
-    {"name": "DeepMind Blog", "url": "https://deepmind.google/blog/rss.xml", "category": "ai_frontier"},
+    # AI Lab Blogs (model releases, research announcements)
     {"name": "OpenAI Blog", "url": "https://openai.com/blog/rss.xml", "category": "ai_frontier"},
-    {"name": "Anthropic Blog", "url": "https://www.anthropic.com/rss.xml", "category": "ai_frontier"},
-    {"name": "Stanford HAI", "url": "https://hai.stanford.edu/news/rss.xml", "category": "ai_frontier"},
+    {"name": "Anthropic Blog", "url": "https://www.anthropic.com/rss/blog.xml", "category": "ai_frontier"},
+    {"name": "DeepMind Blog", "url": "https://deepmind.google/blog/rss.xml", "category": "ai_frontier"},
+    {"name": "Google AI Blog", "url": "https://blog.research.google/feeds/posts/default", "category": "ai_frontier"},
+    {"name": "Meta AI Blog", "url": "https://ai.meta.com/blog/feed/", "category": "ai_frontier"},
+    {"name": "Microsoft Research", "url": "https://www.microsoft.com/en-us/research/feed/", "category": "ai_frontier"},
+    # AI News & Weekly Digests
+    {"name": "HuggingFace Blog", "url": "https://huggingface.co/blog/feed.xml", "category": "ai_frontier"},
+    {"name": "The Batch (deeplearning.ai)", "url": "https://www.deeplearning.ai/the-batch/feed/", "category": "ai_frontier"},
+    {"name": "Stanford HAI", "url": "https://hai.stanford.edu/blog/feed", "category": "ai_frontier"},
+    # Community
+    {"name": "Reddit r/MachineLearning", "url": "https://www.reddit.com/r/MachineLearning/top/.rss?t=week", "category": "ai_frontier"},
 ]
 
 BASE_DIR = Path(__file__).parent.parent
@@ -171,7 +216,9 @@ def fetch_arxiv(keywords, max_per_query=25):
             papers.extend(cached)
             continue
 
-        query = urllib.parse.quote(f'all:"{kw}"')
+        # Only fetch papers from the last 2 years
+        date_from = (datetime.utcnow() - timedelta(days=730)).strftime("%Y%m%d") + "000000"
+        query = urllib.parse.quote(f'all:"{kw}" AND submittedDate:[{date_from} TO 99991231235959]')
         url = (
             f"http://export.arxiv.org/api/query?search_query={query}"
             f"&start=0&max_results={max_per_query}"
@@ -257,8 +304,9 @@ def fetch_semantic_scholar(keywords, max_per_query=20):
         })
         url = f"{base_url}?{params}"
 
-        data = safe_request(url, headers={"Accept": "application/json"})
+        data = safe_request(url, headers={"Accept": "application/json"}, delay=5)
         if not data:
+            time.sleep(5)
             continue
 
         try:
@@ -302,7 +350,7 @@ def fetch_semantic_scholar(keywords, max_per_query=20):
         set_cache(cache_key, batch)
         papers.extend(batch)
         print(f"  ✓ '{kw}': {len(batch)} papers")
-        time.sleep(1.5)
+        time.sleep(5)  # S2 rate limit: 1 req per 5s without API key
 
     return papers
 
@@ -344,7 +392,7 @@ def fetch_openreview(venues=None, max_per_venue=30):
             })
             url = f"https://api.openreview.net/notes/search?{params}"
 
-            data = safe_request(url)
+            data = safe_request(url, delay=5)
             if not data:
                 continue
 
@@ -397,7 +445,7 @@ def fetch_openreview(venues=None, max_per_venue=30):
                     "tags": tags,
                 })
 
-            time.sleep(1)
+            time.sleep(3)  # OpenReview rate limit
 
         set_cache(cache_key, batch)
         papers.extend(batch)
@@ -560,6 +608,78 @@ def fetch_rss_feeds():
     return items
 
 
+def fetch_paperswithcode(max_per_term=10):
+    """Fetch papers from Papers with Code API (no key required)."""
+    print("\n📊 [Papers with Code] Fetching...")
+
+    cache_key = f"pwc:{datetime.utcnow().strftime('%Y-%m-%d')}"
+    cached = get_cache(cache_key)
+    if cached:
+        print(f"  ✓ (cached, {len(cached)} papers)")
+        return cached
+
+    search_terms = [
+        "remaining-useful-life",
+        "fault-diagnosis",
+        "predictive-maintenance",
+        "time-series-anomaly-detection",
+        "knowledge-distillation",
+    ]
+
+    papers = []
+    seen = set()
+
+    for term in search_terms:
+        url = (
+            f"https://paperswithcode.com/api/v1/papers/"
+            f"?q={term}&ordering=-published&page_size={max_per_term}"
+        )
+        data = safe_request(url, headers={"Accept": "application/json"}, delay=3)
+        if not data:
+            print(f"  ✗ '{term}': failed")
+            continue
+
+        try:
+            result = json.loads(data)
+        except json.JSONDecodeError:
+            continue
+
+        batch = []
+        for p in result.get("results", []):
+            pid = str(p.get("id", ""))
+            if pid in seen or not pid:
+                continue
+            seen.add(pid)
+
+            title = p.get("title", "")
+            abstract = p.get("abstract", "") or ""
+            pub_date = (p.get("published", "") or "")[:10]
+            url_abs = p.get("url_abs", "") or ""
+            url_pdf = p.get("url_pdf", "") or ""
+
+            score, tags = compute_relevance(title, abstract)
+
+            batch.append({
+                "id": f"pwc:{pid}",
+                "title": title,
+                "abstract": abstract[:600],
+                "authors": [],
+                "date": pub_date,
+                "source": "Papers with Code",
+                "url": f"https://paperswithcode.com{url_abs}" if url_abs.startswith("/") else url_abs,
+                "pdf": url_pdf,
+                "relevance_score": score,
+                "tags": tags,
+            })
+
+        papers.extend(batch)
+        print(f"  ✓ '{term}': {len(batch)} papers")
+        time.sleep(3)
+
+    set_cache(cache_key, papers)
+    return papers
+
+
 # ============================================================
 # Main Pipeline
 # ============================================================
@@ -597,13 +717,14 @@ def main():
     for p in arxiv_ai:
         p["is_ai_frontier"] = True
 
-    s2_papers = fetch_semantic_scholar(RESEARCH_KEYWORDS[:8], max_per_query=15)
+    s2_papers = fetch_semantic_scholar(RESEARCH_KEYWORDS[:4], max_per_query=15)
     or_papers = fetch_openreview()
     hf_papers = fetch_huggingface_daily()
     rss_items = fetch_rss_feeds()
+    pwc_papers = fetch_paperswithcode()
 
     # 2. Combine and deduplicate
-    all_papers = arxiv_research + arxiv_ai + s2_papers + or_papers + hf_papers + rss_items
+    all_papers = arxiv_research + arxiv_ai + s2_papers + or_papers + hf_papers + rss_items + pwc_papers
     all_papers = deduplicate(all_papers)
 
     # 3. Classify
@@ -629,6 +750,7 @@ def main():
                 "semantic_scholar": len([p for p in all_papers if p["source"] == "Semantic Scholar"]),
                 "openreview": len([p for p in all_papers if "OpenReview" in p["source"]]),
                 "huggingface": len([p for p in all_papers if p["source"] == "HuggingFace Daily"]),
+                "paperswithcode": len([p for p in all_papers if p["source"] == "Papers with Code"]),
                 "rss": len([p for p in all_papers if p.get("is_blog")]),
             },
         },
@@ -670,6 +792,7 @@ def main():
           f"  S2={daily_data['stats']['sources']['semantic_scholar']}"
           f"  OR={daily_data['stats']['sources']['openreview']}"
           f"  HF={daily_data['stats']['sources']['huggingface']}"
+          f"  PwC={daily_data['stats']['sources']['paperswithcode']}"
           f"  RSS={daily_data['stats']['sources']['rss']}")
     print(f"{'='*60}")
 

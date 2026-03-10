@@ -189,9 +189,24 @@ body {
 }
 .paper-card .actions button:hover { color: var(--accent); background: var(--accent-glow); }
 .paper-card .actions .fav-btn.active { color: var(--accent3); }
+.paper-card .actions .note-btn.active { color: var(--accent2); }
 .paper-card .upvotes {
   font-size: 11px; color: var(--accent2); font-family: var(--font-mono);
 }
+.note-area {
+  margin-top: 8px; display: none;
+}
+.note-area.visible { display: block; }
+.note-area textarea {
+  width: 100%; padding: 8px 10px; font-size: 12px; font-family: var(--font-body);
+  background: var(--bg-surface); border: 1px solid var(--border); border-radius: var(--radius-sm);
+  color: var(--text); resize: vertical; min-height: 60px; outline: none;
+  transition: border-color var(--transition);
+}
+.note-area textarea:focus { border-color: var(--accent2); }
+.note-area textarea::placeholder { color: var(--text-muted); }
+.source-filter { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 10px; align-items: center; }
+.source-filter .label { font-size: 11px; color: var(--text-muted); font-family: var(--font-mono); }
 
 /* ========== Loading & Empty ========== */
 .loading {
@@ -294,6 +309,11 @@ body {
     <button onclick="loadLatest()" style="margin-left:auto"><span data-i18n="nav.latest">最新</span></button>
   </div>
 
+  <!-- Source Filter -->
+  <div class="source-filter" id="sourceFilter">
+    <span class="label">来源</span>
+  </div>
+
   <!-- Toolbar -->
   <div class="toolbar">
     <div class="search-box">
@@ -352,6 +372,9 @@ const i18n = {
     "footer.powered": "数据来源",
     "error.load": "加载数据失败，请稍后刷新",
     "citations": "引用",
+    "btn.note": "笔记",
+    "btn.note_saved": "已记录",
+    "note.placeholder": "记录你的想法、阅读笔记...",
   },
   en: {
     "stats.total": "Papers Tracked",
@@ -378,6 +401,9 @@ const i18n = {
     "footer.powered": "Sources",
     "error.load": "Failed to load data. Please refresh.",
     "citations": "citations",
+    "btn.note": "Note",
+    "btn.note_saved": "Noted",
+    "note.placeholder": "Add your thoughts, reading notes...",
   },
 };
 
@@ -387,7 +413,9 @@ let currentData = null;
 let availableDates = [];
 let currentDateIdx = 0;
 let favorites = JSON.parse(localStorage.getItem("pr_favs") || "{}");
+let notes = JSON.parse(localStorage.getItem("pr_notes") || "{}");
 let activeFilters = new Set();
+let activeSourceFilter = null;
 
 function t(key) { return (i18n[currentLang] || i18n.zh)[key] || key; }
 
@@ -454,6 +482,7 @@ async function loadData(date) {
 
     updateStats();
     buildFilterChips();
+    buildSourceFilter();
     renderPapers();
     document.getElementById("currentDate").textContent = currentData.date || "latest";
 
@@ -517,6 +546,30 @@ function toggleFilter(tag) {
 }
 
 // ============================================================
+// Source Filter
+// ============================================================
+function buildSourceFilter() {
+  if (!currentData) return;
+  const allPapers = [...(currentData.research_papers || []), ...(currentData.ai_frontier || [])];
+  const sources = [...new Set(allPapers.map(p => p.source).filter(Boolean))].sort();
+  const container = document.getElementById("sourceFilter");
+  const label = container.querySelector(".label");
+  container.innerHTML = "";
+  container.appendChild(label);
+  sources.forEach(src => {
+    const btn = document.createElement("button");
+    btn.className = "chip" + (activeSourceFilter === src ? " active" : "");
+    btn.textContent = src;
+    btn.onclick = () => {
+      activeSourceFilter = activeSourceFilter === src ? null : src;
+      buildSourceFilter();
+      renderPapers();
+    };
+    container.appendChild(btn);
+  });
+}
+
+// ============================================================
 // Tab Switching
 // ============================================================
 function switchTab(tab) {
@@ -564,6 +617,11 @@ function renderPapers() {
     });
   }
 
+  // Source filter
+  if (activeSourceFilter) {
+    papers = papers.filter(p => p.source === activeSourceFilter);
+  }
+
   const listEl = document.getElementById("paperList");
 
   if (papers.length === 0) {
@@ -583,6 +641,8 @@ function renderPapers() {
     const upvotesHtml = p.upvotes ? `<span class="upvotes">👍 ${p.upvotes}</span>` : "";
     const pdfBtn = p.pdf ? `<a href="${p.pdf}" target="_blank" rel="noopener" style="text-decoration:none"><button>${t("btn.pdf")}</button></a>` : "";
 
+    const hasNote = notes[p.id] && notes[p.id].trim();
+    const noteText = notes[p.id] || "";
     return `
     <div class="paper-card" id="card-${idx}">
       <div class="title-row">
@@ -605,6 +665,12 @@ function renderPapers() {
         <button class="fav-btn ${isFav ? 'active' : ''}" onclick="toggleFav('${p.id}', this)">
           ${isFav ? '★ ' + t("btn.unfav") : '☆ ' + t("btn.fav")}
         </button>
+        <button class="note-btn ${hasNote ? 'active' : ''}" onclick="toggleNoteArea('note-${idx}', this)">
+          ${hasNote ? '📝 ' + t("btn.note_saved") : '📝 ' + t("btn.note")}
+        </button>
+      </div>
+      <div class="note-area ${hasNote ? 'visible' : ''}" id="note-${idx}">
+        <textarea placeholder="${t('note.placeholder')}" onblur="saveNote('${p.id}', this.value, 'note-btn-${idx}')">${noteText}</textarea>
       </div>
     </div>`;
   }).join("");
@@ -624,6 +690,24 @@ function toggleFav(id, btn) {
   localStorage.setItem("pr_favs", JSON.stringify(favorites));
   document.getElementById("tabCountFavs").textContent = Object.keys(favorites).length;
   renderPapers();
+}
+
+function toggleNoteArea(areaId, btn) {
+  const area = document.getElementById(areaId);
+  if (!area) return;
+  area.classList.toggle("visible");
+  if (area.classList.contains("visible")) {
+    area.querySelector("textarea").focus();
+  }
+}
+
+function saveNote(id, text, _btnId) {
+  if (text.trim()) {
+    notes[id] = text;
+  } else {
+    delete notes[id];
+  }
+  localStorage.setItem("pr_notes", JSON.stringify(notes));
 }
 
 // ============================================================

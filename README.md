@@ -1,78 +1,90 @@
 # 🛰️ Paper Radar
 
-**个人论文雷达系统 / Personal Research Paper Radar**
+> 这是 [@l-wangli](https://github.com/l-wangli) 的个人论文雷达，专注于**深度学习 RUL（剩余使用寿命）预测**与 **PHM（预测性健康管理）** 方向的研究追踪，同时聚合 AI 前沿动态。
+>
+> This is a personal research paper radar focused on **deep learning-based RUL (Remaining Useful Life) prediction** and **PHM (Predictive Health Management)**. If you work in a different domain, feel free to fork and adapt it to your own research.
 
-自动追踪与你研究方向相关的最新论文，聚合 AI 前沿动态，每日更新，零成本运行。
-
-Automatically track the latest papers related to your research, aggregate AI frontier news, updated daily, zero cost.
-
----
-
-## ✨ Features / 功能
-
-- **多源论文抓取** — arXiv, Semantic Scholar, OpenReview (ICLR/NeurIPS/ICML), HuggingFace Daily Papers
-- **AI 前沿聚合** — HuggingFace 热门论文 + DeepMind/OpenAI/Anthropic/Stanford HAI 博客 RSS
-- **智能相关性评分** — 基于扩展关键词加权匹配，论文按相关性排序
-- **中英双语界面** — 一键切换中文/英文
-- **暗色/亮色主题** — 跟随偏好
-- **论文收藏** — 本地 localStorage 收藏感兴趣的论文
-- **标签筛选 + 搜索** — 按关键词、标签、来源快速过滤
-- **日期浏览** — 查看历史每日数据
-- **邮件推送** — 每日摘要邮件（可选）
-- **GitHub Pages 部署** — 零成本，自动更新
+**在线访问 / Live Site**: [l-wangli.github.io/paper-radar](https://l-wangli.github.io/paper-radar/)
 
 ---
 
-## 🚀 Quick Start / 快速开始
+## ✨ 功能 / Features
 
-### 1. Fork & Clone
+- **多源论文抓取** — arXiv（含日期过滤）、Semantic Scholar、OpenReview (ICLR/NeurIPS/ICML)、HuggingFace Daily、Papers with Code
+- **AI 前沿聚合** — OpenAI / Anthropic / DeepMind / Google AI / Meta AI / Microsoft Research 博客 + The Batch 周报 + Reddit r/MachineLearning
+- **智能相关性评分** — 关键词加权匹配，按相关度自动排序
+- **个人笔记** — 每篇论文可添加阅读笔记，保存至本地浏览器
+- **来源过滤** — 按 arXiv / S2 / Papers with Code 等来源一键过滤
+- **标签筛选 + 全文搜索** — 快速定位目标论文
+- **收藏夹** — 收藏感兴趣的论文，独立 tab 查看
+- **日期导航** — 浏览历史每日数据（保留 90 天）
+- **中英双语 + 暗色/亮色主题**
+- **邮件推送** — 每日摘要邮件（可选配置）
+- **GitHub Pages 零成本部署** — 每天北京时间 08:00 自动更新
+
+---
+
+## 🍴 Fork 使用指南（适配你自己的研究方向）
+
+如果你想把 Paper Radar 改造成自己的论文追踪工具，只需修改以下两处配置即可。
+
+### 第一步：Fork 仓库
+
+点击右上角 **Fork**，然后 clone 到本地：
 
 ```bash
-# Fork this repo on GitHub, then:
 git clone https://github.com/YOUR_USERNAME/paper-radar.git
 cd paper-radar
 ```
 
-### 2. 本地测试 / Local Test
+### 第二步：替换研究关键词
 
-```bash
-# 抓取论文
-python scripts/fetch_papers.py
+编辑 `scripts/fetch_papers.py` 顶部：
 
-# 构建网站
-python scripts/build_site.py
+```python
+RESEARCH_KEYWORDS = [
+    # 替换成你自己的研究关键词
+    "your research topic",
+    "your method name",
+    # ...
+]
 
-# 本地预览（打开 dist/index.html）
-cd dist && python -m http.server 8000
-# 访问 http://localhost:8000
+KEYWORD_WEIGHTS = {
+    "your research topic": 10,  # 权重越高越靠前显示
+    # ...
+}
 ```
 
-### 3. 配置 GitHub Actions
+### 第三步：替换 RSS 订阅源（可选）
 
-推送到 GitHub 后，Actions 会在每天北京时间 08:00 自动运行。
+```python
+RSS_FEEDS = [
+    {"name": "Blog Name", "url": "https://example.com/feed.xml", "category": "ai_frontier"},
+    # ...
+]
+```
 
-#### 手动触发
+### 第四步：启用 GitHub Pages
 
-在 GitHub 仓库页面 → Actions → `🛰️ Paper Radar Daily Update` → `Run workflow`
+1. 进入仓库 **Settings → Pages**
+2. Source 选择 `gh-pages` branch，保存
+3. 进入 **Actions → Paper Radar Daily Update → Run workflow** 手动触发一次
+4. 几分钟后访问 `https://YOUR_USERNAME.github.io/paper-radar/`
 
-#### 启用 GitHub Pages
+---
 
-1. 进入 Settings → Pages
-2. Source 选择 `gh-pages` branch
-3. 保存后等几分钟，网站就上线了
+## ⚙️ 完整配置说明
 
-你的网站地址：`https://YOUR_USERNAME.github.io/paper-radar/`
+### 邮件推送（可选）
 
-### 4. 配置邮件推送（可选）
-
-在 GitHub 仓库 → Settings → Secrets and variables → Actions → 添加以下 Secrets:
+在 GitHub 仓库 → **Settings → Secrets and variables → Actions** 中添加：
 
 | Secret | 说明 | 示例 |
 |--------|------|------|
 | `SMTP_HOST` | SMTP 服务器 | `smtp.gmail.com` |
 | `SMTP_PORT` | SMTP 端口 | `587` |
 | `SMTP_USER` | 发件邮箱 | `you@gmail.com` |
-| `SMTP_PASS` | 应用专用密码 | (Gmail: 生成App Password) |
+| `SMTP_PASS` | 应用专用密码 | (Gmail 需生成 App Password) |
 | `EMAIL_TO` | 收件邮箱 | `you@example.com` |
 
 在 Variables 中添加：
@@ -85,55 +97,14 @@ cd dist && python -m http.server 8000
 
 | 邮箱 | SMTP_HOST | SMTP_PORT | 备注 |
 |------|-----------|-----------|------|
-| Gmail | `smtp.gmail.com` | `587` | 需开启2FA + App Password |
+| Gmail | `smtp.gmail.com` | `587` | 需开启 2FA + App Password |
 | QQ 邮箱 | `smtp.qq.com` | `587` | 需开启 SMTP 并获取授权码 |
 | 163 邮箱 | `smtp.163.com` | `465` | 需开启 SMTP 并获取授权码 |
 | Outlook | `smtp.office365.com` | `587` | |
 
----
+### 修改更新时间
 
-## ⚙️ Customization / 自定义配置
-
-### 修改研究关键词
-
-编辑 `scripts/fetch_papers.py` 顶部的配置：
-
-```python
-RESEARCH_KEYWORDS = [
-    "remaining useful life",
-    "knowledge distillation",
-    # 添加你的关键词...
-]
-
-KEYWORD_WEIGHTS = {
-    "remaining useful life": 10,  # 权重越高越靠前
-    # ...
-}
-```
-
-### 修改 RSS 订阅源
-
-```python
-RSS_FEEDS = [
-    {"name": "DeepMind Blog", "url": "https://deepmind.google/blog/rss.xml", "category": "ai_frontier"},
-    # 添加更多...
-]
-```
-
-### 修改 OpenReview 会议
-
-```python
-# 在 fetch_openreview() 函数中修改 venues
-venues = [
-    "ICLR.cc/2026/Conference",
-    "NeurIPS.cc/2025/Conference",
-    # 添加更多会议...
-]
-```
-
-### 自定义更新时间
-
-编辑 `.github/workflows/daily-update.yml`:
+编辑 `.github/workflows/daily-update.yml`：
 
 ```yaml
 schedule:
@@ -141,9 +112,21 @@ schedule:
   # 改成 "0 22 * * *"   # UTC 22:00 = 北京时间 06:00
 ```
 
+### 修改 OpenReview 会议
+
+在 `scripts/fetch_papers.py` 的 `fetch_openreview()` 函数中修改：
+
+```python
+venues = [
+    "ICLR.cc/2026/Conference",
+    "NeurIPS.cc/2025/Conference",
+    # 添加更多会议...
+]
+```
+
 ---
 
-## 📁 Project Structure / 项目结构
+## 📁 项目结构 / Project Structure
 
 ```
 paper-radar/
@@ -151,38 +134,37 @@ paper-radar/
 │   └── workflows/
 │       └── daily-update.yml    # GitHub Actions 定时任务
 ├── scripts/
-│   ├── fetch_papers.py         # 论文抓取主脚本
+│   ├── fetch_papers.py         # 论文抓取主脚本（含所有数据源配置）
 │   ├── send_email.py           # 邮件推送脚本
 │   └── build_site.py           # 静态网站构建脚本
 ├── site/
 │   └── index.html              # 网站前端（单文件，含 CSS/JS）
-├── data/                       # 论文数据（自动生成）
+├── data/                       # 论文数据（自动生成，勿手动修改）
 │   ├── index.json              # 日期索引
-│   ├── latest.json             # 最新数据
-│   ├── papers_2026-03-10.json  # 按日期的数据
-│   └── cache/                  # API 请求缓存
-├── dist/                       # 构建输出（自动生成）
+│   ├── latest.json             # 最新数据快照
+│   ├── papers_YYYY-MM-DD.json  # 按日期存档
+│   └── cache/                  # API 请求缓存（7 天有效）
+├── dist/                       # 构建输出（部署到 gh-pages）
 └── README.md
 ```
 
 ---
 
-## 🔮 Roadmap / 后续计划
+## 🔮 Roadmap
 
 - [ ] Claude API 自动生成论文中文一句话摘要
-- [ ] 论文关联推荐（Related Papers via Semantic Scholar）
+- [ ] Semantic Scholar API Key 支持（提升抓取量）
 - [ ] Embedding-based 智能相关性排序
+- [ ] 论文关联推荐（Related Papers）
 - [ ] 微信推送集成
-- [ ] 引用网络可视化
 - [ ] 自定义 RSS Feed 输出
 
 ---
 
-## 📝 Notes / 注意事项
+## 📝 注意事项
 
-- arXiv API 有速率限制，脚本已内置 3 秒间隔
-- Semantic Scholar 免费额度 5000 请求/天，正常使用足够
-- OpenReview API 无需认证，但部分会议数据可能延迟
+- arXiv API 有速率限制，脚本已内置 3 秒间隔，请勿大幅缩短
+- Semantic Scholar 免费额度约 1 次/5 秒，建议申请 API Key 提升稳定性
 - GitHub Actions 免费额度 2000 分钟/月，本项目每次运行约 3-5 分钟
 - 论文数据保留最近 90 天
 
@@ -190,4 +172,4 @@ paper-radar/
 
 ## License
 
-MIT
+MIT — 欢迎 Fork，如果对你有帮助可以点个 ⭐
