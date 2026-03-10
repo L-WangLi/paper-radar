@@ -1,0 +1,68 @@
+name: "🛰️ Paper Radar Daily Update"
+
+on:
+  schedule:
+    # Run at 00:00 UTC daily (08:00 Beijing Time)
+    - cron: "0 0 * * *"
+  workflow_dispatch: # Allow manual trigger
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "paper-radar"
+  cancel-in-progress: false
+
+jobs:
+  fetch-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Restore data cache
+        uses: actions/cache@v4
+        with:
+          path: data/cache
+          key: paper-cache-${{ github.run_number }}
+          restore-keys: |
+            paper-cache-
+
+      - name: Fetch papers
+        run: python scripts/fetch_papers.py
+
+      - name: Build static site
+        run: python scripts/build_site.py
+
+      - name: Send email digest
+        if: ${{ env.SMTP_HOST != '' }}
+        env:
+          SMTP_HOST: ${{ secrets.SMTP_HOST }}
+          SMTP_PORT: ${{ secrets.SMTP_PORT }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASS: ${{ secrets.SMTP_PASS }}
+          EMAIL_TO: ${{ secrets.EMAIL_TO }}
+          SITE_URL: ${{ vars.SITE_URL }}
+        run: python scripts/send_email.py
+
+      - name: Commit data updates
+        run: |
+          git config user.name "Paper Radar Bot"
+          git config user.email "bot@paper-radar"
+          git add data/
+          git diff --staged --quiet || git commit -m "📡 Update papers $(date -u +%Y-%m-%d)"
+          git push
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          force_orphan: true
