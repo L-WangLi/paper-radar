@@ -21,65 +21,53 @@ from pathlib import Path
 # ============================================================
 
 RESEARCH_KEYWORDS = [
-    # Core RUL / PHM
+    # ── 第一梯队：每个研究方向各出一个代表词，保证任意限额下均匀覆盖 ──────
+    # 位置  1 — RUL/PHM 领域
     "remaining useful life",
-    "RUL estimation",
-    "RUL prediction",
-    "predictive maintenance",
-    "condition-based maintenance",
-    "condition based maintenance",
-    "prognostics health management",
-    "prognostics and health management",
-    "PHM deep learning",
-    "C-MAPSS",
-    "N-CMAPSS",
-    "turbofan engine degradation",
-    "fault diagnosis deep learning",
-    "degradation modeling",
-    "degradation prediction",
-    "condition monitoring deep learning",
-    # Knowledge Distillation / Compression
+    "state of health",
+    # 位置  2 — KD 方法
     "knowledge distillation",
-    "model compression edge deployment",
-    "lightweight deep learning industrial",
-    # Time Series / Architecture
-    "temporal convolutional network",
-    "temporal transformer",
-    "multivariate time series forecasting",
+    # 位置  3 — 时间序列方法（forecasting 和 prediction 是高频同义词，都要搜）
+    "time series forecasting",
+    "time series prediction",
+    # 位置  4 — 模型压缩方法
+    "model compression",
+    # 位置  5 — 数据集代表（精准命中）
+    "C-MAPSS",
+    # 位置  6-10 — 各方向补充
+    "predictive maintenance",
+    "model pruning",
     "time series classification",
-    # Time Series Methods (transferable to RUL)
-    "Mamba state space model time series",
-    "time series foundation model",
-    "PatchTST",
-    "anomaly detection time series industrial",
-    "time series transformer",
-    # More RUL / PHM specific
-    "bearing fault diagnosis deep learning",
-    "LSTM remaining useful life",
-    "transfer learning fault diagnosis",
-    "domain adaptation predictive maintenance",
-    "physics-informed neural network degradation",
-    "graph neural network fault diagnosis",
-    "attention mechanism bearing",
-    "vibration signal deep learning",
-    # Methods (broad but common in PHM)
-    "self-supervised learning prognostics",
-    "contrastive learning fault diagnosis",
-    "few-shot fault diagnosis",
-    "meta learning prognostics",
-    "domain generalization fault diagnosis",
-    "federated learning predictive maintenance",
-    # Datasets / Benchmarks
-    "PHM 2008",
-    "PHM08",
+    "N-CMAPSS",
+    "prognostics and health management",
+    # 位置 11-20 — 继续覆盖各方向
+    "lightweight model",
+    "multivariate time series",
     "PRONOSTIA",
+    "degradation prediction",
+    "neural network quantization",
     "FEMTO",
+    "RUL prediction",
     "XJTU-SY",
+    "condition monitoring",
     "IMS bearing",
+    # 位置 21-31 — 剩余数据集 + 细分领域词
     "CWRU bearing",
     "Paderborn bearing",
     "SEU bearing",
     "MFPT bearing",
+    "PHM 2008",
+    "RUL estimation",
+    "degradation modeling",
+    "turbofan engine degradation",
+    "condition-based maintenance",
+    "condition based maintenance",
+    # ── 第二梯队：方法×领域复合词（按研究问题描述，不含具体架构名）─────────
+    "physics-informed degradation",
+    "self-supervised prognostics",
+    "federated learning predictive maintenance",
+    "time series anomaly detection",
+    "time series foundation model",
 ]
 
 AI_FRONTIER_KEYWORDS = [
@@ -95,21 +83,18 @@ AI_FRONTIER_KEYWORDS = [
 
 METHOD_KEYWORDS = [
     "self-supervised learning",
-    "contrastive learning",
-    "few-shot learning",
-    "meta learning",
-    "domain generalization",
     "transfer learning",
     "domain adaptation",
     "federated learning",
-    "representation learning",
-    "anomaly detection",
     "time series forecasting",
     "time series classification",
     "transformer",
     "state space model",
-    "graph neural network",
     "physics-informed",
+    "knowledge distillation",
+    "model compression",
+    "model pruning",
+    "neural network quantization",
 ]
 
 DATASET_KEYWORDS = [
@@ -135,6 +120,34 @@ DATASET_KEYWORDS = [
 
 TAG_KEYWORDS = list(dict.fromkeys(RESEARCH_KEYWORDS + METHOD_KEYWORDS + DATASET_KEYWORDS))
 SHORT_KEYWORDS = {"RUL", "PHM", "SOH", "CBM"}
+
+# Title-level filter: a paper is relevant only if its title contains at least one
+# of these terms. Applied to CrossRef and S2 (the noisiest sources).
+# Using longer phrases avoids false positives from short ambiguous words.
+TITLE_FILTER = [
+    "remaining useful life", "state of health", "rul", "prognostic", "phm",
+    "predictive maintenance", "degradation", "turbofan",
+    "knowledge distillation", "model compression", "model pruning",
+    "network pruning", "lightweight", "quantization",
+    "time series forecasting", "time series prediction", "time series",
+    "c-mapss", "cmapss", "femto", "pronostia",
+    "xjtu", "ims bearing", "cwru", "paderborn", "mfpt",
+    "condition monitoring", "health monitoring", "health management",
+]
+
+
+def title_is_relevant(title: str) -> bool:
+    """Return True if paper title contains at least one core research term."""
+    t = title.lower()
+    for term in TITLE_FILTER:
+        if len(term) <= 4:
+            # word-boundary check for short tokens (rul, phm, etc.)
+            if re.search(rf"\b{re.escape(term)}\b", t):
+                return True
+        else:
+            if term in t:
+                return True
+    return False
 
 RSS_FEEDS = [
     # AI Lab Blogs
@@ -376,6 +389,8 @@ def fetch_semantic_scholar(keywords, max_per_query=20):
             ext = p.get("externalIds") or {}
 
             tags = compute_tags(title, abstract)
+            if not title_is_relevant(title):
+                continue
 
             batch.append({
                 "id": f"s2:{pid[:20]}",
@@ -667,16 +682,14 @@ def fetch_paperswithcode(max_per_term=10):
 
     search_terms = [
         "remaining-useful-life",
-        "fault-diagnosis",
         "predictive-maintenance",
-        "time-series-anomaly-detection",
         "knowledge-distillation",
+        "model-compression",
+        "time-series-forecasting",
         "condition-monitoring",
-        "health-index",
-        "bearing-fault-diagnosis",
-        "domain-adaptation",
-        "self-supervised-learning",
-        "contrastive-learning",
+        "prognostics",
+        "degradation-prediction",
+        "lightweight-model",
     ]
 
     papers = []
@@ -744,14 +757,17 @@ def fetch_crossref(max_per_kw=15):
         return cached
 
     two_years_ago = (datetime.utcnow() - timedelta(days=730)).strftime("%Y-%m-%d")
-    # Focus on highest-signal RUL/PHM keywords to avoid noise
+    # Focus on highest-signal keywords to avoid noise (title-only search)
     target_kws = [
         "remaining useful life",
-        "bearing fault diagnosis",
-        "predictive maintenance deep learning",
+        "predictive maintenance",
+        "knowledge distillation",
+        "model compression",
+        "time series forecasting",
+        "degradation prediction",
         "prognostics health management",
-        "degradation prediction neural network",
-        "condition monitoring fault",
+        "condition monitoring",
+        "lightweight model",
     ]
 
     papers = []
@@ -761,7 +777,7 @@ def fetch_crossref(max_per_kw=15):
         query = urllib.parse.quote(kw)
         url = (
             f"https://api.crossref.org/works?"
-            f"query.bibliographic={query}"
+            f"query.title={query}"  # title-only search avoids noise from bibliographic fields
             f"&filter=from-pub-date:{two_years_ago}"
             f"&sort=published&order=desc"
             f"&rows={max_per_kw}"
@@ -798,7 +814,10 @@ def fetch_crossref(max_per_kw=15):
 
             pub = item.get("published", {})
             date_parts = pub.get("date-parts", [[]])[0]
-            if len(date_parts) >= 3:
+            current_year = datetime.now().year
+            if date_parts and (date_parts[0] < 1990 or date_parts[0] > current_year + 1):
+                pub_date = ""  # reject bogus years (e.g. 2121)
+            elif len(date_parts) >= 3:
                 pub_date = f"{date_parts[0]:04d}-{date_parts[1]:02d}-{date_parts[2]:02d}"
             elif len(date_parts) >= 2:
                 pub_date = f"{date_parts[0]:04d}-{date_parts[1]:02d}-01"
@@ -813,7 +832,7 @@ def fetch_crossref(max_per_kw=15):
             url_link = item.get("URL", "") or f"https://doi.org/{doi}"
 
             tags = compute_tags(title, abstract)
-            if not tags:
+            if not tags or not title_is_relevant(title):
                 continue
 
             batch.append({
@@ -1051,8 +1070,8 @@ def main():
 
     arxiv_rss = fetch_arxiv_rss(["cs.LG", "cs.AI", "eess.SP", "eess.SY", "stat.ML", "cs.RO"])
     crossref_papers = fetch_crossref()
-    s2_papers = fetch_semantic_scholar(RESEARCH_KEYWORDS[:10], max_per_query=15)
-    openalex_papers = fetch_openalex(RESEARCH_KEYWORDS[:10], max_per_kw=15)
+    s2_papers = fetch_semantic_scholar(RESEARCH_KEYWORDS[:31], max_per_query=15)
+    openalex_papers = fetch_openalex(RESEARCH_KEYWORDS[:31], max_per_kw=15)
     or_papers = fetch_openreview()
     hf_papers = fetch_huggingface_daily()
     rss_items = fetch_rss_feeds()

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Paper Radar 🛰️</title>
+<title>Li's Research Radar 🛰️</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Noto+Sans+SC:wght@300;400;500;700&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
 <style>
@@ -75,6 +75,7 @@ body {
   font-size: 22px; font-weight: 700; letter-spacing: -0.5px;
 }
 .logo span { font-size: 26px; }
+.logo-sub { font-size: 11px; font-weight: 400; color: var(--text-muted); letter-spacing: 0.3px; margin-top: 2px; }
 .header-controls { display: flex; align-items: center; gap: 8px; }
 .header-controls button, .header-controls select {
   background: var(--bg-surface); color: var(--text-dim); border: 1px solid var(--border);
@@ -216,11 +217,15 @@ body {
 .status-btn.read { background: rgba(0,212,170,0.12); color: var(--accent2); border-color: var(--accent2); }
 .status-btn.important { background: rgba(255,107,157,0.15); color: var(--accent3); border-color: var(--accent3); }
 
-/* Status left border on cards */
-.paper-card.status-read { border-left: 3px solid var(--accent2); }
-.paper-card.status-important { border-left: 3px solid var(--accent3); }
 .status-timestamp { font-size: 10px; color: var(--text-muted); font-family: var(--font-mono); margin-left: 4px; }
-.note-timestamp { font-size: 10px; color: var(--text-muted); font-family: var(--font-mono); margin-top: 3px; }
+/* Note preview: always-visible text+time below actions */
+.note-preview {
+  margin-top: 8px; padding: 6px 10px; font-size: 12px; color: var(--text-dim);
+  background: var(--bg-surface); border-left: 2px solid var(--border-light);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0; line-height: 1.5;
+}
+.note-preview .note-preview-text { font-style: italic; }
+.note-preview .note-preview-time { font-family: var(--font-mono); font-size: 10px; color: var(--text-muted); margin-left: 6px; }
 .source-filter { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 10px; align-items: center; }
 .source-filter .label { font-size: 11px; color: var(--text-muted); font-family: var(--font-mono); }
 
@@ -314,7 +319,10 @@ body {
   <!-- Header -->
   <header class="header">
     <div class="header-inner">
-      <div class="logo"><span>🛰️</span> Paper Radar</div>
+      <div class="logo">
+        <div><span>🛰️</span> Li's Research Radar</div>
+        <div class="logo-sub">Tracking PHM · Knowledge Distillation · AI Frontier</div>
+      </div>
       <div class="header-controls">
         <select id="langSwitch" title="Language" onchange="switchLang(this.value)">
           <option value="zh">中文</option>
@@ -405,7 +413,7 @@ body {
 </div>
 
 <footer class="footer container">
-  <div>Paper Radar · <span data-i18n="footer.auto">自动更新</span> · <a href="https://github.com/L-WangLi/paper-radar" target="_blank" rel="noopener noreferrer">GitHub</a></div>
+  <div>Li's Research Radar · <span data-i18n="footer.auto">自动更新</span> · <a href="https://github.com/L-WangLi/paper-radar" target="_blank" rel="noopener noreferrer">GitHub</a></div>
   <div class="footer-sources">
     <span data-i18n="footer.powered">数据来源</span>: arXiv · CrossRef · Semantic Scholar · OpenReview · OpenAlex · HuggingFace · Papers with Code · RSS
   </div>
@@ -441,8 +449,8 @@ const i18n = {
     "btn.pdf": "PDF",
     "footer.auto": "自动更新",
     "footer.powered": "数据来源",
-    "label.source": "??",
-    "label.updated": "????",
+    "label.source": "来源",
+    "label.updated": "更新时间",
     "error.load": "加载数据失败，请稍后刷新",
     "citations": "引用",
     "btn.note": "笔记",
@@ -495,6 +503,42 @@ const i18n = {
     "status.important": "Key Ref",
   },
 };
+
+// Highlight = research-question words only, NOT specific method names.
+// Goal: bold what's relevant to the user's research direction,
+//       not signal "this paper uses a known architecture".
+const HIGHLIGHT_KEYWORDS = [
+  // RUL / PHM research area
+  "remaining useful life","RUL prediction","RUL estimation",
+  "predictive maintenance","prognostics and health management",
+  "degradation prediction","degradation modeling","condition monitoring",
+  "turbofan engine degradation",
+  // Model efficiency research area
+  "knowledge distillation","model compression","model pruning",
+  "neural network quantization","lightweight",
+  // Time series research area
+  "time series forecasting","time series prediction","time series classification",
+  "multivariate time series",
+  // Benchmark datasets (precise identifiers)
+  "C-MAPSS","N-CMAPSS","PRONOSTIA","FEMTO","XJTU-SY",
+  "IMS bearing","CWRU bearing","Paderborn bearing","SEU bearing","MFPT bearing",
+  // Acronyms
+  "RUL","PHM",
+];
+
+// Sort by length desc so longer phrases match before their substrings
+const _hlSorted = [...HIGHLIGHT_KEYWORDS].sort((a, b) => b.length - a.length);
+const _hlRegex = new RegExp(
+  "(" + _hlSorted.map(k => k.replace(/[-/\\^$*+?.()|[\]{}]/g, "\\$&")).join("|") + ")",
+  "gi"
+);
+
+function highlightText(text) {
+  if (!text) return "";
+  // Escape HTML first, then wrap keyword matches in <strong>
+  const escaped = text.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+  return escaped.replace(_hlRegex, "<strong>$1</strong>");
+}
 
 let currentLang = localStorage.getItem("pr_lang") || "zh";
 let currentTab = "research";
@@ -782,12 +826,13 @@ function renderPapers() {
     const hasNote = !!noteText.trim();
     const noteTextEsc = noteText.replace(/</g, "&lt;").replace(/>/g, "&gt;");
     const noteTime = getNoteTime(p.id);
-    const noteTimeHtml = noteTime ? `<div class="note-timestamp">💾 ${fmtTime(noteTime)}</div>` : "";
-    const cardStatusClass = status ? ` status-${status}` : "";
+    const notePreviewHtml = hasNote
+      ? `<div class="note-preview" id="note-preview-${idx}"><span class="note-preview-text">"${noteTextEsc}"</span><span class="note-preview-time">${fmtTime(noteTime)}</span></div>`
+      : `<div class="note-preview" id="note-preview-${idx}" style="display:none"></div>`;
     return `
-    <div class="paper-card${cardStatusClass}" id="card-${idx}">
+    <div class="paper-card" id="card-${idx}">
       <div class="title-row">
-        <div class="title"><a href="${p.url}" target="_blank" rel="noopener noreferrer">${p.title}</a></div>
+        <div class="title"><a href="${p.url}" target="_blank" rel="noopener noreferrer">${highlightText(p.title)}</a></div>
       </div>
       <div class="meta">
         <span>${authorsStr}</span>
@@ -797,7 +842,7 @@ function renderPapers() {
         ${citationsHtml}
         ${upvotesHtml}
       </div>
-      ${p.abstract ? `<div class="abstract">${p.abstract}</div>` : ""}
+      ${p.abstract ? `<div class="abstract">${highlightText(p.abstract)}</div>` : ""}
       ${tagsHtml ? `<div class="tags">${tagsHtml}</div>` : ""}
       <div class="actions">
         <button type="button" onclick="toggleExpand(${idx})">${t("btn.expand")}</button>
@@ -812,10 +857,10 @@ function renderPapers() {
         <button type="button" id="status-${idx}" class="status-btn${statusClass}" onclick="cycleStatus('${p.id}', ${idx})">${statusLabel}</button>
         ${statusTimeHtml}
       </div>
+      ${notePreviewHtml}
       <div class="note-area ${hasNote ? "visible" : ""}" id="note-${idx}">
         <textarea id="ta-note-${idx}" placeholder="${t("note.placeholder")}">${noteTextEsc}</textarea>
         <button type="button" class="note-save-btn" onclick="saveNote('${p.id}', 'note-${idx}', this)">${t("btn.save_note")}</button>
-        ${noteTimeHtml}
       </div>
     </div>`;
   }).join("");
@@ -853,17 +898,21 @@ function saveNote(id, areaId, btn) {
   if (text.trim()) notes[id] = { text, savedAt: now };
   else delete notes[id];
   localStorage.setItem("pr_notes", JSON.stringify(notes));
-  // Update timestamp in note area
+  // Update note preview display
   const noteArea = document.getElementById(areaId);
   if (noteArea) {
-    let tsEl = noteArea.querySelector(".note-timestamp");
-    if (text.trim()) {
-      if (!tsEl) { tsEl = document.createElement("div"); tsEl.className = "note-timestamp"; noteArea.appendChild(tsEl); }
-      tsEl.textContent = "💾 " + fmtTime(now);
-    } else if (tsEl) { tsEl.remove(); }
-    // Update note button active state
     const card = noteArea.closest(".paper-card");
     if (card) {
+      const preview = card.querySelector(".note-preview");
+      if (preview) {
+        if (text.trim()) {
+          const escaped = text.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+          preview.innerHTML = `<span class="note-preview-text">"${escaped}"</span><span class="note-preview-time">${fmtTime(now)}</span>`;
+          preview.style.display = "";
+        } else {
+          preview.style.display = "none";
+        }
+      }
       const noteBtn = card.querySelector(".note-btn");
       if (noteBtn) {
         noteBtn.classList.toggle("active", !!notes[id]);
@@ -900,12 +949,6 @@ function cycleStatus(id, cardIdx) {
       span.className = "status-timestamp";
       span.textContent = fmtTime(st);
       btn.insertAdjacentElement("afterend", span);
-    }
-    // Update card border
-    const card = document.getElementById("card-" + cardIdx);
-    if (card) {
-      card.classList.remove("status-read", "status-important");
-      if (s) card.classList.add("status-" + s);
     }
   }
   updateMarkedCount();

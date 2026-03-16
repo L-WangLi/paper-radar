@@ -5,6 +5,7 @@ Reads data JSON files and builds the final index.html for GitHub Pages.
 """
 
 import json
+import os
 import shutil
 from datetime import datetime
 from pathlib import Path
@@ -28,8 +29,7 @@ def build():
     data_out.mkdir()
 
     for f in DATA_DIR.glob("*.json"):
-        if f.name != "email_preview.html":
-            shutil.copy2(f, data_out / f.name)
+        shutil.copy2(f, data_out / f.name)
 
     # Copy the main HTML
     html_src = SITE_DIR / "index.html"
@@ -52,5 +52,4 @@ def build():
 
 
 if __name__ == "__main__":
-    import os
     build()
