@@ -1,6 +1,6 @@
 # 🛰️ Paper Radar
 
-> 这是 [@l-wangli](https://github.com/l-wangli) 的个人论文雷达，专注于**深度学习 RUL（剩余使用寿命）预测**与 **PHM（预测性健康管理）** 方向的研究追踪，同时聚合 AI 前沿动态。
+> Hii, 这里是 [@l-wangli](https://github.com/l-wangli) 的个人论文雷达，专注于**深度学习 RUL（剩余使用寿命）预测**与 **PHM（预测性健康管理）** 方向的研究追踪，同时聚合 AI 前沿动态。
 >
 > This is a personal research paper radar focused on **deep learning-based RUL (Remaining Useful Life) prediction** and **PHM (Predictive Health Management)**. If you work in a different domain, feel free to fork and adapt it to your own research.
 
