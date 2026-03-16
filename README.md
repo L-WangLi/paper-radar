@@ -11,18 +11,21 @@
 ## ✨ 功能 / Features
 
 **论文追踪**
+
 - **多源抓取** — arXiv（日期过滤）、CrossRef（覆盖 Elsevier/IEEE/Springer 全部期刊）、Semantic Scholar、OpenReview (ICLR/NeurIPS/ICML)、HuggingFace Daily、Papers with Code
 - **关键词过滤** — 关键词匹配筛选相关论文，按发布日期排序
 - **全文搜索 + 标签筛选 + 来源过滤** — 快速定位目标论文
 - **日期导航** — 浏览历史每日数据（保留 90 天）
 
 **AI 前沿聚合**
+
 - OpenAI / Anthropic / DeepMind / Google AI / Meta AI / Microsoft Research / BAIR / Allen AI / NVIDIA AI Blog
 - The Batch / Import AI / The Gradient / MIT Technology Review / Stanford HAI / Reddit r/MachineLearning
-- 量子位 / 机器之心 / AI科技评论 / 36氪 AI
+- 量子位 / 机器之心 / AI 科技评论 / 36 氪 AI
 - arXiv cs.LG / cs.AI / eess.SP 每日新提交
 
 **个人研究管理**
+
 - **阅读状态** — 每篇论文可标记：未读 / 已读 / 重要参考
 - **个人笔记** — 每篇论文可添加阅读笔记，手动保存
 - **BibTeX 导出** — 一键复制论文引用格式
@@ -30,10 +33,12 @@
 - **云同步** — 通过 GitHub Gist 备份/恢复笔记和收藏（跨设备）
 
 **通知推送**
-- **微信推送** — 每日 Top5 论文推送到微信（Server酱，可选配置）
+
+- **微信推送** — 每日 Top5 论文推送到微信（可选配置）
 - **周报邮件** — 每周一发送邮件摘要（可选配置）
 
 **部署**
+
 - GitHub Pages 零成本部署，每天北京时间 08:00 自动更新
 - 中英双语 + 暗色/亮色主题，手机端可访问
 
@@ -91,34 +96,34 @@ RSS_FEEDS = [
 
 ### 微信推送（可选，每日推送）
 
-| Secret | 说明 | 获取方式 |
-|--------|------|---------|
-| `SERVERCHAN_KEY` | Server酱 SendKey | [sct.ftqq.com](https://sct.ftqq.com) 微信扫码注册，免费 |
+| Secret           | 说明              | 获取方式                                                |
+| ---------------- | ----------------- | ------------------------------------------------------- |
+| `SERVERCHAN_KEY` | Server 酱 SendKey | [sct.ftqq.com](https://sct.ftqq.com) 微信扫码注册，免费 |
 
-### 邮件周报（可选，每周一发送）
+### 邮件周报（可选，每周五发送）
 
-| Secret | 说明 | 示例 |
-|--------|------|------|
-| `SMTP_HOST` | SMTP 服务器 | `smtp.gmail.com` |
-| `SMTP_PORT` | SMTP 端口 | `587` |
-| `SMTP_USER` | 发件邮箱 | `you@gmail.com` |
+| Secret      | 说明         | 示例                        |
+| ----------- | ------------ | --------------------------- |
+| `SMTP_HOST` | SMTP 服务器  | `smtp.gmail.com`            |
+| `SMTP_PORT` | SMTP 端口    | `587`                       |
+| `SMTP_USER` | 发件邮箱     | `you@gmail.com`             |
 | `SMTP_PASS` | 应用专用密码 | (Gmail 需生成 App Password) |
-| `EMAIL_TO` | 收件邮箱 | `you@example.com` |
+| `EMAIL_TO`  | 收件邮箱     | `you@example.com`           |
 
 在 **Variables** 中添加：
 
-| Variable | 说明 | 示例 |
-|----------|------|------|
+| Variable   | 说明         | 示例                                 |
+| ---------- | ------------ | ------------------------------------ |
 | `SITE_URL` | 你的网站地址 | `https://xxx.github.io/paper-radar/` |
 
 **常见邮箱 SMTP 配置：**
 
-| 邮箱 | SMTP_HOST | SMTP_PORT | 备注 |
-|------|-----------|-----------|------|
-| Gmail | `smtp.gmail.com` | `587` | 需开启 2FA + App Password |
-| QQ 邮箱 | `smtp.qq.com` | `587` | 需开启 SMTP 并获取授权码 |
-| 163 邮箱 | `smtp.163.com` | `465` | 需开启 SMTP 并获取授权码 |
-| Outlook | `smtp.office365.com` | `587` | |
+| 邮箱     | SMTP_HOST            | SMTP_PORT | 备注                      |
+| -------- | -------------------- | --------- | ------------------------- |
+| Gmail    | `smtp.gmail.com`     | `587`     | 需开启 2FA + App Password |
+| QQ 邮箱  | `smtp.qq.com`        | `587`     | 需开启 SMTP 并获取授权码  |
+| 163 邮箱 | `smtp.163.com`       | `465`     | 需开启 SMTP 并获取授权码  |
+| Outlook  | `smtp.office365.com` | `587`     |                           |
 
 ### 云同步笔记/收藏（可选，前端配置）
 
@@ -130,7 +135,7 @@ RSS_FEEDS = [
 
 ```yaml
 schedule:
-  - cron: "0 0 * * *"  # UTC 00:00 = 北京时间 08:00
+  - cron: "0 0 * * *" # UTC 00:00 = 北京时间 08:00
 ```
 
 ---
@@ -196,6 +201,16 @@ paper-radar/
 
 ---
 
+## 🤝 Contributing
+
+如果这套工作流程对你有帮助，欢迎 Star⭐
+
+如果你 Fork 后做了有趣的改进，也欢迎提 PR。
+
+提 [Issue](https://github.com/L-WangLi/paper-radar/issues) 反馈 bug 或建议
+
+---
+
 ## License
 
-MIT — 欢迎 Fork，如果对你有帮助可以点个 ⭐
+MIT — 欢迎 Fork 适配你自己的研究方向
