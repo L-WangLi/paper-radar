@@ -1,14 +1,26 @@
-# 🛰️ Paper Radar
+# 🛰️ Paper Radar - **Build your own research radar in minutes.**
 
 > Hii，这里是 [@l-wangli](https://github.com/l-wangli) 的 Research Radar。
 >
 > 这是一个**零成本部署、每日自动更新**的论文追踪系统，用于减少研究过程中查找和整理文献的时间成本。
 >
-> **Build your own research radar in minutes.** 通过 Fork 项目并替换配置中的关键词，你也可以快速构建属于自己研究方向的 Research Radar。
+> 通过 Fork 项目并替换配置中的关键词，你也可以快速构建属于自己研究方向的 Research Radar。
 >
 > 当前默认追踪方向：
+>
 > - **Deep Learning for RUL (Remaining Useful Life) Prediction** 与 **PHM (Prognostics and Health Management)** 相关最新论文
 > - **AI 前沿动态**：聚合人工智能领域的重要新论文与技术进展
+
+> Hii, this is [@l-wangli](https://github.com/l-wangli)'s Research Radar.
+>
+> A **zero-cost, auto-updated daily** paper tracking system — built to reduce the time spent searching and organizing research literature.
+>
+> Fork this repo, replace the keywords in the config, and you can quickly build a Research Radar for your own field.
+>
+> Default tracking scope:
+>
+> - Latest papers on **Deep Learning for RUL (Remaining Useful Life) Prediction** and **PHM (Prognostics and Health Management)**
+> - **AI Frontier**: aggregating important new papers and advances in artificial intelligence
 
 **在线访问 / Live Site**: [l-wangli.github.io/paper-radar](https://l-wangli.github.io/paper-radar/)
 
@@ -211,9 +223,9 @@ paper-radar/
 
 如果这套工作流程对你有帮助，欢迎 Star⭐
 
-如果你 Fork 后做了有趣的改进，也欢迎提 PR。
+如果发现 bug 或有改进建议，欢迎提 [Issue](https://github.com/L-WangLi/paper-radar/issues)反馈。
 
-提 [Issue](https://github.com/L-WangLi/paper-radar/issues) 反馈 bug 或建议
+如果你 Fork 后做了有趣的改进，也欢迎提 PR。
 
 ---
 
