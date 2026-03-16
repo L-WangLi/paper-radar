@@ -21,6 +21,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -61,6 +63,8 @@ jobs:
         run: |
           git config user.name "Paper Radar Bot"
           git config user.email "bot@paper-radar"
+          git fetch origin main
+          git pull --rebase origin main
           git add data/
           git diff --staged --quiet || git commit -m "📡 Update papers $(date -u +%Y-%m-%d)"
           git push
