@@ -143,8 +143,8 @@ def send_email(html, subject):
 
 def main():
     # Only send on Mondays (weekly digest)
-    if datetime.utcnow().weekday() != 0:
-        print(f"⏭️  Not Monday (weekday={datetime.utcnow().weekday()}), skipping weekly digest.")
+    if datetime.utcnow().weekday() != 4:
+        print(f"⏭️  Not Friday (weekday={datetime.utcnow().weekday()}), skipping weekly digest.")
         return
 
     # Load latest data
