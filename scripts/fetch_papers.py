@@ -111,19 +111,31 @@ KEYWORD_WEIGHTS = {
 }
 
 RSS_FEEDS = [
-    # AI Lab Blogs (model releases, research announcements)
+    # AI Lab Blogs
     {"name": "OpenAI Blog", "url": "https://openai.com/blog/rss.xml", "category": "ai_frontier"},
     {"name": "Anthropic Blog", "url": "https://www.anthropic.com/rss/blog.xml", "category": "ai_frontier"},
     {"name": "DeepMind Blog", "url": "https://deepmind.google/blog/rss.xml", "category": "ai_frontier"},
     {"name": "Google AI Blog", "url": "https://blog.research.google/feeds/posts/default", "category": "ai_frontier"},
     {"name": "Meta AI Blog", "url": "https://ai.meta.com/blog/feed/", "category": "ai_frontier"},
     {"name": "Microsoft Research", "url": "https://www.microsoft.com/en-us/research/feed/", "category": "ai_frontier"},
-    # AI News & Weekly Digests
+    # Academic Research Blogs
+    {"name": "BAIR Blog", "url": "https://bair.berkeley.edu/blog/feed.xml", "category": "ai_frontier"},
+    {"name": "Allen AI (AI2)", "url": "https://allenai.org/blog/rss.xml", "category": "ai_frontier"},
+    {"name": "NVIDIA AI Blog", "url": "https://blogs.nvidia.com/blog/category/deep-learning/feed/", "category": "ai_frontier"},
+    # AI News & Digests
     {"name": "HuggingFace Blog", "url": "https://huggingface.co/blog/feed.xml", "category": "ai_frontier"},
     {"name": "The Batch (deeplearning.ai)", "url": "https://www.deeplearning.ai/the-batch/feed/", "category": "ai_frontier"},
+    {"name": "Import AI", "url": "https://importai.substack.com/feed", "category": "ai_frontier"},
+    {"name": "The Gradient", "url": "https://thegradient.pub/rss/", "category": "ai_frontier"},
+    {"name": "MIT Technology Review AI", "url": "https://www.technologyreview.com/feed/", "category": "ai_frontier"},
     {"name": "Stanford HAI", "url": "https://hai.stanford.edu/blog/feed", "category": "ai_frontier"},
     # Community
     {"name": "Reddit r/MachineLearning", "url": "https://www.reddit.com/r/MachineLearning/top/.rss?t=week", "category": "ai_frontier"},
+    # Chinese AI Media
+    {"name": "量子位", "url": "https://www.qbitai.com/feed", "category": "ai_frontier"},
+    {"name": "机器之心", "url": "https://www.jiqizhixin.com/rss", "category": "ai_frontier"},
+    {"name": "AI科技评论", "url": "https://aitechtalk.com/feed", "category": "ai_frontier"},
+    {"name": "36氪 AI", "url": "https://36kr.com/feed", "category": "ai_frontier"},
 ]
 
 BASE_DIR = Path(__file__).parent.parent
@@ -680,6 +692,192 @@ def fetch_paperswithcode(max_per_term=10):
     return papers
 
 
+def fetch_crossref(max_per_kw=15):
+    """Fetch papers from CrossRef API (free, no key). Covers Elsevier/IEEE/Springer/Nature."""
+    print("\n📗 [CrossRef] Fetching...")
+
+    cache_key = f"crossref:{datetime.utcnow().strftime('%Y-%m-%d')}"
+    cached = get_cache(cache_key)
+    if cached:
+        print(f"  ✓ (cached, {len(cached)} papers)")
+        return cached
+
+    two_years_ago = (datetime.utcnow() - timedelta(days=730)).strftime("%Y-%m-%d")
+    # Focus on highest-signal RUL/PHM keywords to avoid noise
+    target_kws = [
+        "remaining useful life",
+        "bearing fault diagnosis",
+        "predictive maintenance deep learning",
+        "prognostics health management",
+        "degradation prediction neural network",
+        "condition monitoring fault",
+    ]
+
+    papers = []
+    seen = set()
+
+    for kw in target_kws:
+        query = urllib.parse.quote(kw)
+        url = (
+            f"https://api.crossref.org/works?"
+            f"query={query}"
+            f"&filter=from-pub-date:{two_years_ago},type:journal-article"
+            f"&sort=published&order=desc"
+            f"&rows={max_per_kw}"
+            f"&select=DOI,title,author,published,abstract,URL,container-title"
+        )
+        headers = {"User-Agent": "PaperRadar/1.0 (academic research tool)"}
+        data = safe_request(url, headers=headers, delay=2)
+        if not data:
+            print(f"  ✗ '{kw}': failed")
+            continue
+
+        try:
+            result = json.loads(data)
+        except json.JSONDecodeError:
+            continue
+
+        batch = []
+        for item in result.get("message", {}).get("items", []):
+            doi = item.get("DOI", "")
+            if not doi or doi in seen:
+                continue
+            seen.add(doi)
+
+            title_parts = item.get("title", [])
+            title = title_parts[0] if title_parts else ""
+            if not title:
+                continue
+
+            authors = []
+            for a in item.get("author", [])[:5]:
+                name = f"{a.get('given', '')} {a.get('family', '')}".strip()
+                if name:
+                    authors.append(name)
+
+            pub = item.get("published", {})
+            date_parts = pub.get("date-parts", [[]])[0]
+            if len(date_parts) >= 3:
+                pub_date = f"{date_parts[0]:04d}-{date_parts[1]:02d}-{date_parts[2]:02d}"
+            elif len(date_parts) >= 2:
+                pub_date = f"{date_parts[0]:04d}-{date_parts[1]:02d}-01"
+            elif len(date_parts) == 1:
+                pub_date = f"{date_parts[0]:04d}-01-01"
+            else:
+                pub_date = ""
+
+            abstract = re.sub(r"<[^>]+>", "", item.get("abstract", "") or "")[:600]
+            venue_parts = item.get("container-title", [])
+            venue = venue_parts[0] if venue_parts else ""
+            url_link = item.get("URL", "") or f"https://doi.org/{doi}"
+
+            score, tags = compute_relevance(title, abstract)
+            if score == 0:
+                continue
+
+            batch.append({
+                "id": f"doi:{doi}",
+                "title": title,
+                "abstract": abstract,
+                "authors": authors,
+                "date": pub_date,
+                "source": "CrossRef",
+                "url": url_link,
+                "pdf": "",
+                "relevance_score": score,
+                "tags": tags,
+                "venue": venue,
+            })
+
+        papers.extend(batch)
+        print(f"  ✓ '{kw}': {len(batch)} papers")
+        time.sleep(2)
+
+    set_cache(cache_key, papers)
+    print(f"  Total: {len(papers)} papers")
+    return papers
+
+
+def fetch_arxiv_rss(categories=None):
+    """Fetch today's new arXiv submissions via RSS and filter by research keywords."""
+    if categories is None:
+        categories = ["cs.LG", "cs.AI", "eess.SP"]
+
+    print(f"\n📡 [arXiv RSS] Daily new: {', '.join(categories)}")
+
+    cache_key = f"arxiv_rss:{datetime.utcnow().strftime('%Y-%m-%d')}"
+    cached = get_cache(cache_key)
+    if cached:
+        print(f"  ✓ (cached, {len(cached)} papers)")
+        return cached
+
+    papers = []
+    seen = set()
+    today = datetime.utcnow().strftime("%Y-%m-%d")
+    ns = {"dc": "http://purl.org/dc/elements/1.1/"}
+
+    for cat in categories:
+        url = f"http://arxiv.org/rss/{cat}"
+        data = safe_request(url, delay=3)
+        if not data:
+            print(f"  ✗ {cat}: failed")
+            continue
+
+        try:
+            root = ET.fromstring(data)
+        except ET.ParseError:
+            print(f"  ✗ {cat}: XML parse error")
+            continue
+
+        channel = root.find("channel")
+        if channel is None:
+            continue
+
+        cat_count = 0
+        for item in channel.findall("item"):
+            title_el = item.find("title")
+            link_el = item.find("link")
+            desc_el = item.find("description")
+
+            title = (title_el.text or "").strip() if title_el is not None else ""
+            link = (link_el.text or "").strip() if link_el is not None else ""
+            desc = re.sub(r"<[^>]+>", "", desc_el.text or "") if desc_el is not None else ""
+
+            if not title or not link:
+                continue
+
+            arxiv_id = link.split("/abs/")[-1] if "/abs/" in link else link.split("/")[-1]
+            pid = f"arxiv:{arxiv_id}"
+            if pid in seen:
+                continue
+            seen.add(pid)
+
+            score, tags = compute_relevance(title, desc)
+            if score == 0:
+                continue
+
+            authors = [c.text.strip() for c in item.findall("dc:creator", ns) if c.text]
+
+            papers.append({
+                "id": pid,
+                "title": title,
+                "abstract": desc.strip()[:600],
+                "authors": authors[:5],
+                "date": today,
+                "source": "arXiv",
+                "url": link,
+                "pdf": link.replace("/abs/", "/pdf/") + ".pdf",
+                "relevance_score": score,
+                "tags": tags,
+            })
+            cat_count += 1
+
+        print(f"  ✓ {cat}: {cat_count} relevant papers")
+
+    set_cache(cache_key, papers)
+    return papers
+
+
 # ============================================================
 # Main Pipeline
 # ============================================================
@@ -717,6 +915,8 @@ def main():
     for p in arxiv_ai:
         p["is_ai_frontier"] = True
 
+    arxiv_rss = fetch_arxiv_rss(["cs.LG", "cs.AI", "eess.SP"])
+    crossref_papers = fetch_crossref()
     s2_papers = fetch_semantic_scholar(RESEARCH_KEYWORDS[:4], max_per_query=15)
     or_papers = fetch_openreview()
     hf_papers = fetch_huggingface_daily()
@@ -724,17 +924,20 @@ def main():
     pwc_papers = fetch_paperswithcode()
 
     # 2. Combine and deduplicate
-    all_papers = arxiv_research + arxiv_ai + s2_papers + or_papers + hf_papers + rss_items + pwc_papers
+    all_papers = (arxiv_research + arxiv_ai + arxiv_rss + crossref_papers
+                  + s2_papers + or_papers + hf_papers + rss_items + pwc_papers)
     all_papers = deduplicate(all_papers)
 
-    # 3. Classify
+    # 3. Classify — sort by date descending (newest first)
     research_papers = sorted(
         [p for p in all_papers if p["relevance_score"] > 0 and not p.get("is_ai_frontier")],
-        key=lambda x: (-x["relevance_score"], x.get("date", "")),
+        key=lambda x: x.get("date", ""),
+        reverse=True,
     )
     ai_frontier = sorted(
         [p for p in all_papers if p.get("is_ai_frontier")],
-        key=lambda x: (-x.get("upvotes", 0), x.get("date", "")),
+        key=lambda x: (x.get("date", ""), x.get("upvotes", 0)),
+        reverse=True,
     )
 
     # 4. Build daily data file
@@ -747,6 +950,7 @@ def main():
             "ai_frontier": len(ai_frontier),
             "sources": {
                 "arxiv": len([p for p in all_papers if p["source"] == "arXiv"]),
+                "crossref": len([p for p in all_papers if p["source"] == "CrossRef"]),
                 "semantic_scholar": len([p for p in all_papers if p["source"] == "Semantic Scholar"]),
                 "openreview": len([p for p in all_papers if "OpenReview" in p["source"]]),
                 "huggingface": len([p for p in all_papers if p["source"] == "HuggingFace Daily"]),
@@ -754,8 +958,8 @@ def main():
                 "rss": len([p for p in all_papers if p.get("is_blog")]),
             },
         },
-        "research_papers": research_papers[:100],
-        "ai_frontier": ai_frontier[:50],
+        "research_papers": research_papers,
+        "ai_frontier": ai_frontier,
     }
 
     # Save daily file

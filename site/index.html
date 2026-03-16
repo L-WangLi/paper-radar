@@ -156,11 +156,6 @@ body {
 }
 .paper-card .title a { color: var(--text); text-decoration: none; }
 .paper-card .title a:hover { color: var(--accent); }
-.paper-card .score-badge {
-  flex-shrink: 0; background: var(--score-bg); color: #fff;
-  font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 10px;
-  font-family: var(--font-mono);
-}
 .paper-card .meta {
   font-size: 12px; color: var(--text-dim); margin-top: 6px;
   display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
@@ -205,6 +200,21 @@ body {
 }
 .note-area textarea:focus { border-color: var(--accent2); }
 .note-area textarea::placeholder { color: var(--text-muted); }
+.note-save-btn {
+  margin-top: 6px; font-size: 12px; padding: 3px 12px;
+  background: var(--accent2); color: #fff; border: none; border-radius: var(--radius-sm);
+  cursor: pointer; font-family: var(--font-body); transition: opacity var(--transition);
+}
+.note-save-btn:hover { opacity: 0.85; }
+
+/* Reading status badge */
+.status-btn {
+  font-size: 11px; padding: 2px 8px; border-radius: 10px; font-family: var(--font-mono);
+  cursor: pointer; border: 1px solid var(--border); background: var(--bg-surface);
+  color: var(--text-muted); transition: all var(--transition);
+}
+.status-btn.read { background: rgba(0,212,170,0.12); color: var(--accent2); border-color: var(--accent2); }
+.status-btn.important { background: rgba(255,107,157,0.15); color: var(--accent3); border-color: var(--accent3); }
 .source-filter { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 10px; align-items: center; }
 .source-filter .label { font-size: 11px; color: var(--text-muted); font-family: var(--font-mono); }
 
@@ -251,6 +261,36 @@ body {
   .paper-card { padding: 12px 14px; }
 }
 
+/* ========== Gist Sync Modal ========== */
+.modal-overlay {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 200;
+  display: flex; align-items: center; justify-content: center;
+}
+.modal-overlay.hidden { display: none !important; }
+.modal {
+  background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 24px; max-width: 440px; width: 90%; box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+}
+.modal h3 { margin: 0 0 6px; font-size: 15px; }
+.modal p { font-size: 12px; color: var(--text-dim); margin: 0 0 16px; line-height: 1.6; }
+.modal input {
+  width: 100%; padding: 8px 10px; font-size: 12px; font-family: var(--font-mono);
+  background: var(--bg-surface); border: 1px solid var(--border); border-radius: var(--radius-sm);
+  color: var(--text); outline: none; margin-bottom: 10px;
+}
+.modal input:focus { border-color: var(--accent); }
+.modal-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+.modal-actions button {
+  font-size: 12px; padding: 6px 14px; border-radius: var(--radius-sm);
+  cursor: pointer; font-family: var(--font-body); border: 1px solid var(--border);
+  background: var(--bg-surface); color: var(--text-dim); transition: all var(--transition);
+}
+.modal-actions button.primary {
+  background: var(--accent); color: #fff; border-color: var(--accent);
+}
+.modal-actions button:hover { border-color: var(--accent); color: var(--text); }
+.sync-status { font-size: 11px; color: var(--text-muted); margin-top: 8px; min-height: 16px; }
+
 /* ========== Scroll to top ========== */
 .scroll-top {
   position: fixed; bottom: 24px; right: 24px; width: 40px; height: 40px;
@@ -270,11 +310,12 @@ body {
     <div class="header-inner">
       <div class="logo"><span>🛰️</span> Paper Radar</div>
       <div class="header-controls">
-        <select id="langSwitch" onchange="switchLang(this.value)">
+        <select id="langSwitch" title="Language" onchange="switchLang(this.value)">
           <option value="zh">中文</option>
           <option value="en">English</option>
         </select>
-        <button onclick="toggleTheme()" id="themeBtn">🌙</button>
+        <button type="button" onclick="toggleTheme()" id="themeBtn">🌙</button>
+        <button type="button" onclick="openSyncModal()" title="云同步笔记和收藏">☁️</button>
       </div>
     </div>
     <div class="stats-bar" id="statsBar">
@@ -335,10 +376,28 @@ body {
 <!-- Scroll to top -->
 <button class="scroll-top" id="scrollTopBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
+<!-- Gist Sync Modal -->
+<div class="modal-overlay hidden" id="syncModal">
+  <div class="modal">
+    <h3>☁️ 云同步 (GitHub Gist)</h3>
+    <p>将你的笔记和收藏同步到 GitHub Gist，换设备后可恢复。<br>
+    需要一个有 <code>gist</code> 权限的 Personal Access Token。<br>
+    Token 仅保存在本地浏览器，不会上传到任何服务器。</p>
+    <input type="password" id="gistToken" placeholder="GitHub Personal Access Token (gist scope)" autocomplete="off">
+    <input type="text" id="gistId" placeholder="Gist ID（首次留空，系统自动创建）">
+    <div class="modal-actions">
+      <button type="button" class="primary" onclick="syncToGist()">上传备份</button>
+      <button type="button" onclick="restoreFromGist()">从云端恢复</button>
+      <button type="button" onclick="closeSyncModal()">取消</button>
+    </div>
+    <div class="sync-status" id="syncStatus"></div>
+  </div>
+</div>
+
 <footer class="footer container">
-  <div>Paper Radar · <span data-i18n="footer.auto">自动更新</span> · <a href="https://github.com" target="_blank">GitHub</a></div>
-  <div style="margin-top:4px">
-    <span data-i18n="footer.powered">数据来源</span>: arXiv · Semantic Scholar · OpenReview · HuggingFace
+  <div>Paper Radar · <span data-i18n="footer.auto">自动更新</span> · <a href="https://github.com/L-WangLi/paper-radar" target="_blank" rel="noopener noreferrer">GitHub</a></div>
+  <div class="footer-sources">
+    <span data-i18n="footer.powered">数据来源</span>: arXiv · CrossRef · Semantic Scholar · OpenReview · HuggingFace
   </div>
 </footer>
 
@@ -373,8 +432,14 @@ const i18n = {
     "error.load": "加载数据失败，请稍后刷新",
     "citations": "引用",
     "btn.note": "笔记",
-    "btn.note_saved": "已记录",
+    "btn.note_saved": "有笔记",
+    "btn.save_note": "保存",
     "note.placeholder": "记录你的想法、阅读笔记...",
+    "btn.bibtex": "BibTeX",
+    "bibtex.copied": "已复制",
+    "status.unread": "未读",
+    "status.read": "已读",
+    "status.important": "重要参考",
   },
   en: {
     "stats.total": "Papers Tracked",
@@ -403,7 +468,13 @@ const i18n = {
     "citations": "citations",
     "btn.note": "Note",
     "btn.note_saved": "Noted",
+    "btn.save_note": "Save",
     "note.placeholder": "Add your thoughts, reading notes...",
+    "btn.bibtex": "BibTeX",
+    "bibtex.copied": "Copied!",
+    "status.unread": "Unread",
+    "status.read": "Read",
+    "status.important": "Key Ref",
   },
 };
 
@@ -414,8 +485,10 @@ let availableDates = [];
 let currentDateIdx = 0;
 let favorites = JSON.parse(localStorage.getItem("pr_favs") || "{}");
 let notes = JSON.parse(localStorage.getItem("pr_notes") || "{}");
+let readStatus = JSON.parse(localStorage.getItem("pr_status") || "{}");
 let activeFilters = new Set();
 let activeSourceFilter = null;
+let papersMap = {};
 
 function t(key) { return (i18n[currentLang] || i18n.zh)[key] || key; }
 
@@ -630,24 +703,25 @@ function renderPapers() {
     return;
   }
 
+  papers.forEach(p => { papersMap[p.id] = p; });
+
   listEl.innerHTML = papers.map((p, idx) => {
     const isFav = favorites[p.id];
-    const scoreHtml = p.relevance_score > 0
-      ? `<span class="score-badge">⭐ ${p.relevance_score}</span>` : "";
+    const status = readStatus[p.id] || "";
+    const statusClass = status === "read" ? " read" : status === "important" ? " important" : "";
+    const statusLabel = t(status === "read" ? "status.read" : status === "important" ? "status.important" : "status.unread");
     const authorsStr = (p.authors || []).slice(0, 3).join(", ");
-    const tagsHtml = (p.tags || []).slice(0, 4).map(t => `<span class="tag">${t}</span>`).join("");
+    const tagsHtml = (p.tags || []).slice(0, 4).map(tag => `<span class="tag">${tag}</span>`).join("");
     const venueHtml = p.venue ? `<span class="source">${p.venue}</span>` : "";
     const citationsHtml = p.citations ? ` · ${p.citations} ${t("citations")}` : "";
     const upvotesHtml = p.upvotes ? `<span class="upvotes">👍 ${p.upvotes}</span>` : "";
-    const pdfBtn = p.pdf ? `<a href="${p.pdf}" target="_blank" rel="noopener" style="text-decoration:none"><button>${t("btn.pdf")}</button></a>` : "";
-
+    const pdfBtn = p.pdf ? `<a href="${p.pdf}" target="_blank" rel="noopener noreferrer" style="text-decoration:none"><button type="button">${t("btn.pdf")}</button></a>` : "";
     const hasNote = notes[p.id] && notes[p.id].trim();
-    const noteText = notes[p.id] || "";
+    const noteText = (notes[p.id] || "").replace(/</g, "&lt;").replace(/>/g, "&gt;");
     return `
     <div class="paper-card" id="card-${idx}">
       <div class="title-row">
-        <div class="title"><a href="${p.url}" target="_blank" rel="noopener">${p.title}</a></div>
-        ${scoreHtml}
+        <div class="title"><a href="${p.url}" target="_blank" rel="noopener noreferrer">${p.title}</a></div>
       </div>
       <div class="meta">
         <span>${authorsStr}</span>
@@ -660,17 +734,20 @@ function renderPapers() {
       ${p.abstract ? `<div class="abstract">${p.abstract}</div>` : ""}
       ${tagsHtml ? `<div class="tags">${tagsHtml}</div>` : ""}
       <div class="actions">
-        <button onclick="toggleExpand(${idx})">${t("btn.expand")}</button>
+        <button type="button" onclick="toggleExpand(${idx})">${t("btn.expand")}</button>
         ${pdfBtn}
-        <button class="fav-btn ${isFav ? 'active' : ''}" onclick="toggleFav('${p.id}', this)">
-          ${isFav ? '★ ' + t("btn.unfav") : '☆ ' + t("btn.fav")}
+        <button type="button" class="fav-btn ${isFav ? "active" : ""}" onclick="toggleFav('${p.id}', this)">
+          ${isFav ? "★ " + t("btn.unfav") : "☆ " + t("btn.fav")}
         </button>
-        <button class="note-btn ${hasNote ? 'active' : ''}" onclick="toggleNoteArea('note-${idx}', this)">
-          ${hasNote ? '📝 ' + t("btn.note_saved") : '📝 ' + t("btn.note")}
+        <button type="button" class="note-btn ${hasNote ? "active" : ""}" onclick="toggleNoteArea('note-${idx}', this)">
+          📝 ${hasNote ? t("btn.note_saved") : t("btn.note")}
         </button>
+        <button type="button" onclick="copyBibTeX('${p.id}', this)">${t("btn.bibtex")}</button>
+        <button type="button" id="status-${idx}" class="status-btn${statusClass}" onclick="cycleStatus('${p.id}', 'status-${idx}')">${statusLabel}</button>
       </div>
-      <div class="note-area ${hasNote ? 'visible' : ''}" id="note-${idx}">
-        <textarea placeholder="${t('note.placeholder')}" onblur="saveNote('${p.id}', this.value, 'note-btn-${idx}')">${noteText}</textarea>
+      <div class="note-area ${hasNote ? "visible" : ""}" id="note-${idx}">
+        <textarea id="ta-note-${idx}" placeholder="${t("note.placeholder")}">${noteText}</textarea>
+        <button type="button" class="note-save-btn" onclick="saveNote('${p.id}', 'note-${idx}', this)">${t("btn.save_note")}</button>
       </div>
     </div>`;
   }).join("");
@@ -701,13 +778,53 @@ function toggleNoteArea(areaId, btn) {
   }
 }
 
-function saveNote(id, text, _btnId) {
-  if (text.trim()) {
-    notes[id] = text;
-  } else {
-    delete notes[id];
-  }
+function saveNote(id, areaId, btn) {
+  const ta = document.getElementById("ta-" + areaId);
+  const text = ta ? ta.value : "";
+  if (text.trim()) notes[id] = text;
+  else delete notes[id];
   localStorage.setItem("pr_notes", JSON.stringify(notes));
+  if (btn) {
+    const orig = btn.textContent;
+    btn.textContent = "✓ " + t("btn.save_note");
+    setTimeout(() => { btn.textContent = orig; }, 1500);
+  }
+}
+
+function cycleStatus(id, btnId) {
+  const cur = readStatus[id];
+  if (!cur) readStatus[id] = "read";
+  else if (cur === "read") readStatus[id] = "important";
+  else delete readStatus[id];
+  localStorage.setItem("pr_status", JSON.stringify(readStatus));
+  const btn = document.getElementById(btnId);
+  if (btn) {
+    const s = readStatus[id];
+    btn.className = "status-btn" + (s === "read" ? " read" : s === "important" ? " important" : "");
+    btn.textContent = t(s === "read" ? "status.read" : s === "important" ? "status.important" : "status.unread");
+  }
+}
+
+function copyBibTeX(id, btn) {
+  const p = papersMap[id];
+  if (!p) return;
+  const firstAuthor = ((p.authors || ["Unknown"])[0] || "Unknown").trim().split(" ").pop();
+  const year = (p.date || "").slice(0, 4) || "XXXX";
+  const titleKey = p.title.replace(/[^a-zA-Z\s]/g, "").split(" ").filter(Boolean).slice(0, 3).map(w => w[0].toUpperCase() + w.slice(1)).join("");
+  const key = `${firstAuthor}${year}${titleKey}`;
+  const authors = (p.authors || []).join(" and ") || "Unknown";
+  let bib;
+  if (p.source === "arXiv") {
+    const arxivId = (p.id || "").replace("arxiv:", "");
+    bib = `@article{${key},\n  title   = {${p.title}},\n  author  = {${authors}},\n  journal = {arXiv preprint arXiv:${arxivId}},\n  year    = {${year}},\n  url     = {${p.url}}\n}`;
+  } else {
+    bib = `@article{${key},\n  title  = {${p.title}},\n  author = {${authors}},\n  year   = {${year}},\n  url    = {${p.url}}\n}`;
+  }
+  navigator.clipboard.writeText(bib).then(() => {
+    const orig = btn.textContent;
+    btn.textContent = t("bibtex.copied");
+    setTimeout(() => { btn.textContent = orig; }, 1500);
+  });
 }
 
 // ============================================================
@@ -715,6 +832,79 @@ function saveNote(id, text, _btnId) {
 // ============================================================
 window.addEventListener("scroll", () => {
   document.getElementById("scrollTopBtn").classList.toggle("visible", window.scrollY > 400);
+});
+
+// ============================================================
+// Gist Cloud Sync
+// ============================================================
+function openSyncModal() {
+  document.getElementById("syncModal").classList.remove("hidden");
+  document.getElementById("gistToken").value = localStorage.getItem("pr_gist_token") || "";
+  document.getElementById("gistId").value = localStorage.getItem("pr_gist_id") || "";
+  document.getElementById("syncStatus").textContent = "";
+}
+function closeSyncModal() {
+  document.getElementById("syncModal").classList.add("hidden");
+}
+
+function setSyncStatus(msg, ok) {
+  const el = document.getElementById("syncStatus");
+  el.textContent = msg;
+  el.style.color = ok ? "var(--accent2)" : "var(--accent3)";
+}
+
+async function syncToGist() {
+  const token = document.getElementById("gistToken").value.trim();
+  const gistId = document.getElementById("gistId").value.trim();
+  if (!token) { setSyncStatus("请填写 Token", false); return; }
+
+  const payload = { notes, favorites, readStatus, exported_at: new Date().toISOString() };
+  const body = { description: "Paper Radar backup", public: false,
+    files: { "paper-radar-backup.json": { content: JSON.stringify(payload, null, 2) } } };
+
+  setSyncStatus("上传中...", true);
+  try {
+    const url = gistId ? `https://api.github.com/gists/${gistId}` : "https://api.github.com/gists";
+    const method = gistId ? "PATCH" : "POST";
+    const resp = await fetch(url, { method, headers: {
+      Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
+      body: JSON.stringify(body) });
+    if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+    const data = await resp.json();
+    localStorage.setItem("pr_gist_token", token);
+    localStorage.setItem("pr_gist_id", data.id);
+    document.getElementById("gistId").value = data.id;
+    setSyncStatus(`✓ 备份成功 (Gist: ${data.id.slice(0, 8)}...)`, true);
+  } catch (e) { setSyncStatus(`上传失败: ${e.message}`, false); }
+}
+
+async function restoreFromGist() {
+  const token = document.getElementById("gistToken").value.trim();
+  const gistId = document.getElementById("gistId").value.trim();
+  if (!token || !gistId) { setSyncStatus("请填写 Token 和 Gist ID", false); return; }
+
+  setSyncStatus("恢复中...", true);
+  try {
+    const resp = await fetch(`https://api.github.com/gists/${gistId}`,
+      { headers: { Authorization: `Bearer ${token}` } });
+    if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+    const gist = await resp.json();
+    const content = gist.files["paper-radar-backup.json"]?.content;
+    if (!content) throw new Error("备份文件不存在");
+    const data = JSON.parse(content);
+    if (data.notes) { notes = data.notes; localStorage.setItem("pr_notes", JSON.stringify(notes)); }
+    if (data.favorites) { favorites = data.favorites; localStorage.setItem("pr_favs", JSON.stringify(favorites)); }
+    if (data.readStatus) { readStatus = data.readStatus; localStorage.setItem("pr_status", JSON.stringify(readStatus)); }
+    localStorage.setItem("pr_gist_token", token);
+    localStorage.setItem("pr_gist_id", gistId);
+    renderPapers();
+    setSyncStatus(`✓ 恢复成功 (${data.exported_at?.slice(0,10) || ""})`, true);
+  } catch (e) { setSyncStatus(`恢复失败: ${e.message}`, false); }
+}
+
+// Close modal on overlay click
+document.getElementById("syncModal").addEventListener("click", function(e) {
+  if (e.target === this) closeSyncModal();
 });
 
 // ============================================================

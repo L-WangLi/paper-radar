@@ -142,6 +142,11 @@ def send_email(html, subject):
 
 
 def main():
+    # Only send on Mondays (weekly digest)
+    if datetime.utcnow().weekday() != 0:
+        print(f"⏭️  Not Monday (weekday={datetime.utcnow().weekday()}), skipping weekly digest.")
+        return
+
     # Load latest data
     latest_file = DATA_DIR / "latest.json"
     if not latest_file.exists():
@@ -151,7 +156,7 @@ def main():
     data = json.loads(latest_file.read_text("utf-8"))
     today = data.get("date", datetime.utcnow().strftime("%Y-%m-%d"))
 
-    print(f"📧 Building email digest for {today}...")
+    print(f"📧 Building weekly email digest for {today}...")
     html = build_html(data)
 
     # Save HTML for preview
@@ -159,7 +164,7 @@ def main():
     preview_file.write_text(html, encoding="utf-8")
     print(f"   Preview saved → {preview_file}")
 
-    subject = f"🛰️ Paper Radar | {today} | {data['stats']['research']} research + {data['stats']['ai_frontier']} AI papers"
+    subject = f"🛰️ Paper Radar 周报 | {today} | {data['stats']['research']} 研究论文 + {data['stats']['ai_frontier']} AI 前沿"
     send_email(html, subject)
 
 

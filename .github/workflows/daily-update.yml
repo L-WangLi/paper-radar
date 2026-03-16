@@ -41,8 +41,8 @@ jobs:
       - name: Build static site
         run: python scripts/build_site.py
 
-      - name: Send email digest
-        if: ${{ env.SMTP_HOST != '' }}
+      - name: Send weekly email digest (Mondays only)
+        if: ${{ secrets.SMTP_HOST != '' }}
         env:
           SMTP_HOST: ${{ secrets.SMTP_HOST }}
           SMTP_PORT: ${{ secrets.SMTP_PORT }}
@@ -51,6 +51,13 @@ jobs:
           EMAIL_TO: ${{ secrets.EMAIL_TO }}
           SITE_URL: ${{ vars.SITE_URL }}
         run: python scripts/send_email.py
+
+      - name: Send WeChat daily push
+        if: ${{ secrets.SERVERCHAN_KEY != '' }}
+        env:
+          SERVERCHAN_KEY: ${{ secrets.SERVERCHAN_KEY }}
+          SITE_URL: ${{ vars.SITE_URL }}
+        run: python scripts/send_wechat.py
 
       - name: Commit data updates
         run: |

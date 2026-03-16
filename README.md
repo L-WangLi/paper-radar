@@ -12,7 +12,7 @@
 
 - **多源论文抓取** — arXiv（含日期过滤）、Semantic Scholar、OpenReview (ICLR/NeurIPS/ICML)、HuggingFace Daily、Papers with Code
 - **AI 前沿聚合** — OpenAI / Anthropic / DeepMind / Google AI / Meta AI / Microsoft Research 博客 + The Batch 周报 + Reddit r/MachineLearning
-- **智能相关性评分** — 关键词加权匹配，按相关度自动排序
+- **关键词过滤** — 关键词加权匹配筛选相关论文，按发布日期排序
 - **个人笔记** — 每篇论文可添加阅读笔记，保存至本地浏览器
 - **来源过滤** — 按 arXiv / S2 / Papers with Code 等来源一键过滤
 - **标签筛选 + 全文搜索** — 快速定位目标论文
