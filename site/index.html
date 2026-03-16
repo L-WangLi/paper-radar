@@ -215,6 +215,12 @@ body {
 }
 .status-btn.read { background: rgba(0,212,170,0.12); color: var(--accent2); border-color: var(--accent2); }
 .status-btn.important { background: rgba(255,107,157,0.15); color: var(--accent3); border-color: var(--accent3); }
+
+/* Status left border on cards */
+.paper-card.status-read { border-left: 3px solid var(--accent2); }
+.paper-card.status-important { border-left: 3px solid var(--accent3); }
+.status-timestamp { font-size: 10px; color: var(--text-muted); font-family: var(--font-mono); margin-left: 4px; }
+.note-timestamp { font-size: 10px; color: var(--text-muted); font-family: var(--font-mono); margin-top: 3px; }
 .source-filter { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 10px; align-items: center; }
 .source-filter .label { font-size: 11px; color: var(--text-muted); font-family: var(--font-mono); }
 
@@ -340,6 +346,10 @@ body {
       <span data-i18n="tab.favs">⭐ 收藏</span>
       <span class="count" id="tabCountFavs">0</span>
     </button>
+    <button class="tab" data-tab="marked" onclick="switchTab('marked')">
+      <span data-i18n="tab.marked">🔖 已标记</span>
+      <span class="count" id="tabCountMarked">0</span>
+    </button>
   </div>
 
   <!-- Date Navigation -->
@@ -413,6 +423,7 @@ const i18n = {
     "tab.research": "📚 研究论文",
     "tab.ai": "🚀 AI 前沿",
     "tab.favs": "⭐ 收藏",
+    "tab.marked": "🔖 已标记",
     "nav.prev": "前一天",
     "nav.next": "后一天",
     "nav.latest": "最新",
@@ -421,6 +432,7 @@ const i18n = {
     "empty.research": "今日没有找到与你研究相关的论文",
     "empty.ai": "今日没有 AI 前沿论文",
     "empty.favs": "还没有收藏的论文",
+    "empty.marked": "当前日期没有已标记的论文",
     "empty.search": "没有匹配的结果",
     "btn.expand": "展开摘要",
     "btn.collapse": "收起",
@@ -450,6 +462,7 @@ const i18n = {
     "tab.research": "📚 Research",
     "tab.ai": "🚀 AI Frontier",
     "tab.favs": "⭐ Favorites",
+    "tab.marked": "🔖 Marked",
     "nav.prev": "Previous",
     "nav.next": "Next",
     "nav.latest": "Latest",
@@ -458,6 +471,7 @@ const i18n = {
     "empty.research": "No research papers found today",
     "empty.ai": "No AI frontier papers today",
     "empty.favs": "No favorites yet",
+    "empty.marked": "No marked papers in current date",
     "empty.search": "No matching results",
     "btn.expand": "Abstract",
     "btn.collapse": "Collapse",
@@ -493,6 +507,40 @@ let readStatus = JSON.parse(localStorage.getItem("pr_status") || "{}");
 let activeFilters = new Set();
 let activeSourceFilter = null;
 let papersMap = {};
+
+// Compat helpers: support both old (string) and new (object) storage formats
+function getStatus(id) {
+  const s = readStatus[id];
+  if (!s) return "";
+  return typeof s === "string" ? s : (s.status || "");
+}
+function getStatusTime(id) {
+  const s = readStatus[id];
+  if (!s || typeof s === "string") return "";
+  return s.markedAt || "";
+}
+function getNoteText(id) {
+  const n = notes[id];
+  if (!n) return "";
+  return typeof n === "string" ? n : (n.text || "");
+}
+function getNoteTime(id) {
+  const n = notes[id];
+  if (!n || typeof n === "string") return "";
+  return n.savedAt || "";
+}
+function fmtTime(iso) {
+  if (!iso) return "";
+  try { return new Date(iso).toLocaleString(currentLang === "zh" ? "zh-CN" : "en-US", {month:"2-digit",day:"2-digit",hour:"2-digit",minute:"2-digit"}); }
+  catch { return iso.slice(0,16).replace("T"," "); }
+}
+function updateMarkedCount() {
+  if (!currentData) return;
+  const all = [...(currentData.research_papers || []), ...(currentData.ai_frontier || [])];
+  const n = all.filter(p => getStatus(p.id)).length;
+  const el = document.getElementById("tabCountMarked");
+  if (el) el.textContent = n;
+}
 
 function t(key) { return (i18n[currentLang] || i18n.zh)[key] || key; }
 
@@ -594,6 +642,7 @@ function updateStats() {
   document.getElementById("tabCountResearch").textContent = (currentData.research_papers || []).length;
   document.getElementById("tabCountAI").textContent = (currentData.ai_frontier || []).length;
   document.getElementById("tabCountFavs").textContent = Object.keys(favorites).length;
+  updateMarkedCount();
 }
 
 // ============================================================
@@ -667,6 +716,12 @@ function getPapersForTab() {
     const all = [...(currentData.research_papers || []), ...(currentData.ai_frontier || [])];
     return all.filter(p => favorites[p.id]);
   }
+  if (currentTab === "marked") {
+    const all = [...(currentData.research_papers || []), ...(currentData.ai_frontier || [])];
+    return all
+      .filter(p => getStatus(p.id))
+      .sort((a, b) => (getStatusTime(b.id) || "").localeCompare(getStatusTime(a.id) || ""));
+  }
   return [];
 }
 
@@ -703,7 +758,7 @@ function renderPapers() {
   const listEl = document.getElementById("paperList");
 
   if (papers.length === 0) {
-    const emptyKey = query ? "empty.search" : `empty.${currentTab}`;
+    const emptyKey = query ? "empty.search" : (i18n[currentLang][`empty.${currentTab}`] ? `empty.${currentTab}` : "empty.research");
     listEl.innerHTML = `<div class="empty"><div class="icon">📭</div>${t(emptyKey)}</div>`;
     return;
   }
@@ -712,19 +767,25 @@ function renderPapers() {
 
   listEl.innerHTML = papers.map((p, idx) => {
     const isFav = favorites[p.id];
-    const status = readStatus[p.id] || "";
+    const status = getStatus(p.id);
     const statusClass = status === "read" ? " read" : status === "important" ? " important" : "";
     const statusLabel = t(status === "read" ? "status.read" : status === "important" ? "status.important" : "status.unread");
+    const statusTime = getStatusTime(p.id);
+    const statusTimeHtml = statusTime ? `<span class="status-timestamp">${fmtTime(statusTime)}</span>` : "";
     const authorsStr = (p.authors || []).slice(0, 3).join(", ");
     const tagsHtml = (p.tags || []).slice(0, 4).map(tag => `<span class="tag">${tag}</span>`).join("");
     const venueHtml = p.venue ? `<span class="source">${p.venue}</span>` : "";
     const citationsHtml = p.citations ? ` · ${p.citations} ${t("citations")}` : "";
     const upvotesHtml = p.upvotes ? `<span class="upvotes">👍 ${p.upvotes}</span>` : "";
     const pdfBtn = p.pdf ? `<a href="${p.pdf}" target="_blank" rel="noopener noreferrer" style="text-decoration:none"><button type="button">${t("btn.pdf")}</button></a>` : "";
-    const hasNote = notes[p.id] && notes[p.id].trim();
-    const noteText = (notes[p.id] || "").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    const noteText = getNoteText(p.id);
+    const hasNote = !!noteText.trim();
+    const noteTextEsc = noteText.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    const noteTime = getNoteTime(p.id);
+    const noteTimeHtml = noteTime ? `<div class="note-timestamp">💾 ${fmtTime(noteTime)}</div>` : "";
+    const cardStatusClass = status ? ` status-${status}` : "";
     return `
-    <div class="paper-card" id="card-${idx}">
+    <div class="paper-card${cardStatusClass}" id="card-${idx}">
       <div class="title-row">
         <div class="title"><a href="${p.url}" target="_blank" rel="noopener noreferrer">${p.title}</a></div>
       </div>
@@ -748,11 +809,13 @@ function renderPapers() {
           📝 ${hasNote ? t("btn.note_saved") : t("btn.note")}
         </button>
         <button type="button" onclick="copyBibTeX('${p.id}', this)">${t("btn.bibtex")}</button>
-        <button type="button" id="status-${idx}" class="status-btn${statusClass}" onclick="cycleStatus('${p.id}', 'status-${idx}')">${statusLabel}</button>
+        <button type="button" id="status-${idx}" class="status-btn${statusClass}" onclick="cycleStatus('${p.id}', ${idx})">${statusLabel}</button>
+        ${statusTimeHtml}
       </div>
       <div class="note-area ${hasNote ? "visible" : ""}" id="note-${idx}">
-        <textarea id="ta-note-${idx}" placeholder="${t("note.placeholder")}">${noteText}</textarea>
+        <textarea id="ta-note-${idx}" placeholder="${t("note.placeholder")}">${noteTextEsc}</textarea>
         <button type="button" class="note-save-btn" onclick="saveNote('${p.id}', 'note-${idx}', this)">${t("btn.save_note")}</button>
+        ${noteTimeHtml}
       </div>
     </div>`;
   }).join("");
@@ -786,9 +849,28 @@ function toggleNoteArea(areaId, btn) {
 function saveNote(id, areaId, btn) {
   const ta = document.getElementById("ta-" + areaId);
   const text = ta ? ta.value : "";
-  if (text.trim()) notes[id] = text;
+  const now = new Date().toISOString();
+  if (text.trim()) notes[id] = { text, savedAt: now };
   else delete notes[id];
   localStorage.setItem("pr_notes", JSON.stringify(notes));
+  // Update timestamp in note area
+  const noteArea = document.getElementById(areaId);
+  if (noteArea) {
+    let tsEl = noteArea.querySelector(".note-timestamp");
+    if (text.trim()) {
+      if (!tsEl) { tsEl = document.createElement("div"); tsEl.className = "note-timestamp"; noteArea.appendChild(tsEl); }
+      tsEl.textContent = "💾 " + fmtTime(now);
+    } else if (tsEl) { tsEl.remove(); }
+    // Update note button active state
+    const card = noteArea.closest(".paper-card");
+    if (card) {
+      const noteBtn = card.querySelector(".note-btn");
+      if (noteBtn) {
+        noteBtn.classList.toggle("active", !!notes[id]);
+        noteBtn.innerHTML = `📝 ${notes[id] ? t("btn.note_saved") : t("btn.note")}`;
+      }
+    }
+  }
   if (btn) {
     const orig = btn.textContent;
     btn.textContent = "✓ " + t("btn.save_note");
@@ -796,18 +878,37 @@ function saveNote(id, areaId, btn) {
   }
 }
 
-function cycleStatus(id, btnId) {
-  const cur = readStatus[id];
-  if (!cur) readStatus[id] = "read";
-  else if (cur === "read") readStatus[id] = "important";
+function cycleStatus(id, cardIdx) {
+  const cur = getStatus(id);
+  const now = new Date().toISOString();
+  if (!cur) readStatus[id] = { status: "read", markedAt: now };
+  else if (cur === "read") readStatus[id] = { status: "important", markedAt: now };
   else delete readStatus[id];
   localStorage.setItem("pr_status", JSON.stringify(readStatus));
-  const btn = document.getElementById(btnId);
+  // Update button
+  const btn = document.getElementById("status-" + cardIdx);
   if (btn) {
-    const s = readStatus[id];
+    const s = getStatus(id);
     btn.className = "status-btn" + (s === "read" ? " read" : s === "important" ? " important" : "");
     btn.textContent = t(s === "read" ? "status.read" : s === "important" ? "status.important" : "status.unread");
+    // Update timestamp display next to button
+    let tsEl = btn.nextElementSibling;
+    if (tsEl && tsEl.classList.contains("status-timestamp")) tsEl.remove();
+    const st = getStatusTime(id);
+    if (st) {
+      const span = document.createElement("span");
+      span.className = "status-timestamp";
+      span.textContent = fmtTime(st);
+      btn.insertAdjacentElement("afterend", span);
+    }
+    // Update card border
+    const card = document.getElementById("card-" + cardIdx);
+    if (card) {
+      card.classList.remove("status-read", "status-important");
+      if (s) card.classList.add("status-" + s);
+    }
   }
+  updateMarkedCount();
 }
 
 function copyBibTeX(id, btn) {
