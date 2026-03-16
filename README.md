@@ -1,8 +1,14 @@
 # 🛰️ Paper Radar
 
-> Hii, 这里是 [@l-wangli](https://github.com/l-wangli) 的个人论文雷达，专注于**深度学习 RUL（剩余使用寿命）预测**与 **PHM（预测性健康管理）** 方向的研究追踪，同时聚合 AI 前沿动态。
+> Hii，这里是 [@l-wangli](https://github.com/l-wangli) 的 Research Radar。
 >
-> This is a personal research paper radar focused on **deep learning-based RUL (Remaining Useful Life) prediction** and **PHM (Predictive Health Management)**. If you work in a different domain, feel free to fork and adapt it to your own research.
+> 这是一个**零成本部署、每日自动更新**的论文追踪系统，用于减少研究过程中查找和整理文献的时间成本。
+>
+> **Build your own research radar in minutes.** 通过 Fork 项目并替换配置中的关键词，你也可以快速构建属于自己研究方向的 Research Radar。
+>
+> 当前默认追踪方向：
+> - **Deep Learning for RUL (Remaining Useful Life) Prediction** 与 **PHM (Prognostics and Health Management)** 相关最新论文
+> - **AI 前沿动态**：聚合人工智能领域的重要新论文与技术进展
 
 **在线访问 / Live Site**: [l-wangli.github.io/paper-radar](https://l-wangli.github.io/paper-radar/)
 
@@ -187,7 +193,7 @@ paper-radar/
 
 ## ⚠️ 免责声明 / Disclaimer
 
-本项目是作者（[@l-wangli](https://github.com/l-wangli)）**为节省文献搜索和收集时间**，借助 Claude AI 协助构建的一个个人用途的简易论文汇总工具。
+本项目是作者（[@l-wangli](https://github.com/l-wangli)）**为节省文献搜索和收集时间**，借助 Claude AI 协助构建的一个个人用途的简易论文汇总工具。基于 GitHub Actions + GitHub Pages，**零成本直接部署，每日自动更新**，无需自建服务器，Fork 后修改几行关键词配置即可适配自己的研究方向。
 
 使用前请知悉以下事项：
 
