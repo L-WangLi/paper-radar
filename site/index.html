@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" translate="yes">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -344,15 +344,15 @@ body {
 
   <!-- Date Navigation -->
   <div class="date-nav" id="dateNav">
-    <button onclick="navigateDate(-1)">← <span data-i18n="nav.prev">前一天</span></button>
+    <button onclick="navigateDate(1)">← <span data-i18n="nav.prev">前一天</span></button>
     <span class="current-date" id="currentDate"></span>
-    <button onclick="navigateDate(1)"><span data-i18n="nav.next">后一天</span> →</button>
+    <button onclick="navigateDate(-1)"><span data-i18n="nav.next">后一天</span> →</button>
     <button onclick="loadLatest()" style="margin-left:auto"><span data-i18n="nav.latest">最新</span></button>
   </div>
 
   <!-- Source Filter -->
   <div class="source-filter" id="sourceFilter">
-    <span class="label">来源</span>
+    <span class="label" data-i18n="label.source">来源</span>
   </div>
 
   <!-- Toolbar -->
@@ -397,7 +397,7 @@ body {
 <footer class="footer container">
   <div>Paper Radar · <span data-i18n="footer.auto">自动更新</span> · <a href="https://github.com/L-WangLi/paper-radar" target="_blank" rel="noopener noreferrer">GitHub</a></div>
   <div class="footer-sources">
-    <span data-i18n="footer.powered">数据来源</span>: arXiv · CrossRef · Semantic Scholar · OpenReview · HuggingFace
+    <span data-i18n="footer.powered">数据来源</span>: arXiv · CrossRef · Semantic Scholar · OpenReview · OpenAlex · HuggingFace · Papers with Code · RSS
   </div>
 </footer>
 
@@ -429,6 +429,8 @@ const i18n = {
     "btn.pdf": "PDF",
     "footer.auto": "自动更新",
     "footer.powered": "数据来源",
+    "label.source": "??",
+    "label.updated": "????",
     "error.load": "加载数据失败，请稍后刷新",
     "citations": "引用",
     "btn.note": "笔记",
@@ -464,6 +466,8 @@ const i18n = {
     "btn.pdf": "PDF",
     "footer.auto": "Auto-updated",
     "footer.powered": "Sources",
+    "label.source": "Source",
+    "label.updated": "Last updated",
     "error.load": "Failed to load data. Please refresh.",
     "citations": "citations",
     "btn.note": "Note",
@@ -496,6 +500,7 @@ function switchLang(lang) {
   currentLang = lang;
   localStorage.setItem("pr_lang", lang);
   document.getElementById("langSwitch").value = lang;
+  document.documentElement.lang = (lang === "zh" ? "zh-CN" : "en");
   document.querySelectorAll("[data-i18n]").forEach(el => {
     el.textContent = t(el.dataset.i18n);
   });
@@ -563,7 +568,7 @@ async function loadData(date) {
       ? new Date(currentData.fetched_at).toLocaleString(currentLang === "zh" ? "zh-CN" : "en-US")
       : "";
     document.getElementById("updatedTime").textContent = updatedTime
-      ? `Last updated: ${updatedTime}` : "";
+      ? `${t("label.updated")}: ${updatedTime}` : "";
 
   } catch (err) {
     listEl.innerHTML = `<div class="empty"><div class="icon">⚠️</div>${t("error.load")}</div>`;

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Paper Radar - Daily Paper Fetcher
-Sources: arXiv, Semantic Scholar, OpenReview, HuggingFace Daily Papers, RSS feeds
+Sources: arXiv, Semantic Scholar, OpenReview, OpenAlex, CrossRef, HuggingFace Daily Papers, Papers with Code, RSS feeds
 Outputs date-based JSON files + index.json for the static site.
 """
 
@@ -26,12 +26,17 @@ RESEARCH_KEYWORDS = [
     "RUL estimation",
     "RUL prediction",
     "predictive maintenance",
+    "condition-based maintenance",
+    "condition based maintenance",
     "prognostics health management",
+    "prognostics and health management",
     "PHM deep learning",
     "C-MAPSS",
+    "N-CMAPSS",
     "turbofan engine degradation",
     "fault diagnosis deep learning",
     "degradation modeling",
+    "degradation prediction",
     "condition monitoring deep learning",
     # Knowledge Distillation / Compression
     "knowledge distillation",
@@ -41,6 +46,7 @@ RESEARCH_KEYWORDS = [
     "temporal convolutional network",
     "temporal transformer",
     "multivariate time series forecasting",
+    "time series classification",
     # Time Series Methods (transferable to RUL)
     "Mamba state space model time series",
     "time series foundation model",
@@ -56,6 +62,24 @@ RESEARCH_KEYWORDS = [
     "graph neural network fault diagnosis",
     "attention mechanism bearing",
     "vibration signal deep learning",
+    # Methods (broad but common in PHM)
+    "self-supervised learning prognostics",
+    "contrastive learning fault diagnosis",
+    "few-shot fault diagnosis",
+    "meta learning prognostics",
+    "domain generalization fault diagnosis",
+    "federated learning predictive maintenance",
+    # Datasets / Benchmarks
+    "PHM 2008",
+    "PHM08",
+    "PRONOSTIA",
+    "FEMTO",
+    "XJTU-SY",
+    "IMS bearing",
+    "CWRU bearing",
+    "Paderborn bearing",
+    "SEU bearing",
+    "MFPT bearing",
 ]
 
 AI_FRONTIER_KEYWORDS = [
@@ -69,46 +93,48 @@ AI_FRONTIER_KEYWORDS = [
     "model alignment",
 ]
 
-KEYWORD_WEIGHTS = {
-    "remaining useful life": 10,
-    "rul estimation": 9,
-    "rul prediction": 9,
-    "c-mapss": 10,
-    "turbofan": 9,
-    "knowledge distillation": 9,
-    "predictive maintenance": 8,
-    "prognostics": 8,
-    "phm": 7,
-    "fault diagnosis": 7,
-    "degradation model": 7,
-    "model compression": 7,
-    "condition monitoring": 6,
-    "temporal convolutional": 7,
-    "edge deployment": 6,
-    "lightweight": 4,
-    "industrial": 3,
-    "time series forecast": 5,
-    "temporal transformer": 5,
-    "multivariate time series": 5,
-    # New weights
-    "mamba": 6,
-    "state space model": 6,
-    "time series foundation": 7,
-    "patchtst": 6,
-    "anomaly detection": 5,
-    "bearing fault": 8,
-    "bearing remaining": 9,
-    "transfer learning": 5,
-    "domain adaptation": 5,
-    "physics-informed": 7,
-    "graph neural network": 5,
-    "attention mechanism": 4,
-    "vibration signal": 7,
-    "lstm": 4,
-    "degradation prediction": 8,
-    "health index": 7,
-    "prognostic": 8,
-}
+METHOD_KEYWORDS = [
+    "self-supervised learning",
+    "contrastive learning",
+    "few-shot learning",
+    "meta learning",
+    "domain generalization",
+    "transfer learning",
+    "domain adaptation",
+    "federated learning",
+    "representation learning",
+    "anomaly detection",
+    "time series forecasting",
+    "time series classification",
+    "transformer",
+    "state space model",
+    "graph neural network",
+    "physics-informed",
+]
+
+DATASET_KEYWORDS = [
+    "C-MAPSS",
+    "CMAPSS",
+    "N-CMAPSS",
+    "PHM 2008",
+    "PHM08",
+    "PRONOSTIA",
+    "FEMTO",
+    "XJTU-SY",
+    "IMS",
+    "IMS bearing",
+    "CWRU",
+    "CWRU bearing",
+    "Paderborn",
+    "Paderborn bearing",
+    "SEU",
+    "SEU bearing",
+    "MFPT",
+    "MFPT bearing",
+]
+
+TAG_KEYWORDS = list(dict.fromkeys(RESEARCH_KEYWORDS + METHOD_KEYWORDS + DATASET_KEYWORDS))
+SHORT_KEYWORDS = {"RUL", "PHM", "SOH", "CBM"}
 
 RSS_FEEDS = [
     # AI Lab Blogs
@@ -131,6 +157,9 @@ RSS_FEEDS = [
     {"name": "Stanford HAI", "url": "https://hai.stanford.edu/blog/feed", "category": "ai_frontier"},
     # Community
     {"name": "Reddit r/MachineLearning", "url": "https://www.reddit.com/r/MachineLearning/top/.rss?t=week", "category": "ai_frontier"},
+    # Additional AI feeds
+    {"name": "Amazon Science", "url": "https://www.amazon.science/index.rss", "category": "ai_frontier"},
+    {"name": "Planet AI (Aggregator)", "url": "https://planet-ai.net/rss.xml", "category": "ai_frontier"},
     # Chinese AI Media
     {"name": "量子位", "url": "https://www.qbitai.com/feed", "category": "ai_frontier"},
     {"name": "机器之心", "url": "https://www.jiqizhixin.com/rss", "category": "ai_frontier"},
@@ -193,16 +222,21 @@ def set_cache(key, payload):
     }, ensure_ascii=False), encoding="utf-8")
 
 
-def compute_relevance(title, abstract):
-    """Keyword-weighted relevance scoring on title + abstract."""
+def keyword_in_text(text, kw):
+    kw_l = kw.lower()
+    if kw in SHORT_KEYWORDS or len(kw_l) <= 4:
+        return re.search(rf"\\b{re.escape(kw_l)}\\b", text) is not None
+    return kw_l in text
+
+
+def compute_tags(title, abstract):
+    """Extract matched keywords as tags (no scoring)."""
     text = (title + " " + abstract).lower()
-    score = 0
     matched_tags = []
-    for keyword, weight in KEYWORD_WEIGHTS.items():
-        if keyword in text:
-            score += weight
+    for keyword in TAG_KEYWORDS:
+        if keyword_in_text(text, keyword):
             matched_tags.append(keyword)
-    return score, list(set(matched_tags))
+    return list(dict.fromkeys(matched_tags))
 
 
 def normalize_title(title):
@@ -267,7 +301,7 @@ def fetch_arxiv(keywords, max_per_query=25):
                 if link.get("title") == "pdf":
                     pdf_link = link.get("href", "")
 
-            score, tags = compute_relevance(title, abstract)
+            tags = compute_tags(title, abstract)
 
             batch.append({
                 "id": f"arxiv:{arxiv_id}",
@@ -279,7 +313,7 @@ def fetch_arxiv(keywords, max_per_query=25):
                 "url": f"https://arxiv.org/abs/{arxiv_id}",
                 "pdf": pdf_link,
                 "categories": categories[:5],
-                "relevance_score": score,
+                "relevance_score": 0,
                 "tags": tags,
             })
 
@@ -341,7 +375,7 @@ def fetch_semantic_scholar(keywords, max_per_query=20):
             citations = p.get("citationCount") or 0
             ext = p.get("externalIds") or {}
 
-            score, tags = compute_relevance(title, abstract)
+            tags = compute_tags(title, abstract)
 
             batch.append({
                 "id": f"s2:{pid[:20]}",
@@ -355,7 +389,7 @@ def fetch_semantic_scholar(keywords, max_per_query=20):
                 "venue": venue,
                 "citations": citations,
                 "doi": ext.get("DOI", ""),
-                "relevance_score": score,
+                "relevance_score": 0,
                 "tags": tags,
             })
 
@@ -396,13 +430,14 @@ def fetch_openreview(venues=None, max_per_venue=30):
         batch = []
 
         for term in search_terms:
+            invitation = f"{venue}/-/Submission"
             params = urllib.parse.urlencode({
                 "term": term,
-                "venue": venue,
+                "invitation": invitation,
                 "limit": 10,
                 "sort": "cdate:desc",
             })
-            url = f"https://api.openreview.net/notes/search?{params}"
+            url = f"https://api2.openreview.net/notes/search?{params}"
 
             data = safe_request(url, delay=5)
             if not data:
@@ -441,7 +476,7 @@ def fetch_openreview(venues=None, max_per_venue=30):
                 else:
                     date_str = ""
 
-                score, tags = compute_relevance(title, abstract)
+                tags = compute_tags(title, abstract)
 
                 batch.append({
                     "id": f"or:{note_id}",
@@ -453,7 +488,7 @@ def fetch_openreview(venues=None, max_per_venue=30):
                     "url": f"https://openreview.net/forum?id={note_id}",
                     "pdf": f"https://openreview.net/pdf?id={note_id}",
                     "venue": venue.split("/")[0],
-                    "relevance_score": score,
+                    "relevance_score": 0,
                     "tags": tags,
                 })
 
@@ -504,7 +539,7 @@ def fetch_huggingface_daily():
         arxiv_id = paper.get("id", "")
         upvotes = paper.get("upvotes", 0) or item.get("numUpvotes", 0)
 
-        score, tags = compute_relevance(title, abstract)
+        tags = compute_tags(title, abstract)
 
         papers.append({
             "id": f"hf:{arxiv_id}",
@@ -516,7 +551,7 @@ def fetch_huggingface_daily():
             "url": f"https://huggingface.co/papers/{arxiv_id}" if arxiv_id else "",
             "pdf": f"https://arxiv.org/pdf/{arxiv_id}" if arxiv_id else "",
             "upvotes": upvotes,
-            "relevance_score": score,
+            "relevance_score": 0,
             "tags": tags,
             "is_ai_frontier": True,
         })
@@ -636,6 +671,12 @@ def fetch_paperswithcode(max_per_term=10):
         "predictive-maintenance",
         "time-series-anomaly-detection",
         "knowledge-distillation",
+        "condition-monitoring",
+        "health-index",
+        "bearing-fault-diagnosis",
+        "domain-adaptation",
+        "self-supervised-learning",
+        "contrastive-learning",
     ]
 
     papers = []
@@ -669,7 +710,7 @@ def fetch_paperswithcode(max_per_term=10):
             url_abs = p.get("url_abs", "") or ""
             url_pdf = p.get("url_pdf", "") or ""
 
-            score, tags = compute_relevance(title, abstract)
+            tags = compute_tags(title, abstract)
 
             batch.append({
                 "id": f"pwc:{pid}",
@@ -680,7 +721,7 @@ def fetch_paperswithcode(max_per_term=10):
                 "source": "Papers with Code",
                 "url": f"https://paperswithcode.com{url_abs}" if url_abs.startswith("/") else url_abs,
                 "pdf": url_pdf,
-                "relevance_score": score,
+                "relevance_score": 0,
                 "tags": tags,
             })
 
@@ -720,11 +761,11 @@ def fetch_crossref(max_per_kw=15):
         query = urllib.parse.quote(kw)
         url = (
             f"https://api.crossref.org/works?"
-            f"query={query}"
-            f"&filter=from-pub-date:{two_years_ago},type:journal-article"
+            f"query.bibliographic={query}"
+            f"&filter=from-pub-date:{two_years_ago}"
             f"&sort=published&order=desc"
             f"&rows={max_per_kw}"
-            f"&select=DOI,title,author,published,abstract,URL,container-title"
+            f"&select=DOI,title,author,published,abstract,URL,container-title,type"
         )
         headers = {"User-Agent": "PaperRadar/1.0 (academic research tool)"}
         data = safe_request(url, headers=headers, delay=2)
@@ -771,8 +812,8 @@ def fetch_crossref(max_per_kw=15):
             venue = venue_parts[0] if venue_parts else ""
             url_link = item.get("URL", "") or f"https://doi.org/{doi}"
 
-            score, tags = compute_relevance(title, abstract)
-            if score == 0:
+            tags = compute_tags(title, abstract)
+            if not tags:
                 continue
 
             batch.append({
@@ -784,7 +825,7 @@ def fetch_crossref(max_per_kw=15):
                 "source": "CrossRef",
                 "url": url_link,
                 "pdf": "",
-                "relevance_score": score,
+                "relevance_score": 0,
                 "tags": tags,
                 "venue": venue,
             })
@@ -795,6 +836,93 @@ def fetch_crossref(max_per_kw=15):
 
     set_cache(cache_key, papers)
     print(f"  Total: {len(papers)} papers")
+    return papers
+
+
+def _decode_openalex_abstract(inv_idx):
+    if not inv_idx:
+        return ""
+    try:
+        max_pos = max(pos for positions in inv_idx.values() for pos in positions)
+    except ValueError:
+        return ""
+    tokens = [""] * (max_pos + 1)
+    for word, positions in inv_idx.items():
+        for pos in positions:
+            if 0 <= pos < len(tokens):
+                tokens[pos] = word
+    return " ".join(t for t in tokens if t)
+
+
+def fetch_openalex(keywords, max_per_kw=15):
+    """Fetch papers from OpenAlex API (no key required)."""
+    print("\n[OpenAlex] Fetching...")
+    papers = []
+    seen = set()
+
+    base_url = "https://api.openalex.org/works"
+    for kw in keywords:
+        cache_key = f"openalex:{kw}:{datetime.utcnow().strftime('%Y-%m-%d')}"
+        cached = get_cache(cache_key)
+        if cached:
+            print(f"  ✓ '{kw}' (cached, {len(cached)} papers)")
+            papers.extend(cached)
+            continue
+
+        params = urllib.parse.urlencode({
+            "search": kw,
+            "sort": "publication_date:desc",
+        })
+        url = f"{base_url}?{params}"
+        data = safe_request(url, headers={"Accept": "application/json"}, delay=2)
+        if not data:
+            continue
+
+        try:
+            result = json.loads(data)
+        except json.JSONDecodeError:
+            continue
+
+        batch = []
+        for item in (result.get("results") or [])[:max_per_kw]:
+            pid = item.get("id", "")
+            if not pid or pid in seen:
+                continue
+            seen.add(pid)
+
+            title = item.get("title", "") or ""
+            abstract = _decode_openalex_abstract(item.get("abstract_inverted_index"))
+            pub_date = (item.get("publication_date") or "")[:10]
+            authors = []
+            for a in (item.get("authorships") or [])[:5]:
+                name = (a.get("author") or {}).get("display_name", "")
+                if name:
+                    authors.append(name)
+            venue = (item.get("host_venue") or {}).get("display_name", "") or ""
+            url_link = (item.get("primary_location") or {}).get("landing_page_url", "") or item.get("doi", "") or pid
+
+            tags = compute_tags(title, abstract)
+
+            batch.append({
+                "id": f"openalex:{pid.split('/')[-1]}",
+                "title": title,
+                "abstract": abstract[:600],
+                "authors": authors,
+                "date": pub_date,
+                "source": "OpenAlex",
+                "url": url_link,
+                "pdf": "",
+                "relevance_score": 0,
+                "tags": tags,
+                "venue": venue,
+                "doi": item.get("doi", ""),
+            })
+
+        set_cache(cache_key, batch)
+        papers.extend(batch)
+        print(f"  ✓ '{kw}': {len(batch)} papers")
+        time.sleep(2)
+
     return papers
 
 
@@ -852,8 +980,8 @@ def fetch_arxiv_rss(categories=None):
                 continue
             seen.add(pid)
 
-            score, tags = compute_relevance(title, desc)
-            if score == 0:
+            tags = compute_tags(title, desc)
+            if not tags:
                 continue
 
             authors = [c.text.strip() for c in item.findall("dc:creator", ns) if c.text]
@@ -867,7 +995,7 @@ def fetch_arxiv_rss(categories=None):
                 "source": "arXiv",
                 "url": link,
                 "pdf": link.replace("/abs/", "/pdf/") + ".pdf",
-                "relevance_score": score,
+                "relevance_score": 0,
                 "tags": tags,
             })
             cat_count += 1
@@ -892,7 +1020,13 @@ def deduplicate(papers):
             continue
         if norm in seen:
             existing = seen[norm]
-            if p["relevance_score"] > existing["relevance_score"]:
+            date_new = p.get("date", "") or ""
+            date_old = existing.get("date", "") or ""
+            if date_new and (not date_old or date_new > date_old):
+                unique.remove(existing)
+                unique.append(p)
+                seen[norm] = p
+            elif (p.get("pdf") and not existing.get("pdf")):
                 unique.remove(existing)
                 unique.append(p)
                 seen[norm] = p
@@ -915,9 +1049,10 @@ def main():
     for p in arxiv_ai:
         p["is_ai_frontier"] = True
 
-    arxiv_rss = fetch_arxiv_rss(["cs.LG", "cs.AI", "eess.SP"])
+    arxiv_rss = fetch_arxiv_rss(["cs.LG", "cs.AI", "eess.SP", "eess.SY", "stat.ML", "cs.RO"])
     crossref_papers = fetch_crossref()
-    s2_papers = fetch_semantic_scholar(RESEARCH_KEYWORDS[:4], max_per_query=15)
+    s2_papers = fetch_semantic_scholar(RESEARCH_KEYWORDS[:10], max_per_query=15)
+    openalex_papers = fetch_openalex(RESEARCH_KEYWORDS[:10], max_per_kw=15)
     or_papers = fetch_openreview()
     hf_papers = fetch_huggingface_daily()
     rss_items = fetch_rss_feeds()
@@ -925,12 +1060,12 @@ def main():
 
     # 2. Combine and deduplicate
     all_papers = (arxiv_research + arxiv_ai + arxiv_rss + crossref_papers
-                  + s2_papers + or_papers + hf_papers + rss_items + pwc_papers)
+                  + s2_papers + openalex_papers + or_papers + hf_papers + rss_items + pwc_papers)
     all_papers = deduplicate(all_papers)
 
     # 3. Classify — sort by date descending (newest first)
     research_papers = sorted(
-        [p for p in all_papers if p["relevance_score"] > 0 and not p.get("is_ai_frontier")],
+        [p for p in all_papers if not p.get("is_ai_frontier")],
         key=lambda x: x.get("date", ""),
         reverse=True,
     )
@@ -952,6 +1087,7 @@ def main():
                 "arxiv": len([p for p in all_papers if p["source"] == "arXiv"]),
                 "crossref": len([p for p in all_papers if p["source"] == "CrossRef"]),
                 "semantic_scholar": len([p for p in all_papers if p["source"] == "Semantic Scholar"]),
+                "openalex": len([p for p in all_papers if p["source"] == "OpenAlex"]),
                 "openreview": len([p for p in all_papers if "OpenReview" in p["source"]]),
                 "huggingface": len([p for p in all_papers if p["source"] == "HuggingFace Daily"]),
                 "paperswithcode": len([p for p in all_papers if p["source"] == "Papers with Code"]),
@@ -994,6 +1130,7 @@ def main():
     print(f"   AI Frontier:     {len(ai_frontier)}")
     print(f"   Sources: arXiv={daily_data['stats']['sources']['arxiv']}"
           f"  S2={daily_data['stats']['sources']['semantic_scholar']}"
+          f"  OA={daily_data['stats']['sources']['openalex']}"
           f"  OR={daily_data['stats']['sources']['openreview']}"
           f"  HF={daily_data['stats']['sources']['huggingface']}"
           f"  PwC={daily_data['stats']['sources']['paperswithcode']}"
