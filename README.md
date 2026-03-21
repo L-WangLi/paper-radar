@@ -38,11 +38,6 @@
 
 **AI 前沿聚合**
 
-- OpenAI / Anthropic / DeepMind / Google AI / Meta AI / Microsoft Research / BAIR / Allen AI / NVIDIA AI Blog
-- The Batch / Import AI / The Gradient / MIT Technology Review / Stanford HAI / Reddit r/MachineLearning
-- 量子位 / 机器之心 / AI 科技评论 / 36 氪 AI
-- arXiv cs.LG / cs.AI / eess.SP / eess.SY / stat.ML 每日新提交
-
 **个人研究管理**
 
 - **阅读状态** — 每篇论文可标记：未读 / 已读 / 重要参考（含标记时间戳）
