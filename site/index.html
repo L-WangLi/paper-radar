@@ -201,6 +201,13 @@ body {
 }
 .note-area textarea:focus { border-color: var(--accent2); }
 .note-area textarea::placeholder { color: var(--text-muted); }
+.note-history { display: flex; flex-direction: column; gap: 3px; margin-bottom: 6px; }
+.note-history:empty { display: none; }
+.note-history-item { display: flex; align-items: baseline; gap: 6px; font-size: 12px; color: var(--text-dim); background: var(--bg); border-radius: var(--radius-sm); padding: 4px 8px; }
+.note-history-text { flex: 1; font-style: italic; word-break: break-word; }
+.note-history-time { font-family: var(--font-mono); font-size: 10px; color: var(--text-muted); white-space: nowrap; }
+.note-del-btn { background: none; border: none; color: var(--text-muted); cursor: pointer; font-size: 14px; line-height: 1; padding: 0 2px; flex-shrink: 0; }
+.note-del-btn:hover { color: var(--accent3); }
 .note-save-btn {
   margin-top: 6px; font-size: 12px; padding: 3px 12px;
   background: var(--accent2); color: #fff; border: none; border-radius: var(--radius-sm);
@@ -563,15 +570,22 @@ function getStatusTime(id) {
   if (!s || typeof s === "string") return "";
   return s.markedAt || "";
 }
-function getNoteText(id) {
+function getNoteEntries(id) {
   const n = notes[id];
-  if (!n) return "";
-  return typeof n === "string" ? n : (n.text || "");
+  if (!n) return [];
+  if (Array.isArray(n)) return n;
+  // migrate old formats
+  if (typeof n === "object" && n.text) return [n];
+  if (typeof n === "string" && n) return [{ text: n, savedAt: "" }];
+  return [];
+}
+function getNoteText(id) {
+  const e = getNoteEntries(id);
+  return e.length ? e[0].text : "";
 }
 function getNoteTime(id) {
-  const n = notes[id];
-  if (!n || typeof n === "string") return "";
-  return n.savedAt || "";
+  const e = getNoteEntries(id);
+  return e.length ? (e[0].savedAt || "") : "";
 }
 function fmtTime(iso) {
   if (!iso) return "";
@@ -822,13 +836,15 @@ function renderPapers() {
     const citationsHtml = p.citations ? ` · ${p.citations} ${t("citations")}` : "";
     const upvotesHtml = p.upvotes ? `<span class="upvotes">👍 ${p.upvotes}</span>` : "";
     const pdfBtn = p.pdf ? `<a href="${p.pdf}" target="_blank" rel="noopener noreferrer" style="text-decoration:none"><button type="button">${t("btn.pdf")}</button></a>` : "";
-    const noteText = getNoteText(p.id);
-    const hasNote = !!noteText.trim();
-    const noteTextEsc = noteText.replace(/</g, "&lt;").replace(/>/g, "&gt;");
-    const noteTime = getNoteTime(p.id);
+    const noteEntries = getNoteEntries(p.id);
+    const hasNote = noteEntries.length > 0;
     const notePreviewHtml = hasNote
-      ? `<div class="note-preview" id="note-preview-${idx}"><span class="note-preview-text">"${noteTextEsc}"</span><span class="note-preview-time">${fmtTime(noteTime)}</span></div>`
+      ? `<div class="note-preview" id="note-preview-${idx}"><span class="note-preview-text">"${noteEntries[0].text.replace(/</g,"&lt;")}"</span><span class="note-preview-time">${fmtTime(noteEntries[0].savedAt)}</span></div>`
       : `<div class="note-preview" id="note-preview-${idx}" style="display:none"></div>`;
+    const noteHistoryHtml = noteEntries.map((e, i) => {
+      const t2 = e.text.replace(/</g,"&lt;").replace(/>/g,"&gt;");
+      return `<div class="note-history-item"><span class="note-history-text">"${t2}"</span><span class="note-history-time">${fmtTime(e.savedAt)}</span><button class="note-del-btn" onclick="deleteNoteEntry('${p.id}','note-${idx}',${i})">×</button></div>`;
+    }).join("");
     return `
     <div class="paper-card" id="card-${idx}">
       <div class="title-row">
@@ -859,7 +875,8 @@ function renderPapers() {
       </div>
       ${notePreviewHtml}
       <div class="note-area ${hasNote ? "visible" : ""}" id="note-${idx}">
-        <textarea id="ta-note-${idx}" placeholder="${t("note.placeholder")}">${noteTextEsc}</textarea>
+        <div class="note-history" id="note-history-${idx}">${noteHistoryHtml}</div>
+        <textarea id="ta-note-${idx}" placeholder="${t("note.placeholder")}"></textarea>
         <button type="button" class="note-save-btn" onclick="saveNote('${p.id}', 'note-${idx}', this)">${t("btn.save_note")}</button>
       </div>
     </div>`;
@@ -891,35 +908,54 @@ function toggleNoteArea(areaId, btn) {
   }
 }
 
-function saveNote(id, areaId, btn) {
-  const ta = document.getElementById("ta-" + areaId);
-  const text = ta ? ta.value : "";
-  const now = new Date().toISOString();
-  if (text.trim()) notes[id] = { text, savedAt: now };
-  else delete notes[id];
+function deleteNoteEntry(id, areaId, entryIdx) {
+  const entries = getNoteEntries(id);
+  entries.splice(entryIdx, 1);
+  if (entries.length === 0) delete notes[id];
+  else notes[id] = entries;
   localStorage.setItem("pr_notes", JSON.stringify(notes));
-  // Update note preview display
+  updateNoteUI(id, areaId);
+}
+function updateNoteUI(id, areaId) {
+  const entries = getNoteEntries(id);
+  const hasNote = entries.length > 0;
+  const cardIdx = areaId.replace("note-", "");
+  const previewEl = document.getElementById("note-preview-" + cardIdx);
+  if (previewEl) {
+    if (hasNote) {
+      const t2 = entries[0].text.replace(/</g,"&lt;");
+      previewEl.innerHTML = `<span class="note-preview-text">"${t2}"</span><span class="note-preview-time">${fmtTime(entries[0].savedAt)}</span>`;
+      previewEl.style.display = "";
+    } else { previewEl.style.display = "none"; }
+  }
+  const histEl = document.getElementById("note-history-" + cardIdx);
+  if (histEl) {
+    histEl.innerHTML = entries.map((e, i) => {
+      const tx = e.text.replace(/</g,"&lt;").replace(/>/g,"&gt;");
+      return `<div class="note-history-item"><span class="note-history-text">"${tx}"</span><span class="note-history-time">${fmtTime(e.savedAt)}</span><button class="note-del-btn" onclick="deleteNoteEntry('${id}','${areaId}',${i})">×</button></div>`;
+    }).join("");
+  }
   const noteArea = document.getElementById(areaId);
   if (noteArea) {
     const card = noteArea.closest(".paper-card");
     if (card) {
-      const preview = card.querySelector(".note-preview");
-      if (preview) {
-        if (text.trim()) {
-          const escaped = text.replace(/</g, "&lt;").replace(/>/g, "&gt;");
-          preview.innerHTML = `<span class="note-preview-text">"${escaped}"</span><span class="note-preview-time">${fmtTime(now)}</span>`;
-          preview.style.display = "";
-        } else {
-          preview.style.display = "none";
-        }
-      }
-      const noteBtn = card.querySelector(".note-btn");
-      if (noteBtn) {
-        noteBtn.classList.toggle("active", !!notes[id]);
-        noteBtn.innerHTML = `📝 ${notes[id] ? t("btn.note_saved") : t("btn.note")}`;
-      }
+      const nb = card.querySelector(".note-btn");
+      if (nb) { nb.classList.toggle("active", hasNote); nb.innerHTML = `📝 ${hasNote ? t("btn.note_saved") : t("btn.note")}`; }
     }
   }
+}
+function saveNote(id, areaId, btn) {
+  const ta = document.getElementById("ta-" + areaId);
+  const text = ta ? ta.value.trim() : "";
+  if (!text) return;
+  const now = new Date().toISOString();
+  const existing = getNoteEntries(id);
+  existing.unshift({ text, savedAt: now });
+  if (existing.length > 20) existing.length = 20;
+  notes[id] = existing;
+  if (ta) ta.value = "";
+  localStorage.setItem("pr_notes", JSON.stringify(notes));
+  updateNoteUI(id, areaId);
   if (btn) {
     const orig = btn.textContent;
     btn.textContent = "✓ " + t("btn.save_note");

@@ -19,7 +19,7 @@
 >
 > Default tracking scope:
 >
-> - **RUL (Remaining Useful Life) Prediction** and **PHM (Prognostics and Health Management)** 
+> - **RUL (Remaining Useful Life) Prediction** and **PHM (Prognostics and Health Management)**
 > - **AI Frontier**: aggregating important new papers and advances in artificial intelligence
 
 **在线访问 / Live Site**: [l-wangli.github.io/paper-radar](https://l-wangli.github.io/paper-radar/)
@@ -30,8 +30,8 @@
 
 **论文追踪**
 
-- **多源抓取** — arXiv（日期过滤）、CrossRef（覆盖 Elsevier/IEEE/Springer 全部期刊）、Semantic Scholar、OpenReview (ICLR/NeurIPS/ICML)、OpenAlex、HuggingFace Daily、Papers with Code
-- **标题级关键词过滤** — 搜索词按研究问题设计，标题命中才收录，减少噪音
+- **多源抓取** — arXiv、CrossRef、Semantic Scholar、OpenReview (ICLR/NeurIPS/ICML)等
+- **标题级关键词过滤** — 搜索词按研究问题设计，减少噪音
 - **全文搜索 + 标签筛选 + 来源过滤** — 快速定位目标论文
 - **关键词高亮** — 标题和摘要中的核心词自动加粗
 - **日期导航** — 浏览历史每日数据（保留 90 天）
@@ -92,10 +92,6 @@ RESEARCH_KEYWORDS = [
 ]
 ```
 
-> **关键词设计原则**：搜"研究问题"，不搜"具体方法名"。
-> 比如用 `"time series forecasting"` 而不是 `"Transformer"` 或 `"Mamba"`——
-> 前者能发现所有新方法，后者只能找到你已知的方法。
-
 同时更新 `TITLE_FILTER`，填入你领域的核心词，用于过滤不相关论文：
 
 ```python
@@ -128,6 +124,8 @@ RSS_FEEDS = [
 在仓库 **Settings → Secrets and variables → Actions** 中添加以下配置：
 
 ### 微信推送（可选，每日推送）
+
+（我使用的免费的server酱，无其他推荐）
 
 | Secret             | 说明              | 获取方式                                             |
 | ------------------ | ----------------- | ---------------------------------------------------- |
@@ -224,7 +222,7 @@ paper-radar/
 
 使用前请知悉以下事项：
 
-- **内容准确性**：论文数据来源于 arXiv、CrossRef、Semantic Scholar 等第三方平台，本工具仅做聚合展示，不对论文内容的准确性负责。
+- **内容准确性**：论文数据来源于 arXiv 等第三方平台，本工具仅做聚合展示，不对论文内容的准确性负责。
 - **辅助工具定位**：本工具适合作为文献发现和初步筛选的辅助手段，**不应替代你独立的研究判断**。所有论文在引用前请自行核实原文。
 - **稳定性**：这是一个个人维护的开源项目，难免存在 bug。各数据源平台的 API 接口、RSS 格式随时可能变动，导致部分抓取失效，属于正常现象。
 - **环境差异**：不同网络环境（尤其是国内访问 GitHub Pages）可能影响使用体验，作者不对访问可用性提供任何保证。
@@ -246,4 +244,4 @@ paper-radar/
 
 ## License
 
-MIT — 欢迎 Fork 适配你自己的研究方向
+MIT
