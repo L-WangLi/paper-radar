@@ -1,14 +1,14 @@
 {
   "date": "2026-03-21",
-  "fetched_at": "2026-03-21T01:33:47.170384Z",
+  "fetched_at": "2026-03-21T11:50:44.370455Z",
   "stats": {
-    "total": 1227,
-    "research": 1000,
+    "total": 1319,
+    "research": 1092,
     "ai_frontier": 227,
     "sources": {
       "arxiv": 529,
       "crossref": 1,
-      "semantic_scholar": 208,
+      "semantic_scholar": 300,
       "openalex": 327,
       "openreview": 0,
       "huggingface": 24,
@@ -13326,6 +13326,34 @@
       "tags": []
     },
     {
+      "id": "s2:b1afa836254fc68ad3dd",
+      "title": "STARNet: Stacked Transfer-Aware for Robust Remaining Useful Life Prediction for C-MAPSS Multi-Regime Engines",
+      "abstract": "Predictive Maintenance (PdM) plays a critical role in reducing unplanned downtime and extending asset longevity in industrial systems like aircraft engines, manufacturing equipment, and energy infrastructure. Proper estimation of the Remaining Useful Life (RUL) of parts allows for preventive maintenance scheduling and increased operational efficiency, safety, and cost savings. However, the development of robust RUL prediction models remains challenging due to high variability in operating conditions and fault modes. Existing deep learning models tend to demonstrate exceptionally good performan",
+      "authors": [
+        "Dimple Kapoor",
+        "Deepali Gupta",
+        "Shivani Agarwal",
+        "Mudita Uppal",
+        "Sapna Juneja"
+      ],
+      "date": "2026",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/b1afa836254fc68ad3dd76b7689b710f006fa7e6",
+      "pdf": "",
+      "venue": "IEEE Access",
+      "citations": 0,
+      "doi": "10.1109/ACCESS.2026.3663754",
+      "relevance_score": 0,
+      "tags": [
+        "remaining useful life",
+        "C-MAPSS",
+        "predictive maintenance",
+        "RUL prediction",
+        "transfer learning",
+        "CMAPSS"
+      ]
+    },
+    {
       "id": "arxiv:2512.24755v4",
       "title": "Asymmetry-Aware Routing for Industrial Multimodal Monitoring: A Diagnostic Framework",
       "abstract": "Multimodal fusion is the default approach for combining heterogeneous sensor streams in industrial monitoring, yet no systematic method exists for determining \\textit{when fusion degrades rather than improves} detection performance. We present an \\textbf{Asymmetry-Aware Routing Framework} -- a three-step diagnostic procedure (unimodal performance gap, gate weight attribution, modality corruption testing) with formal decision criteria -- that routes multimodal systems toward the appropriate fusion strategy before deployment. We validate the framework on three datasets spanning two routing outco",
@@ -13360,6 +13388,50 @@
         "cs.AI",
         "cs.LG"
       ],
+      "relevance_score": 0,
+      "tags": []
+    },
+    {
+      "id": "s2:65b2ef65416a0c0e51d9",
+      "title": "A Deployable IIoT Framework for Condition-Based Maintenance: Case Study on LSTM RUL Prediction with NASA C-MAPSS",
+      "abstract": "Condition-Based Maintenance (CBM) is basically the backbone of keeping industrial IoT (IIoT) setups running smoothly and steadily. Less downtime, more reliability—what’s not to love? Yeah, we’ve got all these slick machine learning (ML) and deep learning (DL) models for predicting Remaining Useful Life (RUL), but honestly, actually getting this stuff working out in the real world? That’s a whole other headache. There’s the mess of scaling, getting different systems to talk to each other, and wrangling real-time data—just to name a few. In this paper, we roll out a hands-on IIoT framework for C",
+      "authors": [
+        "Sasmita Pani",
+        "B. Pattanayak",
+        "B. Gupta",
+        "Sudeepta Pal",
+        "Omkar Pattnaik"
+      ],
+      "date": "2025-12-27",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/65b2ef65416a0c0e51d9f5ff766c6f546d6ef34e",
+      "pdf": "",
+      "venue": "Tikrit Journal of Engineering Sciences",
+      "citations": 0,
+      "doi": "10.25130/tjes.sp1.2025.6",
+      "relevance_score": 0,
+      "tags": [
+        "remaining useful life",
+        "C-MAPSS",
+        "predictive maintenance",
+        "RUL prediction",
+        "condition-based maintenance"
+      ]
+    },
+    {
+      "id": "s2:3a8585b9c04908d9e889",
+      "title": "Experiment on Turbofan Engine Performance Degradation Evaluation Based on LightGBM",
+      "abstract": "As a core component in the aerospace field, the performance degradation of turbofan engines directly impacts flight safety and airline operating costs. Traditional evaluation methods rely on empirical models and simple statistical analysis, which struggle to uncover the potential patterns in massive operational data and lack accuracy under complex operating conditions. This study aims to construct a turbofan engine performance degradation evaluation model based on LightGBM, overcoming the limitations of traditional methods and providing scientific support for predictive engine maintenance. Usi",
+      "authors": [
+        "Haoran Yang"
+      ],
+      "date": "2025-12-22",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/3a8585b9c04908d9e8897656dac6c58dc417e85b",
+      "pdf": "",
+      "venue": "Mathematical Modeling and Algorithm Application",
+      "citations": 0,
+      "doi": "10.54097/1gfsph39",
       "relevance_score": 0,
       "tags": []
     },
@@ -13564,6 +13636,30 @@
       ]
     },
     {
+      "id": "s2:e663aef4208281d063d6",
+      "title": "HPC-Aware Feature Engineering for Predictive Maintenance Using NASA C-MAPSS FD001",
+      "abstract": "PdM uses sensor measurements to predict equipment failures and schedules interventions before any breakdowns can occur. In this work, we present an HPC-aware feature engineering design for the NASA C-MAPSS FD001 turbofan dataset. The proposed pipeline decreases the feature extraction time by about 88% compared with a serial implementation and improves the remaining useful life prediction by approximately 20-25% in terms of RMSE over a standard feature baseline. We present two window-based features: a normalized trend slope and a low-frequency spectral energy ratio that capture complementary as",
+      "authors": [
+        "Harsh Rastogi",
+        "N. Rao",
+        "Priyanshu",
+        "Garima Singh"
+      ],
+      "date": "2025-12-11",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/e663aef4208281d063d65d1b28dbefe2b903611d",
+      "pdf": "",
+      "venue": "2025 Modern Electronics Devices and Intelligent Communication Systems (MEDCOM)",
+      "citations": 0,
+      "doi": "10.1109/MEDCOM67532.2025.11405422",
+      "relevance_score": 0,
+      "tags": [
+        "remaining useful life",
+        "C-MAPSS",
+        "predictive maintenance"
+      ]
+    },
+    {
       "id": "arxiv:2512.09319v1",
       "title": "Efficiency-Aware Computational Intelligence for Resource-Constrained Manufacturing Toward Edge-Ready Deployment",
       "abstract": "Industrial cyber physical systems operate under heterogeneous sensing, stochastic dynamics, and shifting process conditions, producing data that are often incomplete, unlabeled, imbalanced, and domain shifted. High-fidelity datasets remain costly, confidential, and slow to obtain, while edge devices face strict limits on latency, bandwidth, and energy. These factors restrict the practicality of centralized deep learning, hinder the development of reliable digital twins, and increase the risk of error escape in safety-critical applications. Motivated by these challenges, this dissertation devel",
@@ -13745,6 +13841,27 @@
       ]
     },
     {
+      "id": "s2:322d331282f669f634f8",
+      "title": "Adaptive turbofan engine health assessment for multi-component performance degradation coupling scenarios: A spatiotemporal attention graph convolutional network approach",
+      "abstract": "",
+      "authors": [
+        "Meng Xu",
+        "Xue Liu",
+        "Junjie Huang",
+        "Jian Ma",
+        "Meiling Yue"
+      ],
+      "date": "2025-12-01",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/322d331282f669f634f8aa743667b5f3732e3ec8",
+      "pdf": "",
+      "venue": "Reliability Engineering & System Safety",
+      "citations": 1,
+      "doi": "10.1016/j.ress.2025.112086",
+      "relevance_score": 0,
+      "tags": []
+    },
+    {
       "id": "s2:83df2e4a426365e0dd0a",
       "title": "Robust Bearing Fault Detection and Classification Using Deep Neural Networks: A Comprehensive Study on the CWRU Dataset",
       "abstract": "",
@@ -13787,6 +13904,30 @@
       "tags": [
         "condition monitoring",
         "time series foundation model"
+      ]
+    },
+    {
+      "id": "s2:ab4f2fc37995a9a3f3b8",
+      "title": "Evaluating Machine Learning Models for IIoT Driven Predictive Maintenance Using NASA C-MAPSS Dataset",
+      "abstract": "The integration of the Industrial Internet of Things (IIoT) and predictive maintenance (PdM) models is transforming industrial asset management via condition-based monitoring and failure prediction. The successful execution of predictive maintenance (PdM) solutions in Industrial Internet of Things (IIoT) settings necessitates the evaluation of suitable machine learning (ML) and deep learning (DL) models capable of handling high-dimensional sensor data. This study proposes a PdM methodology driven by IIoT and evaluates four data-driven models: Random Forest (RF), Support Vector Machine (SVM), k",
+      "authors": [
+        "Dimple Kapoor",
+        "Deepali Gupta",
+        "Mudita Uppal",
+        "S. Mapari",
+        "S. Ganesh"
+      ],
+      "date": "2025-11-28",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/ab4f2fc37995a9a3f3b8611815ecb355bf210ea5",
+      "pdf": "",
+      "venue": "International Conference on Computing, Communication and Automation",
+      "citations": 0,
+      "doi": "10.1109/ICCCA66364.2025.11325291",
+      "relevance_score": 0,
+      "tags": [
+        "C-MAPSS",
+        "predictive maintenance"
       ]
     },
     {
@@ -14620,6 +14761,31 @@
       ]
     },
     {
+      "id": "s2:18fd719b0a1f0fabf9a9",
+      "title": "Linear Methods for Predictive Maintenance: The Case of NASA C-MAPSS Datasets",
+      "abstract": "Predictive maintenance systems increasingly leverage diverse sensor modalities to improve failure prognostics and remaining useful life (RUL) estimation. However, integrating heterogeneous data types—vibration, temperature, acoustic, and visual sensors—typically requires complex fusion architectures. This paper proposes a unified linear classification–regression framework that addresses predictive maintenance through a shared measurement space approach. The developed method employs Linear Discriminant Analysis to establish hyperplane boundaries partitioning the measurement space into nominal, ",
+      "authors": [
+        "U. Yıldırım",
+        "Huseyin Afser"
+      ],
+      "date": "2025-09-11",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/18fd719b0a1f0fabf9a93a84824a501c11e38560",
+      "pdf": "",
+      "venue": "Applied Sciences",
+      "citations": 3,
+      "doi": "10.3390/app15189945",
+      "relevance_score": 0,
+      "tags": [
+        "remaining useful life",
+        "C-MAPSS",
+        "predictive maintenance",
+        "RUL prediction",
+        "RUL estimation",
+        "turbofan engine degradation"
+      ]
+    },
+    {
       "id": "arxiv:2509.08492v1",
       "title": "First highly pathogenic avian influenza outbreak in a commercial farm in Brazil: outbreak timeline, control actions, risk analysis, and transmission modeling",
       "abstract": "On May 15, 2025, Brazil reported its first highly pathogenic avian influenza (HPAI) outbreak in a commercial poultry breeder farm in Montenegro, Rio Grande do Sul. This study presents the outbreak timeline, control measures, along with spatial risk assessment and epidemiological model used to simulate detection delays. The transmission model considered Susceptible Exposed Infected Recovered Dead farm statuses to simulate within farm and between farm dynamics under 3 day, 5 day, and 10 day detection delays. The single infected commercial farm lost 15,650 birds, with 92% mortality due to HPAI, a",
@@ -14773,6 +14939,27 @@
       "relevance_score": 0,
       "tags": [
         "knowledge distillation"
+      ]
+    },
+    {
+      "id": "s2:59d3fc1f8a8d460db452",
+      "title": "Lightweight Model for Weather Prediction",
+      "abstract": "",
+      "authors": [
+        "Po-Ting Wu",
+        "Ting-Yu Tsai",
+        "Che-Cheng Chang"
+      ],
+      "date": "2025-09-01",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/59d3fc1f8a8d460db45254d33976768891b5d0b0",
+      "pdf": "",
+      "venue": "IEEE ICEIB 2025",
+      "citations": 0,
+      "doi": "10.3390/engproc2025108018",
+      "relevance_score": 0,
+      "tags": [
+        "lightweight model"
       ]
     },
     {
@@ -14954,6 +15141,30 @@
       ]
     },
     {
+      "id": "s2:de0397e76c2acf5d381e",
+      "title": "A Comparative Study of CNN-Based Predictive Maintenance Techniques on C-MAPSS Dataset",
+      "abstract": "In this study, convolutional neural network (CNNs) based predictive maintenance ($\\mathbf{P d M}$) techniques are performed on the well-known jet engine data called the Commercial Modular Aero-Propulsion System Simulation (C-MAPSS). We first employ the one-dimensional CNN (1D-CNN) for predicting the remaining useful life (RUL) of the jet engines. Then, to further improve the prediction performance, we combine the long shortterm memory (LSTM), bidirectional LSTM (BiLSTM), and gated recurrent unit (GRU) layers with the 1D-CNN. The performances of all CNN architectures are comparatively evaluated",
+      "authors": [
+        "Ilyas Çiçek",
+        "Engin Cemal Mengüç",
+        "Nurettin Acır"
+      ],
+      "date": "2025-08-09",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/de0397e76c2acf5d381ee5fa6e52d77cca4d9b77",
+      "pdf": "",
+      "venue": "International Conference on Smart City and Informatization",
+      "citations": 0,
+      "doi": "10.1109/ISCI65687.2025.11167805",
+      "relevance_score": 0,
+      "tags": [
+        "remaining useful life",
+        "C-MAPSS",
+        "predictive maintenance",
+        "RUL prediction"
+      ]
+    },
+    {
       "id": "arxiv:2508.02490v1",
       "title": "PHM-Bench: A Domain-Specific Benchmarking Framework for Systematic Evaluation of Large Models in Prognostics and Health Management",
       "abstract": "With the rapid advancement of generative artificial intelligence, large language models (LLMs) are increasingly adopted in industrial domains, offering new opportunities for Prognostics and Health Management (PHM). These models help address challenges such as high development costs, long deployment cycles, and limited generalizability. However, despite the growing synergy between PHM and LLMs, existing evaluation methodologies often fall short in structural completeness, dimensional comprehensiveness, and evaluation granularity. This hampers the in-depth integration of LLMs into the PHM domain",
@@ -15072,6 +15283,33 @@
       ]
     },
     {
+      "id": "s2:17fc6085fd8c881d1cbd",
+      "title": "A deep learning-based prognostic approach for predicting turbofan engine degradation and remaining useful life",
+      "abstract": "Predicting the Remaining Useful Life (RUL) of turbofan engines can prevent air disasters caused by component degradation. It is an important procedure in prognostics and health management (PHM). Therefore, a deep learning-based RUL prediction approach is proposed. The CMAPSS benchmark dataset is used to determine the RUL of aviation engines, focusing specifically on the FD001 and FD003 sub-datasets.In this study, we propose a CAELSTM (Convolutional Autoencoder and Attention-based LSTM) hybrid model for RUL prediction. First, the sub-datasets are preprocessed, and a piecewise linear degradation",
+      "authors": [
+        "Samiha M. Elsherif",
+        "B. Hafiz",
+        "M. A. Makhlouf",
+        "Osama Farouk"
+      ],
+      "date": "2025-07-19",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/17fc6085fd8c881d1cbd9bbf8d0be964ae07cb4c",
+      "pdf": "",
+      "venue": "Scientific Reports",
+      "citations": 8,
+      "doi": "10.1038/s41598-025-09155-z",
+      "relevance_score": 0,
+      "tags": [
+        "remaining useful life",
+        "predictive maintenance",
+        "prognostics and health management",
+        "RUL prediction",
+        "turbofan engine degradation",
+        "CMAPSS"
+      ]
+    },
+    {
       "id": "arxiv:2507.09766v1",
       "title": "Toward accurate RUL and SOH estimation using reinforced graph-based PINNs enhanced with dynamic weights",
       "abstract": "Accurate estimation of Remaining Useful Life (RUL) and State of Health (SOH) is essential for Prognostics and Health Management (PHM) across a wide range of industrial applications. We propose a novel framework -- Reinforced Graph-Based Physics-Informed Neural Networks Enhanced with Dynamic Weights (RGPD) -- that combines physics-based supervision with advanced spatio-temporal learning. Graph Convolutional Recurrent Networks (GCRNs) embed graph-convolutional filters within recurrent units to capture how node representations evolve over time. Graph Attention Convolution (GATConv) leverages a se",
@@ -15140,6 +15378,29 @@
       "relevance_score": 0,
       "tags": [
         "condition-based maintenance"
+      ]
+    },
+    {
+      "id": "s2:6b151a1f3c105d1bda4f",
+      "title": "A Lightweight Multi-Angle Feature Fusion CNN for Bearing Fault Diagnosis",
+      "abstract": "To address the issues of high model complexity and weak noise resistance in convolutional neural networks for bearing fault diagnosis, this paper proposes a novel lightweight multi-angle feature fusion convolutional neural network (LMAFCNN). First, the original signal was preprocessed using a wide-kernel convolutional layer to achieve data dimensionality reduction and feature channel expansion. Second, a lightweight multi-angle feature fusion module was designed as the core feature extraction unit. The main branch fused multidimensional features through pointwise convolution and large-kernel c",
+      "authors": [
+        "Huanli Li",
+        "Guoqiang Wang",
+        "Nianfeng Shi",
+        "Yingying Li",
+        "Wenlu Hao"
+      ],
+      "date": "2025-07-10",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/6b151a1f3c105d1bda4fef1a43fc70f2c0a31610",
+      "pdf": "",
+      "venue": "Electronics",
+      "citations": 5,
+      "doi": "10.3390/electronics14142774",
+      "relevance_score": 0,
+      "tags": [
+        "Paderborn"
       ]
     },
     {
@@ -16339,6 +16600,50 @@
       ]
     },
     {
+      "id": "s2:3a3dce7c7dc665b6e864",
+      "title": "Degradation Modeling for Restoration-Enhanced Object Detection in Adverse Weather Scenes",
+      "abstract": "Object detection is widely applied in fields such as scene perception and intelligent driving. However, interfered by degradations such as rain, haze, and snow, object detection in adverse weather conditions pose significant challenges. Mainstream methods usually fail to take into account the object detection of degraded images and cannot effectively handle them. In this paper, we present a Restoration-enhanced object detection network for adverse weather scenes enabled by Degradation Modeling, dubbed RDMNet. Firstly, to capture more potential information of degraded images, we incorporate the",
+      "authors": [
+        "Xiaofeng Wang",
+        "Xiao Liu",
+        "Hong Yang",
+        "Zhengyong Wang",
+        "Xiaoyue Wen"
+      ],
+      "date": "2025-03-01",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/3a3dce7c7dc665b6e8647d1503ac7b2e2fe562b9",
+      "pdf": "",
+      "venue": "IEEE Transactions on Intelligent Vehicles",
+      "citations": 18,
+      "doi": "10.1109/TIV.2024.3442924",
+      "relevance_score": 0,
+      "tags": [
+        "degradation modeling"
+      ]
+    },
+    {
+      "id": "s2:1970d085256930fba101",
+      "title": "Degradation classification of turbomachinery in high bypass ratio turbofan engine using supervised learning algorithms",
+      "abstract": "",
+      "authors": [
+        "Zain Shabbir",
+        "R. F. Swati",
+        "Naseem Ahmad",
+        "Fatima Tuz Zehra",
+        "S. Qureshi"
+      ],
+      "date": "2025-03-01",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/1970d085256930fba1019196cb498b825730fc57",
+      "pdf": "",
+      "venue": "Journal of the Brazilian Society of Mechanical Sciences and Engineering",
+      "citations": 0,
+      "doi": "10.1007/s40430-025-05468-2",
+      "relevance_score": 0,
+      "tags": []
+    },
+    {
       "id": "arxiv:2502.20298v1",
       "title": "Visible Light Spectroscopy of Liquid Solutes from Femto- to Attoliter Volumes inside a Single Nanofluidic Channel",
       "abstract": "UV-Vis spectroscopy is a workhorse in analytical chemistry that finds application in life science, organic synthesis and energy technologies like photocatalysis. In its traditional implementation with cuvettes, it requires sample volumes in the milliliter range. Here, we show how Nanofluidic Scattering Spectroscopy, NSS, which measures visible light scattered from a single nanochannel in a spectrally resolved way, can reduce this sample volume to the attoliter range for solute concentrations in the mM regime, which corresponds to as few as 105 probed molecules. The connection of the nanochanne",
@@ -16429,6 +16734,52 @@
       "relevance_score": 0,
       "tags": [
         "condition-based maintenance"
+      ]
+    },
+    {
+      "id": "s2:f80af545da0de98dd641",
+      "title": "Remaining Useful Life Prediction of Turbofan Engines Using CNN-GRU: A Comparative Study on C-MAPSS Dataset",
+      "abstract": "Accurate prediction of Remaining Useful Life (RUL) is crucial for effective predictive maintenance strategies in various industries. This study investigated the application of a combined Convolutional Neural Network (CNN) and Gated Recurrent Unit (GRU) architecture for predicting the RUL of turbofan engines using the C-MAPSS dataset. The CNN-GRU model leverages the complementary strengths of both components, with the CNN extracting spatial features from sensor data and the GRU capturing temporal dependencies in sequential engine data. Preprocessing techniques such as windowing and data reshapi",
+      "authors": [
+        "Adryan Fitra Azyus",
+        "Sastra Kusuma Wijaya",
+        "Budhy Kurniawan",
+        "Adryan Fitra"
+      ],
+      "date": "2025-02-24",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/f80af545da0de98dd6416c46a2381af62d420c98",
+      "pdf": "",
+      "venue": "Journal of Mechanical Civil and Industrial Engineering",
+      "citations": 2,
+      "doi": "10.32996/jmcie.2025.6.1.3",
+      "relevance_score": 0,
+      "tags": [
+        "remaining useful life",
+        "C-MAPSS",
+        "predictive maintenance"
+      ]
+    },
+    {
+      "id": "s2:89a001869ddf72cb08cb",
+      "title": "Force Map-Enhanced Segmentation of a Lightweight Model for the Early Detection of Cervical Cancer",
+      "abstract": "Background/Objectives: Accurate and efficient segmentation of cervical cells is crucial for the early detection of cervical cancer, enabling timely intervention and treatment. Existing segmentation models face challenges with complex cellular arrangements, such as overlapping cells and indistinct boundaries, and are often computationally intensive, which limits their deployment in resource-constrained settings. Methods: In this study, we introduce a lightweight and efficient segmentation model specifically designed for cervical cell analysis. The model employs a MobileNetV2 architecture for fe",
+      "authors": [
+        "Sabina Umirzakova",
+        "Shakhnoza Muksimova",
+        "Jushkin Baltayev",
+        "Young-Im Cho"
+      ],
+      "date": "2025-02-20",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/89a001869ddf72cb08cbfee9cb415967cec97512",
+      "pdf": "",
+      "venue": "Diagnostics",
+      "citations": 21,
+      "doi": "10.3390/diagnostics15050513",
+      "relevance_score": 0,
+      "tags": [
+        "lightweight model"
       ]
     },
     {
@@ -16570,6 +16921,28 @@
       "relevance_score": 0,
       "tags": [
         "neural network quantization"
+      ]
+    },
+    {
+      "id": "s2:91fc0932aee2a60e405b",
+      "title": "GSBF-YOLO: a lightweight model for tomato ripeness detection in natural environments",
+      "abstract": "Accurate tomato ripeness detection is essential for optimizing harvest timing and maximizing yield. Deep learning-based object detection has proven effective in this task. However, many existing algorithms have numerous parameters and substantial computational demands, making them unsuitable for agricultural environments with limited computational resources. Additionally, accurate detection becomes challenging with overlapping fruits, leaf occlusion, or complex backgrounds. To address these issues, this paper proposes a lightweight detection model, GSBF-YOLO. This model designs the GSim module",
+      "authors": [
+        "Fengqi Hao",
+        "Zuyao Zhang",
+        "Dexin Ma",
+        "Hoiio Kong"
+      ],
+      "date": "2025-01-20",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/91fc0932aee2a60e405b2305d12f58e0c5f11ca6",
+      "pdf": "",
+      "venue": "Journal of Real-Time Image Processing",
+      "citations": 9,
+      "doi": "10.1007/s11554-025-01624-y",
+      "relevance_score": 0,
+      "tags": [
+        "lightweight model"
       ]
     },
     {
@@ -17116,6 +17489,29 @@
       ]
     },
     {
+      "id": "s2:8c87f3440a91d75f5385",
+      "title": "YOLOv8-GO: A Lightweight Model for Prompt Detection of Foliar Maize Diseases",
+      "abstract": "Disease is one of the primary threats to maize growth. Currently, maize disease detection is mainly conducted in laboratories, making it difficult to promptly respond to diseases. To enable detection in the field, a lightweight model is required. Therefore, this paper proposes a lightweight model, YOLOv8-GO, optimized from the YOLOv8 (You Only Look Once version 8) model. The Global Attention Mechanism was introduced before the SPPF (Spatial Pyramid Pooling Fast) layer to enhance the model’s feature extraction capabilities without significantly increasing computational complexity. Additionally,",
+      "authors": [
+        "Tianyue Jiang",
+        "Xu Du",
+        "Ning Zhang",
+        "Xiuhan Sun",
+        "Xiao Li"
+      ],
+      "date": "2024-11-01",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/8c87f3440a91d75f5385e3216f1e0d33193b0f38",
+      "pdf": "",
+      "venue": "Applied Sciences",
+      "citations": 11,
+      "doi": "10.3390/app142110004",
+      "relevance_score": 0,
+      "tags": [
+        "lightweight model"
+      ]
+    },
+    {
       "id": "s2:2117a5ec0fa941b654ca",
       "title": "Generative adversarial networks for stack voltage degradation and RUL estimation in PEMFCs under static and dynamic loads",
       "abstract": "",
@@ -17184,6 +17580,29 @@
       "relevance_score": 0,
       "tags": [
         "predictive maintenance"
+      ]
+    },
+    {
+      "id": "s2:040a7a391afcf28b793e",
+      "title": "LFIR-YOLO: Lightweight Model for Infrared Vehicle and Pedestrian Detection",
+      "abstract": "The complexity of urban road scenes at night and the inadequacy of visible light imaging in such conditions pose significant challenges. To address the issues of insufficient color information, texture detail, and low spatial resolution in infrared imagery, we propose an enhanced infrared detection model called LFIR-YOLO, which is built upon the YOLOv8 architecture. The primary goal is to improve the accuracy of infrared target detection in nighttime traffic scenarios while meeting practical deployment requirements. First, to address challenges such as limited contrast and occlusion noise in i",
+      "authors": [
+        "Quan Wang",
+        "Fengyuan Liu",
+        "Yi Cao",
+        "Farhan Ullah",
+        "Muxiong Zhou"
+      ],
+      "date": "2024-10-01",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/040a7a391afcf28b793e5c98d0c3d1d340f9232b",
+      "pdf": "",
+      "venue": "Italian National Conference on Sensors",
+      "citations": 22,
+      "doi": "10.3390/s24206609",
+      "relevance_score": 0,
+      "tags": [
+        "lightweight model"
       ]
     },
     {
@@ -17320,6 +17739,25 @@
       ]
     },
     {
+      "id": "s2:7323f3150e9deb89d79b",
+      "title": "Enhanced tomato detection in greenhouse environments: a lightweight model based on S-YOLO with high accuracy",
+      "abstract": "Introduction Efficiently and precisely identifying tomatoes amidst intricate surroundings is essential for advancing the automation of tomato harvesting. Current object detection algorithms are slow and have low recognition accuracy for occluded and small tomatoes. Methods To enhance the detection of tomatoes in complex environments, a lightweight greenhouse tomato object detection model named S-YOLO is proposed, based on YOLOv8s with several key improvements: (1) A lightweight GSConv_SlimNeck structure tailored for YOLOv8s was innovatively constructed, significantly reducing model parameters ",
+      "authors": [
+        "Xiangyang Sun"
+      ],
+      "date": "2024-08-22",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/7323f3150e9deb89d79b187b2fb66908aa14082d",
+      "pdf": "",
+      "venue": "Frontiers in Plant Science",
+      "citations": 19,
+      "doi": "10.3389/fpls.2024.1451018",
+      "relevance_score": 0,
+      "tags": [
+        "lightweight model"
+      ]
+    },
+    {
       "id": "arxiv:2408.11935v1",
       "title": "Explainable Anomaly Detection: Counterfactual driven What-If Analysis",
       "abstract": "There exists three main areas of study inside of the field of predictive maintenance: anomaly detection, fault diagnosis, and remaining useful life prediction. Notably, anomaly detection alerts the stakeholder that an anomaly is occurring. This raises two fundamental questions: what is causing the fault and how can we fix it? Inside of the field of explainable artificial intelligence, counterfactual explanations can give that information in the form of what changes to make to put the data point into the opposing class, in this case \"healthy\". The suggestions are not always actionable which may",
@@ -17368,6 +17806,29 @@
       "tags": [
         "model compression",
         "transformer"
+      ]
+    },
+    {
+      "id": "s2:a403d47bc194909f67e5",
+      "title": "A Smoke Detection Algorithm Based on Improved YOLO v7 Lightweight Model for UAV Optical Sensors",
+      "abstract": "As a crucial technology for improving the autonomous sensing capability of optical sensors on unmanned aerial vehicles (UAVs), object detection has emerged as a research focus in the UAV patrol inspection. To address the problem of high computational complexity in detection models carried by UAV, a lightweight network model based on You Only Look Once (YOLO) v7 is designed. Based on this model, a smoke detection algorithm is developed. First, a new multiparameter gated activation function (Better-mish) based on the Mish function is constructed. Second, Conv + batch normalization (BN) + SiLU (C",
+      "authors": [
+        "Haoran Sun",
+        "B. Shi",
+        "Yatong Zhou",
+        "Jing-Hui Chen",
+        "Yun-Long Hu"
+      ],
+      "date": "2024-08-15",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/a403d47bc194909f67e52f4a6f0f9cceb2d7599c",
+      "pdf": "",
+      "venue": "IEEE Sensors Journal",
+      "citations": 17,
+      "doi": "10.1109/JSEN.2024.3422509",
+      "relevance_score": 0,
+      "tags": [
+        "lightweight model"
       ]
     },
     {
@@ -17523,6 +17984,26 @@
       ]
     },
     {
+      "id": "s2:d0ed720d27a33e1ce719",
+      "title": "Lightweight model for small target detection of SAR images of ships based on NWD loss",
+      "abstract": "",
+      "authors": [
+        "Chunman Yan",
+        "Chongchong Liu"
+      ],
+      "date": "2024-07-12",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/d0ed720d27a33e1ce71955a2c8c8de3ae4d9f096",
+      "pdf": "",
+      "venue": "Signal, Image and Video Processing",
+      "citations": 9,
+      "doi": "10.1007/s11760-024-03420-w",
+      "relevance_score": 0,
+      "tags": [
+        "lightweight model"
+      ]
+    },
+    {
       "id": "s2:e60b6099bc013bcac12d",
       "title": "Few-shot RUL prediction for engines based on CNN-GRU model",
       "abstract": "In the realm of prognosticating the remaining useful life (RUL) of pivotal components, such as aircraft engines, a prevalent challenge persists where the available historical life data often proves insufficient. This insufficiency engenders obstacles such as impediments in performance degradation feature extraction, inadequacies in capturing temporal relationships comprehensively, and diminished predictive accuracy. To address this issue, a 1D CNN-GRU prediction model for few-shot conditions is proposed in this paper. In pursuit of more comprehensive data feature extraction and enhanced RUL pr",
@@ -17659,6 +18140,52 @@
         "model compression",
         "neural network quantization",
         "transformer"
+      ]
+    },
+    {
+      "id": "s2:c3757ed9eddff3264995",
+      "title": "Predicting Aircraft Turbofan Engine Degradation with Recurrent Neural Networks",
+      "abstract": "Machine learning and deep learning models can be developed to forecast the possibility of a particular outcome in a phenomenon with the help of available data. The paper tackles the problem of predicting the Remaining Useful Life of Aircraft Turbofan engine. The paper's goal is to use machine learning to estimate remaining useful life, or RUL. RUL is the amount of time that a component has left to operate satisfactorily before failing. The model needs to be thoroughly validated using Prognostics metrics and provide forecast uncertainty. When using Remaining Useful Life in conjunction with Pred",
+      "authors": [
+        "Shivansh Sharma",
+        "Akash Pandit",
+        "S. S."
+      ],
+      "date": "2024-06-28",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/c3757ed9eddff32649952ce83f52192797aafe2a",
+      "pdf": "",
+      "venue": "2024 IEEE International Conference on Information Technology, Electronics and Intelligent Communication Systems (ICITEICS)",
+      "citations": 3,
+      "doi": "10.1109/ICITEICS61368.2024.10625502",
+      "relevance_score": 0,
+      "tags": [
+        "remaining useful life",
+        "predictive maintenance",
+        "RUL prediction",
+        "turbofan engine degradation"
+      ]
+    },
+    {
+      "id": "s2:74ddda9ce85112b8239b",
+      "title": "Uncertainty in Aircraft Turbofan Engine Prognostics on the C-MAPSS Dataset",
+      "abstract": "Prognostics and Health Management (PHM) plays a crucial role in maximizing operational efficiency, minimizing maintenance costs, and enhancing system  reliability. Predicting Remaining Useful Life (RUL) is a key aspect of PHM, inherently incorporating uncertainty. This paper focuses on uncertainty quantification (UQ) within Data-Driven Models (DDMs), particularly Machine Learning (ML), such as Long Short-Term Memory (LSTMs), and stochastic models namely Hidden Markov Models (HMMs). While ML models emphasize accuracy, stochastic models offer a different paradigm for prognostics, directly addres",
+      "authors": [
+        "Mariana Salinas-Camus",
+        "Nick Eleftheroglou"
+      ],
+      "date": "2024-06-27",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/74ddda9ce85112b8239b9df87e645825a53bbe1c",
+      "pdf": "",
+      "venue": "PHM Society European Conference",
+      "citations": 5,
+      "doi": "10.36001/phme.2024.v8i1.4007",
+      "relevance_score": 0,
+      "tags": [
+        "remaining useful life",
+        "C-MAPSS",
+        "prognostics and health management"
       ]
     },
     {
@@ -17918,6 +18445,29 @@
         "remaining useful life",
         "N-CMAPSS",
         "RUL prediction",
+        "CMAPSS"
+      ]
+    },
+    {
+      "id": "s2:047594ccb5ed723ab999",
+      "title": "A Comprehensive Survey of Predictive Maintenance Techniques for Aircraft Engines Utilizing the C-MAPSS Dataset",
+      "abstract": "The application of deep learning and sophisticated machine learning techniques is driving the rapid advancement of aircraft engine prognostics and predictive maintenance. Remain ing Useful Life (RUL) of aviation engines has been the subject of numerous studies aimed at improving prediction accuracy and efficacy to improve aviation safety and maintenance plans. Innovative approaches and technologies are demonstrated by these projects, which use a variety of methodologies and datasets, including C-MAPSS and N-CMAPSS. Combining feature engi neering, ensemble learning, and deep learning models suc",
+      "authors": [
+        "Muskan Pathan"
+      ],
+      "date": "2024-05-25",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/047594ccb5ed723ab99967a64122ee534bee86bf",
+      "pdf": "",
+      "venue": "INTERANTIONAL JOURNAL OF SCIENTIFIC RESEARCH IN ENGINEERING AND MANAGEMENT",
+      "citations": 1,
+      "doi": "10.55041/ijsrem34660",
+      "relevance_score": 0,
+      "tags": [
+        "remaining useful life",
+        "C-MAPSS",
+        "predictive maintenance",
+        "N-CMAPSS",
         "CMAPSS"
       ]
     },
@@ -18231,6 +18781,51 @@
       ]
     },
     {
+      "id": "s2:a78ef085c8718703af8d",
+      "title": "Combined Anomaly Aware Weakly Supervised Lightweight Model for Surface Defect Inspection",
+      "abstract": "Surface defect inspection plays a vital role in the industrial production process. Many detection methods based on deep learning have been gradually applied because of their better generalization performance. However, achieving accurate annotations for training deep learning models remains a challenge due to the difficult definition of defect boundaries and the high cost of manual annotation work. Meanwhile, the detection performance of the current deep-learning methods still cannot meet the needs of industrial applications. To address these issues, this article proposes a combined anomaly awa",
+      "authors": [
+        "Zhe Zhang",
+        "Zhenqiao Shang",
+        "Xin Wang",
+        "Jie Ma"
+      ],
+      "date": "2024-04-01",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/a78ef085c8718703af8dacaafdbcb66bf0a9a6c9",
+      "pdf": "",
+      "venue": "IEEE Transactions on Industrial Informatics",
+      "citations": 12,
+      "doi": "10.1109/TII.2023.3348835",
+      "relevance_score": 0,
+      "tags": [
+        "lightweight model"
+      ]
+    },
+    {
+      "id": "s2:cacd2a99e5f02dbeea4a",
+      "title": "Quality Detection and Grading of Rose Tea Based on a Lightweight Model",
+      "abstract": "Rose tea is a type of flower tea in China’s reprocessed tea category, which is divided into seven grades, including super flower, primary flower, flower bud, flower heart, yellow flower, scattered flower, and waste flower. Grading rose tea into distinct quality levels is a practice that is essential to boosting their competitive advantage. Manual grading is inefficient. We provide a lightweight model to advance rose tea grading automation. Firstly, four kinds of attention mechanisms were introduced into the backbone and compared. According to the experimental results, the Convolutional Block A",
+      "authors": [
+        "Zezhong Ding",
+        "Zhiwei Chen",
+        "Zhiyong Gui",
+        "Mengqi Guo",
+        "Xuesong Zhu"
+      ],
+      "date": "2024-04-01",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/cacd2a99e5f02dbeea4ab93ec22a0679ec57417a",
+      "pdf": "",
+      "venue": "Foods",
+      "citations": 11,
+      "doi": "10.3390/foods13081179",
+      "relevance_score": 0,
+      "tags": [
+        "lightweight model"
+      ]
+    },
+    {
       "id": "s2:9679fa3da44e34113203",
       "title": "Improving the Post-Training Neural Network Quantization by Prepositive Feature Quantization",
       "abstract": "Post-training neural network quantization (PTQ) is an effective model compression technology that has revolutionized the deployment of deep neural networks on various edge devices. It provides easy-to-use characteristics and allows for generating a quantized model based on a pre-trained counterpart without re-training. Typical PTQ approaches maintain output consistency through layer-wise calibration. However, these approaches still suffer from performance degradation primarily caused by feature quantization in ultra-low bitwidth conditions. To address this issue, we propose a prepositive featu",
@@ -18276,6 +18871,27 @@
       ]
     },
     {
+      "id": "s2:311302fdc7ab7aefacc0",
+      "title": "An Integrated Deep Learning-Based Data Fusion and Degradation Modeling Method for Improving Prognostics",
+      "abstract": "Accurate prognostics are crucially important to prevent unexpected failures in industrial and service systems. This process aims to monitor the degradation status of units and predict their remaining useful lifetime (RUL) by analyzing the data collected from multiple sensors. Existing studies for prognostics either focus on health index (HI)-based statistical fusion methods that are limited by restrictive assumptions or machine learning methods that model the HI and degradation status in two separate steps. However, the restrictive assumptions are often invalid in practice, and the intrinsic c",
+      "authors": [
+        "Di Wang",
+        "Kaibo Liu"
+      ],
+      "date": "2024-04-01",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/311302fdc7ab7aefacc0400d91a7902678dbbda7",
+      "pdf": "",
+      "venue": "IEEE Transactions on Automation Science and Engineering",
+      "citations": 26,
+      "doi": "10.1109/TASE.2023.3242355",
+      "relevance_score": 0,
+      "tags": [
+        "remaining useful life",
+        "degradation modeling"
+      ]
+    },
+    {
       "id": "s2:4706711dc4e1e16424db",
       "title": "SVD-LLM: Truncation-aware Singular Value Decomposition for Large Language Model Compression",
       "abstract": "The advancements in Large Language Models (LLMs) have been hindered by their substantial sizes, which necessitates LLM compression methods for practical deployment. Singular Value Decomposition (SVD) offers a promising solution for LLM compression. However, state-of-the-art SVD-based LLM compression methods have two key limitations: truncating smaller singular values may lead to higher compression loss, and the lack of update on the compressed weights after SVD truncation. In this work, we propose SVD-LLM, a SVD-based post-training LLM compression method that addresses the limitations of exist",
@@ -18295,6 +18911,26 @@
       "relevance_score": 0,
       "tags": [
         "model compression"
+      ]
+    },
+    {
+      "id": "s2:481beedbd490bc0f4d74",
+      "title": "MobileNetV2-Incep-M: a hybrid lightweight model for the classification of rice plant diseases",
+      "abstract": "",
+      "authors": [
+        "A. Arya",
+        "P. Mishra"
+      ],
+      "date": "2024-03-04",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/481beedbd490bc0f4d74148cf1bb56a5cce70b00",
+      "pdf": "",
+      "venue": "Multimedia tools and applications",
+      "citations": 17,
+      "doi": "10.1007/s11042-024-18723-w",
+      "relevance_score": 0,
+      "tags": [
+        "lightweight model"
       ]
     },
     {
@@ -18411,6 +19047,27 @@
       "tags": [
         "remaining useful life",
         "RUL prediction"
+      ]
+    },
+    {
+      "id": "s2:4362f1db56fadab37edf",
+      "title": "A SAM-guided Two-stream Lightweight Model for Anomaly Detection",
+      "abstract": "In industrial anomaly detection, model efficiency and mobile-friendliness become the primary concerns in real-world applications. Simultaneously, the impressive generalization capabilities of Segment Anything (SAM) have garnered broad academic attention, making it an ideal choice for localizing unseen anomalies and diverse real-world patterns. In this paper, considering these two critical factors, we propose a SAM-guided Two-stream Lightweight Model for unsupervised anomaly detection (STLM) that not only aligns with the two practical application requirements but also harnesses the robust gener",
+      "authors": [
+        "Chenghao Li",
+        "Lei Qi",
+        "Xin Geng"
+      ],
+      "date": "2024-02-29",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/4362f1db56fadab37edf019185f4b905cef254a1",
+      "pdf": "https://arxiv.org/pdf/2402.19145",
+      "venue": "ACM Trans. Multim. Comput. Commun. Appl.",
+      "citations": 20,
+      "doi": "10.1145/3706574",
+      "relevance_score": 0,
+      "tags": [
+        "lightweight model"
       ]
     },
     {
@@ -18703,6 +19360,28 @@
       ]
     },
     {
+      "id": "s2:0c85668838562d86c784",
+      "title": "An In-Depth Study of Vibration Sensors for Condition Monitoring",
+      "abstract": "Heavy machinery allows for the efficient, precise, and safe management of large-scale operations that are beyond the abilities of humans. Heavy machinery breakdowns or failures lead to unexpected downtime, increasing maintenance costs, project delays, and leading to a negative impact on personnel safety. Predictive maintenance is a maintenance strategy that predicts possible breakdowns of equipment using data analysis, pattern recognition, and machine learning. In this paper, vibration-based condition monitoring studies are reviewed with a focus on the devices and methods used for data collect",
+      "authors": [
+        "Ietezaz Ul Hassan",
+        "Krishna Panduru",
+        "Joseph Walsh"
+      ],
+      "date": "2024-01-23",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/0c85668838562d86c78438713cde36bda7491f5e",
+      "pdf": "",
+      "venue": "Italian National Conference on Sensors",
+      "citations": 73,
+      "doi": "10.3390/s24030740",
+      "relevance_score": 0,
+      "tags": [
+        "predictive maintenance",
+        "condition monitoring"
+      ]
+    },
+    {
       "id": "s2:c006b6d5ac9f812db343",
       "title": "A novel gear RUL prediction method by diffusion model generation health index and attention guided multi-hierarchy LSTM",
       "abstract": "Gears, as indispensable components of machinery, demand accurate prediction of their Remaining Useful Life (RUL). To enhance the utilization of ordered information within time series data and elevate RUL prediction precision, this study introduces the attention-guided multi-hierarchy LSTM (AGMLSTM). This innovative approach leverages attention mechanisms to capture the intricate interplay between high and low hierarchical features of the input data, marking the first application of such a technique in gear RUL prediction. Additionally, a refined health indicator (HI) is introduced, constructed",
@@ -18721,6 +19400,28 @@
         "remaining useful life",
         "RUL prediction",
         "RUL estimation"
+      ]
+    },
+    {
+      "id": "s2:23840b7248fb2717fc2a",
+      "title": "AML‐Net: Attention‐based multi‐scale lightweight model for brain tumour segmentation in internet of medical things",
+      "abstract": "Brain tumour segmentation employing MRI images is important for disease diagnosis, monitoring, and treatment planning. Till now, many encoder‐decoder architectures have been developed for this purpose, with U‐Net being the most extensively utilised. However, these architectures require a lot of parameters to train and have a semantic gap. Some work tried to make a lightweight model and do channel pruning that made a small receptive field which compromised the accuracy. The authors propose an attention‐based multi‐scale lightweight model called AML‐Net in Internet of Medical Things to overcome ",
+      "authors": [
+        "Muhammad Zeeshan Aslam",
+        "B. Raza",
+        "Muhammed Faheem",
+        "Aadil Raza"
+      ],
+      "date": "2024-01-17",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/23840b7248fb2717fc2a1c39e911ecf2e8020f17",
+      "pdf": "",
+      "venue": "CAAI Transactions on Intelligence Technology",
+      "citations": 19,
+      "doi": "10.1049/cit2.12278",
+      "relevance_score": 0,
+      "tags": [
+        "lightweight model"
       ]
     },
     {
@@ -18862,6 +19563,28 @@
       ]
     },
     {
+      "id": "s2:2097e6c5b761bec7f9a8",
+      "title": "Écrêter la valeur cible ou filtrer les données en maintenance prévisionnelle : exemple de C-MAPSS",
+      "abstract": "",
+      "authors": [
+        "Nassime Mountasir",
+        "Baptiste Lafabregue",
+        "Bruno Albert",
+        "Nicolas Lachiche"
+      ],
+      "date": "2024",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/2097e6c5b761bec7f9a8ce74652edd4e42e865f1",
+      "pdf": "",
+      "venue": "European Grid Conference",
+      "citations": 0,
+      "doi": "",
+      "relevance_score": 0,
+      "tags": [
+        "C-MAPSS"
+      ]
+    },
+    {
       "id": "s2:658b2d7faa3eae84a33d",
       "title": "Lightweight FL: A Low-Cost Federated Learning Framework for Mechanical Fault Diagnosis With Training Optimization and Model Pruning",
       "abstract": "Due to data security concerns, federated learning (FL) has significant computation and communication costs, which lowers total training effectiveness. This research proposes a new FL framework, Lightweight FL, to resolve this problem by enhancing the current fundamental processes. First, a local network comprising numerous lightweight training methodologies is designed to lower the costs of local model training via small-scale convolution calculation. Second, nonstructural pruning and fine-tuning of the local model is performed on this premise to reduce computation costs by reducing network co",
@@ -18883,6 +19606,52 @@
       "tags": [
         "model pruning",
         "federated learning"
+      ]
+    },
+    {
+      "id": "s2:6808f88c8da4bc774787",
+      "title": "CACS-YOLO: A Lightweight Model for Insulator Defect Detection Based on Improved YOLOv8m",
+      "abstract": "Insulator defects in transmission lines can threaten the safe and stable operation of the power system. Therefore, insulator defect detection plays a crucial role in the electricity sector. Currently, the you only look once (YOLO) algorithm is widely used in insulator fault detection. However, insulator defect detection using YOLO still faces the double challenges of detection precision and real-time performance. Therefore, we construct a lightweight model for insulator defect detection named coordinate attention mechanism (CAM) and feature channel shuffle operation (CSO) YOLO (CACS-YOLO). By ",
+      "authors": [
+        "Zhong Cao",
+        "Kaihong Chen",
+        "Junzuo Chen",
+        "Zhaohui Chen",
+        "Man Zhang"
+      ],
+      "date": "2024",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/6808f88c8da4bc774787a4146dc4f32bc7c0d1c4",
+      "pdf": "",
+      "venue": "IEEE Transactions on Instrumentation and Measurement",
+      "citations": 51,
+      "doi": "10.1109/TIM.2024.3453332",
+      "relevance_score": 0,
+      "tags": [
+        "lightweight model"
+      ]
+    },
+    {
+      "id": "s2:704990bb4e05e6654661",
+      "title": "MambaFormerSR: A Lightweight Model for Remote-Sensing Image Super-Resolution",
+      "abstract": "In recent years, deep learning-based method have shown impressive performance in super-resolution (SR) reconstruction tasks for remote-sensing images. However, many existing methods require significant computational resources, posing a challenge for edge devices with limited computing capabilities. To address this issue, we introduce Mamba, an emerging novel state space model (SSM), which possesses a global receptive field and linear complexity, and apply it to remote-sensing SR tasks. Furthermore, to enhance global modeling capabilities, we integrate Mamba and Transformer to develop a lightwe",
+      "authors": [
+        "Ruicong Zhi",
+        "Xiaopei Fan",
+        "Jingye Shi"
+      ],
+      "date": "2024",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/704990bb4e05e665466155a47e1feb773a68c490",
+      "pdf": "",
+      "venue": "IEEE Geoscience and Remote Sensing Letters",
+      "citations": 26,
+      "doi": "10.1109/LGRS.2024.3453428",
+      "relevance_score": 0,
+      "tags": [
+        "lightweight model",
+        "transformer",
+        "state space model"
       ]
     },
     {
@@ -18911,6 +19680,30 @@
       ]
     },
     {
+      "id": "s2:eb79f7de82e9de9612bf",
+      "title": "Degradation Modeling Considering the Dependency of Rate and Volatility for Real-Time Prognostics With Error Correction",
+      "abstract": "Degradation modeling and prognostics play an important role in improving system security and reducing maintenance costs. However, accurate degradation modeling for increasingly sophisticated equipment or components faces challenges of rationality and applicability caused by time-varying operational environments, complex and unknown intrinsic factors, and inappropriate sensor measurements. In this respect, this article proposes an improved Wiener process model (WPM) with adaptive drift by describing degradation rate-volatility-related effects (DRVREs), and develops the parameter estimation proc",
+      "authors": [
+        "Zirong Wang",
+        "Zhen Chen",
+        "Tangbin Xia",
+        "E. Pan"
+      ],
+      "date": "2024",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/eb79f7de82e9de9612bfd1e68e6570ab2fc88cc2",
+      "pdf": "",
+      "venue": "IEEE Transactions on Instrumentation and Measurement",
+      "citations": 17,
+      "doi": "10.1109/TIM.2023.3346507",
+      "relevance_score": 0,
+      "tags": [
+        "remaining useful life",
+        "RUL prediction",
+        "degradation modeling"
+      ]
+    },
+    {
       "id": "s2:e563ac903e7bc7b5f5aa",
       "title": "Time Series Prediction in Industry 4.0: A Comprehensive Review and Prospects for Future Advancements",
       "abstract": "Time series prediction stands at the forefront of the fourth industrial revolution (Industry 4.0), offering a crucial analytical tool for the vast data streams generated by modern industrial processes. This literature review systematically consolidates existing research on the predictive analysis of time series within the framework of Industry 4.0, illustrating its critical role in enhancing operational foresight and strategic planning. Tracing the evolution from the first to the fourth industrial revolution, the paper delineates how each phase has incrementally set the stage for today’s data-",
@@ -18931,6 +19724,50 @@
         "time series forecasting",
         "time series prediction",
         "predictive maintenance"
+      ]
+    },
+    {
+      "id": "s2:eaca5112bb5789a06971",
+      "title": "Machinery Health Prognostics With Multimodel Fusion Degradation Modeling",
+      "abstract": "Degradation modeling aims to formulate the health state degradation process of machinery. Commonly used degradation models pay more attention to describing the global increasing or decreasing trend without considering the local fluctuation in the degradation process. To deal with the above-mentioned issue, this article proposes a multimodel fusion degradation modeling method. The basic idea is to fuse multiple models to describe various degradation trends of machinery involving the global trend as well as the local fluctuation. A generalized statistical degradation modeling framework is constr",
+      "authors": [
+        "Naipeng Li",
+        "Y. Lei",
+        "Xiaofei Liu",
+        "Tao Yan",
+        "Pengcheng Xu"
+      ],
+      "date": "2023-11-01",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/eaca5112bb5789a06971fa9dcef79d3a4764190e",
+      "pdf": "",
+      "venue": "IEEE transactions on industrial electronics (1982. Print)",
+      "citations": 29,
+      "doi": "10.1109/TIE.2022.3231273",
+      "relevance_score": 0,
+      "tags": [
+        "degradation modeling"
+      ]
+    },
+    {
+      "id": "s2:7b1b30eb319c51a5c0e8",
+      "title": "Identifying Key Factors in Turbofan Engine Health Degradation using Functional Analysis",
+      "abstract": "A method is presented for predicting the health of turbofan engines using data and simulations from NASA. The method involves estimating engine health using k-nearest neighbors’ regression and fitting a remaining useful life model that considers engine usage. A matching pursuit algorithm identifies key parameters, while functional principal components provide insight into degradation precursors. Model performance is evaluated using root mean square error and future research and applications are discussed.",
+      "authors": [
+        "Declan Mallamo",
+        "M. Azarian",
+        "Michael Pecht"
+      ],
+      "date": "2023-10-26",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/7b1b30eb319c51a5c0e822bafa14f6a19994b0db",
+      "pdf": "",
+      "venue": "Annual Conference of the PHM Society",
+      "citations": 0,
+      "doi": "10.36001/phmconf.2023.v15i1.3572",
+      "relevance_score": 0,
+      "tags": [
+        "remaining useful life"
       ]
     },
     {
@@ -19053,6 +19890,27 @@
       ]
     },
     {
+      "id": "s2:235125086c29a6d1ddfd",
+      "title": "Assessment of performance degradation of a mixed flow low bypass turbofan engine through GasTurb simulation",
+      "abstract": "Abstract Aero engine performance analysis is very important for engines under development as well as for engines in service for condition monitoring. Predictions of aero engine performance and ability of building the simulation model is an invaluable asset for designers, manufacturer and end-use operator. This paper presents the methodology in establishing the baseline performance of a twin spool mixed flow low bypass turbofan engine through extensive testing at engine test bench. The baseline data is used to validate a GasTurb model which is subsequently used for assessment of off-design perf",
+      "authors": [
+        "Narahari Rath",
+        "Mishra R. K.",
+        "A. Kushari"
+      ],
+      "date": "2023-08-03",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/235125086c29a6d1ddfdbb9003078757c2c96e20",
+      "pdf": "",
+      "venue": "International Journal of Turbo &amp; Jet-Engines",
+      "citations": 2,
+      "doi": "10.1515/tjj-2023-0064",
+      "relevance_score": 0,
+      "tags": [
+        "condition monitoring"
+      ]
+    },
+    {
       "id": "s2:0062fc95d78412b2c5b1",
       "title": "Conformal PID Control for Time Series Prediction",
       "abstract": "We study the problem of uncertainty quantification for time series prediction, with the goal of providing easy-to-use algorithms with formal guarantees. The algorithms we present build upon ideas from conformal prediction and control theory, are able to prospectively model conformal scores in an online setting, and adapt to the presence of systematic errors due to seasonality, trends, and general distribution shifts. Our theory both simplifies and strengthens existing analyses in online conformal prediction. Experiments on 4-week-ahead forecasting of statewide COVID-19 death counts in the U.S.",
@@ -19091,6 +19949,51 @@
       "relevance_score": 0,
       "tags": [
         "transfer learning"
+      ]
+    },
+    {
+      "id": "s2:665d8a0796124fdbf6bc",
+      "title": "Remaining useful life prediction of turbofan engine using global health degradation representation in federated learning",
+      "abstract": "",
+      "authors": [
+        "Xi Chen",
+        "Haibo Wang",
+        "Siliang Lu",
+        "Jiawen Xu",
+        "Ruqiang Yan"
+      ],
+      "date": "2023-07-01",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/665d8a0796124fdbf6bcfff32d0274d46ef532ef",
+      "pdf": "",
+      "venue": "Reliability Engineering & System Safety",
+      "citations": 28,
+      "doi": "10.1016/j.ress.2023.109511",
+      "relevance_score": 0,
+      "tags": [
+        "remaining useful life",
+        "federated learning"
+      ]
+    },
+    {
+      "id": "s2:312c8b879784286c6ad7",
+      "title": "A denoising semi-supervised deep learning model for remaining useful life prediction of turbofan engine degradation",
+      "abstract": "",
+      "authors": [
+        "Youming Wang",
+        "Yue Wang"
+      ],
+      "date": "2023-06-30",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/312c8b879784286c6ad7b1f35371854b937047f2",
+      "pdf": "",
+      "venue": "Applied intelligence (Boston)",
+      "citations": 16,
+      "doi": "10.1007/s10489-023-04777-0",
+      "relevance_score": 0,
+      "tags": [
+        "remaining useful life",
+        "turbofan engine degradation"
       ]
     },
     {
@@ -19154,6 +20057,31 @@
       "tags": [
         "time series prediction",
         "transformer"
+      ]
+    },
+    {
+      "id": "s2:94c266ad7133a04610eb",
+      "title": "Attention and Long Short-Term Memory Network for Remaining Useful Lifetime Predictions of Turbofan Engine Degradation",
+      "abstract": "Machine Prognostics and Health Management (PHM) is often concerned with the prediction of the Remaining Useful Lifetime (RUL) of assets. Accurate real-time RUL predictions enable equipment health assessment and maintenance planning. In this work, we propose a Long Short-Term Memory (LSTM) network combined with global Attention mechanisms to learn RUL relationships directly from time-series sensor data. We use the NASA Commercial Modular Aero- Propulsion System Simulation (C-MAPPS) datasets to assess the performance of our proposed method. We compare our approach with current state-of-the-art m",
+      "authors": [
+        "P. D. Costa",
+        "A. Akçay",
+        "Yingqian Zhang",
+        "U. Kaymak"
+      ],
+      "date": "2023-06-04",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/94c266ad7133a04610ebc3bc5e0ca70ea0be554c",
+      "pdf": "",
+      "venue": "International Journal of Prognostics and Health Management",
+      "citations": 42,
+      "doi": "10.36001/ijphm.2019.v10i4.2623",
+      "relevance_score": 0,
+      "tags": [
+        "remaining useful life",
+        "prognostics and health management",
+        "RUL prediction",
+        "turbofan engine degradation"
       ]
     },
     {
@@ -19380,6 +20308,51 @@
       "tags": []
     },
     {
+      "id": "s2:d661ab54601d8197be3e",
+      "title": "A Wiener Process Model With Dynamic Covariate for Degradation Modeling and Remaining Useful Life Prediction",
+      "abstract": "Most industrial products degrade with usage. To capture degradation patterns and schedule condition-based maintenance actions, it is necessary to model the degradation process and predict the system remaining useful life (RUL). In practice, the operating environments and loading conditions are dynamic and stochastic, which introduces extra randomness in the degradation process. To account for the dynamic environmental impacts, this article proposes a nonlinear Wiener process model with a random time-varying covariate. We model the dynamic covariate with an Ornstein–Uhlenbeck process, and link ",
+      "authors": [
+        "Shuyi Zhang",
+        "Qingqing Zhai",
+        "Xin Shi",
+        "Xuejuan Liu"
+      ],
+      "date": "2023-03-01",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/d661ab54601d8197be3ea6d77191212104e2b660",
+      "pdf": "",
+      "venue": "IEEE Transactions on Reliability",
+      "citations": 82,
+      "doi": "10.1109/TR.2022.3159273",
+      "relevance_score": 0,
+      "tags": [
+        "remaining useful life",
+        "RUL prediction",
+        "degradation modeling",
+        "condition-based maintenance"
+      ]
+    },
+    {
+      "id": "s2:f9e89f2a0d3341bdb935",
+      "title": "Degradation Modeling With Long-Term Memory Considering Measurement Errors",
+      "abstract": "With the advancement of measurement technology, the long-term memory (LTM) effect within the degradation data of many assets has recently been detected, which implies that the future degradation process highly correlates with both the current degradation status and historical degradation trajectory across a long time period. To capture the LTM effect, several LTM-integrated degradation models have been developed in the literature. In practice, degradation data are often contaminated with measurement errors, which are ignored in most existing LTM-integrated degradation studies. Without consider",
+      "authors": [
+        "Yunfei Shao",
+        "W. Si"
+      ],
+      "date": "2023-03-01",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/f9e89f2a0d3341bdb9355b297fb540c830e348d5",
+      "pdf": "",
+      "venue": "IEEE Transactions on Reliability",
+      "citations": 16,
+      "doi": "10.1109/TR.2021.3125958",
+      "relevance_score": 0,
+      "tags": [
+        "degradation modeling"
+      ]
+    },
+    {
       "id": "s2:b4c180cd65e8c2aec08f",
       "title": "State of Health Estimation for Lithium-Ion Battery via Recursive Feature Elimination on Partial Charging Curves",
       "abstract": "Knowing the batteries’ health state in electric vehicles (EVs) accurately and effectively would directly enhance the system’s reliability and safety. Accordingly, this article proposes a state of health (SOH) estimation method based on the collaboration of feature selection and machine learning methods. Specifically, actual EV data from more than 1200 charging processes are analyzed to designate the constrained voltage range for data processing. Features are then derived, extracted, and selected from the capacity-based curves to depict the battery degradation process and estimate the SOH. Afte",
@@ -19427,6 +20400,117 @@
       ]
     },
     {
+      "id": "s2:a41a5689fff7a471e7e2",
+      "title": "Condition Monitoring using Machine Learning: Theory and Applications",
+      "abstract": "",
+      "authors": [
+        "Onur Surucu",
+        "S. Andrew Gadsden",
+        "J. Yawney"
+      ],
+      "date": "2023-02-01",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/a41a5689fff7a471e7e27c13922cb11b7b4f9e3d",
+      "pdf": "",
+      "venue": "Expert systems with applications",
+      "citations": 182,
+      "doi": "10.1016/j.eswa.2023.119738",
+      "relevance_score": 0,
+      "tags": [
+        "condition monitoring"
+      ]
+    },
+    {
+      "id": "s2:dab8d3398902a4c8ee00",
+      "title": "A Hybrid Evolutionary CNN-LSTM Model for Prognostics of C-MAPSS Aircraft Dataset",
+      "abstract": "Summary & ConclusionsThe fundamental concept of prognostics and health management (PHM) is to find an approach to evaluate the system's health and predict its remaining useful life (RUL). In the era of digital transformation, many methods and algorithms from the data science world have been applied to use for PHM modeling. One of the leading algorithms is deep learning. Many of the PHM models proposed during the past few years have shown a significant increasing trend of employing hybrid deep neural network schemes. The hybrid modeling approach is using the combination of multiple types of neu",
+      "authors": [
+        "Phattara Khumprom",
+        "Alex Davila-Frias",
+        "D. Grewell",
+        "Dollaya Buakum"
+      ],
+      "date": "2023-01-23",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/dab8d3398902a4c8ee00430a60a7c4886f10a986",
+      "pdf": "",
+      "venue": "Reliability and Maintainability Symposium",
+      "citations": 5,
+      "doi": "10.1109/RAMS51473.2023.10088251",
+      "relevance_score": 0,
+      "tags": [
+        "remaining useful life",
+        "C-MAPSS",
+        "prognostics and health management",
+        "RUL prediction"
+      ]
+    },
+    {
+      "id": "s2:91316ce910276dd2a120",
+      "title": "A review for control theory and condition monitoring on construction robots",
+      "abstract": "The application of robotic technologies in building construction leads to great convenience and productivity improvement, and construction robots (CRs) bring enormous opportunities for the way we conduct design and construction. To get a better understanding of the trends and track the application of CRs for on‐site conditions, this paper conducts a systematic review of control models and status monitoring of CRs, which are two key aspects that determine construction accuracy and efficiency. Control accuracy and flexibility are primary needs for CRs applied in different scenes, so the control ",
+      "authors": [
+        "Huaitao Shi",
+        "Ranran Li",
+        "X. Bai",
+        "Yixing Zhang",
+        "Li Min"
+      ],
+      "date": "2023-01-20",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/91316ce910276dd2a120364be8ff58ee2b68023b",
+      "pdf": "",
+      "venue": "J. Field Robotics",
+      "citations": 57,
+      "doi": "10.1002/rob.22156",
+      "relevance_score": 0,
+      "tags": [
+        "condition monitoring"
+      ]
+    },
+    {
+      "id": "s2:dac782d5b45fdd64c817",
+      "title": "Investigation of Performance Degradation in a Mixed Flow Low Bypass Turbofan Engine",
+      "abstract": "",
+      "authors": [
+        "Narahari Rath",
+        "R. K. Mishra",
+        "A. Kushari"
+      ],
+      "date": "2023-01-11",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/dac782d5b45fdd64c817486e6c094fd2b2ccd06d",
+      "pdf": "",
+      "venue": "Journal of Failure Analysis and Prevention",
+      "citations": 4,
+      "doi": "10.1007/s11668-023-01590-2",
+      "relevance_score": 0,
+      "tags": []
+    },
+    {
+      "id": "s2:50b4ba1d3505edbe1271",
+      "title": "Noise Level of a Ring Laser Gyroscope in the Femto-Rad/s Range.",
+      "abstract": "Absolute angular rotation rate measurements with sensitivity better than prad/s would be beneficial for fundamental science investigations. In this regard, large frame Earth based ring laser gyroscopes are top instrumentation as far as bandwidth, long-term operation, and sensitivity are concerned. Here, we demonstrate that the GINGERINO active-ring laser upper limiting noise is close to 2×10^{-15}  rad/s for ∼2×10^{5}  s of integration time, as estimated by the Allan deviation evaluated in a differential measurement scheme. This result is more than a factor of 10 better than the theoretical pr",
+      "authors": [
+        "A. D. Di Virgilio",
+        "F. Bajardi",
+        "A. Basti",
+        "N. Beverini",
+        "G. Carelli"
+      ],
+      "date": "2023-01-03",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/50b4ba1d3505edbe1271fe6a78784912823ac566",
+      "pdf": "https://arxiv.org/pdf/2301.01386",
+      "venue": "Physical Review Letters",
+      "citations": 23,
+      "doi": "10.1103/PhysRevLett.133.013601",
+      "relevance_score": 0,
+      "tags": [
+        "FEMTO"
+      ]
+    },
+    {
       "id": "s2:93ce4360bdfe3ccbba5a",
       "title": "Physics-Informed Neural Networks for Prognostics and Health Management of Lithium-Ion Batteries",
       "abstract": "For Prognostics and Health Management (PHM) of Lithium-ion (Li-ion) batteries, many models have been established to characterize their degradation process. The existing empirical or physical models can reveal important information regarding the degradation dynamics. However, there are no general and flexible methods to fuse the information represented by those models. Physics-Informed Neural Network (PINN) is an efficient tool to fuse empirical or physical dynamic models with data-driven models. To take full advantage of various information sources, we propose a model fusion scheme based on PI",
@@ -19448,6 +20532,49 @@
       "tags": [
         "prognostics and health management",
         "physics-informed"
+      ]
+    },
+    {
+      "id": "s2:5a26e7f6e20e56bcf531",
+      "title": "Towards a point-of-care test to cover atto-femto and pico-nano molar concentration ranges in interleukin 6 detection exploiting PMMA-based plasmonic biosensor chips.",
+      "abstract": "Point-of-Care tests based on biomarkers, useful to monitor acute and chronic inflammations, are required for advances in medicine. In this scope, a key role is played by pro-inflammatory cytokines, of which interleukin 6 (IL-6) is generally thought as one of the most relevant. To use IL-6 in real scenarios, detection in ultra-low concentration ranges is required. In this work, two IL-6 biosensors are obtained by exploiting the combination of the same antibody self-assembled monolayer with two different plasmonic probes. This approach has demonstrated, via experimental results, that two differe",
+      "authors": [
+        "N. Cennamo",
+        "A. Piccirillo",
+        "Debora Bencivenga",
+        "F. Arcadio",
+        "M. Annunziata"
+      ],
+      "date": "2023-01-01",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/5a26e7f6e20e56bcf53101fb212e84434b655446",
+      "pdf": "",
+      "venue": "Talanta: The International Journal of Pure and Applied Analytical Chemistry",
+      "citations": 28,
+      "doi": "10.1016/j.talanta.2023.124284",
+      "relevance_score": 0,
+      "tags": [
+        "FEMTO"
+      ]
+    },
+    {
+      "id": "s2:3c312b39d93b2e143fba",
+      "title": "Acoustic-Based Machine Condition Monitoring—Methods and Challenges",
+      "abstract": "The traditional means of monitoring the health of industrial systems involves the use of vibration and performance monitoring techniques amongst others. In these approaches, contact-type sensors, such as accelerometer, proximity probe, pressure transducer and temperature transducer, are installed on the machine to monitor its operational health parameters. However, these methods fall short when additional sensors cannot be installed on the machine due to cost, space constraint or sensor reliability concerns. On the other hand, the use of acoustic-based monitoring technique provides an improved",
+      "authors": [
+        "Gbanaibolou Jombo",
+        "Yu Zhang"
+      ],
+      "date": "2023-01-01",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/3c312b39d93b2e143fba922022962796537e934a",
+      "pdf": "",
+      "venue": "Engineer",
+      "citations": 50,
+      "doi": "10.3390/eng4010004",
+      "relevance_score": 0,
+      "tags": [
+        "condition monitoring"
       ]
     },
     {
@@ -19572,6 +20699,51 @@
       ]
     },
     {
+      "id": "s2:6f095bc1b3c3cbc42bcb",
+      "title": "Stochastic Uncertain Degradation Modeling and Remaining Useful Life Prediction Considering Aleatory and Epistemic Uncertainty",
+      "abstract": "Remaining useful life (RUL) prediction based on the degradation model is vital for the maintenance and management of complex equipment. It is necessary to describe the aleatory uncertainty in internal changes during equipment degradation and quantify the epistemic uncertainty caused by a lack of sufficient knowledge simultaneously. This article proposes a novel framework for the degradation model and RUL prediction with aleatory and epistemic uncertainties. First, the probability theory is combined with the uncertainty theory to establish a stochastic uncertain degradation model. Following tha",
+      "authors": [
+        "Xuerui Cao",
+        "Kai-xiang Peng"
+      ],
+      "date": "2023",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/6f095bc1b3c3cbc42bcba19efe81c60fa90171b6",
+      "pdf": "",
+      "venue": "IEEE Transactions on Instrumentation and Measurement",
+      "citations": 26,
+      "doi": "10.1109/TIM.2023.3236323",
+      "relevance_score": 0,
+      "tags": [
+        "remaining useful life",
+        "RUL prediction",
+        "degradation modeling"
+      ]
+    },
+    {
+      "id": "s2:d6d06feff3162b421f6f",
+      "title": "Membrane Electrode Assembly Degradation Modeling of Proton Exchange Membrane Fuel Cells: A Review",
+      "abstract": "Proton exchange membrane fuel cells (PEMFCs) have been recognized as a promising power generation source for a wide range of automotive, stationary, and portable electronic applications. However, the durability of PEMFCs remains as one of the key barriers to their wide commercialization. The membrane electrode assembly (MEA) as a central part of a PEMFC, which consists of a proton exchange membrane with a catalyst layer (CL) and gas diffusion layer (GDL) on each side, is subject to failure and degradation in long-running and cycling load conditions. The real-time monitoring of the degradation ",
+      "authors": [
+        "A. M. Dafalla",
+        "Lin Wei",
+        "B. Habte",
+        "Jian Guo",
+        "F. Jiang"
+      ],
+      "date": "2022-12-06",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/d6d06feff3162b421f6f21c15dda145549460ee2",
+      "pdf": "",
+      "venue": "Energies",
+      "citations": 37,
+      "doi": "10.3390/en15239247",
+      "relevance_score": 0,
+      "tags": [
+        "degradation modeling"
+      ]
+    },
+    {
       "id": "s2:dad15404d372a23b4b3b",
       "title": "A Time Series is Worth 64 Words: Long-term Forecasting with Transformers",
       "abstract": "We propose an efficient design of Transformer-based models for multivariate time series forecasting and self-supervised representation learning. It is based on two key components: (i) segmentation of time series into subseries-level patches which are served as input tokens to Transformer; (ii) channel-independence where each channel contains a single univariate time series that shares the same embedding and Transformer weights across all the series. Patching design naturally has three-fold benefit: local semantic information is retained in the embedding; computation and memory usage of the att",
@@ -19593,6 +20765,53 @@
         "time series forecasting",
         "multivariate time series",
         "transformer"
+      ]
+    },
+    {
+      "id": "s2:d1ba99780f14dc1f510c",
+      "title": "Advanced Signal Processing Methods for Condition Monitoring",
+      "abstract": "Condition monitoring of induction motors (IM) among with the predictive maintenance concept are currently among the most promising research topics of manufacturing industry. Production efficiency is an important parameter of every manufacturing plant since it directly influences the final price of products. This research article presents a comprehensive overview of conditional monitoring techniques, along with classification techniques and advanced signal processing techniques. Compared methods are either based on measurement of electrical quantities or nonelectrical quantities that are proces",
+      "authors": [
+        "René Jaros",
+        "Radek Byrtus",
+        "J. Dohnal",
+        "L. Danys",
+        "Ján Baros"
+      ],
+      "date": "2022-10-26",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/d1ba99780f14dc1f510ca24bf9a68352e1c08a2f",
+      "pdf": "",
+      "venue": "Archives of Computational Methods in Engineering",
+      "citations": 57,
+      "doi": "10.1007/s11831-022-09834-4",
+      "relevance_score": 0,
+      "tags": [
+        "predictive maintenance",
+        "condition monitoring"
+      ]
+    },
+    {
+      "id": "s2:e1a61a0965e3980d1f06",
+      "title": "Femto-containers: lightweight virtualization and fault isolation for small software functions on low-power IoT microcontrollers",
+      "abstract": "Low-power operating system runtimes used on IoT microcontrollers typically provide rudimentary APIs, basic connectivity and, sometimes, a (secure) firmware update mechanism. In contrast, on less constrained hardware, networked software has entered the age of serverless, microservices and agility. With a view to bridge this gap, in the paper we design Femto-Containers, a new middleware runtime which can be embedded on heterogeneous low-power IoT devices. Femto-Containers enable the secure deployment, execution and isolation of small virtual software functions on low-power IoT devices, over the ",
+      "authors": [
+        "K. Zandberg",
+        "E. Baccelli",
+        "Shenghao Yuan",
+        "Frédéric Besson",
+        "J. Talpin"
+      ],
+      "date": "2022-10-07",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/e1a61a0965e3980d1f06a118c1d0f44bd9da3005",
+      "pdf": "https://arxiv.org/pdf/2210.03432",
+      "venue": "International Middleware Conference",
+      "citations": 31,
+      "doi": "10.1145/3528535.3565242",
+      "relevance_score": 0,
+      "tags": [
+        "FEMTO"
       ]
     },
     {
@@ -19642,6 +20861,167 @@
       ]
     },
     {
+      "id": "s2:00a684816f7c3a2423de",
+      "title": "A Highly Sensitive Triboelectric Vibration Sensor for Machinery Condition Monitoring",
+      "abstract": "Vibration sensors are involved extensively in a variety of applications. Especially in the era of the Internet of Things, developing self‐powered vibration sensors has become a very meaningful yet challenging problem. This study investigates a highly sensitive self‐powered vibration sensor based on the triboelectric nanogenerator (VS‐TENG) for machinery condition monitoring. By introducing a stacked structure comprising foamed aluminum, and a fluorinated ethylene propylene film with gold‐plated electrode protected by two indium tin oxid layers, The VS‐TENG can detect the vibrations with freque",
+      "authors": [
+        "Hongfa Zhao",
+        "Mingrui Shu",
+        "Zihao Ai",
+        "Zirui Lou",
+        "Kitajima Sou"
+      ],
+      "date": "2022-08-03",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/00a684816f7c3a2423de235edad7df1c3c5c3312",
+      "pdf": "",
+      "venue": "Advanced Energy Materials",
+      "citations": 116,
+      "doi": "10.1002/aenm.202201132",
+      "relevance_score": 0,
+      "tags": [
+        "condition monitoring"
+      ]
+    },
+    {
+      "id": "s2:69c03292b441cb45cbdb",
+      "title": "Femto-LASIK after Deep Anterior Lamellar Keratoplasty to Correct Residual Astigmatism: A Long-Term Case Series Study",
+      "abstract": "Purpose: To evaluate the long-term outcomes of femtosecond laser-assisted in situ keratomileusis (Femto-LASIK) to correct residual astigmatism after deep anterior lamellar keratoplasty (DALK). Methods: This retrospective case series study included 10 eyes that underwent Femto-LASIK after a DALK. The refractive error, uncorrected (UDVA) and corrected (CDVA) distance visual acuities, thinnest corneal thickness (TCT), and central corneal thickness (CCT) were registered. The postoperative follow-up ranged between 36 and 60 months. Results: All surgeries were uneventful, with no intra- or postopera",
+      "authors": [
+        "Belén Alfonso-Bartolozzi",
+        "C. Lisa",
+        "L. Fernández-Vega-Cueto",
+        "D. Madrid-Costa",
+        "J. F. Alfonso"
+      ],
+      "date": "2022-08-01",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/69c03292b441cb45cbdbc745626dfaabf3c36e70",
+      "pdf": "",
+      "venue": "Medicina",
+      "citations": 6,
+      "doi": "10.3390/medicina58081036",
+      "relevance_score": 0,
+      "tags": [
+        "FEMTO"
+      ]
+    },
+    {
+      "id": "s2:6566ba60aa2a01d67635",
+      "title": "A Review on the Long-Term Performance of Proton Exchange Membrane Fuel Cells: From Degradation Modeling to the Effects of Bipolar Plates, Sealings, and Contaminants",
+      "abstract": "Proton-exchange membrane fuel cells (PEMFCs) are regarded as promising alternatives to internal combustion engines (ICEs) to reduce pollution. Recent research on PEMFCs focuses on achieving higher power densities, reducing the refueling time, mitigating the final price, and decreasing the degradations, to facilitate the commercialization of hydrogen mobility. The design of bipolar plates and compression kits, in addition to their coating, can effectively improve performance, increase durability, and support water/thermal management. Past reviews usually focused on the specific aspect, which ca",
+      "authors": [
+        "H. Pourrahmani",
+        "M. Siavashi",
+        "Adel Yavarinasab",
+        "Mardit Matian",
+        "Nazanin Chitgar"
+      ],
+      "date": "2022-07-12",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/6566ba60aa2a01d67635135c08db8211eb57e717",
+      "pdf": "",
+      "venue": "Energies",
+      "citations": 41,
+      "doi": "10.3390/en15145081",
+      "relevance_score": 0,
+      "tags": [
+        "degradation modeling"
+      ]
+    },
+    {
+      "id": "s2:9c724426af6c92065a1f",
+      "title": "Cascaded electron transition proved by femto-second transient absorption spectroscopy for enhanced photocatalysis hydrogen generation",
+      "abstract": "",
+      "authors": [
+        "X. Wang",
+        "Hui Jiang",
+        "Mingshan Zhu",
+        "Xiaowei Shi"
+      ],
+      "date": "2022-07-01",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/9c724426af6c92065a1f359bd7571c49f9a29a6d",
+      "pdf": "",
+      "venue": "Chinese Chemical Letters",
+      "citations": 60,
+      "doi": "10.1016/j.cclet.2022.07.026",
+      "relevance_score": 0,
+      "tags": [
+        "FEMTO"
+      ]
+    },
+    {
+      "id": "s2:0581e131f967e5c66808",
+      "title": "Changes of Subjective Symptoms and Tear Film Biomarkers following Femto-LASIK",
+      "abstract": "Femtosecond laser-assisted in situ keratomileusis (Femto-LASIK) represents a common treatment modality in refractive surgery and shows excellent results in terms of safety, efficacy, predictability, and long-term stability. However, patients may be affected by dry eye symptoms. The aim of this study was to identify a potential association between subjective dry eye symptoms, objective dry eye markers, and possible changes in the tear film, which could be a target for future therapy development. Therefore, clinical (dry eye) examinations (OSDI, Schirmer test, lissamine green and fluorescein sta",
+      "authors": [
+        "Teresa Tsai",
+        "Mohannad Alwees",
+        "A. Rost",
+        "J. Theile",
+        "H. B. Dick"
+      ],
+      "date": "2022-07-01",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/0581e131f967e5c6680893a60a071ec894d211d9",
+      "pdf": "",
+      "venue": "International Journal of Molecular Sciences",
+      "citations": 14,
+      "doi": "10.3390/ijms23147512",
+      "relevance_score": 0,
+      "tags": [
+        "FEMTO"
+      ]
+    },
+    {
+      "id": "s2:db9d9e1eccd0e540ec7b",
+      "title": "Two‐stage degradation modeling for remaining useful life prediction based on the Wiener process with measurement errors",
+      "abstract": "Remaining useful life prediction (RUL) is a key component in the application of prognostics and health management associated with devices or systems. But such RUL predictions are cumbersome owing to complexities from external effects and internal degradation mechanisms within systems. Specifically, it is common for degradation processes to comprise distinct multiple stages rather than just one uniform stage in many mechanical systems. In particular, the two‐stage degradation modeling for RUL prediction based on the Wiener process with linear drift has received significant attention in recent y",
+      "authors": [
+        "Qingluan Guan",
+        "Xiukun Wei",
+        "Wenfei Bai",
+        "Limin Jia"
+      ],
+      "date": "2022-06-14",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/db9d9e1eccd0e540ec7b4e68bb4f39168a3474df",
+      "pdf": "",
+      "venue": "Quality and Reliability Engineering International",
+      "citations": 30,
+      "doi": "10.1002/qre.3147",
+      "relevance_score": 0,
+      "tags": [
+        "remaining useful life",
+        "prognostics and health management",
+        "RUL prediction",
+        "degradation modeling"
+      ]
+    },
+    {
+      "id": "s2:ac02b4db07bc1b237e03",
+      "title": "Remaining useful life prognostics based on stochastic degradation modeling: turbofan engine as case study",
+      "abstract": "",
+      "authors": [
+        "Zahra Esfahani",
+        "K. Salahshoor",
+        "A. H. Mazinan"
+      ],
+      "date": "2022-06-04",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/ac02b4db07bc1b237e03504c08c28a19c9b6316d",
+      "pdf": "",
+      "venue": "Journal of the Brazilian Society of Mechanical Sciences and Engineering",
+      "citations": 16,
+      "doi": "10.1007/s40430-022-03546-3",
+      "relevance_score": 0,
+      "tags": [
+        "remaining useful life",
+        "degradation modeling"
+      ]
+    },
+    {
       "id": "s2:172fa3363fd16c8d0286",
       "title": "Learnable Lookup Table for Neural Network Quantization",
       "abstract": "Neural network quantization aims at reducing bit-widths of weights and activations for memory and computational efficiency. Since a linear quantizer (i.e., round(·) function) cannot well fit the bell-shaped distributions of weights and activations, many existing methods use predefined functions (e.g., exponential function) with learnable parameters to build the quantizer for joint optimization. However, these complicated quantizers introduce considerable computational overhead during inference since activation quantization should be conducted online. In this paper, we formulate the quantizatio",
@@ -19685,6 +21065,29 @@
       "relevance_score": 0,
       "tags": [
         "neural network quantization"
+      ]
+    },
+    {
+      "id": "s2:108f194650752aab8261",
+      "title": "A Comprehensive Review on Signal-Based and Model-Based Condition Monitoring of Wind Turbines: Fault Diagnosis and Lifetime Prognosis",
+      "abstract": "Wind turbines play an increasingly important role in renewable power generation. To ensure the efficient production and financial viability of wind power, it is crucial to maintain wind turbines’ reliability and availability (uptime) through advanced real-time condition monitoring technologies. Given their plurality and evolution, this article provides an updated comprehensive review of the state-of-the-art condition monitoring technologies used for fault diagnosis and lifetime prognosis in wind turbines. Specifically, this article presents the major fault and failure modes observed in wind tu",
+      "authors": [
+        "H. Badihi",
+        "Youmin Zhang",
+        "B. Jiang",
+        "P. Pillay",
+        "S. Rakheja"
+      ],
+      "date": "2022-06-01",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/108f194650752aab8261a4d2539d31edb979d753",
+      "pdf": "",
+      "venue": "Proceedings of the IEEE",
+      "citations": 204,
+      "doi": "10.1109/jproc.2022.3171691",
+      "relevance_score": 0,
+      "tags": [
+        "condition monitoring"
       ]
     },
     {
@@ -19734,6 +21137,139 @@
       ]
     },
     {
+      "id": "s2:93f0d2fc31e9d0a10ea3",
+      "title": "Remaining Useful Life Prediction on C-MAPSS Dataset via Joint Autoencoder-Regression Architecture",
+      "abstract": "The maintenance costs of industrial systems often exceed the initial investment cost. Predictive maintenance, one of the most effective methods in reducing overall maintenance costs, has become an area of interest for data-driven researchers after the increasing automation, monitoring capabilities and development techniques introduced with the new industrial revolution. In this study we introduce joint autoencoder-regression architecture for remaining useful life prediction, and demonstrate it on the NASA Turbofan Engine Degredation Dataset. The architecture incorporates InceptionTime networks",
+      "authors": [
+        "Kürsat Ince",
+        "Uğur Ceylan",
+        "Yakup Genç"
+      ],
+      "date": "2022-05-15",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/93f0d2fc31e9d0a10ea3bd00fa168ba4bafbcd2a",
+      "pdf": "",
+      "venue": "Signal Processing and Communications Applications Conference",
+      "citations": 2,
+      "doi": "10.1109/SIU55565.2022.9864796",
+      "relevance_score": 0,
+      "tags": [
+        "remaining useful life",
+        "C-MAPSS",
+        "predictive maintenance"
+      ]
+    },
+    {
+      "id": "s2:1a8bdab5dbb535141b04",
+      "title": "Oil-Immersed Power Transformer Condition Monitoring Methodologies: A Review",
+      "abstract": "A power transformer is one of the most critical and expensive assets in electric power systems. Failure of a power transformer would not only result in a downtime to the entire transmission and distribution networks but may also cause personnel and environmental hazards due to oil leak and fire. Hence, to enhance a transformer’s reliability and extend its lifespan, a cost-effective and reliable condition monitoring technique should be adopted from day one of its installation. This will help detect incipient faults, extend a transformer’s operational life, and avoid potential consequences. With",
+      "authors": [
+        "Lan Jin",
+        "Dowon Kim",
+        "A. Abu‐Siada",
+        "Shantanu Kumar"
+      ],
+      "date": "2022-05-06",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/1a8bdab5dbb535141b0451531166ee8bf3d0e4f4",
+      "pdf": "",
+      "venue": "Energies",
+      "citations": 87,
+      "doi": "10.3390/en15093379",
+      "relevance_score": 0,
+      "tags": [
+        "condition monitoring",
+        "transformer"
+      ]
+    },
+    {
+      "id": "s2:5a4c642273027fc3fe11",
+      "title": "Secrecy Rate Maximization for THz-Enabled Femto Edge Users using Deep Reinforcement Learning in 6G",
+      "abstract": "Dense deployment of femtocells in heterogeneous networks (HetNets) is critical for satisfying end-user quality-of-service (QoS) requirements. Femtocells can improve the network spectral efficiency and reduce user equipment’s power consumption. However, due to the distributed and dynamic nature, femto edge users (FEUs) cannot resist security attacks against the eavesdroppers. Hence, it is essential to enhance the secrecy rate of FEUs for secure and reliable data transmission. Aiming to improve the secrecy rate of FEUs, this paper formulates the power control problem of terahertz (THz)-enabled f",
+      "authors": [
+        "Himanshu Sharma",
+        "Ishan Budhiraja",
+        "Neeraj Kumar",
+        "Rajkumar Tekchandani"
+      ],
+      "date": "2022-05-02",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/5a4c642273027fc3fe11c463fd28d92eb9e61542",
+      "pdf": "",
+      "venue": "Conference on Computer Communications Workshops",
+      "citations": 10,
+      "doi": "10.1109/infocomwkshps54753.2022.9798370",
+      "relevance_score": 0,
+      "tags": [
+        "FEMTO"
+      ]
+    },
+    {
+      "id": "s2:7cc0d0698ef3a7565d67",
+      "title": "Range-Based Relative Navigation for a Swarm of Centimeter-Scale Femto-Spacecraft",
+      "abstract": "In-orbit relative navigation between a networked swarm of centimetre-scale femto-spacecraft would add considerable value to a range of space mission concepts and applications, such as for multi-point sensing and distributed sparse aperture interferometry. For a swarm of networked femto-spacecraft, relative position determination would be possible by inferring coarse range estimates from the received signal strength indication associated with the communication link between swarm members. This is particularly advantageous for highly resource-constrained devices. In this paper, algorithms for swa",
+      "authors": [
+        "Thomas Timmons",
+        "J. Beeley",
+        "Gilles Bailet",
+        "C. McInnes"
+      ],
+      "date": "2022-05-01",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/7cc0d0698ef3a7565d67223fe54c46c0c43d1a7d",
+      "pdf": "",
+      "venue": "Journal of Guidance Control and Dynamics",
+      "citations": 8,
+      "doi": "10.2514/1.g006261",
+      "relevance_score": 0,
+      "tags": [
+        "FEMTO"
+      ]
+    },
+    {
+      "id": "s2:d6500faf3ec604266ef8",
+      "title": "Road Condition Monitoring Using Smart Sensing and Artificial Intelligence: A Review",
+      "abstract": "Road condition monitoring (RCM) has been a demanding strategic research area in maintaining a large network of transport infrastructures. With advancements in computer vision and data mining techniques along with high computing resources, several innovative pavement distress evaluation systems have been developed in recent years. The majority of these technologies employ next-generation distributed sensors and vision-based artificial intelligence (AI) methodologies to evaluate, classify and localize pavement distresses using the measured data. This paper presents an exhaustive and systematic l",
+      "authors": [
+        "Eshta Ranyal",
+        "A. Sadhu",
+        "K. Jain"
+      ],
+      "date": "2022-04-01",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/d6500faf3ec604266ef88263778d084c11e4ac33",
+      "pdf": "",
+      "venue": "Italian National Conference on Sensors",
+      "citations": 151,
+      "doi": "10.3390/s22083044",
+      "relevance_score": 0,
+      "tags": [
+        "condition monitoring"
+      ]
+    },
+    {
+      "id": "s2:6acf614043726e4880f0",
+      "title": "Making a case for femto-phono-magnetism with FePt",
+      "abstract": "In the field of femtomagnetism, magnetic matter is controlled by ultrafast laser pulses; here, we show that coupling phonon excitations of the nuclei to spin and charge leads to femto-phono-magnetism, a powerful route to control magnetic order at ultrafast times. With state-of-the-art theoretical simulations of coupled spin, charge, and lattice dynamics, we identify strong nonadiabatic spin-phonon coupled modes that dominate early time spin dynamics. Activating these phonon modes that we show leads to an additional (up to 40% extra) loss of moment in iron-platinum occurring within 40 femtoseco",
+      "authors": [
+        "Sangeeta Sharma",
+        "S. Shallcross",
+        "P. Elliott",
+        "J. K. Dewhurst"
+      ],
+      "date": "2022-03-27",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/6acf614043726e4880f0027a23ea9e9465633345",
+      "pdf": "https://arxiv.org/pdf/2203.14234",
+      "venue": "Science Advances",
+      "citations": 16,
+      "doi": "10.1126/sciadv.abq2021",
+      "relevance_score": 0,
+      "tags": [
+        "FEMTO"
+      ]
+    },
+    {
       "id": "s2:72b989a52a5cc2eee44b",
       "title": "Decoupled Knowledge Distillation",
       "abstract": "State-of-the-art distillation methods are mainly based on distilling deep features from intermediate layers, while the significance of logit distillation is greatly overlooked. To provide a novel viewpoint to study logit distillation, we re-formulate the classical KD loss into two parts, i.e., target class knowledge distillation (TCKD) and non-target class knowledge distillation (NCKD). We empirically investigate and prove the effects of the two parts: TCKD transfers knowledge concerning the “difficulty” of training samples, while NCKD is the prominent reason why logit distillation works. More",
@@ -19780,6 +21316,115 @@
       ]
     },
     {
+      "id": "s2:265aec19ea5566d0644b",
+      "title": "Artificial intelligence systems for tool condition monitoring in machining: analysis and critical review",
+      "abstract": "",
+      "authors": [
+        "D. Pimenov",
+        "A. Bustillo",
+        "S. Wojciechowski",
+        "V. Sharma",
+        "M. Gupta"
+      ],
+      "date": "2022-03-12",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/265aec19ea5566d0644b80c43538d9d10b13cf6d",
+      "pdf": "",
+      "venue": "Journal of Intelligent Manufacturing",
+      "citations": 282,
+      "doi": "10.1007/s10845-022-01923-2",
+      "relevance_score": 0,
+      "tags": [
+        "condition monitoring"
+      ]
+    },
+    {
+      "id": "s2:1150eede7a3754c4f601",
+      "title": "Tool Condition Monitoring for High-Performance Machining Systems—A Review",
+      "abstract": "In the era of the “Industry 4.0” revolution, self-adjusting and unmanned machining systems have gained considerable interest in high-value manufacturing industries to cope with the growing demand for high productivity, standardized part quality, and reduced cost. Tool condition monitoring (TCM) systems pave the way for automated machining through monitoring the state of the cutting tool, including the occurrences of wear, cracks, chipping, and breakage, with the aim of improving the efficiency and economics of the machining process. This article reviews the state-of-the-art TCM system componen",
+      "authors": [
+        "A. Mohamed",
+        "M. Hassan",
+        "R. M'Saoubi",
+        "H. Attia"
+      ],
+      "date": "2022-03-01",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/1150eede7a3754c4f6017c73cd5cf32c26ba2ddd",
+      "pdf": "",
+      "venue": "Italian National Conference on Sensors",
+      "citations": 102,
+      "doi": "10.3390/s22062206",
+      "relevance_score": 0,
+      "tags": [
+        "condition monitoring"
+      ]
+    },
+    {
+      "id": "s2:6430167a628a7ced2abb",
+      "title": "Review on condition monitoring techniques for water pipelines",
+      "abstract": "Condition monitoring in the water distribution network and sewerage pipelines is one of the primary concerns for water utility companies. The impact of complex interconnected parameters on pipe deterioration mechanisms, lengthy water transmission networks and resource utilisation makes maintenance procedure more challenging. Various condition monitoring techniques for underground water pipes are in practice by water utility companies. High resolution cameras, electromagnetic waves, laser radiation, ultrasonic waves, acoustic sensors, eddy current and thermal profiling methods are used for cond",
+      "authors": [
+        "Jawwad Latif",
+        "M. Z. Shakir",
+        "N. Edwards",
+        "Marcin Jaszczykowski",
+        "N. Ramzan"
+      ],
+      "date": "2022-03-01",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/6430167a628a7ced2abb8d3a2356735f584245fd",
+      "pdf": "",
+      "venue": "Measurement",
+      "citations": 78,
+      "doi": "10.1016/j.measurement.2022.110895",
+      "relevance_score": 0,
+      "tags": [
+        "condition monitoring"
+      ]
+    },
+    {
+      "id": "s2:a9cf1d9d303e2e9c82f3",
+      "title": "A Femto-Satellite Localization Method Based on TDOA and AOA Using Two CubeSats",
+      "abstract": "This article presents a feasibility analysis to remotely estimate the geo-location of a femto-satellite only using two station-CubeSats and the communication link between the femto-satellite and each CubeSat. The presented approach combines the Time Difference Of Arrival (TDOA) and Angle Of Arrival (AOA) methods. We present the motivation, the envisioned solution together with the constraints for reaching it, and the best potential sensitivity of the location precision for different (1) deployment scenarios of the femto-satellite, (2) precisions in the location of the CubeSats, and (3) precisi",
+      "authors": [
+        "Matías G. Vidal-Valladares",
+        "M. Díaz"
+      ],
+      "date": "2022-02-24",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/a9cf1d9d303e2e9c82f344060407910178c3fbd7",
+      "pdf": "",
+      "venue": "Remote Sensing",
+      "citations": 15,
+      "doi": "10.3390/rs14051101",
+      "relevance_score": 0,
+      "tags": [
+        "FEMTO"
+      ]
+    },
+    {
+      "id": "s2:afc04fe8bba0a6f2f449",
+      "title": "Compressive Sensing-Based Missing-Data-Tolerant Fault Detection for Remote Condition Monitoring of Wind Turbines",
+      "abstract": "Compared with traditional onsite wind turbine condition monitoring systems (CMSs), the remote CMSs can use better computational resources to process data with more advanced algorithms and, thus, can provide more advanced condition monitoring capabilities, but may suffer from a data loss problem, especially when wireless data transmission is used. To solve this problem, this article proposes a compressive sensing-based missing-data-tolerant fault detection method for remote condition monitoring of wind turbines. First, the condition monitoring signals collected from wind turbines are conditione",
+      "authors": [
+        "Yayu Peng",
+        "W. Qiao",
+        "Liyan Qu"
+      ],
+      "date": "2022-02-01",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/afc04fe8bba0a6f2f449f4f0d68619323a57b8f2",
+      "pdf": "",
+      "venue": "IEEE transactions on industrial electronics (1982. Print)",
+      "citations": 55,
+      "doi": "10.1109/TIE.2021.3057039",
+      "relevance_score": 0,
+      "tags": [
+        "condition monitoring"
+      ]
+    },
+    {
       "id": "s2:7d4b9489c041756b7887",
       "title": "Neural Network Quantization with AI Model Efficiency Toolkit (AIMET)",
       "abstract": "While neural networks have advanced the frontiers in many machine learning applications, they often come at a high computational cost. Reducing the power and latency of neural network inference is vital to integrating modern networks into edge devices with strict power and compute requirements. Neural network quantization is one of the most effective ways of achieving these savings, but the additional noise it induces can lead to accuracy degradation. In this white paper, we present an overview of neural network quantization using AI Model Efficiency Toolkit (AIMET). AIMET is a library of stat",
@@ -19800,6 +21445,29 @@
       "relevance_score": 0,
       "tags": [
         "neural network quantization"
+      ]
+    },
+    {
+      "id": "s2:3389abe1380600256640",
+      "title": "Condition monitoring and anomaly detection of wind turbine based on cascaded and bidirectional deep learning networks",
+      "abstract": "Abstract Renewable energy is widely applied in the world. The key problem of wind energy application is to improve the reliability of wind turbine and reduce its downtime. Supervisory control and data acquisition (SCADA) has created reliable and cost-effective status data for health conditioning of wind turbine operation. Effectively extracting useful information from SCADA is critical to the reliability of applied wind energy. In this paper, a new method is proposed to extract multidirectional spatio-temporal features of SCADA data for wind turbine condition monitoring based on convolutional ",
+      "authors": [
+        "Ling Xiang",
+        "Xin Yang",
+        "Aijun Hu",
+        "Hao Su",
+        "Penghe Wang"
+      ],
+      "date": "2022-01-01",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/3389abe1380600256640a7c7ff0fef1120d1549d",
+      "pdf": "",
+      "venue": "Applied Energy",
+      "citations": 175,
+      "doi": "10.1016/j.apenergy.2021.117925",
+      "relevance_score": 0,
+      "tags": [
+        "condition monitoring"
       ]
     },
     {
@@ -19827,6 +21495,33 @@
       ]
     },
     {
+      "id": "s2:802b915cf3241da93990",
+      "title": "A Deep Learning Model for Remaining Useful Life Prediction of Aircraft Turbofan Engine on C-MAPSS Dataset",
+      "abstract": "In the era of industry 4.0, safety, efficiency and reliability of industrial machinery is an elementary concern in trade sectors. The accurate remaining useful life (RUL) prediction of an equipment in due time allows us to effectively plan the maintenance operation and mitigate the downtime to raise the revenue of business. In the past decade, data driven based RUL prognostic methods had gained a lot of interest among the researchers. There exist various deep learning-based techniques which have been used for accurate RUL estimation. One of the widely used technique in this regard is the long ",
+      "authors": [
+        "Owais Asif",
+        "S. A. Haider",
+        "S. R. Naqvi",
+        "John Zaki",
+        "K. Kwak"
+      ],
+      "date": "2022",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/802b915cf3241da93990981b33dd629d08427b1e",
+      "pdf": "",
+      "venue": "IEEE Access",
+      "citations": 69,
+      "doi": "10.1109/ACCESS.2022.3203406",
+      "relevance_score": 0,
+      "tags": [
+        "remaining useful life",
+        "C-MAPSS",
+        "RUL prediction",
+        "RUL estimation",
+        "turbofan engine degradation"
+      ]
+    },
+    {
       "id": "s2:0df2f709ef7c3cead291",
       "title": "Towards better benchmarking using the CWRU bearing fault dataset",
       "abstract": "",
@@ -19845,6 +21540,28 @@
       "relevance_score": 0,
       "tags": [
         "CWRU bearing"
+      ]
+    },
+    {
+      "id": "s2:dcd1e33336596d756b98",
+      "title": "Data-driven prognostics method for turbofan engine degradation using hybrid deep neural network",
+      "abstract": "",
+      "authors": [
+        "Bin Xue",
+        "Zhongyukun Xu",
+        "Xing Huang",
+        "Pengcheng Nie"
+      ],
+      "date": "2021-12-01",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/dcd1e33336596d756b9834cba21123be802587e8",
+      "pdf": "",
+      "venue": "Journal of Mechanical Science and Technology",
+      "citations": 16,
+      "doi": "10.1007/s12206-021-1109-8",
+      "relevance_score": 0,
+      "tags": [
+        "turbofan engine degradation"
       ]
     },
     {
@@ -19869,6 +21586,96 @@
       "tags": [
         "state of health",
         "condition monitoring"
+      ]
+    },
+    {
+      "id": "s2:658498f413ac3754b120",
+      "title": "A Proposal to Mitigate Similarity Bias for the Paderborn Bearing Data Set",
+      "abstract": "Similarity bias is a phenomenon that might occur when samples in a data set are originated from the same acquisition or are acquired from similar equipment settings. This phenomenon may lead to overoptimistic evaluations of machine learning algorithms. That overoptimistic estimation probably will not be reflected when the models generated by these algorithms will be put on production. This paper proposes a method to mitigate the similarity bias for bearing fault diagnosis evaluation with the Paderborn bearing dataset. The method consists on defining the proper data splits for training, validat",
+      "authors": [
+        "Lúcio Antônio Stange Venturim",
+        "F. D. A. Boldt"
+      ],
+      "date": "2021-10-13",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/658498f413ac3754b12032b177231d8d69993195",
+      "pdf": "",
+      "venue": "Annual Conference of the IEEE Industrial Electronics Society",
+      "citations": 4,
+      "doi": "10.1109/IECON48115.2021.9589342",
+      "relevance_score": 0,
+      "tags": [
+        "Paderborn bearing",
+        "Paderborn"
+      ]
+    },
+    {
+      "id": "s2:e914d7d23211f8afaa72",
+      "title": "Two-phase degradation modeling and remaining useful life prediction using nonlinear wiener process",
+      "abstract": "",
+      "authors": [
+        "Jingdong Lin",
+        "Guobo Liao",
+        "Min Chen",
+        "H. Yin"
+      ],
+      "date": "2021-10-01",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/e914d7d23211f8afaa7287e82c1d15099e86e7d8",
+      "pdf": "",
+      "venue": "Computers & industrial engineering",
+      "citations": 65,
+      "doi": "10.1016/j.cie.2021.107533",
+      "relevance_score": 0,
+      "tags": [
+        "remaining useful life",
+        "degradation modeling"
+      ]
+    },
+    {
+      "id": "s2:a3ad86b24ac2297bcda8",
+      "title": "Hybrid fuel cell system degradation modeling methods: A comprehensive review",
+      "abstract": "Abstract Last years, the fuel cell has become well-known as an efficient and clean energy converter being a potential alternative to internal combustion engines. However, despite being very promising, the durability of those systems is still a bottleneck. Most of the time, a fuel cell is integrated in a hybrid system which considers the fuel cell stack, the battery, and the balance of plant. To keep improving the durability of such a system, diagnostic and prognostic tools are of particular importance and to implement such tools, modeling the system is a mandatory step. The purpose of this pap",
+      "authors": [
+        "L. Vichard",
+        "N. Steiner",
+        "N. Zerhouni",
+        "D. Hissel"
+      ],
+      "date": "2021-09-15",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/a3ad86b24ac2297bcda85ddec3b4bdeb5fa22cfa",
+      "pdf": "",
+      "venue": "",
+      "citations": 101,
+      "doi": "10.1016/J.JPOWSOUR.2021.230071",
+      "relevance_score": 0,
+      "tags": [
+        "degradation modeling"
+      ]
+    },
+    {
+      "id": "s2:874e5b273073bbcc6f06",
+      "title": "Challenges of machine learning-based RUL prognosis: A review on NASA's C-MAPSS data set",
+      "abstract": "The estimation of a system's or a component's remaining useful life (RUL) is considered the most complex task in predictive maintenance, at the same time the most beneficial one. In this brief review paper, we survey the state-of-the-art in machine learning-based RUL prognosis based on research on NASA's C-MAPSS data set. We identify the frequently used models, comparatively evaluate model performance and survey the used feature extraction methods. As a main contribution, we formulate challenges in the field, independently of the C-MAPSS data set. Among the challenges are interpretability, mod",
+      "authors": [
+        "Simon Vollert",
+        "Andreas Theissler"
+      ],
+      "date": "2021-09-07",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/874e5b273073bbcc6f068dd0d1a6649be4678fbe",
+      "pdf": "",
+      "venue": "IEEE International Conference on Emerging Technologies and Factory Automation",
+      "citations": 58,
+      "doi": "10.1109/ETFA45728.2021.9613682",
+      "relevance_score": 0,
+      "tags": [
+        "remaining useful life",
+        "C-MAPSS",
+        "predictive maintenance",
+        "transfer learning",
+        "domain adaptation"
       ]
     },
     {
@@ -19932,6 +21739,72 @@
       "relevance_score": 0,
       "tags": [
         "neural network quantization"
+      ]
+    },
+    {
+      "id": "s2:13944ad12a5a9c6e6743",
+      "title": "Femto-Containers: DevOps on Microcontrollers with Lightweight Virtualization & Isolation for IoT Software Modules",
+      "abstract": "Development, deployment and maintenance of networked software has been revolutionized by DevOps, which have become essential to boost system software quality and to enable agile evolution. Meanwhile the Internet of Things (IoT) connects more and more devices which are not covered by DevOps tools: low-power, microcontroller-based devices. In this paper, we contribute to bridge this gap by designing Femto-Containers, a new architecture which enables containerization, virtualization and secure deployment of software modules embedded on microcontrollers over low-power networks. As proof-of-concept",
+      "authors": [
+        "K. Zandberg",
+        "E. Baccelli"
+      ],
+      "date": "2021-06-10",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/13944ad12a5a9c6e67435dd563a82898c19ef2a1",
+      "pdf": "https://arxiv.org/pdf/2106.12553",
+      "venue": "arXiv.org",
+      "citations": 10,
+      "doi": "",
+      "relevance_score": 0,
+      "tags": [
+        "FEMTO"
+      ]
+    },
+    {
+      "id": "s2:c2a3cf2f235d4cd02399",
+      "title": "A Deep Learning Based Data Fusion Method for Degradation Modeling and Prognostics",
+      "abstract": "Degradation modeling is a critical and challenging problem as it serves as the basis for system prognostics and evolution mechanism analysis. In practice, multiple sensors are used to monitor the status of a system. Thus, multisensor data fusion techniques have been proposed to capture comprehensive information for prognostic modeling and analysis, which aims at developing a composite health index (HI) through the fusion of multiple sensor signals. In the literature, most existing methods use a linear data-fusion model for integration of multisensor data to construct the HI, which is insuffici",
+      "authors": [
+        "Feng Wang",
+        "Juan Du",
+        "Yang Zhao",
+        "Tao Tang",
+        "Jianjun Shi"
+      ],
+      "date": "2021-06-01",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/c2a3cf2f235d4cd02399ee9b0559ac79abee4bb0",
+      "pdf": "",
+      "venue": "IEEE Transactions on Reliability",
+      "citations": 61,
+      "doi": "10.1109/TR.2020.3011500",
+      "relevance_score": 0,
+      "tags": [
+        "remaining useful life",
+        "degradation modeling"
+      ]
+    },
+    {
+      "id": "s2:96aad4c64fa9d02a43a7",
+      "title": "Remaining useful life predictions for turbofan engine degradation based on concurrent semi-supervised model",
+      "abstract": "",
+      "authors": [
+        "Tiancheng Wang",
+        "Di Guo",
+        "Ximing Sun"
+      ],
+      "date": "2021-05-24",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/96aad4c64fa9d02a43a72a60345fe6ecb740af0b",
+      "pdf": "",
+      "venue": "Neural computing & applications (Print)",
+      "citations": 32,
+      "doi": "10.1007/s00521-021-06089-1",
+      "relevance_score": 0,
+      "tags": [
+        "remaining useful life",
+        "turbofan engine degradation"
       ]
     },
     {
@@ -20026,6 +21899,29 @@
       ]
     },
     {
+      "id": "s2:4479ad62e2bde1d4383a",
+      "title": "An Overview of Condition Monitoring Techniques for Capacitors in DC-Link Applications",
+      "abstract": "Capacitors are widely used in dc links of power electronic converters to balance power, suppress voltage ripple, and store short-term energy. Condition monitoring (CM) of dc-link capacitors has great significance in enhancing the reliability of power converter systems. Over the past few years, many efforts have been made to realize CM of dc-link capacitors. This article gives an overview and a comprehensive comparative evaluation of them with emphasis on the application objectives, implementation methods, and monitoring accuracy when being used. First, the design procedure for the CM of capaci",
+      "authors": [
+        "Zhaoyang Zhao",
+        "P. Davari",
+        "Weiguo Lu",
+        "Huai Wang",
+        "F. Blaabjerg"
+      ],
+      "date": "2021-04-01",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/4479ad62e2bde1d4383ab6ae2cb3e8156feabc15",
+      "pdf": "",
+      "venue": "IEEE transactions on power electronics",
+      "citations": 195,
+      "doi": "10.1109/TPEL.2020.3023469",
+      "relevance_score": 0,
+      "tags": [
+        "condition monitoring"
+      ]
+    },
+    {
       "id": "s2:10177567a959dc260216",
       "title": "Evaluation of Deep Learning Models for Multi-Step Ahead Time Series Prediction",
       "abstract": "Time series prediction with neural networks has been the focus of much research in the past few decades. Given the recent deep learning revolution, there has been much attention in using deep learning models for time series prediction, and hence it is important to evaluate their strengths and weaknesses. In this paper, we present an evaluation study that compares the performance of deep learning models for multi-step ahead time series prediction. The deep learning methods comprise simple recurrent neural networks, long short-term memory (LSTM) networks, bidirectional LSTM networks, encoder-dec",
@@ -20044,6 +21940,31 @@
       "relevance_score": 0,
       "tags": [
         "time series prediction"
+      ]
+    },
+    {
+      "id": "s2:bd1ffe4b21eb4f7e3c3b",
+      "title": "Degradation modeling and remaining useful life prediction for dependent competing failure processes",
+      "abstract": "Abstract Remaining useful life (RUL) prediction is critical for ensuring the safe and efficient operation of machinery. Due to the existence of multiple influencing factors, the degradation of machinery is often described as dependent competing failure processes (DCFPs). Extensive studies have been conducted on the degradation modeling and RUL prediction for DCFPs. However, they suffer from two limitations: 1) no analytical expression is available for RUL prediction under the first passage time (FPT) concept, and 2) the offline estimation and online update of parameters have not been jointly a",
+      "authors": [
+        "Tao Yan",
+        "Y. Lei",
+        "Naipeng Li",
+        "Biao Wang",
+        "Wenting Wang"
+      ],
+      "date": "2021-03-16",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/bd1ffe4b21eb4f7e3c3b906be3f7dabf5d1485dc",
+      "pdf": "",
+      "venue": "Reliability Engineering & System Safety",
+      "citations": 105,
+      "doi": "10.1016/J.RESS.2021.107638",
+      "relevance_score": 0,
+      "tags": [
+        "remaining useful life",
+        "RUL prediction",
+        "degradation modeling"
       ]
     },
     {
@@ -20066,6 +21987,29 @@
       "relevance_score": 0,
       "tags": [
         "neural network quantization"
+      ]
+    },
+    {
+      "id": "s2:3aaed47be012cb35a3aa",
+      "title": "Novel Femto Laser Patterning of High Translucent Zirconia as an Alternative to Conventional Particle Abrasion",
+      "abstract": "Background: currently applied surface treatments for zirconia bonding may create undesired microcracks and surface flaws. The aim of the present study was to evaluate the efficacy of alternative surface treatments on the shear bond strength of high translucency zirconia to 10-Methacryloyloxydecyl dihydrogen phosphate (MDP)-containing resin-based cement. Methods: fifty disk-shaped specimens (10 mm × 5 mm) were fabricated from a commercial yttria-stabilized zirconia with 5 mole% yttrium oxide tetragonal zirconia polycrystal (5Y-TZP), and underwent air-abrasion with alumina particles (50 μm-AL50 ",
+      "authors": [
+        "Emmanouil-George C Tzanakakis",
+        "Anastasia Beketova",
+        "L. Papadopoulou",
+        "E. Kontonasaki",
+        "I. Tzoutzas"
+      ],
+      "date": "2021-02-01",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/3aaed47be012cb35a3aaec81e74415b8469583bb",
+      "pdf": "",
+      "venue": "Dental journal",
+      "citations": 18,
+      "doi": "10.3390/dj9020020",
+      "relevance_score": 0,
+      "tags": [
+        "FEMTO"
       ]
     },
     {
@@ -20106,6 +22050,27 @@
       "relevance_score": 0,
       "tags": [
         "neural network quantization"
+      ]
+    },
+    {
+      "id": "s2:c21283ad87ab9026c8b3",
+      "title": "The Little-Bang and the femto-nova in nucleus-nucleus collisions",
+      "abstract": "We make a theoretical and experimental summary of the state-of-the-art status of hot and dense QCD matter studies on selected topics. We review the Beam Energy Scan program for the QCD phase diagram and present the current status of the search for the QCD critical point, particle production in high baryon density region, hypernuclei production, and global polarization effects in nucleus-nucleus collisions. The available experimental data in the strangeness sector suggests that a grand canonical approach in the thermal model at high collision energy makes a transition to the canonical ensemble ",
+      "authors": [
+        "N. Xu",
+        "K. Fukushima",
+        "B. Mohanty"
+      ],
+      "date": "2020-09-07",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/c21283ad87ab9026c8b38ff7f072c4aa54e4c396",
+      "pdf": "https://arxiv.org/pdf/2009.03006",
+      "venue": "AAPPS Bulletin",
+      "citations": 31,
+      "doi": "10.1007/s43673-021-00002-7",
+      "relevance_score": 0,
+      "tags": [
+        "FEMTO"
       ]
     },
     {
@@ -20228,6 +22193,31 @@
       ]
     },
     {
+      "id": "s2:17880e430005888b01e3",
+      "title": "Remaining Useful Life Predictions for Turbofan Engine Degradation Using Online Long Short-Term Memory Network",
+      "abstract": "\n In any industrial system, accurate prediction of Remaining Useful Life (RUL) is important for Prognostics and Health Management (PHM), so as to detect breakdown of system well in advance and take proper measures. Different methods are available in the literature that have been proposed for prediction of RUL. Among these methods, the data driven method is accepted to be the most reliable by many researchers, due to the use of real time sensor based vibrational and/or pressure data. These data are acquired in time domain. Methods such as Recurrent Neural Networks (RNNs), Convolutional Neural N",
+      "authors": [
+        "Pallabi Kakati",
+        "D. Dandotiya",
+        "B. Pal"
+      ],
+      "date": "2019-12-05",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/17880e430005888b01e35e3ac6d410a6a09664a3",
+      "pdf": "",
+      "venue": "Volume 2: Combustion, Fuels, and Emissions; Renewable Energy: Solar and Wind; Inlets and Exhausts; Emerging Technologies: Hybrid Electric Propulsion and Alternate Power Generation; GT Operation and Maintenance; Materials and Manufacturing (Including Coatings, Composites, CMCs, Additive Manufacturing",
+      "citations": 5,
+      "doi": "10.1115/gtindia2019-2368",
+      "relevance_score": 0,
+      "tags": [
+        "remaining useful life",
+        "C-MAPSS",
+        "prognostics and health management",
+        "RUL estimation",
+        "turbofan engine degradation"
+      ]
+    },
+    {
       "id": "s2:80cf2a6af4200ecfca1c",
       "title": "Patient Knowledge Distillation for BERT Model Compression",
       "abstract": "Pre-trained language models such as BERT have proven to be highly effective for natural language processing (NLP) tasks. However, the high demand for computing resources in training such models hinders their application in practice. In order to alleviate this resource hunger in large-scale model training, we propose a Patient Knowledge Distillation approach to compress an original large model (teacher) into an equally-effective lightweight shallow network (student). Different from previous knowledge distillation methods, which only use the output from the last layer of the teacher network for ",
@@ -20271,6 +22261,29 @@
       ]
     },
     {
+      "id": "s2:d0b1bd1355771ddf11dc",
+      "title": "FEMTO: Fair and Energy-Minimized Task Offloading for Fog-Enabled IoT Networks",
+      "abstract": "Future Internet of Things (IoT) networks enabled with fog computing is promising to achieve lower processing delay and lighter link burden, by effectively offloading the computing tasks of the terminal nodes (TNs) to nearby fog nodes (FNs) at the network edge. Existing researches for the energy consumption in fog-enabled networks mostly focused on the minimization of the overall energy consumed by the task offloading services. However, fair offloading among multiple FNs while maintaining a satisfactory energy efficiency is of great significance for the sustainability of the fog-enabled IoT net",
+      "authors": [
+        "Guowei Zhang",
+        "Fei Shen",
+        "Zening Liu",
+        "Yang Yang",
+        "Kunlun Wang"
+      ],
+      "date": "2019-06-01",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/d0b1bd1355771ddf11dce27aed3595cb0cd482c0",
+      "pdf": "",
+      "venue": "IEEE Internet of Things Journal",
+      "citations": 119,
+      "doi": "10.1109/JIOT.2018.2887229",
+      "relevance_score": 0,
+      "tags": [
+        "FEMTO"
+      ]
+    },
+    {
       "id": "s2:0f736d2067ee9c950b87",
       "title": "Relational Knowledge Distillation",
       "abstract": "Knowledge distillation aims at transferring knowledge acquired in one model (a teacher) to another model (a student) that is typically smaller. Previous approaches can be expressed as a form of training the student to mimic output activations of individual data examples represented by the teacher. We introduce a novel approach, dubbed relational knowledge distillation (RKD), that transfers mutual relations of data examples instead. For concrete realizations of RKD, we propose distance-wise and angle-wise distillation losses that penalize structural differences in relations. Experiments conduct",
@@ -20290,6 +22303,33 @@
       "relevance_score": 0,
       "tags": [
         "knowledge distillation"
+      ]
+    },
+    {
+      "id": "s2:5177be422e9eadcc8065",
+      "title": "Remaining useful life predictions for turbofan engine degradation using semi-supervised deep architecture",
+      "abstract": "Abstract In recent years, research has proposed several deep learning (DL) approaches to providing reliable remaining useful life (RUL) predictions in Prognostics and Health Management (PHM) applications. Although supervised DL techniques, such as Convolutional Neural Network and Long-Short Term Memory, have outperformed traditional prognosis algorithms, they are still dependent on large labeled training datasets. With respect to real-life PHM applications, high-quality labeled training data might be both challenging and time-consuming to acquire. Alternatively, unsupervised DL techniques intr",
+      "authors": [
+        "A. L. Ellefsen",
+        "Emil Bjørlykhaug",
+        "V. Æsøy",
+        "Sergey Ushakov",
+        "Houxiang Zhang"
+      ],
+      "date": "2019-03-01",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/5177be422e9eadcc806551c78430173e5a4a3f42",
+      "pdf": "",
+      "venue": "Reliability Engineering & System Safety",
+      "citations": 438,
+      "doi": "10.1016/J.RESS.2018.11.027",
+      "relevance_score": 0,
+      "tags": [
+        "remaining useful life",
+        "C-MAPSS",
+        "prognostics and health management",
+        "RUL prediction",
+        "turbofan engine degradation"
       ]
     },
     {
@@ -20519,6 +22559,29 @@
       ]
     },
     {
+      "id": "s2:5f0a508f5140c4b379af",
+      "title": "Sub-Femto-g Free Fall for Space-Based Gravitational Wave Observatories: LISA Pathfinder Results.",
+      "abstract": "We report the first results of the LISA Pathfinder in-flight experiment. The results demonstrate that two free-falling reference test masses, such as those needed for a space-based gravitational wave observatory like LISA, can be put in free fall with a relative acceleration noise with a square root of the power spectral density of 5.2±0.1  fm s^{-2}/sqrt[Hz], or (0.54±0.01)×10^{-15}  g/sqrt[Hz], with g the standard gravity, for frequencies between 0.7 and 20 mHz. This value is lower than the LISA Pathfinder requirement by more than a factor 5 and within a factor 1.25 of the requirement for th",
+      "authors": [
+        "M. Armano",
+        "H. Audley",
+        "G. Auger",
+        "J. Baird",
+        "M. Bassan"
+      ],
+      "date": "2016-06-07",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/5f0a508f5140c4b379af5af351ff2689dd119c34",
+      "pdf": "",
+      "venue": "Physical Review Letters",
+      "citations": 511,
+      "doi": "10.1103/PhysRevLett.116.231101",
+      "relevance_score": 0,
+      "tags": [
+        "FEMTO"
+      ]
+    },
+    {
       "id": "s2:642d0f49b7826adcf986",
       "title": "Deep Compression: Compressing Deep Neural Network with Pruning, Trained Quantization and Huffman Coding",
       "abstract": "Neural networks are both computationally intensive and memory intensive, making them difficult to deploy on embedded systems with limited hardware resources. To address this limitation, we introduce \"deep compression\", a three stage pipeline: pruning, trained quantization and Huffman coding, that work together to reduce the storage requirement of neural networks by 35x to 49x without affecting their accuracy. Our method first prunes the network by learning only the important connections. Next, we quantize the weights to enforce weight sharing, finally, we apply Huffman coding. After the first ",
@@ -20600,6 +22663,29 @@
       "relevance_score": 0,
       "tags": [
         "PRONOSTIA"
+      ]
+    },
+    {
+      "id": "s2:152be9355c18469d850b",
+      "title": "User's Guide for the Commercial Modular Aero-Propulsion System Simulation (C-MAPSS): Version 2",
+      "abstract": "",
+      "authors": [
+        "Yuan Liu",
+        "D. Frederick",
+        "Jonathan A. DeCastro",
+        "J. Litt",
+        "W. W. Chan"
+      ],
+      "date": "2012-03-01",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/152be9355c18469d850bdbe992a3ef5f76793e6c",
+      "pdf": "",
+      "venue": "",
+      "citations": 21,
+      "doi": "",
+      "relevance_score": 0,
+      "tags": [
+        "C-MAPSS"
       ]
     },
     {
