@@ -1,0 +1,3541 @@
+{
+  "date": "2026-03-13",
+  "fetched_at": "2026-03-13T02:49:02.147682Z",
+  "stats": {
+    "total": 402,
+    "research": 224,
+    "ai_frontier": 152,
+    "sources": {
+      "arxiv": 284,
+      "semantic_scholar": 30,
+      "openreview": 0,
+      "huggingface": 28,
+      "paperswithcode": 0,
+      "rss": 60
+    }
+  },
+  "research_papers": [
+    {
+      "id": "arxiv:2603.00745v1",
+      "title": "Bi-cLSTM: Residual-Corrected Bidirectional LSTM for Aero-Engine RUL Estimation",
+      "abstract": "Accurate Remaining Useful Life (RUL) prediction is a key requirement for effective Prognostics and Health Management (PHM) in safety-critical systems such as aero-engines. Existing deep learning approaches, particularly LSTM-based models, often struggle to generalize across varying operating conditions and are sensitive to noise in multivariate sensor data. To address these challenges, we propose a novel Bidirectional Residual Corrected LSTM (Bi-cLSTM) model for robust RUL estimation. The proposed architecture combines bidirectional temporal modeling with an adaptive residual correction mechan",
+      "authors": [
+        "Rafi Hassan Chowdhury",
+        "Nabil Daiyan",
+        "Faria Ahmed",
+        "Md Redwan Iqbal",
+        "Morsalin Sheikh"
+      ],
+      "date": "2026-02-28",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2603.00745v1",
+      "pdf": "https://arxiv.org/pdf/2603.00745v1",
+      "categories": [
+        "cs.LG"
+      ],
+      "relevance_score": 65,
+      "tags": [
+        "prognostics",
+        "remaining useful life",
+        "prognostic",
+        "phm",
+        "rul estimation",
+        "c-mapss",
+        "rul prediction",
+        "lstm"
+      ]
+    },
+    {
+      "id": "s2:d326f5fe42283fe6e09f",
+      "title": "TCRSCANet: Harnessing Temporal Convolutions and Recurrent Skip Component for Enhanced RUL Estimation in Mechanical Systems",
+      "abstract": "Estimating the remaining useful life (RUL) of critical industrial assets is of crucial importance for optimizing maintenance strategies, enabling proactive planning of repair tasks, enhanced reliability, and reduced downtime in prognostic health management (PHM). Deep learning-based data-driven approaches have made RUL prediction a lot better, but traditional methods often do not look at the similarities and differences in the data, which lowers the accuracy of the estimates. Previous attempts to use Long Short-Term Memory (LSTM) networks for RUL prediction have failed because they depend on l",
+      "authors": [
+        "Abdul Wahid",
+        "John G. Breslin",
+        "Muhammad Ali Intizar"
+      ],
+      "date": "2024-01-29",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/d326f5fe42283fe6e09ff805b7e8b7f7e8fb26a2",
+      "pdf": "",
+      "venue": "Human-Centric Intelligent Systems",
+      "citations": 8,
+      "doi": "10.1007/s44230-023-00060-0",
+      "relevance_score": 64,
+      "tags": [
+        "attention mechanism",
+        "remaining useful life",
+        "prognostic",
+        "phm",
+        "industrial",
+        "rul estimation",
+        "c-mapss",
+        "rul prediction",
+        "lstm"
+      ]
+    },
+    {
+      "id": "s2:d9798fb38f7e6921c0be",
+      "title": "Rethinking RUL Prediction",
+      "abstract": "Prognostics and Health Management (PHM) plays a key role in predicting the Remaining Useful Life (RUL) of systems, which is essential for enabling decision-making for Predictive Maintenance (PdM) and operations. While most research has traditionally focused on improving the accuracy of RUL predictions, this paper argues that four essential characteristics, uncertainty, robustness, interpretability, and feasibility, are key for real-world PHM applications. This study explores these characteristics through a comparative analysis of two data-driven models (DDMs): the probabilistic Bidirectional L",
+      "authors": [
+        "Mariana Salinas-Camus",
+        "Kai Goebel",
+        "N. Eleftheroglou"
+      ],
+      "date": "2025-10-26",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/d9798fb38f7e6921c0be8affc62cf8301278cdcd",
+      "pdf": "",
+      "venue": "Annual Conference of the PHM Society",
+      "citations": 0,
+      "doi": "10.36001/phmconf.2025.v17i1.4361",
+      "relevance_score": 64,
+      "tags": [
+        "prognostics",
+        "remaining useful life",
+        "prognostic",
+        "phm",
+        "predictive maintenance",
+        "c-mapss",
+        "rul prediction",
+        "lstm"
+      ]
+    },
+    {
+      "id": "arxiv:2506.12375v1",
+      "title": "Optimized Spectral Fault Receptive Fields for Diagnosis-Informed Prognosis",
+      "abstract": "This paper introduces Spectral Fault Receptive Fields (SFRFs), a biologically inspired technique for degradation state assessment in bearing fault diagnosis and remaining useful life (RUL) estimation. Drawing on the center-surround organization of retinal ganglion cell receptive fields, we propose a frequency-domain feature extraction algorithm that enhances the detection of fault signatures in vibration signals. SFRFs are designed as antagonistic spectral filters centered on characteristic fault frequencies, with inhibitory surrounds that enable robust characterization of incipient faults und",
+      "authors": [
+        "Stan Muñoz Gutiérrez",
+        "Franz Wotawa"
+      ],
+      "date": "2025-06-14",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2506.12375v1",
+      "pdf": "https://arxiv.org/pdf/2506.12375v1",
+      "categories": [
+        "cs.NE",
+        "cs.AI",
+        "cs.CV",
+        "cs.LG"
+      ],
+      "relevance_score": 63,
+      "tags": [
+        "condition monitoring",
+        "prognostics",
+        "remaining useful life",
+        "prognostic",
+        "bearing fault",
+        "vibration signal",
+        "rul prediction",
+        "fault diagnosis"
+      ]
+    },
+    {
+      "id": "s2:f9388411d54c215ea8a3",
+      "title": "An Improved Generic Hybrid Prognostic Method for RUL Prediction Based on PF-LSTM Learning",
+      "abstract": "Accurate estimation and prediction of the state-of-health (SOH) and remaining useful life (RUL) are fundamental to optimal maintenance strategies formulation for prognostics and health management (PHM) of degraded equipment. However, the performance assessment of health state prognostics and RUL prediction is strongly dependent on the errors and uncertainties in physical measurements, and heterogeneous degradation of equipment in time-varying operating conditions. The objective of this article is to provide a hybrid prognostic framework that integrates a two-phase clustering scheme and a parti",
+      "authors": [
+        "Ke Xue",
+        "Jun Yang",
+        "Ming Yang",
+        "Dagui Wang"
+      ],
+      "date": "2023",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/f9388411d54c215ea8a34358692732db85999bbc",
+      "pdf": "",
+      "venue": "IEEE Transactions on Instrumentation and Measurement",
+      "citations": 66,
+      "doi": "10.1109/TIM.2023.3251391",
+      "relevance_score": 61,
+      "tags": [
+        "prognostics",
+        "remaining useful life",
+        "prognostic",
+        "phm",
+        "predictive maintenance",
+        "degradation model",
+        "rul prediction",
+        "lstm"
+      ]
+    },
+    {
+      "id": "arxiv:2412.15998v1",
+      "title": "CNN-LSTM Hybrid Deep Learning Model for Remaining Useful Life Estimation",
+      "abstract": "Remaining Useful Life (RUL) of a component or a system is defined as the length from the current time to the end of the useful life. Accurate RUL estimation plays a crucial role in Predictive Maintenance applications. Traditional regression methods, both linear and non-linear, have struggled to achieve high accuracy in this domain. While Convolutional Neural Networks (CNNs) have shown improved accuracy, they often overlook the sequential nature of the data, relying instead on features derived from sliding windows. Since RUL prediction inherently involves multivariate time series analysis, robu",
+      "authors": [
+        "Muthukumar G",
+        "Jyosna Philip"
+      ],
+      "date": "2024-12-20",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2412.15998v1",
+      "pdf": "https://arxiv.org/pdf/2412.15998v1",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "relevance_score": 61,
+      "tags": [
+        "prognostics",
+        "remaining useful life",
+        "prognostic",
+        "rul estimation",
+        "predictive maintenance",
+        "multivariate time series",
+        "rul prediction",
+        "lstm"
+      ]
+    },
+    {
+      "id": "arxiv:2512.06708v1",
+      "title": "A Novel Multimodal RUL Framework for Remaining Useful Life Estimation with Layer-wise Explanations",
+      "abstract": "Estimating the Remaining Useful Life (RUL) of mechanical systems is pivotal in Prognostics and Health Management (PHM). Rolling-element bearings are among the most frequent causes of machinery failure, highlighting the need for robust RUL estimation methods. Existing approaches often suffer from poor generalization, lack of robustness, high data demands, and limited interpretability. This paper proposes a novel multimodal-RUL framework that jointly leverages image representations (ImR) and time-frequency representations (TFR) of multichannel, nonstationary vibration signals. The architecture c",
+      "authors": [
+        "Waleed Razzaq",
+        "Yun-Bo Zhao"
+      ],
+      "date": "2025-12-07",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2512.06708v1",
+      "pdf": "https://arxiv.org/pdf/2512.06708v1",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "relevance_score": 60,
+      "tags": [
+        "attention mechanism",
+        "prognostics",
+        "remaining useful life",
+        "prognostic",
+        "phm",
+        "industrial",
+        "rul estimation",
+        "vibration signal",
+        "lstm"
+      ]
+    },
+    {
+      "id": "arxiv:2602.00659v1",
+      "title": "Predictive Maintenance for Ultrafiltration Membranes Using Explainable Similarity-Based Prognostics",
+      "abstract": "In reverse osmosis desalination, ultrafiltration (UF) membranes degrade due to fouling, leading to performance loss and costly downtime. Most plants rely on scheduled preventive maintenance, since existing predictive maintenance models, often based on opaque machine learning methods, lack interpretability and operator trust. This study proposes an explainable prognostic framework for UF membrane remaining useful life (RUL) estimation using fuzzy similarity reasoning. A physics-informed Health Index, derived from transmembrane pressure, flux, and resistance, captures degradation dynamics, which",
+      "authors": [
+        "Qusai Khaled",
+        "Laura Genga",
+        "Uzay Kaymak"
+      ],
+      "date": "2026-01-31",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2602.00659v1",
+      "pdf": "https://arxiv.org/pdf/2602.00659v1",
+      "categories": [
+        "cs.AI"
+      ],
+      "relevance_score": 60,
+      "tags": [
+        "health index",
+        "prognostics",
+        "physics-informed",
+        "remaining useful life",
+        "prognostic",
+        "industrial",
+        "predictive maintenance",
+        "rul prediction"
+      ]
+    },
+    {
+      "id": "arxiv:2507.06672v1",
+      "title": "Uncertainty Quantification as a Complementary Latent Health Indicator for Remaining Useful Life Prediction on Turbofan Engines",
+      "abstract": "Health Indicators (HIs) are essential for predicting system failures in predictive maintenance. While methods like RaPP (Reconstruction along Projected Pathways) improve traditional HI approaches by leveraging autoencoder latent spaces, their performance can be hindered by both aleatoric and epistemic uncertainties. In this paper, we propose a novel framework that integrates uncertainty quantification into autoencoder-based latent spaces, enhancing RaPP-generated HIs. We demonstrate that separating aleatoric uncertainty from epistemic uncertainty and cross combining HI information is the drive",
+      "authors": [
+        "Lucas Thil",
+        "Jesse Read",
+        "Rim Kaddah",
+        "Guillaume Florent Doquet"
+      ],
+      "date": "2025-07-09",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2507.06672v1",
+      "pdf": "https://arxiv.org/pdf/2507.06672v1",
+      "categories": [
+        "cs.PF"
+      ],
+      "relevance_score": 55,
+      "tags": [
+        "remaining useful life",
+        "turbofan",
+        "rul estimation",
+        "predictive maintenance",
+        "c-mapss",
+        "rul prediction"
+      ]
+    },
+    {
+      "id": "s2:3e77544f18ad88b4b562",
+      "title": "CRULP: Reliable RUL Estimation Inspired by Conformal Prediction",
+      "abstract": "Reliable remaining useful life (RUL) estimation is vital for the Prognostics and Health Management (PHM) of industrial equipment. Despite the significant breakthroughs regarding the prediction accuracy offered by data-driven methods, the challenge of quantifying the reliability of these predictions remains. A trustworthy and reliable RUL estimation framework, named conformalized RUL predictor (CRULP), is proposed for industrial equipment by integrating the deep learning (DL)-based RUL prediction model and uncertainty awareness conformalized quantile regression (UACQR). The proposed CRULP metho",
+      "authors": [
+        "Shiyuan Piao",
+        "Ruyi Huang",
+        "F. Tsung"
+      ],
+      "date": "2025",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/3e77544f18ad88b4b56284776e3dd77089961630",
+      "pdf": "",
+      "venue": "IEEE Transactions on Instrumentation and Measurement",
+      "citations": 25,
+      "doi": "10.1109/TIM.2024.3522678",
+      "relevance_score": 54,
+      "tags": [
+        "prognostics",
+        "remaining useful life",
+        "prognostic",
+        "phm",
+        "industrial",
+        "rul estimation",
+        "rul prediction"
+      ]
+    },
+    {
+      "id": "arxiv:2503.07854v1",
+      "title": "Health Prognostics in Multi-sensor Systems Based on Multivariate Functional Data Analysis",
+      "abstract": "Recent developments in big data analysis, machine learning, Industry 4.0, and IoT applications have enabled the monitoring and processing of multi-sensor data collected from systems, allowing for the prediction of the \"Remaining Useful Life\" (RUL) of system components. Particularly in the aviation industry, Prognostic Health Management (PHM) has become one of the most important practices for ensuring reliability and safety. Not only is the accuracy of RUL prediction important, but the implementability of techniques, domain adaptability, and interpretability of system degradation behaviors have",
+      "authors": [
+        "Cevahir Yildirim",
+        "Alba M. Franco-Pereira",
+        "Rosa E. Lillo"
+      ],
+      "date": "2025-03-10",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2503.07854v1",
+      "pdf": "https://arxiv.org/pdf/2503.07854v1",
+      "categories": [
+        "stat.ME",
+        "stat.AP"
+      ],
+      "relevance_score": 52,
+      "tags": [
+        "prognostics",
+        "remaining useful life",
+        "prognostic",
+        "phm",
+        "c-mapss",
+        "rul prediction"
+      ]
+    },
+    {
+      "id": "arxiv:2511.00564v1",
+      "title": "FTT-GRU: A Hybrid Fast Temporal Transformer with GRU for Remaining Useful Life Prediction",
+      "abstract": "Accurate prediction of the remaining useful life (RUL) of industrial machinery is essential for reducing downtime and optimizing maintenance schedules. Existing approaches, such as long short-term memory (LSTM) networks and convolutional neural networks (CNNs), often struggle to model both global temporal dependencies and fine-grained degradation trends in multivariate sensor data. We propose a hybrid model, FTT-GRU, which combines a Fast Temporal Transformer (FTT) -- a lightweight Transformer variant using linearized attention via fast Fourier transform (FFT) -- with a gated recurrent unit (G",
+      "authors": [
+        "Varun Teja Chirukiri",
+        "Udaya Bhasker Cheerala",
+        "Sandeep Kanta",
+        "Abdul Karim",
+        "Praveen Damacharla"
+      ],
+      "date": "2025-11-01",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2511.00564v1",
+      "pdf": "https://arxiv.org/pdf/2511.00564v1",
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "eess.SY"
+      ],
+      "relevance_score": 51,
+      "tags": [
+        "prognostics",
+        "remaining useful life",
+        "prognostic",
+        "industrial",
+        "rul prediction",
+        "temporal transformer",
+        "lightweight",
+        "lstm"
+      ]
+    },
+    {
+      "id": "arxiv:2506.17018v1",
+      "title": "A Quantile Regression Approach for Remaining Useful Life Estimation with State Space Models",
+      "abstract": "Predictive Maintenance (PdM) is pivotal in Industry 4.0 and 5.0, proactively enhancing efficiency through accurate equipment Remaining Useful Life (RUL) prediction, thus optimizing maintenance scheduling and reducing unexpected failures and premature interventions. This paper introduces a novel RUL estimation approach leveraging State Space Models (SSM) for efficient long-term sequence modeling. To handle model uncertainty, Simoultaneous Quantile Regression (SQR) is integrated into the SSM, enabling multiple quantile estimations. The proposed method is benchmarked against traditional sequence ",
+      "authors": [
+        "Davide Frizzo",
+        "Francesco Borsatti",
+        "Gian Antonio Susto"
+      ],
+      "date": "2025-06-20",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2506.17018v1",
+      "pdf": "https://arxiv.org/pdf/2506.17018v1",
+      "categories": [
+        "cs.AI",
+        "cs.LG"
+      ],
+      "relevance_score": 50,
+      "tags": [
+        "remaining useful life",
+        "state space model",
+        "industrial",
+        "rul estimation",
+        "predictive maintenance",
+        "c-mapss",
+        "lstm"
+      ]
+    },
+    {
+      "id": "arxiv:2503.13404v1",
+      "title": "Fed-Joint: Joint Modeling of Nonlinear Degradation Signals and Failure Events for Remaining Useful Life Prediction using Federated Learning",
+      "abstract": "Many failure mechanisms of machinery are closely related to the behavior of condition monitoring (CM) signals. To achieve a cost-effective preventive maintenance strategy, accurate remaining useful life (RUL) prediction based on the signals is of paramount importance. However, the CM signals are often recorded at different factories and production lines, with limited amounts of data. Unfortunately, these datasets have rarely been shared between the sites due to data confidentiality and ownership issues, a lack of computing and storage power, and high communication costs associated with data tr",
+      "authors": [
+        "Cheoljoon Jeong",
+        "Xubo Yue",
+        "Seokhyun Chung"
+      ],
+      "date": "2025-03-17",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2503.13404v1",
+      "pdf": "https://arxiv.org/pdf/2503.13404v1",
+      "categories": [
+        "cs.AI",
+        "cs.LG",
+        "stat.ML"
+      ],
+      "relevance_score": 49,
+      "tags": [
+        "condition monitoring",
+        "remaining useful life",
+        "prognostic",
+        "turbofan",
+        "degradation model",
+        "rul prediction"
+      ]
+    },
+    {
+      "id": "arxiv:2506.00259v2",
+      "title": "PerFormer: A Permutation Based Vision Transformer for Remaining Useful Life Prediction",
+      "abstract": "Accurately estimating the remaining useful life (RUL) for degradation systems is crucial in modern prognostic and health management (PHM). Convolutional Neural Networks (CNNs), initially developed for tasks like image and video recognition, have proven highly effectively in RUL prediction, demonstrating remarkable performance. However, with the emergence of the Vision Transformer (ViT), a Transformer model tailored for computer vision tasks such as image classification, and its demonstrated superiority over CNNs, there is a natural inclination to explore its potential in enhancing RUL predicti",
+      "authors": [
+        "Zhengyang Fan",
+        "Wanru Li",
+        "Kuo-chu Chang",
+        "Ting Yuan"
+      ],
+      "date": "2025-05-30",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2506.00259v2",
+      "pdf": "https://arxiv.org/pdf/2506.00259v2",
+      "categories": [
+        "cs.LG",
+        "cs.CV"
+      ],
+      "relevance_score": 49,
+      "tags": [
+        "remaining useful life",
+        "prognostic",
+        "phm",
+        "multivariate time series",
+        "c-mapss",
+        "rul prediction"
+      ]
+    },
+    {
+      "id": "arxiv:2511.04723v1",
+      "title": "Temporal convolutional and fusional transformer model with Bi-LSTM encoder-decoder for multi-time-window remaining useful life prediction",
+      "abstract": "Health prediction is crucial for ensuring reliability, minimizing downtime, and optimizing maintenance in industrial systems. Remaining Useful Life (RUL) prediction is a key component of this process; however, many existing models struggle to capture fine-grained temporal dependencies while dynamically prioritizing critical features across time for robust prognostics. To address these challenges, we propose a novel framework that integrates Temporal Convolutional Networks (TCNs) for localized temporal feature extraction with a modified Temporal Fusion Transformer (TFT) enhanced by Bi-LSTM enco",
+      "authors": [
+        "Mohamadreza Akbari Pour",
+        "Mohamad Sadeq Karimi",
+        "Amir Hossein Mazloumi"
+      ],
+      "date": "2025-11-06",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2511.04723v1",
+      "pdf": "https://arxiv.org/pdf/2511.04723v1",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "relevance_score": 49,
+      "tags": [
+        "prognostics",
+        "temporal convolutional",
+        "remaining useful life",
+        "prognostic",
+        "industrial",
+        "rul prediction",
+        "lstm"
+      ]
+    },
+    {
+      "id": "arxiv:2405.12377v1",
+      "title": "Spatio-temporal Attention-based Hidden Physics-informed Neural Network for Remaining Useful Life Prediction",
+      "abstract": "Predicting the Remaining Useful Life (RUL) is essential in Prognostic Health Management (PHM) for industrial systems. Although deep learning approaches have achieved considerable success in predicting RUL, challenges such as low prediction accuracy and interpretability pose significant challenges, hindering their practical implementation. In this work, we introduce a Spatio-temporal Attention-based Hidden Physics-informed Neural Network (STA-HPINN) for RUL prediction, which can utilize the associated physics of the system degradation. The spatio-temporal attention mechanism can extract importa",
+      "authors": [
+        "Feilong Jiang",
+        "Xiaonan Hou",
+        "Min Xia"
+      ],
+      "date": "2024-05-20",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2405.12377v1",
+      "pdf": "https://arxiv.org/pdf/2405.12377v1",
+      "categories": [
+        "eess.SY",
+        "cs.LG"
+      ],
+      "relevance_score": 48,
+      "tags": [
+        "attention mechanism",
+        "physics-informed",
+        "remaining useful life",
+        "prognostic",
+        "phm",
+        "industrial",
+        "rul prediction"
+      ]
+    },
+    {
+      "id": "arxiv:2508.02490v1",
+      "title": "PHM-Bench: A Domain-Specific Benchmarking Framework for Systematic Evaluation of Large Models in Prognostics and Health Management",
+      "abstract": "With the rapid advancement of generative artificial intelligence, large language models (LLMs) are increasingly adopted in industrial domains, offering new opportunities for Prognostics and Health Management (PHM). These models help address challenges such as high development costs, long deployment cycles, and limited generalizability. However, despite the growing synergy between PHM and LLMs, existing evaluation methodologies often fall short in structural completeness, dimensional comprehensiveness, and evaluation granularity. This hampers the in-depth integration of LLMs into the PHM domain",
+      "authors": [
+        "Puyu Yang",
+        "Laifa Tao",
+        "Zijian Huang",
+        "Haifei Liu",
+        "Wenyan Cao"
+      ],
+      "date": "2025-08-04",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2508.02490v1",
+      "pdf": "https://arxiv.org/pdf/2508.02490v1",
+      "categories": [
+        "cs.AI"
+      ],
+      "relevance_score": 48,
+      "tags": [
+        "condition monitoring",
+        "prognostics",
+        "prognostic",
+        "phm",
+        "industrial",
+        "rul prediction",
+        "fault diagnosis"
+      ]
+    },
+    {
+      "id": "arxiv:2507.09766v1",
+      "title": "Toward accurate RUL and SOH estimation using reinforced graph-based PINNs enhanced with dynamic weights",
+      "abstract": "Accurate estimation of Remaining Useful Life (RUL) and State of Health (SOH) is essential for Prognostics and Health Management (PHM) across a wide range of industrial applications. We propose a novel framework -- Reinforced Graph-Based Physics-Informed Neural Networks Enhanced with Dynamic Weights (RGPD) -- that combines physics-based supervision with advanced spatio-temporal learning. Graph Convolutional Recurrent Networks (GCRNs) embed graph-convolutional filters within recurrent units to capture how node representations evolve over time. Graph Attention Convolution (GATConv) leverages a se",
+      "authors": [
+        "Mohamadreza Akbari Pour",
+        "Ali Ghasemzadeh",
+        "MohamadAli Bijarchi",
+        "Mohammad Behshad Shafii"
+      ],
+      "date": "2025-07-13",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2507.09766v1",
+      "pdf": "https://arxiv.org/pdf/2507.09766v1",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "relevance_score": 47,
+      "tags": [
+        "attention mechanism",
+        "prognostics",
+        "physics-informed",
+        "remaining useful life",
+        "prognostic",
+        "phm",
+        "industrial"
+      ]
+    },
+    {
+      "id": "arxiv:2510.17846v1",
+      "title": "CARLE: A Hybrid Deep-Shallow Learning Framework for Robust and Explainable RUL Estimation of Rolling Element Bearings",
+      "abstract": "Prognostic Health Management (PHM) systems monitor and predict equipment health. A key task is Remaining Useful Life (RUL) estimation, which predicts how long a component, such as a rolling element bearing, will operate before failure. Many RUL methods exist but often lack generalizability and robustness under changing operating conditions. This paper introduces CARLE, a hybrid AI framework that combines deep and shallow learning to address these challenges. CARLE uses Res-CNN and Res-LSTM blocks with multi-head attention and residual connections to capture spatial and temporal degradation pat",
+      "authors": [
+        "Waleed Razzaq",
+        "Yun-Bo Zhao"
+      ],
+      "date": "2025-10-10",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2510.17846v1",
+      "pdf": "https://arxiv.org/pdf/2510.17846v1",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "relevance_score": 47,
+      "tags": [
+        "remaining useful life",
+        "prognostic",
+        "phm",
+        "rul estimation",
+        "rul prediction",
+        "lstm"
+      ]
+    },
+    {
+      "id": "arxiv:2511.21208v1",
+      "title": "I-GLIDE: Input Groups for Latent Health Indicators in Degradation Estimation",
+      "abstract": "Accurate remaining useful life (RUL) prediction hinges on the quality of health indicators (HIs), yet existing methods often fail to disentangle complex degradation mechanisms in multi-sensor systems or quantify uncertainty in HI reliability. This paper introduces a novel framework for HI construction, advancing three key contributions. First, we adapt Reconstruction along Projected Pathways (RaPP) as a health indicator (HI) for RUL prediction for the first time, showing that it outperforms traditional reconstruction error metrics. Second, we show that augmenting RaPP-derived HIs with aleatori",
+      "authors": [
+        "Lucas Thil",
+        "Jesse Read",
+        "Rim Kaddah",
+        "Guillaume Doquet"
+      ],
+      "date": "2025-11-26",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2511.21208v1",
+      "pdf": "https://arxiv.org/pdf/2511.21208v1",
+      "categories": [
+        "cs.LG"
+      ],
+      "relevance_score": 47,
+      "tags": [
+        "prognostics",
+        "remaining useful life",
+        "prognostic",
+        "anomaly detection",
+        "degradation model",
+        "rul prediction"
+      ]
+    },
+    {
+      "id": "s2:9e10b1b3e22874e70df1",
+      "title": "A novel transformer-based DL model enhanced by position-sensitive attention and gated hierarchical LSTM for aero-engine RUL prediction",
+      "abstract": "Accurate prediction of remaining useful life (RUL) for aircraft engines is essential for proactive maintenance and safety assurance. However, existing methods such as physics-based models, classical recurrent neural networks, and convolutional neural networks face limitations in capturing long-term dependencies and modeling complex degradation patterns. In this study, we propose a novel deep-learning model based on the Transformer architecture to address these limitations. Specifically, to address the issue of insensitivity to local context in the attention mechanism employed by the Transforme",
+      "authors": [
+        "Xinping Chen"
+      ],
+      "date": "2024-05-02",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/9e10b1b3e22874e70df1db4abef0fec6e2959282",
+      "pdf": "",
+      "venue": "Scientific Reports",
+      "citations": 29,
+      "doi": "10.1038/s41598-024-59095-3",
+      "relevance_score": 46,
+      "tags": [
+        "attention mechanism",
+        "remaining useful life",
+        "rul estimation",
+        "c-mapss",
+        "rul prediction",
+        "lstm"
+      ]
+    },
+    {
+      "id": "arxiv:2411.12159v5",
+      "title": "Prognostics for Autonomous Deep-Space Habitat Health Management under Multiple Unknown Failure Modes",
+      "abstract": "Deep-space habitats (DSHs) are safety-critical systems that must operate autonomously for long periods, often beyond the reach of ground-based maintenance or expert intervention. Monitoring health and anticipating failures are essential for safe operations. Prognostics based on remaining useful life (RUL) prediction support this goal by estimating how long a subsystem can operate before failure. Critical DSH subsystems, including environmental control and life support, power generation, and thermal control, are monitored by many sensors and can degrade through multiple failure modes. In practi",
+      "authors": [
+        "Benjamin Peters",
+        "Ayush Mohanty",
+        "Xiaolei Fang",
+        "Stephen K. Robinson",
+        "Nagi Gebraeel"
+      ],
+      "date": "2024-11-19",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2411.12159v5",
+      "pdf": "https://arxiv.org/pdf/2411.12159v5",
+      "categories": [
+        "stat.ML",
+        "cs.LG",
+        "eess.SY",
+        "stat.AP"
+      ],
+      "relevance_score": 45,
+      "tags": [
+        "prognostics",
+        "prognostic",
+        "remaining useful life",
+        "c-mapss",
+        "rul prediction"
+      ]
+    },
+    {
+      "id": "s2:5542ab99bbc45cb1001b",
+      "title": "Micro Transfer Learning Mechanism for Cross-Domain Equipment RUL Prediction",
+      "abstract": "Transfer learning generally addresses to reduce the distribution distance between source-domain and target-domain. However, it is unreasonable to use a distribution to represent the life-cycle signals as they are always time-varying, and the improper assumption affects the efficacy of transfer remaining useful life (RUL) prediction. To fill this gap, this research proposes a micro transfer learning mechanism for multiple differentiated distributions, and a transfer RUL prediction model is constructed. First, a multi-cellular long short-term memory (MCLSTM) neural network is applied to obtain m",
+      "authors": [
+        "Shengwu Xiang",
+        "Penghua Li",
+        "Jun Luo",
+        "Yi Qin"
+      ],
+      "date": "2025",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/5542ab99bbc45cb1001b9f89e2c1e47129bf93d2",
+      "pdf": "",
+      "venue": "IEEE Transactions on Automation Science and Engineering",
+      "citations": 37,
+      "doi": "10.1109/TASE.2024.3366288",
+      "relevance_score": 44,
+      "tags": [
+        "prognostics",
+        "transfer learning",
+        "remaining useful life",
+        "prognostic",
+        "rul prediction",
+        "lstm"
+      ]
+    },
+    {
+      "id": "s2:c006b6d5ac9f812db343",
+      "title": "A novel gear RUL prediction method by diffusion model generation health index and attention guided multi-hierarchy LSTM",
+      "abstract": "Gears, as indispensable components of machinery, demand accurate prediction of their Remaining Useful Life (RUL). To enhance the utilization of ordered information within time series data and elevate RUL prediction precision, this study introduces the attention-guided multi-hierarchy LSTM (AGMLSTM). This innovative approach leverages attention mechanisms to capture the intricate interplay between high and low hierarchical features of the input data, marking the first application of such a technique in gear RUL prediction. Additionally, a refined health indicator (HI) is introduced, constructed",
+      "authors": [
+        "Xinping Chen"
+      ],
+      "date": "2024-01-20",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/c006b6d5ac9f812db343ccb29872a2c8b0cb69aa",
+      "pdf": "",
+      "venue": "Scientific Reports",
+      "citations": 15,
+      "doi": "10.1038/s41598-024-52151-y",
+      "relevance_score": 43,
+      "tags": [
+        "attention mechanism",
+        "health index",
+        "remaining useful life",
+        "rul estimation",
+        "rul prediction",
+        "lstm"
+      ]
+    },
+    {
+      "id": "arxiv:2502.19307v3",
+      "title": "Anomaly Detection in Complex Dynamical Systems: A Systematic Framework Using Embedding Theory and Physics-Inspired Consistency",
+      "abstract": "Anomaly detection in complex dynamical systems is essential for ensuring reliability, safety, and efficiency in industrial and cyber-physical infrastructures. Predictive maintenance helps prevent costly failures, while cybersecurity monitoring has become critical as digitized systems face growing threats. Many of these systems exhibit oscillatory behaviors and bounded motion, requiring anomaly detection methods that capture structured temporal dependencies while adhering to physical consistency principles. In this work, we propose a system-theoretic approach to anomaly detection, grounded in c",
+      "authors": [
+        "Michael Somma",
+        "Thomas Gallien",
+        "Branka Stojanovic"
+      ],
+      "date": "2025-02-26",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2502.19307v3",
+      "pdf": "https://arxiv.org/pdf/2502.19307v3",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "relevance_score": 43,
+      "tags": [
+        "anomaly detection",
+        "turbofan",
+        "industrial",
+        "predictive maintenance",
+        "c-mapss",
+        "lightweight",
+        "lstm"
+      ]
+    },
+    {
+      "id": "arxiv:2601.15942v1",
+      "title": "A Hierarchical Bayesian Framework for Model-based Prognostics",
+      "abstract": "In prognostics and health management (PHM) of engineered systems, maintenance decisions are ideally informed by predictions of a system's remaining useful life (RUL) based on operational data. Model-based prognostics algorithms rely on a parametric model of the system degradation process. The model parameters are learned from real-time operational data collected on the system. However, there can be valuable information in data from similar systems or components, which is not typically utilized in PHM. In this contribution, we propose a hierarchical Bayesian modeling (HBM) framework for PHM tha",
+      "authors": [
+        "Xinyu Jia",
+        "Iason Papaioannou",
+        "Daniel Straub"
+      ],
+      "date": "2026-01-22",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2601.15942v1",
+      "pdf": "https://arxiv.org/pdf/2601.15942v1",
+      "categories": [
+        "stat.ME"
+      ],
+      "relevance_score": 42,
+      "tags": [
+        "prognostics",
+        "prognostic",
+        "remaining useful life",
+        "phm",
+        "rul prediction"
+      ]
+    },
+    {
+      "id": "arxiv:2510.03604v1",
+      "title": "Deep Domain Adaptation for Turbofan Engine Remaining Useful Life Prediction: Methodologies, Evaluation and Future Trends",
+      "abstract": "Remaining Useful Life (RUL) prediction for turbofan engines plays a vital role in predictive maintenance, ensuring operational safety and efficiency in aviation. Although data-driven approaches using machine learning and deep learning have shown potential, they face challenges such as limited data and distribution shifts caused by varying operating conditions. Domain Adaptation (DA) has emerged as a promising solution, enabling knowledge transfer from source domains with abundant data to target domains with scarce data while mitigating distributional shifts. Given the unique properties of turb",
+      "authors": [
+        "Yucheng Wang",
+        "Mohamed Ragab",
+        "Yubo Hou",
+        "Zhenghua Chen",
+        "Min Wu"
+      ],
+      "date": "2025-10-04",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2510.03604v1",
+      "pdf": "https://arxiv.org/pdf/2510.03604v1",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "relevance_score": 41,
+      "tags": [
+        "remaining useful life",
+        "turbofan",
+        "predictive maintenance",
+        "rul prediction",
+        "domain adaptation"
+      ]
+    },
+    {
+      "id": "arxiv:2504.13797v1",
+      "title": "Meta-Learning and Knowledge Discovery based Physics-Informed Neural Network for Remaining Useful Life Prediction",
+      "abstract": "Predicting the remaining useful life (RUL) of rotating machinery is critical for industrial safety and maintenance, but existing methods struggle with scarce target-domain data and unclear degradation dynamics. We propose a Meta-Learning and Knowledge Discovery-based Physics-Informed Neural Network (MKDPINN) to address these challenges. The method first maps noisy sensor data to a low-dimensional hidden state space via a Hidden State Mapper (HSM). A Physics-Guided Regulator (PGR) then learns unknown nonlinear PDEs governing degradation evolution, embedding these physical constraints into the P",
+      "authors": [
+        "Yu Wang",
+        "Shujie Liu",
+        "Shuai Lv",
+        "Gengshuo Liu"
+      ],
+      "date": "2025-04-18",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2504.13797v1",
+      "pdf": "https://arxiv.org/pdf/2504.13797v1",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "relevance_score": 39,
+      "tags": [
+        "physics-informed",
+        "remaining useful life",
+        "industrial",
+        "c-mapss",
+        "rul prediction"
+      ]
+    },
+    {
+      "id": "arxiv:2511.19124v2",
+      "title": "Uncertainty-Aware Deep Learning Framework for Remaining Useful Life Prediction in Turbofan Engines with Learned Aleatoric Uncertainty",
+      "abstract": "Accurate Remaining Useful Life (RUL) prediction coupled with uncertainty quantification remains a critical challenge in aerospace prognostics. This research introduces a novel uncertainty-aware deep learning framework that learns aleatoric uncertainty directly through probabilistic modeling, an approach unexplored in existing CMAPSS-based literature. Our hierarchical architecture integrates multi-scale Inception blocks for temporal pattern extraction, bidirectional Long Short-Term Memory networks for sequential modeling, and a dual-level attention mechanism operating simultaneously on sensor a",
+      "authors": [
+        "Krishang Sharma"
+      ],
+      "date": "2025-11-24",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2511.19124v2",
+      "pdf": "https://arxiv.org/pdf/2511.19124v2",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "relevance_score": 39,
+      "tags": [
+        "attention mechanism",
+        "prognostics",
+        "prognostic",
+        "remaining useful life",
+        "turbofan"
+      ]
+    },
+    {
+      "id": "s2:5ffd96452bcd153360f4",
+      "title": "An interpretable RUL prediction method of aircraft engines under complex operating conditions using spatio-temporal features",
+      "abstract": "Long short-term memory (LSTM) based prediction methods have achieved remarkable achievements in remaining useful life (RUL) prediction for aircraft engines. However, their prediction performance and interpretability are unsatisfactory under complex operating conditions. For aircraft engines with high hazard levels, it is important to ensure the interpretability of the models while maintaining excellent prediction accuracy. To address these issues, an interpretable RUL prediction method of aircraft engines under complex operating conditions using spatio-temporal features (STFs), referred to as ",
+      "authors": [
+        "Jiahao Gao",
+        "Youren Wang",
+        "Zejin Sun"
+      ],
+      "date": "2024-04-16",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/5ffd96452bcd153360f469efb3e487252345c19f",
+      "pdf": "",
+      "venue": "Measurement science and technology",
+      "citations": 15,
+      "doi": "10.1088/1361-6501/ad3b2c",
+      "relevance_score": 37,
+      "tags": [
+        "attention mechanism",
+        "remaining useful life",
+        "c-mapss",
+        "rul prediction",
+        "lstm"
+      ]
+    },
+    {
+      "id": "s2:e60b6099bc013bcac12d",
+      "title": "Few-shot RUL prediction for engines based on CNN-GRU model",
+      "abstract": "In the realm of prognosticating the remaining useful life (RUL) of pivotal components, such as aircraft engines, a prevalent challenge persists where the available historical life data often proves insufficient. This insufficiency engenders obstacles such as impediments in performance degradation feature extraction, inadequacies in capturing temporal relationships comprehensively, and diminished predictive accuracy. To address this issue, a 1D CNN-GRU prediction model for few-shot conditions is proposed in this paper. In pursuit of more comprehensive data feature extraction and enhanced RUL pr",
+      "authors": [
+        "Shuhan Sun",
+        "Jiongqi Wang",
+        "Yaqi Xiao",
+        "Jian Peng",
+        "Xuanying Zhou"
+      ],
+      "date": "2024-07-11",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/e60b6099bc013bcac12dd02d38503fff016f546b",
+      "pdf": "",
+      "venue": "Scientific Reports",
+      "citations": 23,
+      "doi": "10.1038/s41598-024-66377-3",
+      "relevance_score": 37,
+      "tags": [
+        "c-mapss",
+        "rul prediction",
+        "prognostic",
+        "remaining useful life"
+      ]
+    },
+    {
+      "id": "arxiv:2502.05321v1",
+      "title": "Using Federated Machine Learning in Predictive Maintenance of Jet Engines",
+      "abstract": "The goal of this paper is to predict the Remaining Useful Life (RUL) of turbine jet engines using a federated machine learning framework. Federated Learning enables multiple edge devices/nodes or servers to collaboratively train a shared model without sharing sensitive data, thus preserving data privacy and security. By implementing a nonlinear model, the system aims to capture complex relationships and patterns in the engine data to enhance the accuracy of RUL predictions. This approach leverages decentralized computation, allowing models to be trained locally at each device before aggregatin",
+      "authors": [
+        "Asaph Matheus Barbosa",
+        "Thao Vy Nhat Ngo",
+        "Elaheh Jafarigol",
+        "Theodore B. Trafalis",
+        "Emuobosa P. Ojoboh"
+      ],
+      "date": "2025-02-07",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2502.05321v1",
+      "pdf": "https://arxiv.org/pdf/2502.05321v1",
+      "categories": [
+        "cs.LG"
+      ],
+      "relevance_score": 37,
+      "tags": [
+        "predictive maintenance",
+        "c-mapss",
+        "rul prediction",
+        "remaining useful life"
+      ]
+    },
+    {
+      "id": "arxiv:2502.15772v2",
+      "title": "Rashomon perspective for measuring uncertainty in the survival predictive maintenance models",
+      "abstract": "The prediction of the Remaining Useful Life of aircraft engines is a critical area in high-reliability sectors such as aerospace and defense. Early failure predictions help ensure operational continuity, reduce maintenance costs, and prevent unexpected failures. Traditional regression models struggle with censored data, which can lead to biased predictions. Survival models, on the other hand, effectively handle censored data, improving predictive accuracy in maintenance processes. This paper introduces a novel approach based on the Rashomon perspective, which considers multiple models that ach",
+      "authors": [
+        "Yigitcan Yardimci",
+        "Mustafa Cavus"
+      ],
+      "date": "2025-02-16",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2502.15772v2",
+      "pdf": "https://arxiv.org/pdf/2502.15772v2",
+      "categories": [
+        "stat.AP",
+        "cs.LG"
+      ],
+      "relevance_score": 36,
+      "tags": [
+        "rul estimation",
+        "predictive maintenance",
+        "rul prediction",
+        "remaining useful life"
+      ]
+    },
+    {
+      "id": "s2:acd7b54a9feb866199b8",
+      "title": "RUL Estimation for Rolling Bearings Using Augmented Quaternion-Based Least Mean P-Power With Correntropy Induced Metric Under Framework of Sparsity",
+      "abstract": "Accurate remaining useful life (RUL) estimation of rolling bearings can significantly improve the safety, availability, reliability and productivity of a rotating machinery system. In this article, a new approach of RUL estimation for rolling bearings based upon the fractional-order spatiotemporal sparse low-rank matrix (FST-SLRM) and augmented quaternion least mean p-power with correntropy induced metric (AQLMP-CIM) is originally proposed. Specifically, the proposed approach includes three modules: the construction of the fused health indicator, which fuses the classical features and spectral",
+      "authors": [
+        "Qing Li"
+      ],
+      "date": "2023-04-01",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/acd7b54a9feb866199b88c8522d7dc2984deb067",
+      "pdf": "",
+      "venue": "IEEE/ASME transactions on mechatronics",
+      "citations": 18,
+      "doi": "10.1109/TMECH.2022.3210765",
+      "relevance_score": 35,
+      "tags": [
+        "rul estimation",
+        "prognostics",
+        "prognostic",
+        "remaining useful life"
+      ]
+    },
+    {
+      "id": "s2:2738ac39bd24a5c477cf",
+      "title": "Fusion Technology-Based CNN-LSTM-ASAN for RUL Estimation of Lithium-Ion Batteries",
+      "abstract": "Accurately predicting the remaining useful life (RUL) of lithium-ion batteries (LIBs) not only prevents battery system failure but also promotes the sustainable development of the energy storage industry and solves the pressing problems of industrial and energy crises. Because of the capacity regeneration phenomenon and random interference during the operation of lithium-ion batteries, the prediction precision and generalization performance of a single model can be poor. This article proposes a novel RUL prediction based on data pre-processing methods and the CNN-LSTM-ASAN framework. The model",
+      "authors": [
+        "Yanming Li",
+        "Xiaojuan Qin",
+        "Furong Ma",
+        "Haoran Wu",
+        "Min Chai"
+      ],
+      "date": "2024-10-24",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/2738ac39bd24a5c477cf21caf5e9867285456f28",
+      "pdf": "",
+      "venue": "Sustainability",
+      "citations": 9,
+      "doi": "10.3390/su16219223",
+      "relevance_score": 35,
+      "tags": [
+        "remaining useful life",
+        "industrial",
+        "rul estimation",
+        "rul prediction",
+        "lstm"
+      ]
+    },
+    {
+      "id": "arxiv:2406.15619v1",
+      "title": "Physics Informed Machine Learning (PIML) methods for estimating the remaining useful lifetime (RUL) of aircraft engines",
+      "abstract": "This paper is aimed at using the newly developing field of physics informed machine learning (PIML) to develop models for predicting the remaining useful lifetime (RUL) aircraft engines. We consider the well-known benchmark NASA Commercial Modular Aero-Propulsion System Simulation (C-MAPSS) data as the main data for this paper, which consists of sensor outputs in a variety of different operating modes. C-MAPSS is a well-studied dataset with much existing work in the literature that address RUL prediction with classical and deep learning methods. In the absence of published empirical physical l",
+      "authors": [
+        "Sriram Nagaraj",
+        "Truman Hickok"
+      ],
+      "date": "2024-06-21",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2406.15619v1",
+      "pdf": "https://arxiv.org/pdf/2406.15619v1",
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "math.NA"
+      ],
+      "relevance_score": 33,
+      "tags": [
+        "c-mapss",
+        "rul prediction",
+        "lstm",
+        "remaining useful life"
+      ]
+    },
+    {
+      "id": "arxiv:2511.11180v1",
+      "title": "Prognostics and Health Management in Polymer Electrolyte Fuel Cells: Current Trends, Challenges, and Future Directions",
+      "abstract": "Prognostics and Health Management is crucial for the reliability and lifetime assessment of Polymer Electrolyte Fuel Cells (PEFCs). Here, we review the current advances on this topic, focusing mainly on key degradation mechanisms and methodologies such as physics-aware, data-driven, and hybrid modeling approaches. Key open challenges are analyzed, including the need for more accurate degradation modeling, effective management of multi-stack systems, and advancements in the currently underdeveloped action phase, in which diagnostic and prognostic insights are translated into real-time system re",
+      "authors": [
+        "Farideh Abdollahi",
+        "Kourosh Malek",
+        "Thomas Kadyk",
+        "Nadiia Kulyk",
+        "Christophe Gerling"
+      ],
+      "date": "2025-11-14",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2511.11180v1",
+      "pdf": "https://arxiv.org/pdf/2511.11180v1",
+      "categories": [
+        "eess.SY"
+      ],
+      "relevance_score": 33,
+      "tags": [
+        "degradation model",
+        "prognostics",
+        "prognostic",
+        "remaining useful life"
+      ]
+    },
+    {
+      "id": "arxiv:2602.19984v1",
+      "title": "Multivariate time-series forecasting of ASTRI-Horn monitoring data: A Normal Behavior Model",
+      "abstract": "This study presents a Normal Behavior Model (NBM) developed to forecast monitoring time-series data from the ASTRI-Horn Cherenkov telescope under normal operating conditions. The analysis focused on 15 physical variables acquired by the Telescope Control Unit between September 2022 and July 2024, representing sensor measurements from the Azimuth and Elevation motors. After data cleaning, resampling, feature selection, and correlation analysis, the dataset was segmented into fixed-length intervals, in which the first I samples represented the input sequence provided to the model, while the fore",
+      "authors": [
+        "Federico Incardona",
+        "Alessandro Costa",
+        "Farida Farsian",
+        "Francesco Franchina",
+        "Giuseppe Leto"
+      ],
+      "date": "2026-02-23",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2602.19984v1",
+      "pdf": "https://arxiv.org/pdf/2602.19984v1",
+      "categories": [
+        "astro-ph.IM",
+        "astro-ph.HE",
+        "cs.LG"
+      ],
+      "relevance_score": 33,
+      "tags": [
+        "prognostics",
+        "prognostic",
+        "anomaly detection",
+        "predictive maintenance",
+        "lstm"
+      ]
+    },
+    {
+      "id": "arxiv:2411.16422v1",
+      "title": "Turbofan Engine Remaining Useful Life (RUL) Prediction Based on Bi-Directional Long Short-Term Memory (BLSTM)",
+      "abstract": "The aviation industry is rapidly evolving, driven by advancements in technology. Turbofan engines used in commercial aerospace are very complex systems. The majority of turbofan engine components are susceptible to degradation over the life of their operation. Turbofan engine degradation has an impact to engine performance, operability, and reliability. Predicting accurate remaining useful life (RUL) of a commercial turbofan engine based on a variety of complex sensor data is of paramount importance for the safety of the passengers, safety of flight, and for cost effective operations. That is ",
+      "authors": [
+        "Abedin Sherifi"
+      ],
+      "date": "2024-11-25",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2411.16422v1",
+      "pdf": "https://arxiv.org/pdf/2411.16422v1",
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "eess.SP"
+      ],
+      "relevance_score": 32,
+      "tags": [
+        "rul prediction",
+        "lstm",
+        "turbofan",
+        "remaining useful life"
+      ]
+    },
+    {
+      "id": "arxiv:2505.16664v3",
+      "title": "HyBattNet: Hybrid Framework for Predicting the Remaining Useful Life of Lithium-Ion Batteries",
+      "abstract": "Accurate prediction of the Remaining Useful Life (RUL) is essential for enabling timely maintenance of lithium-ion batteries, impacting the operational efficiency of electric applications that rely on them. This paper proposes a RUL prediction approach that leverages data from recent charge-discharge cycles to estimate the number of remaining usable cycles. The approach introduces both a novel signal preprocessing pipeline and a deep learning prediction model. In the signal preprocessing pipeline, a derived capacity feature is computed using interpolated current and capacity signals. Alongside",
+      "authors": [
+        "Khoa Tran",
+        "Tri Le",
+        "Bao Huynh",
+        "Hung-Cuong Trinh",
+        "Vy-Rin Nguyen"
+      ],
+      "date": "2025-05-22",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2505.16664v3",
+      "pdf": "https://arxiv.org/pdf/2505.16664v3",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "relevance_score": 32,
+      "tags": [
+        "attention mechanism",
+        "remaining useful life",
+        "lstm",
+        "rul prediction",
+        "transfer learning"
+      ]
+    },
+    {
+      "id": "s2:443b51eb5cce01ee4252",
+      "title": "A Calibration-Based Hybrid Transfer Learning Framework for RUL Prediction of Rolling Bearing Across Different Machines",
+      "abstract": "The effective remaining useful life (RUL) prediction of rolling bearings could guarantee mechanical equipment reliability and stability. The hybrid physical and data-driven prognosis model (HPDM) is recently receiving increasing attention. However, HPDM approaches suffer from two significant challenges that limit their applicability to complex prognosis scenarios: 1) the reality gap between the simulation and measurement data and 2) the limited model generality to accommodate different working conditions and machines. From the perspective of leveraging physical model inference as “teachers” fo",
+      "authors": [
+        "Yafei Deng",
+        "Shichang Du",
+        "Dong Wang",
+        "Yiping Shao",
+        "Delin Huang"
+      ],
+      "date": "2023",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/443b51eb5cce01ee4252198175912158ea17ea59",
+      "pdf": "",
+      "venue": "IEEE Transactions on Instrumentation and Measurement",
+      "citations": 171,
+      "doi": "10.1109/TIM.2023.3260283",
+      "relevance_score": 31,
+      "tags": [
+        "rul prediction",
+        "transfer learning",
+        "physics-informed",
+        "remaining useful life"
+      ]
+    },
+    {
+      "id": "s2:56eeae1a12e777da1003",
+      "title": "Optimizing Battery RUL Prediction of Lithium-Ion Batteries Based on Harris Hawk Optimization Approach Using Random Forest and LightGBM",
+      "abstract": "Predictive Maintenance (PdM) of lithium-ion batteries has garnered significant attention in recent years due to their widespread application as energy supplies in various industrial equipment, including automated guided vehicles and battery Electric Vehicles (EVs). Accurately estimating these batteries’ Remaining Useful Life (RUL) is crucial for ensuring optimal performance, preempting unexpected failures, and minimizing maintenance costs. This article focuses on the importance of RUL prediction for lithium-ion batteries and its implications in predictive maintenance. We suggest a novel method",
+      "authors": [
+        "Sadiqa Jafari",
+        "Y. Byun"
+      ],
+      "date": "2023",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/56eeae1a12e777da1003a82408e47aa451cb4575",
+      "pdf": "",
+      "venue": "IEEE Access",
+      "citations": 52,
+      "doi": "10.1109/ACCESS.2023.3304699",
+      "relevance_score": 30,
+      "tags": [
+        "predictive maintenance",
+        "rul prediction",
+        "industrial",
+        "remaining useful life"
+      ]
+    },
+    {
+      "id": "s2:aa4ac072070d6873d695",
+      "title": "Enhancing electric vehicle battery lifespan: integrating active balancing and machine learning for precise RUL estimation",
+      "abstract": "Electric vehicles (EVs) rely heavily on lithium-ion battery packs as essential energy storage components. However, inconsistencies in cell characteristics and operating conditions can lead to imbalanced state of charge (SOC) levels, resulting in reduced capacity and accelerated degradation. This study presents an active cell balancing method optimized for both charging and discharging scenarios, aiming to equalize SOC across cells and improve overall pack performance. The proposed system includes two balancing strategies: a charging balance that redistributes excess charge from high-SOC cells ",
+      "authors": [
+        "Yara A. Sultan",
+        "A. Eladl",
+        "Mohamed A. Hassan",
+        "Samah A. Gamel"
+      ],
+      "date": "2025-01-04",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/aa4ac072070d6873d6958fee7ec2a228d2b5c753",
+      "pdf": "",
+      "venue": "Scientific Reports",
+      "citations": 32,
+      "doi": "10.1038/s41598-024-82778-w",
+      "relevance_score": 28,
+      "tags": [
+        "rul estimation",
+        "rul prediction",
+        "remaining useful life"
+      ]
+    },
+    {
+      "id": "arxiv:2510.22955v2",
+      "title": "SARNet: A Spike-Aware consecutive validation Framework for Accurate Remaining Useful Life Prediction",
+      "abstract": "Accurate prediction of remaining useful life (RUL) is essential to enhance system reliability and reduce maintenance risk. Yet many strong contemporary models are fragile around fault onset and opaque to engineers: short, high-energy spikes are smoothed away or misread, fixed thresholds blunt sensitivity, and physics-based explanations are scarce. To remedy this, we introduce SARNet (Spike-Aware Consecutive Validation Framework), which builds on a Modern Temporal Convolutional Network (ModernTCN) and adds spike-aware detection to provide physics-informed interpretability. ModernTCN forecasts d",
+      "authors": [
+        "Junhao Fan",
+        "Wenrui Liang",
+        "Wei-Qiang Zhang"
+      ],
+      "date": "2025-10-27",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2510.22955v2",
+      "pdf": "https://arxiv.org/pdf/2510.22955v2",
+      "categories": [
+        "cs.LG"
+      ],
+      "relevance_score": 28,
+      "tags": [
+        "physics-informed",
+        "temporal convolutional",
+        "lightweight",
+        "remaining useful life"
+      ]
+    },
+    {
+      "id": "arxiv:2512.02610v1",
+      "title": "Target-specific Adaptation and Consistent Degradation Alignment for Cross-Domain Remaining Useful Life Prediction",
+      "abstract": "Accurate prediction of the Remaining Useful Life (RUL) in machinery can significantly diminish maintenance costs, enhance equipment up-time, and mitigate adverse outcomes. Data-driven RUL prediction techniques have demonstrated commendable performance. However, their efficacy often relies on the assumption that training and testing data are drawn from the same distribution or domain, which does not hold in real industrial settings. To mitigate this domain discrepancy issue, prior adversarial domain adaptation methods focused on deriving domain-invariant features. Nevertheless, they overlook ta",
+      "authors": [
+        "Yubo Hou",
+        "Mohamed Ragab",
+        "Min Wu",
+        "Chee-Keong Kwoh",
+        "Xiaoli Li"
+      ],
+      "date": "2025-12-02",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2512.02610v1",
+      "pdf": "https://arxiv.org/pdf/2512.02610v1",
+      "categories": [
+        "cs.AI"
+      ],
+      "relevance_score": 27,
+      "tags": [
+        "rul prediction",
+        "domain adaptation",
+        "industrial",
+        "remaining useful life"
+      ]
+    },
+    {
+      "id": "arxiv:2601.22631v1",
+      "title": "PEFT-MuTS: A Multivariate Parameter-Efficient Fine-Tuning Framework for Remaining Useful Life Prediction based on Cross-domain Time Series Representation Model",
+      "abstract": "The application of data-driven remaining useful life (RUL) prediction has long been constrained by the availability of large amount of degradation data. Mainstream solutions such as domain adaptation and meta-learning still rely on large amounts of historical degradation data from equipment that is identical or similar to the target, which imposes significant limitations in practical applications. This study investigates PEFT-MuTS, a Parameter-Efficient Fine-Tuning framework for few-shot RUL prediction, built on cross-domain pre-trained time-series representation models. Contrary to the widely",
+      "authors": [
+        "En Fu",
+        "Yanyan Hu",
+        "Changhua Hu",
+        "Zengwang Jin",
+        "Kaixiang Peng"
+      ],
+      "date": "2026-01-30",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2601.22631v1",
+      "pdf": "https://arxiv.org/pdf/2601.22631v1",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "relevance_score": 27,
+      "tags": [
+        "rul prediction",
+        "domain adaptation",
+        "industrial",
+        "remaining useful life"
+      ]
+    },
+    {
+      "id": "s2:51cf05eb6fffd828bda5",
+      "title": "DLVR-NWP: A Novel Data-Driven Bearing Degradation Model for RUL Estimation",
+      "abstract": "Performance degradation process modeling and remaining useful life (RUL) estimation have gained much attention for condition-based maintenance of important engineering equipment such as the bearings of gantry cranes. The existing work mainly uses the original or elaborately selected features that may not necessarily correspond to the current degradation process. In view of this, this article proposes a novel data-driven bearing degradation modeling method, called dynamic latent variable reconstruction nonlinear Wiener process (DLVR-NWP). The proposed DLVR-NWP method is composed of a feature ge",
+      "authors": [
+        "Qiang Liu",
+        "Yijie Zhang",
+        "Xiaosheng Si",
+        "Zizhu Fan"
+      ],
+      "date": "2023",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/51cf05eb6fffd828bda5442bb56558e445cd568f",
+      "pdf": "",
+      "venue": "IEEE Transactions on Instrumentation and Measurement",
+      "citations": 18,
+      "doi": "10.1109/TIM.2023.3244839",
+      "relevance_score": 26,
+      "tags": [
+        "rul estimation",
+        "degradation model",
+        "remaining useful life"
+      ]
+    },
+    {
+      "id": "s2:b7836e3e13c37cb7427c",
+      "title": "A Lightweight Group Transformer-Based Time Series Reduction Network for Edge Intelligence and Its Application in Industrial RUL Prediction",
+      "abstract": "Recently, deep learning-based models such as transformer have achieved significant performance for industrial remaining useful life (RUL) prediction due to their strong representation ability. In many industrial practices, RUL prediction algorithms are deployed on edge devices for real-time response. However, the high computational cost of deep learning models makes it difficult to meet the requirements of edge intelligence. In this article, a lightweight group transformer with multihierarchy time-series reduction (GT-MRNet) is proposed to alleviate this problem. Different from most existing R",
+      "authors": [
+        "Lei Ren",
+        "Haiteng Wang",
+        "Tingyu Mo",
+        "Laurence T. Yang"
+      ],
+      "date": "2024-01-03",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/b7836e3e13c37cb7427c02326420f66d3fe627c1",
+      "pdf": "",
+      "venue": "IEEE Transactions on Neural Networks and Learning Systems",
+      "citations": 25,
+      "doi": "10.1109/TNNLS.2023.3347227",
+      "relevance_score": 26,
+      "tags": [
+        "rul prediction",
+        "industrial",
+        "lightweight",
+        "remaining useful life"
+      ]
+    },
+    {
+      "id": "s2:2650fab887c74b62af9c",
+      "title": "Collaborative Online RUL Prediction of Multiple Assets With Analytically Recursive Bayesian Inference",
+      "abstract": "By using in situ health information, many existing studies for online remaining useful life (RUL) prediction adopt a stochastic process-based degradation model and a computation-intensive parameter estimation method for RUL prediction of a single operating asset. Nevertheless, it is common that there are multiple assets under operation, and it would be more statistically efficient to jointly update their RULs by allowing information sharing among them for model parameter estimation. To this end, we propose a collaborative RUL prediction framework with closed-form online update. The framework i",
+      "authors": [
+        "Wei Peng",
+        "Yuan Chen",
+        "Ancha Xu",
+        "Z. Ye"
+      ],
+      "date": "2024-03-01",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/2650fab887c74b62af9cfb0f5300029ad21fde1c",
+      "pdf": "",
+      "venue": "IEEE Transactions on Reliability",
+      "citations": 23,
+      "doi": "10.1109/TR.2023.3295943",
+      "relevance_score": 26,
+      "tags": [
+        "rul prediction",
+        "degradation model",
+        "remaining useful life"
+      ]
+    },
+    {
+      "id": "arxiv:2510.02839v1",
+      "title": "Knowledge-Aware Modeling with Frequency Adaptive Learning for Battery Health Prognostics",
+      "abstract": "Battery health prognostics are critical for ensuring safety, efficiency, and sustainability in modern energy systems. However, it has been challenging to achieve accurate and robust prognostics due to complex battery degradation behaviors with nonlinearity, noise, capacity regeneration, etc. Existing data-driven models capture temporal degradation features but often lack knowledge guidance, which leads to unreliable long-term health prognostics. To overcome these limitations, we propose Karma, a knowledge-aware model with frequency-adaptive learning for battery capacity estimation and remainin",
+      "authors": [
+        "Vijay Babu Pamshetti",
+        "Wei Zhang",
+        "Sumei Sun",
+        "Jie Zhang",
+        "Yonggang Wen"
+      ],
+      "date": "2025-10-03",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2510.02839v1",
+      "pdf": "https://arxiv.org/pdf/2510.02839v1",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "relevance_score": 26,
+      "tags": [
+        "prognostics",
+        "prognostic",
+        "remaining useful life"
+      ]
+    },
+    {
+      "id": "arxiv:2602.01668v1",
+      "title": "ASGMamba: Adaptive Spectral Gating Mamba for Multivariate Time Series Forecasting",
+      "abstract": "Long-term multivariate time series forecasting (LTSF) plays a crucial role in various high-performance computing applications, including real-time energy grid management and large-scale traffic flow simulation. However, existing solutions face a dilemma: Transformer-based models suffer from quadratic complexity, limiting their scalability on long sequences, while linear State Space Models (SSMs) often struggle to distinguish valuable signals from high-frequency noise, leading to wasted state capacity. To bridge this gap, we propose ASGMamba, an efficient forecasting framework designed for reso",
+      "authors": [
+        "Qianyang Li",
+        "Xingjun Zhang",
+        "Shaoxun Wang",
+        "Jia Wei",
+        "Yueqi Xing"
+      ],
+      "date": "2026-02-02",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2602.01668v1",
+      "pdf": "https://arxiv.org/pdf/2602.01668v1",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "relevance_score": 26,
+      "tags": [
+        "time series forecast",
+        "mamba",
+        "state space model",
+        "multivariate time series",
+        "lightweight"
+      ]
+    },
+    {
+      "id": "arxiv:2602.16738v1",
+      "title": "Self-Evolving Multi-Agent Network for Industrial IoT Predictive Maintenance",
+      "abstract": "Industrial IoT predictive maintenance requires systems capable of real-time anomaly detection without sacrificing interpretability or demanding excessive computational resources. Traditional approaches rely on static, offline-trained models that cannot adapt to evolving operational conditions, while LLM-based monolithic systems demand prohibitive memory and latency, rendering them impractical for on-site edge deployment. We introduce SEMAS, a self-evolving hierarchical multi-agent system that distributes specialized agents across Edge, Fog, and Cloud computational tiers. Edge agents perform li",
+      "authors": [
+        "Rebin Saleh",
+        "Khanh Pham Dinh",
+        "Balázs Villányi",
+        "Truong-Son Hy"
+      ],
+      "date": "2026-02-17",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2602.16738v1",
+      "pdf": "https://arxiv.org/pdf/2602.16738v1",
+      "categories": [
+        "cs.MA",
+        "cs.LG"
+      ],
+      "relevance_score": 26,
+      "tags": [
+        "anomaly detection",
+        "industrial",
+        "predictive maintenance",
+        "edge deployment",
+        "lightweight"
+      ]
+    },
+    {
+      "id": "s2:dae85fed5fab9bb37f2a",
+      "title": "Machinery health prognostics: A systematic review from data acquisition to RUL prediction",
+      "abstract": "",
+      "authors": [
+        "Y. Lei",
+        "Naipeng Li",
+        "Liang Guo",
+        "Ningbo Li",
+        "Tao Yan"
+      ],
+      "date": "2018-05-01",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/dae85fed5fab9bb37f2a1713dd7f8933f4f6fe06",
+      "pdf": "",
+      "venue": "",
+      "citations": 2070,
+      "doi": "10.1016/J.YMSSP.2017.11.016",
+      "relevance_score": 25,
+      "tags": [
+        "rul prediction",
+        "prognostics",
+        "prognostic"
+      ]
+    },
+    {
+      "id": "arxiv:2602.19263v1",
+      "title": "Prognostics of Multisensor Systems with Unknown and Unlabeled Failure Modes via Bayesian Nonparametric Process Mixtures",
+      "abstract": "Modern manufacturing systems often experience multiple and unpredictable failure behaviors, yet most existing prognostic models assume a fixed, known set of failure modes with labeled historical data. This assumption limits the use of digital twins for predictive maintenance, especially in high-mix or adaptive production environments, where new failure modes may emerge, and the failure mode labels may be unavailable. To address these challenges, we propose a novel Bayesian nonparametric framework that unifies a Dirichlet process mixture module for unsupervised failure mode discovery with a neu",
+      "authors": [
+        "Kani Fu",
+        "Sanduni S Disanayaka Mudiyanselage",
+        "Chunli Dai",
+        "Minhee Kim"
+      ],
+      "date": "2026-02-22",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2602.19263v1",
+      "pdf": "https://arxiv.org/pdf/2602.19263v1",
+      "categories": [
+        "stat.AP",
+        "cs.LG"
+      ],
+      "relevance_score": 24,
+      "tags": [
+        "predictive maintenance",
+        "prognostics",
+        "prognostic"
+      ]
+    },
+    {
+      "id": "s2:e3d1f56210fad689efa4",
+      "title": "RUL Estimation for Power Electronic Devices Using RNNs",
+      "abstract": "Recurrent Neural Networks (RNNs) are commonly used in data-driven approaches to estimate the Remaining Useful Lifetime (RUL) of power electronic devices. RNNs are preferred because their intrinsic feedback mechanisms are better suited to model time-series data. However, the impact of RNN complexity on estimation accuracy is rarely discussed in the literature. This issue is important because choosing a lower-complexity model that delivers the same or similar performance as a higher-complexity model can increase implementation efficiency. In the paper, we use three RNN models, namely, the vanill",
+      "authors": [
+        "Congrui Cai",
+        "Zhonghai Lu"
+      ],
+      "date": "2024-05-28",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/e3d1f56210fad689efa44fe876f304b4a8caca19",
+      "pdf": "",
+      "venue": "2024 Prognostics and System Health Management Conference (PHM)",
+      "citations": 1,
+      "doi": "10.1109/PHM61473.2024.00064",
+      "relevance_score": 23,
+      "tags": [
+        "rul estimation",
+        "lstm",
+        "remaining useful life"
+      ]
+    },
+    {
+      "id": "arxiv:2508.12602v2",
+      "title": "A Hybrid Surrogate for Electric Vehicle Parameter Estimation and Power Consumption via Physics-Informed Neural Operators",
+      "abstract": "We present a hybrid surrogate model for electric vehicle parameter estimation and power consumption. We combine our novel architecture Spectral Parameter Operator built on a Fourier Neural Operator backbone for global context and a differentiable physics module in the forward pass. From speed and acceleration alone, it outputs time-varying motor and regenerative braking efficiencies, as well as aerodynamic drag, rolling resistance, effective mass, and auxiliary power. These parameters drive a physics-embedded estimate of battery power, eliminating any separate physics-residual loss. The modula",
+      "authors": [
+        "Hansol Lim",
+        "Jongseong Brad Choi",
+        "Jee Won Lee",
+        "Haeseong Jeoung",
+        "Minkyu Han"
+      ],
+      "date": "2025-08-18",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2508.12602v2",
+      "pdf": "https://arxiv.org/pdf/2508.12602v2",
+      "categories": [
+        "cs.LG"
+      ],
+      "relevance_score": 23,
+      "tags": [
+        "prognostics",
+        "physics-informed",
+        "prognostic"
+      ]
+    },
+    {
+      "id": "arxiv:2601.10269v1",
+      "title": "Early Fault Detection on CMAPSS with Unsupervised LSTM Autoencoders",
+      "abstract": "This paper introduces an unsupervised health-monitoring framework for turbofan engines that does not require run-to-failure labels. First, operating-condition effects in NASA CMAPSS sensor streams are removed via regression-based normalisation; then a Long Short-Term Memory (LSTM) autoencoder is trained only on the healthy portion of each trajectory. Persistent reconstruction error, estimated using an adaptive data-driven threshold, triggers real-time alerts without hand-tuned rules. Benchmark results show high recall and low false-alarm rates across multiple operating regimes, demonstrating t",
+      "authors": [
+        "P. Sánchez",
+        "K. Reyes",
+        "B. Radu",
+        "E. Fernández"
+      ],
+      "date": "2026-01-15",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2601.10269v1",
+      "pdf": "https://arxiv.org/pdf/2601.10269v1",
+      "categories": [
+        "cs.LG"
+      ],
+      "relevance_score": 23,
+      "tags": [
+        "lstm",
+        "turbofan",
+        "remaining useful life"
+      ]
+    },
+    {
+      "id": "arxiv:2603.11306v1",
+      "title": "Hierarchical Granularity Alignment and State Space Modeling for Robust Multimodal AU Detection in the Wild",
+      "abstract": "Facial Action Unit (AU) detection in in-the-wild environments remains a formidable challenge due to severe spatial-temporal heterogeneity, unconstrained poses, and complex audio-visual dependencies. While recent multimodal approaches have made progress, they often rely on capacity-limited encoders and shallow fusion mechanisms that fail to capture fine-grained semantic shifts and ultra-long temporal contexts. To bridge this gap, we propose a novel multimodal framework driven by Hierarchical Granularity Alignment and State Space Models.Specifically, we leverage powerful foundation models, namel",
+      "authors": [
+        "Jun Yu",
+        "Yunxiang Zhang",
+        "Naixiang Zheng",
+        "Lingsi Zhu",
+        "Guoyuan Wang"
+      ],
+      "date": "2026-03-11",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2603.11306v1",
+      "pdf": "https://arxiv.org/pdf/2603.11306v1",
+      "categories": [
+        "cs.CV"
+      ],
+      "relevance_score": 23,
+      "tags": [
+        "attention mechanism",
+        "mamba",
+        "temporal convolutional",
+        "state space model"
+      ]
+    },
+    {
+      "id": "arxiv:2506.17036v1",
+      "title": "Bayesian Joint Model of Multi-Sensor and Failure Event Data for Multi-Mode Failure Prediction",
+      "abstract": "Modern industrial systems are often subject to multiple failure modes, and their conditions are monitored by multiple sensors, generating multiple time-series signals. Additionally, time-to-failure data are commonly available. Accurately predicting a system's remaining useful life (RUL) requires effectively leveraging multi-sensor time-series data alongside multi-mode failure event data. In most existing models, failure modes and RUL prediction are performed independently, ignoring the inherent relationship between these two tasks. Some models integrate multiple failure modes and event predict",
+      "authors": [
+        "Sina Aghaee Dabaghan Fard",
+        "Minhee Kim",
+        "Akash Deep",
+        "Jaesung Lee"
+      ],
+      "date": "2025-06-20",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2506.17036v1",
+      "pdf": "https://arxiv.org/pdf/2506.17036v1",
+      "categories": [
+        "stat.ME",
+        "cs.LG",
+        "stat.ML"
+      ],
+      "relevance_score": 22,
+      "tags": [
+        "rul prediction",
+        "industrial",
+        "remaining useful life"
+      ]
+    },
+    {
+      "id": "arxiv:2509.11053v1",
+      "title": "An Advanced Convolutional Neural Network for Bearing Fault Diagnosis under Limited Data",
+      "abstract": "In the area of bearing fault diagnosis, deep learning (DL) methods have been widely used recently. However, due to the high cost or privacy concerns, high-quality labeled data are scarce in real world scenarios. While few-shot learning has shown promise in addressing data scarcity, existing methods still face significant limitations in this domain. Traditional data augmentation techniques often suffer from mode collapse and generate low-quality samples that fail to capture the diversity of bearing fault patterns. Moreover, conventional convolutional neural networks (CNNs) with local receptive ",
+      "authors": [
+        "Shengke Sun",
+        "Shuzhen Han",
+        "Ziqian Luan",
+        "Xinghao Qin",
+        "Jiao Yin"
+      ],
+      "date": "2025-09-14",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2509.11053v1",
+      "pdf": "https://arxiv.org/pdf/2509.11053v1",
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "cs.CE"
+      ],
+      "relevance_score": 22,
+      "tags": [
+        "vibration signal",
+        "bearing fault",
+        "fault diagnosis"
+      ]
+    },
+    {
+      "id": "arxiv:2512.19719v1",
+      "title": "Multiscale Dual-path Feature Aggregation Network for Remaining Useful Life Prediction of Lithium-Ion Batteries",
+      "abstract": "Targeted maintenance strategies, ensuring the dependability and safety of industrial machinery. However, current modeling techniques for assessing both local and global correlation of battery degradation sequences are inefficient and difficult to meet the needs in real-life applications. For this reason, we propose a novel deep learning architecture, multiscale dual-path feature aggregation network (MDFA-Net), for RUL prediction. MDFA-Net consists of dual-path networks, the first path network, multiscale feature network (MF-Net) that maintains the shallow information and avoids missing informa",
+      "authors": [
+        "Zihao Lv",
+        "Siqi Ai",
+        "Yanbin Zhang"
+      ],
+      "date": "2025-12-16",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2512.19719v1",
+      "pdf": "https://arxiv.org/pdf/2512.19719v1",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "relevance_score": 22,
+      "tags": [
+        "rul prediction",
+        "industrial",
+        "remaining useful life"
+      ]
+    },
+    {
+      "id": "arxiv:2601.01410v6",
+      "title": "Reliable Grid Forecasting: State Space Models for Safety-Critical Energy Systems",
+      "abstract": "Accurate grid load forecasting is safety-critical: under-predictions risk supply shortfalls, while symmetric error metrics can mask this operational asymmetry. We introduce an operator-legible evaluation framework -- Under-Prediction Rate (UPR), tail $\\text{Reserve}_{99.5}^{\\%}$ requirements, and explicit inflation diagnostics ($\\text{Bias}_{24h}$/OPR) -- to quantify one-sided reliability risk beyond MAPE. Using this framework, we evaluate five neural architectures -- two state space models (S-Mamba, PowerMamba), two Transformers (iTransformer, PatchTST), an LSTM, and a probabilistic SSM varia",
+      "authors": [
+        "Sunki Hong",
+        "Jisoo Lee"
+      ],
+      "date": "2026-01-04",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2601.01410v6",
+      "pdf": "https://arxiv.org/pdf/2601.01410v6",
+      "categories": [
+        "eess.SY",
+        "cs.AI",
+        "cs.LG"
+      ],
+      "relevance_score": 22,
+      "tags": [
+        "patchtst",
+        "mamba",
+        "state space model",
+        "lstm"
+      ]
+    },
+    {
+      "id": "arxiv:2602.21415v1",
+      "title": "Benchmarking State Space Models, Transformers, and Recurrent Networks for US Grid Forecasting",
+      "abstract": "Selecting the right deep learning model for power grid forecasting is challenging, as performance heavily depends on the data available to the operator. This paper presents a comprehensive benchmark of five modern neural architectures: two state space models (PowerMamba, S-Mamba), two Transformers (iTransformer, PatchTST), and a traditional LSTM. We evaluate these models on hourly electricity demand across six diverse US power grids for forecast windows between 24 and 168 hours. To ensure a fair comparison, we adapt each model with specialized temporal processing and a modular layer that clean",
+      "authors": [
+        "Sunki Hong",
+        "Jisoo Lee",
+        "Yuanyuan Shi"
+      ],
+      "date": "2026-02-24",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2602.21415v1",
+      "pdf": "https://arxiv.org/pdf/2602.21415v1",
+      "categories": [
+        "cs.LG",
+        "eess.SY"
+      ],
+      "relevance_score": 22,
+      "tags": [
+        "patchtst",
+        "mamba",
+        "state space model",
+        "lstm"
+      ]
+    },
+    {
+      "id": "arxiv:2602.13783v1",
+      "title": "MEMTS: Internalizing Domain Knowledge via Parameterized Memory for Retrieval-Free Domain Adaptation of Time Series Foundation Models",
+      "abstract": "While Time Series Foundation Models (TSFMs) have demonstrated exceptional performance in generalized forecasting, their performance often degrades significantly when deployed in real-world vertical domains characterized by temporal distribution shifts and domain-specific periodic structures. Current solutions are primarily constrained by two paradigms: Domain-Adaptive Pretraining (DAPT), which improves short-term domain fitting but frequently disrupts previously learned global temporal patterns due to catastrophic forgetting; and Retrieval-Augmented Generation (RAG), which incorporates externa",
+      "authors": [
+        "Xiaoyun Yu",
+        "Li fan",
+        "Xiangfei Qiu",
+        "Nanqing Dong",
+        "Yonggui Huang"
+      ],
+      "date": "2026-02-14",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2602.13783v1",
+      "pdf": "https://arxiv.org/pdf/2602.13783v1",
+      "categories": [
+        "cs.LG"
+      ],
+      "relevance_score": 21,
+      "tags": [
+        "domain adaptation",
+        "time series foundation",
+        "time series forecast",
+        "lightweight"
+      ]
+    },
+    {
+      "id": "arxiv:2406.12914v1",
+      "title": "The Significance of Latent Data Divergence in Predicting System Degradation",
+      "abstract": "Condition-Based Maintenance is pivotal in enabling the early detection of potential failures in engineering systems, where precise prediction of the Remaining Useful Life is essential for effective maintenance and operation. However, a predominant focus in the field centers on predicting the Remaining Useful Life using unprocessed or minimally processed data, frequently neglecting the intricate dynamics inherent in the dataset. In this work we introduce a novel methodology grounded in the analysis of statistical similarity within latent data from system components. Leveraging a specifically de",
+      "authors": [
+        "Miguel Fernandes",
+        "Catarina Silva",
+        "Alberto Cardoso",
+        "Bernardete Ribeiro"
+      ],
+      "date": "2024-06-13",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2406.12914v1",
+      "pdf": "https://arxiv.org/pdf/2406.12914v1",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "relevance_score": 20,
+      "tags": [
+        "c-mapss",
+        "remaining useful life"
+      ]
+    },
+    {
+      "id": "s2:06fbb6d448a5b5c87664",
+      "title": "A bearing RUL prediction approach of vibration fault signal denoise modeling with Gate-CNN and Conv-transformer encoder",
+      "abstract": "The operating conditions of rolling bearings are complex and variable, and their vibration monitoring signals are filled with strong noise interference, resulting in a low accuracy in remaining useful life (RUL) prediction. For this issue, this paper proposes a denoising method with vibration fault signals modeling, and a novel RUL prediction method with Gate-convolutional neural networks (CNN) and Conv-Transformer encoder. Firstly, the theoretical fault signal is obtained through the vibration fault signal model, and the quality of the extracted features is improved by the wavelet threshold d",
+      "authors": [
+        "Peng Huang",
+        "Yuan Wang",
+        "Yingkui Gu",
+        "Guangqi Qiu"
+      ],
+      "date": "2024-02-23",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/06fbb6d448a5b5c8766434d9cf964257b7594355",
+      "pdf": "",
+      "venue": "Measurement science and technology",
+      "citations": 18,
+      "doi": "10.1088/1361-6501/ad2cd9",
+      "relevance_score": 19,
+      "tags": [
+        "rul prediction",
+        "remaining useful life"
+      ]
+    },
+    {
+      "id": "arxiv:2405.01614v3",
+      "title": "RULSurv: A probabilistic survival-based method for early censoring-aware prediction of remaining useful life in ball bearings",
+      "abstract": "Predicting the remaining useful life (RUL) of ball bearings is an active area of research, where novel machine learning techniques are continuously being applied to predict degradation trends and anticipate failures before they occur. However, few studies have explicitly addressed the challenge of handling censored data, where information about a specific event (\\eg mechanical failure) is incomplete or only partially observed. To address this issue, we introduce a novel and flexible method for early fault detection using Kullback-Leibler (KL) divergence and RUL estimation using survival analys",
+      "authors": [
+        "Christian Marius Lillelund",
+        "Fernando Pannullo",
+        "Morten Opprud Jakobsen",
+        "Manuel Morante",
+        "Christian Fischer Pedersen"
+      ],
+      "date": "2024-05-02",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2405.01614v3",
+      "pdf": "https://arxiv.org/pdf/2405.01614v3",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "relevance_score": 19,
+      "tags": [
+        "rul estimation",
+        "remaining useful life"
+      ]
+    },
+    {
+      "id": "arxiv:2411.17824v2",
+      "title": "A Cloud-based Real-time Probabilistic Remaining Useful Life (RUL) Estimation using the Sequential Monte Carlo (SMC) Method",
+      "abstract": "The remaining useful life (RUL) estimation is an important metric that helps in condition-based maintenance. Damage data obtained from the diagnostics techniques are often noisy and the RUL estimated from the data is less reliable. Estimating the probabilistic RUL by quantifying the uncertainty in the predictive model parameters using the noisy data increases confidence in the predicted values. Uncertainty quantification methods generate statistical samples for the model parameters, that represent the uncertainty, by evaluating the predictive model several times. The computational time for sol",
+      "authors": [
+        "Karthik Reddy Lyathakula",
+        "Fuh-Gwo Yuan"
+      ],
+      "date": "2024-11-26",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2411.17824v2",
+      "pdf": "https://arxiv.org/pdf/2411.17824v2",
+      "categories": [
+        "cs.CE",
+        "cs.DC"
+      ],
+      "relevance_score": 19,
+      "tags": [
+        "rul estimation",
+        "remaining useful life"
+      ]
+    },
+    {
+      "id": "s2:dd5200dff3a39f2d4e3a",
+      "title": "SOH and RUL Estimation for Lithium-Ion Batteries Based on Partial Charging Curve Features",
+      "abstract": "Accurate estimation of the state of health (SOH) and remaining useful life (RUL) of lithium-ion batteries (LiBs) is critical for ensuring battery reliability and safety in applications such as electric vehicles and energy storage systems. However, existing methods developed for estimating the SOH and RUL of LiBs often rely on full-cycle charging data, which are difficult to obtain in engineering practice. To bridge this gap, this paper proposes a novel data-driven method to estimate the SOH and RUL of LiBs only using partial charging curve features. Key health features are extracted from the c",
+      "authors": [
+        "Kejun Qian",
+        "Yafei Li",
+        "Qiheng Zou",
+        "Kecai Cao",
+        "Zhongpeng Li"
+      ],
+      "date": "2025-06-21",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/dd5200dff3a39f2d4e3ae2a8099bcb37b51019f1",
+      "pdf": "",
+      "venue": "Energies",
+      "citations": 5,
+      "doi": "10.3390/en18133248",
+      "relevance_score": 19,
+      "tags": [
+        "rul estimation",
+        "remaining useful life"
+      ]
+    },
+    {
+      "id": "arxiv:2512.23725v1",
+      "title": "RUL-QMoE: Multiple Non-crossing Quantile Mixture-of-Experts for Probabilistic Remaining Useful Life Predictions of Varying Battery Materials",
+      "abstract": "Lithium-ion batteries are the major type of battery used in a variety of everyday applications, including electric vehicles (EVs), mobile devices, and energy storage systems. Predicting the Remaining Useful Life (RUL) of Li-ion batteries is crucial for ensuring their reliability, safety, and cost-effectiveness in battery-powered systems. The materials used for the battery cathodes and their designs play a significant role in determining the degradation rates and RUL, as they lead to distinct electrochemical reactions. Unfortunately, RUL prediction models often overlook the cathode materials an",
+      "authors": [
+        "Sel Ly",
+        "Rufan Yang",
+        "Ninad Dixit",
+        "Hung Dinh Nguyen"
+      ],
+      "date": "2025-12-19",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2512.23725v1",
+      "pdf": "https://arxiv.org/pdf/2512.23725v1",
+      "categories": [
+        "eess.SP"
+      ],
+      "relevance_score": 19,
+      "tags": [
+        "rul prediction",
+        "remaining useful life"
+      ]
+    },
+    {
+      "id": "arxiv:2602.02592v1",
+      "title": "Learnable Koopman-Enhanced Transformer-Based Time Series Forecasting with Spectral Control",
+      "abstract": "This paper proposes a unified family of learnable Koopman operator parameterizations that integrate linear dynamical systems theory with modern deep learning forecasting architectures. We introduce four learnable Koopman variants-scalar-gated, per-mode gated, MLP-shaped spectral mapping, and low-rank Koopman operators which generalize and interpolate between strictly stable Koopman operators and unconstrained linear latent dynamics. Our formulation enables explicit control over the spectrum, stability, and rank of the linear transition operator while retaining compatibility with expressive non",
+      "authors": [
+        "Ali Forootani",
+        "Raffaele Iervolino"
+      ],
+      "date": "2026-02-01",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2602.02592v1",
+      "pdf": "https://arxiv.org/pdf/2602.02592v1",
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "eess.SY"
+      ],
+      "relevance_score": 19,
+      "tags": [
+        "patchtst",
+        "time series forecast",
+        "lightweight",
+        "lstm"
+      ]
+    },
+    {
+      "id": "arxiv:2602.10432v1",
+      "title": "A Dual-Stream Physics-Augmented Unsupervised Architecture for Runtime Embedded Vehicle Health Monitoring",
+      "abstract": "Runtime quantification of vehicle operational intensity is essential for predictive maintenance and condition monitoring in commercial and heavy-duty fleets. Traditional metrics like mileage fail to capture mechanical burden, while unsupervised deep learning models detect statistical anomalies, typically transient surface shocks, but often conflate statistical stability with mechanical rest. We identify this as a critical blind spot: high-load steady states, such as hill climbing with heavy payloads, appear statistically normal yet impose significant drivetrain fatigue. To resolve this, we pro",
+      "authors": [
+        "Enzo Nicolas Spotorno",
+        "Antonio Augusto Medeiros Frohlich"
+      ],
+      "date": "2026-02-11",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2602.10432v1",
+      "pdf": "https://arxiv.org/pdf/2602.10432v1",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "relevance_score": 19,
+      "tags": [
+        "anomaly detection",
+        "predictive maintenance",
+        "condition monitoring"
+      ]
+    },
+    {
+      "id": "arxiv:2603.08130v1",
+      "title": "Explainable Condition Monitoring via Probabilistic Anomaly Detection Applied to Helicopter Transmissions",
+      "abstract": "We present a novel Explainable methodology for Condition Monitoring, relying on healthy data only. Since faults are rare events, we propose to focus on learning the probability distribution of healthy observations only, and detect Anomalies at runtime. This objective is achieved via the definition of probabilistic measures of deviation from nominality, which allow to detect and anticipate faults. The Bayesian perspective underpinning our approach allows us to perform Uncertainty Quantification to inform decisions. At the same time, we provide descriptive tools to enhance the interpretability o",
+      "authors": [
+        "Aurelio Raffa Ugolini",
+        "Jessica Leoni",
+        "Valentina Breschi",
+        "Damiano Paniccia",
+        "Francesco Aldo Tucci"
+      ],
+      "date": "2026-03-09",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2603.08130v1",
+      "pdf": "https://arxiv.org/pdf/2603.08130v1",
+      "categories": [
+        "cs.LG",
+        "stat.ML"
+      ],
+      "relevance_score": 19,
+      "tags": [
+        "anomaly detection",
+        "predictive maintenance",
+        "condition monitoring"
+      ]
+    },
+    {
+      "id": "arxiv:2603.09624v1",
+      "title": "Decoder-Free Distillation for Quantized Image Restoration",
+      "abstract": "Quantization-Aware Training (QAT), combined with Knowledge Distillation (KD), holds immense promise for compressing models for edge deployment. However, joint optimization for precision-sensitive image restoration (IR) to recover visual quality from degraded images remains largely underexplored. Directly adapting QAT-KD to low-level vision reveals three critical bottlenecks: teacher-student capacity mismatch, spatial error amplification during decoder distillation, and an optimization \"tug-of-war\" between reconstruction and distillation losses caused by quantization noise. To tackle these, we ",
+      "authors": [
+        "S. M. A. Sharif",
+        "Abdur Rehman",
+        "Seongwan Kim",
+        "Jaeho Lee"
+      ],
+      "date": "2026-03-10",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2603.09624v1",
+      "pdf": "https://arxiv.org/pdf/2603.09624v1",
+      "categories": [
+        "cs.CV"
+      ],
+      "relevance_score": 19,
+      "tags": [
+        "knowledge distillation",
+        "lightweight",
+        "edge deployment"
+      ]
+    },
+    {
+      "id": "arxiv:2407.11501v1",
+      "title": "Diff-MTS: Temporal-Augmented Conditional Diffusion-based AIGC for Industrial Time Series Towards the Large Model Era",
+      "abstract": "Industrial Multivariate Time Series (MTS) is a critical view of the industrial field for people to understand the state of machines. However, due to data collection difficulty and privacy concerns, available data for building industrial intelligence and industrial large models is far from sufficient. Therefore, industrial time series data generation is of great importance. Existing research usually applies Generative Adversarial Networks (GANs) to generate MTS. However, GANs suffer from unstable training process due to the joint training of the generator and discriminator. This paper proposes ",
+      "authors": [
+        "Lei Ren",
+        "Haiteng Wang",
+        "Yuanjun Laili"
+      ],
+      "date": "2024-07-16",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2407.11501v1",
+      "pdf": "https://arxiv.org/pdf/2407.11501v1",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "relevance_score": 18,
+      "tags": [
+        "c-mapss",
+        "multivariate time series",
+        "industrial"
+      ]
+    },
+    {
+      "id": "arxiv:2603.04951v1",
+      "title": "Retrieval-Augmented Generation with Covariate Time Series",
+      "abstract": "While RAG has greatly enhanced LLMs, extending this paradigm to Time-Series Foundation Models (TSFMs) remains a challenge. This is exemplified in the Predictive Maintenance of the Pressure Regulating and Shut-Off Valve (PRSOV), a high-stakes industrial scenario characterized by (1) data scarcity, (2) short transient sequences, and (3) covariate coupled dynamics. Unfortunately, existing time-series RAG approaches predominantly rely on generated static vector embeddings and learnable context augmenters, which may fail to distinguish similar regimes in such scarce, transient, and covariate couple",
+      "authors": [
+        "Kenny Ye Liang",
+        "Zhongyi Pei",
+        "Huan Zhang",
+        "Yuhui Liu",
+        "Shaoxu Song"
+      ],
+      "date": "2026-03-05",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2603.04951v1",
+      "pdf": "https://arxiv.org/pdf/2603.04951v1",
+      "categories": [
+        "cs.AI"
+      ],
+      "relevance_score": 18,
+      "tags": [
+        "predictive maintenance",
+        "physics-informed",
+        "industrial"
+      ]
+    },
+    {
+      "id": "s2:0eecb0b9c182aa4eaf81",
+      "title": "A spatiotemporal feature learning-based RUL estimation method for predictive maintenance",
+      "abstract": "",
+      "authors": [
+        "Ting Wang",
+        "Xiang Li",
+        "Wei Wang",
+        "Jinsong Du",
+        "Xu Yang"
+      ],
+      "date": "2023-04-01",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/0eecb0b9c182aa4eaf810f54d325ea166d7ab0d2",
+      "pdf": "",
+      "venue": "Measurement",
+      "citations": 47,
+      "doi": "10.1016/j.measurement.2023.112824",
+      "relevance_score": 17,
+      "tags": [
+        "rul estimation",
+        "predictive maintenance"
+      ]
+    },
+    {
+      "id": "arxiv:2602.04153v1",
+      "title": "Pruning for Generalization: A Transfer-Oriented Spatiotemporal Graph Framework",
+      "abstract": "Multivariate time series forecasting in graph-structured domains is critical for real-world applications, yet existing spatiotemporal models often suffer from performance degradation under data scarcity and cross-domain shifts. We address these challenges through the lens of structure-aware context selection. We propose TL-GPSTGN, a transfer-oriented spatiotemporal framework that enhances sample efficiency and out-of-distribution generalization by selectively pruning non-optimized graph context. Specifically, our method employs information-theoretic and correlation-based criteria to extract st",
+      "authors": [
+        "Zihao Jing",
+        "Yuxi Long",
+        "Ganlin Feng"
+      ],
+      "date": "2026-02-04",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2602.04153v1",
+      "pdf": "https://arxiv.org/pdf/2602.04153v1",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "relevance_score": 17,
+      "tags": [
+        "multivariate time series",
+        "time series forecast",
+        "temporal convolutional"
+      ]
+    },
+    {
+      "id": "arxiv:2602.16101v1",
+      "title": "Axle Sensor Fusion for Online Continual Wheel Fault Detection in Wayside Railway Monitoring",
+      "abstract": "Reliable and cost-effective maintenance is essential for railway safety, particularly at the wheel-rail interface, which is prone to wear and failure. Predictive maintenance frameworks increasingly leverage sensor-generated time-series data, yet traditional methods require manual feature engineering, and deep learning models often degrade in online settings with evolving operational patterns. This work presents a semantic-aware, label-efficient continual learning framework for railway fault diagnostics. Accelerometer signals are encoded via a Variational AutoEncoder into latent representations",
+      "authors": [
+        "Afonso Lourenço",
+        "Francisca Osório",
+        "Diogo Risca",
+        "Goreti Marreiros"
+      ],
+      "date": "2026-02-18",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2602.16101v1",
+      "pdf": "https://arxiv.org/pdf/2602.16101v1",
+      "categories": [
+        "cs.LG"
+      ],
+      "relevance_score": 17,
+      "tags": [
+        "predictive maintenance",
+        "anomaly detection",
+        "lightweight"
+      ]
+    },
+    {
+      "id": "arxiv:2510.24452v1",
+      "title": "ARIMA_PLUS: Large-scale, Accurate, Automatic and Interpretable In-Database Time Series Forecasting and Anomaly Detection in Google BigQuery",
+      "abstract": "Time series forecasting and anomaly detection are common tasks for practitioners in industries such as retail, manufacturing, advertising and energy. Two unique challenges stand out: (1) efficiently and accurately forecasting time series or detecting anomalies in large volumes automatically; and (2) ensuring interpretability of results to effectively incorporate business insights. We present ARIMA_PLUS, a novel framework to overcome these two challenges by a unique combination of (a) accurate and interpretable time series models and (b) scalable and fully managed system infrastructure. The mod",
+      "authors": [
+        "Xi Cheng",
+        "Weijie Shen",
+        "Haoming Chen",
+        "Chaoyi Shen",
+        "Jean Ortega"
+      ],
+      "date": "2025-10-28",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2510.24452v1",
+      "pdf": "https://arxiv.org/pdf/2510.24452v1",
+      "categories": [
+        "cs.DC",
+        "cs.LG"
+      ],
+      "relevance_score": 16,
+      "tags": [
+        "anomaly detection",
+        "patchtst",
+        "time series forecast"
+      ]
+    },
+    {
+      "id": "arxiv:2511.08340v2",
+      "title": "HN-MVTS: HyperNetwork-based Multivariate Time Series Forecasting",
+      "abstract": "Accurate forecasting of multivariate time series data remains a formidable challenge, particularly due to the growing complexity of temporal dependencies in real-world scenarios. While neural network-based models have achieved notable success in this domain, complex channel-dependent models often suffer from performance degradation compared to channel-independent models that do not consider the relationship between components but provide high robustness due to small capacity. In this work, we propose HN-MVTS, a novel architecture that integrates a hypernetwork-based generative prior with an ar",
+      "authors": [
+        "Andrey Savchenko",
+        "Oleg Kachan"
+      ],
+      "date": "2025-11-11",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2511.08340v2",
+      "pdf": "https://arxiv.org/pdf/2511.08340v2",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "relevance_score": 16,
+      "tags": [
+        "multivariate time series",
+        "patchtst",
+        "time series forecast"
+      ]
+    },
+    {
+      "id": "arxiv:2602.05178v1",
+      "title": "Benchmarking Artificial Intelligence Models for Daily Coastal Hypoxia Forecasting",
+      "abstract": "Coastal hypoxia, especially in the northern part of Gulf of Mexico, presents a persistent ecological and economic concern. Seasonal models offer coarse forecasts that miss the fine-scale variability needed for daily, responsive ecosystem management. We present study that compares four deep learning architectures for daily hypoxia classification: Bidirectional Long Short-Term Memory (BiLSTM), Medformer (Medical Transformer), Spatio-Temporal Transformer (ST-Transformer), and Temporal Convolutional Network (TCN). We trained our models with twelve years of daily hindcast data from 2009-2020 Our tr",
+      "authors": [
+        "Magesh Rajasekaran",
+        "Md Saiful Sajol",
+        "Chris Alvin",
+        "Supratik Mukhopadhyay",
+        "Yanda Ou"
+      ],
+      "date": "2026-02-05",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2602.05178v1",
+      "pdf": "https://arxiv.org/pdf/2602.05178v1",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "relevance_score": 16,
+      "tags": [
+        "temporal convolutional",
+        "temporal transformer",
+        "lstm"
+      ]
+    },
+    {
+      "id": "arxiv:2603.01820v1",
+      "title": "Deep Learning for Financial Time Series: A Large-Scale Benchmark of Risk-Adjusted Performance",
+      "abstract": "We present a large scale benchmark of modern deep learning architectures for a financial time series prediction and position sizing task, with a primary focus on Sharpe ratio optimization. Evaluating linear models, recurrent networks, transformer based architectures, state space models, and recent sequence representation approaches, we assess out of sample performance on a daily futures dataset spanning commodities, equity indices, bonds, and FX spanning 2010 to 2025. Our evaluation goes beyond average returns and includes statistical significance, downside and tail risk measures, breakeven tr",
+      "authors": [
+        "Adir Saly-Kaufmann",
+        "Kieran Wood",
+        "Jan Peter-Calliess",
+        "Stefan Zohren"
+      ],
+      "date": "2026-03-02",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2603.01820v1",
+      "pdf": "https://arxiv.org/pdf/2603.01820v1",
+      "categories": [
+        "q-fin.TR",
+        "cs.LG"
+      ],
+      "relevance_score": 16,
+      "tags": [
+        "patchtst",
+        "state space model",
+        "lstm"
+      ]
+    },
+    {
+      "id": "arxiv:2603.11352v1",
+      "title": "TimeSqueeze: Dynamic Patching for Efficient Time Series Forecasting",
+      "abstract": "Transformer-based time series foundation models face a fundamental trade-off in choice of tokenization: point-wise embeddings preserve temporal fidelity but scale poorly with sequence length, whereas fixed-length patching improves efficiency by imposing uniform boundaries that may disrupt natural transitions and blur informative local dynamics. In order to address these limitations, we introduce TimeSqueeze, a dynamic patching mechanism that adaptively selects patch boundaries within each sequence based on local signal complexity. TimeSqueeze first applies a lightweight state-space encoder to ",
+      "authors": [
+        "Sravan Kumar Ankireddy",
+        "Nikita Seleznev",
+        "Nam H. Nguyen",
+        "Yulun Wu",
+        "Senthil Kumar"
+      ],
+      "date": "2026-03-11",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2603.11352v1",
+      "pdf": "https://arxiv.org/pdf/2603.11352v1",
+      "categories": [
+        "cs.AI"
+      ],
+      "relevance_score": 16,
+      "tags": [
+        "time series foundation",
+        "time series forecast",
+        "lightweight"
+      ]
+    },
+    {
+      "id": "arxiv:2509.23145v1",
+      "title": "TimeExpert: Boosting Long Time Series Forecasting with Temporal Mix of Experts",
+      "abstract": "Transformer-based architectures dominate time series modeling by enabling global attention over all timestamps, yet their rigid 'one-size-fits-all' context aggregation fails to address two critical challenges in real-world data: (1) inherent lag effects, where the relevance of historical timestamps to a query varies dynamically; (2) anomalous segments, which introduce noisy signals that degrade forecasting accuracy. To resolve these problems, we propose the Temporal Mix of Experts (TMOE), a novel attention-level mechanism that reimagines key-value (K-V) pairs as local experts (each specialized",
+      "authors": [
+        "Xiaowen Ma",
+        "Shuning Ge",
+        "Fan Yang",
+        "Xiangyu Li",
+        "Yun Chen"
+      ],
+      "date": "2025-09-27",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2509.23145v1",
+      "pdf": "https://arxiv.org/pdf/2509.23145v1",
+      "categories": [
+        "cs.LG"
+      ],
+      "relevance_score": 15,
+      "tags": [
+        "attention mechanism",
+        "patchtst",
+        "time series forecast"
+      ]
+    },
+    {
+      "id": "arxiv:2510.23396v1",
+      "title": "EMTSF:Extraordinary Mixture of SOTA Models for Time Series Forecasting",
+      "abstract": "The immense success of the Transformer architecture in Natural Language Processing has led to its adoption in Time Se ries Forecasting (TSF), where superior performance has been shown. However, a recent important paper questioned their effectiveness by demonstrating that a simple single layer linear model outperforms Transformer-based models. This was soon shown to be not as valid, by a better transformer-based model termed PatchTST. More re cently, TimeLLM demonstrated even better results by repurposing a Large Language Model (LLM) for the TSF domain. Again, a follow up paper challenged this ",
+      "authors": [
+        "Musleh Alharthi",
+        "Kaleel Mahmood",
+        "Sarosh Patel",
+        "Ausif Mahmood"
+      ],
+      "date": "2025-10-27",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2510.23396v1",
+      "pdf": "https://arxiv.org/pdf/2510.23396v1",
+      "categories": [
+        "cs.CL",
+        "cs.AI"
+      ],
+      "relevance_score": 15,
+      "tags": [
+        "patchtst",
+        "time series forecast",
+        "lstm"
+      ]
+    },
+    {
+      "id": "arxiv:2511.20577v2",
+      "title": "MSTN: Fast and Efficient Multivariate Time Series Prediction Model",
+      "abstract": "Real-world time series often exhibit strong non-stationarity, complex nonlinear dynamics, and behaviour expressed across multiple temporal scales, from rapid local fluctuations to slow-evolving long-range trends. However, many contemporary architectures impose rigid, fixed-scale structural priors -- such as patch-based tokenization, predefined receptive fields, or frozen backbone encoders -- which can over-regularize temporal dynamics and limit adaptability to abrupt high-magnitude events. To handle this, we introduce the \\emph{Multi-scale Temporal Network} (MSTN), a hybrid neural architecture",
+      "authors": [
+        "Sumit S Shevtekar",
+        "Chandresh K Maurya"
+      ],
+      "date": "2025-11-25",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2511.20577v2",
+      "pdf": "https://arxiv.org/pdf/2511.20577v2",
+      "categories": [
+        "cs.LG"
+      ],
+      "relevance_score": 15,
+      "tags": [
+        "multivariate time series",
+        "patchtst",
+        "lightweight"
+      ]
+    },
+    {
+      "id": "arxiv:2602.11539v1",
+      "title": "Real-Time Proactive Anomaly Detection via Forward and Backward Forecast Modeling",
+      "abstract": "Reactive anomaly detection methods, which are commonly deployed to identify anomalies after they occur based on observed deviations, often fall short in applications that demand timely intervention, such as industrial monitoring, finance, and cybersecurity. Proactive anomaly detection, by contrast, aims to detect early warning signals before failures fully manifest, but existing methods struggle with handling heterogeneous multivariate data and maintaining precision under noisy or unpredictable conditions. In this work, we introduce two proactive anomaly detection frameworks: the Forward Forec",
+      "authors": [
+        "Luis Olmos",
+        "Rashida Hasan"
+      ],
+      "date": "2026-02-12",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2602.11539v1",
+      "pdf": "https://arxiv.org/pdf/2602.11539v1",
+      "categories": [
+        "cs.LG"
+      ],
+      "relevance_score": 15,
+      "tags": [
+        "anomaly detection",
+        "temporal convolutional",
+        "industrial"
+      ]
+    },
+    {
+      "id": "arxiv:2602.18521v1",
+      "title": "AdaptStress: Online Adaptive Learning for Interpretable and Personalized Stress Prediction Using Multivariate and Sparse Physiological Signals",
+      "abstract": "Continuous stress forecasting could potentially contribute to lifestyle interventions. This paper presents a novel, explainable, and individualized approach for stress prediction using physiological data from consumer-grade smartwatches. We develop a time series forecasting model that leverages multivariate features, including heart rate variability, activity patterns, and sleep metrics, to predict stress levels across 16 temporal horizons (History window: 3, 5, 7, 9 days; forecasting window: 1, 3, 5, 7 days). Our evaluation involves 16 participants monitored for 10-15 weeks. We evaluate our a",
+      "authors": [
+        "Xueyi Wang",
+        "Claudine J. C. Lamoth",
+        "Elisabeth Wilhelm"
+      ],
+      "date": "2026-02-19",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2602.18521v1",
+      "pdf": "https://arxiv.org/pdf/2602.18521v1",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "relevance_score": 15,
+      "tags": [
+        "patchtst",
+        "time series forecast",
+        "lstm"
+      ]
+    },
+    {
+      "id": "arxiv:2603.00199v1",
+      "title": "Multi-Condition Digital Twin Calibration for Axial Piston Pumps : Compound Fault Simulation",
+      "abstract": "Axial piston pumps are indispensable power sources in high-stakes fluid power systems, including aerospace, marine, and heavy machinery applications. Their operational reliability is frequently compromised by compound faults that simultaneously affect multiple friction pairs. Conventional data-driven diagnosis methods suffer from severe data scarcity for compound faults and poor generalization across varying operating conditions. This paper proposes a novel multi-condition physics-data coupled digital twin calibration framework that explicitly resolves the fundamental uncertainty of pump outle",
+      "authors": [
+        "Chang Dong",
+        "Jianfeng Tao",
+        "Chengliang Liu"
+      ],
+      "date": "2026-02-27",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2603.00199v1",
+      "pdf": "https://arxiv.org/pdf/2603.00199v1",
+      "categories": [
+        "physics.flu-dyn",
+        "cs.AI",
+        "math.NA"
+      ],
+      "relevance_score": 15,
+      "tags": [
+        "predictive maintenance",
+        "fault diagnosis"
+      ]
+    },
+    {
+      "id": "arxiv:2603.09058v1",
+      "title": "Adaptive Active Learning for Online Reliability Prediction of Satellite Electronics",
+      "abstract": "Accurate on-orbit reliability prediction for satellite electronics is often hindered by limited data availability, varying operational conditions, and considerable unit-to-unit variability. To overcome these obstacles, this paper proposes a novel integrated online reliability prediction framework. The main contributions are twofold. First, a Wiener process-based degradation model is developed, incorporating a generalized Arrhenius link function, individual random effects, and spatial correlations among adjacent units. A customized maximum likelihood estimation method is further devised to faci",
+      "authors": [
+        "Shixiang Li",
+        "Yubin Tian",
+        "Dianpeng Wang",
+        "Piao Chen",
+        "Mengying Ren"
+      ],
+      "date": "2026-03-10",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2603.09058v1",
+      "pdf": "https://arxiv.org/pdf/2603.09058v1",
+      "categories": [
+        "stat.ME",
+        "cs.LG"
+      ],
+      "relevance_score": 15,
+      "tags": [
+        "degradation model",
+        "prognostic"
+      ]
+    },
+    {
+      "id": "arxiv:2511.08851v3",
+      "title": "Learning-based Radio Link Failure Prediction Based on Measurement Dataset in Railway Environments",
+      "abstract": "This paper presents a measurement-driven case study on early radio link failure (RLF) warning as device-side network sensing and analytics for proactive mobility management in 5G non-standalone (NSA) railway environments. Using 10~Hz metro-train measurement traces with serving- and neighbor-cell indicators, we benchmark six representative learning models, including CNN, LSTM, XGBoost, Anomaly Transformer, PatchTST, and TimesNet, under multiple observation windows and prediction horizons. Rather than proposing a new prediction architecture, this study focuses on quantifying the feasibility of e",
+      "authors": [
+        "Po-Heng Chou",
+        "Da-Chih Lin",
+        "Hung-Yu Wei",
+        "Walid Saad",
+        "Yu Tsao"
+      ],
+      "date": "2025-11-12",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2511.08851v3",
+      "pdf": "https://arxiv.org/pdf/2511.08851v3",
+      "categories": [
+        "cs.NI",
+        "cs.LG",
+        "eess.SP"
+      ],
+      "relevance_score": 14,
+      "tags": [
+        "patchtst",
+        "lightweight",
+        "lstm"
+      ]
+    },
+    {
+      "id": "arxiv:2601.02614v1",
+      "title": "GKFieldFlow: A Spatio-Temporal Neural Surrogate for Nonlinear Gyrokinetic Turbulence",
+      "abstract": "We present GKFieldFlow, a novel three-dimensional autoregressive deep learning surrogate model for nonlinear gyrokinetic turbulence. Based on the architecture FieldFlow-Net, this model combines a multi-resolution 3D U-Net encoder-decoder that operates on evolving plasma potential fields. A dilated temporal convolutional network (TCN) learns the nonlinear time evolution of latent turbulence features. GKFieldFlow simultaneously (i) predicts ion and electron energy fluxes, and particle flux directly from CGYRO turbulence, and (ii) predicts future potential fields autoregressively with desired spa",
+      "authors": [
+        "Arash Ashourvan"
+      ],
+      "date": "2026-01-06",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2601.02614v1",
+      "pdf": "https://arxiv.org/pdf/2601.02614v1",
+      "categories": [
+        "physics.plasm-ph"
+      ],
+      "relevance_score": 14,
+      "tags": [
+        "physics-informed",
+        "temporal convolutional"
+      ]
+    },
+    {
+      "id": "arxiv:2601.18837v2",
+      "title": "Time series forecasting with Hahn Kolmogorov-Arnold networks",
+      "abstract": "Recent Transformer- and MLP-based models have demonstrated strong performance in long-term time series forecasting, yet Transformers remain limited by their quadratic complexity and permutation-equivariant attention, while MLPs exhibit spectral bias. We propose HaKAN, a versatile model based on Kolmogorov-Arnold Networks (KANs), leveraging Hahn polynomial-based learnable activation functions and providing a lightweight and interpretable alternative for multivariate time series forecasting. Our model integrates channel independence, patching, a stack of Hahn-KAN blocks with residual connections",
+      "authors": [
+        "Md Zahidul Hasan",
+        "A. Ben Hamza",
+        "Nizar Bouguila"
+      ],
+      "date": "2026-01-25",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2601.18837v2",
+      "pdf": "https://arxiv.org/pdf/2601.18837v2",
+      "categories": [
+        "cs.LG",
+        "stat.ML"
+      ],
+      "relevance_score": 14,
+      "tags": [
+        "multivariate time series",
+        "time series forecast",
+        "lightweight"
+      ]
+    },
+    {
+      "id": "arxiv:2601.18344v1",
+      "title": "Forecasting the Maintained Score from the OpenSSF Scorecard for GitHub Repositories linked to PyPI libraries",
+      "abstract": "The OpenSSF Scorecard is widely used to assess the security posture of open-source software repositories, with the Maintained metric indicating recent development activity and helping identify potentially abandoned dependencies. However, this metric is inherently retrospective, reflecting only the past 90 days of activity and providing no insight into future maintenance, which limits its usefulness for proactive risk assessment. In this paper, we study to what extent future maintenance activity, as captured by the OpenSSF Maintained score, can be forecasted. We analyze 3,220 GitHub repositorie",
+      "authors": [
+        "Alexandros Tsakpinis",
+        "Efe Berk Ergülec",
+        "Emil Schwenger",
+        "Alexander Pretschner"
+      ],
+      "date": "2026-01-26",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2601.18344v1",
+      "pdf": "https://arxiv.org/pdf/2601.18344v1",
+      "categories": [
+        "cs.SE"
+      ],
+      "relevance_score": 14,
+      "tags": [
+        "multivariate time series",
+        "time series forecast",
+        "lstm"
+      ]
+    },
+    {
+      "id": "arxiv:2601.20318v2",
+      "title": "CPiRi: Channel Permutation-Invariant Relational Interaction for Multivariate Time Series Forecasting",
+      "abstract": "Current methods for multivariate time series forecasting can be classified into channel-dependent and channel-independent models. Channel-dependent models learn cross-channel features but often overfit the channel ordering, which hampers adaptation when channels are added or reordered. Channel-independent models treat each channel in isolation to increase flexibility, yet this neglects inter-channel dependencies and limits performance. To address these limitations, we propose \\textbf{CPiRi}, a \\textbf{channel permutation invariant (CPI)} framework that infers cross-channel structure from data ",
+      "authors": [
+        "Jiyuan Xu",
+        "Wenyu Zhang",
+        "Xin Jing",
+        "Shuai Chen",
+        "Shuai Zhang"
+      ],
+      "date": "2026-01-28",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2601.20318v2",
+      "pdf": "https://arxiv.org/pdf/2601.20318v2",
+      "categories": [
+        "cs.CV"
+      ],
+      "relevance_score": 14,
+      "tags": [
+        "multivariate time series",
+        "time series forecast",
+        "lightweight"
+      ]
+    },
+    {
+      "id": "arxiv:2602.00654v3",
+      "title": "PHAT: Modeling Period Heterogeneity for Multivariate Time Series Forecasting",
+      "abstract": "While existing multivariate time series forecasting models have advanced significantly in modeling periodicity, they largely neglect the periodic heterogeneity common in real-world data, where variables exhibit distinct and dynamically changing periods. To effectively capture this periodic heterogeneity, we propose PHAT (Period Heterogeneity-Aware Transformer). Specifically, PHAT arranges multivariate inputs into a three-dimensional \"periodic bucket\" tensor, where the dimensions correspond to variable group characteristics with similar periodicity, time steps aligned by phase, and offsets with",
+      "authors": [
+        "Jiaming Ma",
+        "Qihe Huang",
+        "Haofeng Ma",
+        "Guanjun Wang",
+        "Sheng Huang"
+      ],
+      "date": "2026-01-31",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2602.00654v3",
+      "pdf": "https://arxiv.org/pdf/2602.00654v3",
+      "categories": [
+        "cs.LG"
+      ],
+      "relevance_score": 14,
+      "tags": [
+        "attention mechanism",
+        "multivariate time series",
+        "time series forecast"
+      ]
+    },
+    {
+      "id": "arxiv:2602.10847v1",
+      "title": "Enhancing Multivariate Time Series Forecasting with Global Temporal Retrieval",
+      "abstract": "Multivariate time series forecasting (MTSF) plays a vital role in numerous real-world applications, yet existing models remain constrained by their reliance on a limited historical context. This limitation prevents them from effectively capturing global periodic patterns that often span cycles significantly longer than the input horizon - despite such patterns carrying strong predictive signals. Naive solutions, such as extending the historical window, lead to severe drawbacks, including overfitting, prohibitive computational costs, and redundant information processing. To address these challe",
+      "authors": [
+        "Fanpu Cao",
+        "Lu Dai",
+        "Jindong Han",
+        "Hui Xiong"
+      ],
+      "date": "2026-02-11",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2602.10847v1",
+      "pdf": "https://arxiv.org/pdf/2602.10847v1",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "relevance_score": 14,
+      "tags": [
+        "multivariate time series",
+        "time series forecast",
+        "lightweight"
+      ]
+    },
+    {
+      "id": "arxiv:2603.07464v1",
+      "title": "Selective Transfer Learning of Cross-Modality Distillation for Monocular 3D Object Detection",
+      "abstract": "Monocular 3D object detection is a promising yet ill-posed task for autonomous vehicles due to the lack of accurate depth information. Cross-modality knowledge distillation could effectively transfer depth information from LiDAR to image-based network. However, modality gap between image and LiDAR seriously limits its accuracy. In this paper, we systematically investigate the negative transfer problem induced by modality gap in cross-modality distillation for the first time, including not only the architecture inconsistency issue but more importantly the feature overfitting issue. We propose a",
+      "authors": [
+        "Rui Ding",
+        "Meng Yang",
+        "Nanning Zheng"
+      ],
+      "date": "2026-03-08",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2603.07464v1",
+      "pdf": "https://arxiv.org/pdf/2603.07464v1",
+      "categories": [
+        "cs.CV"
+      ],
+      "relevance_score": 14,
+      "tags": [
+        "knowledge distillation",
+        "transfer learning"
+      ]
+    }
+  ],
+  "ai_frontier": [
+    {
+      "id": "hf:2603.09229",
+      "title": "Flash-KMeans: Fast and Memory-Efficient Exact K-Means",
+      "abstract": "k-means has historically been positioned primarily as an offline processing primitive, typically used for dataset organization or embedding preprocessing rather than as a first-class component in online systems. In this work, we revisit this classical algorithm under the lens of modern AI system design and enable k-means as an online primitive. We point out that existing GPU implementations of k-means remain fundamentally bottlenecked by low-level system constraints rather than theoretical algorithmic complexity. Specifically, the assignment stage suffers from a severe IO bottleneck due to the",
+      "authors": [
+        "Shuo Yang",
+        "Haocheng Xi",
+        "Yilong Zhao",
+        "Muyang Li",
+        "Xiaoze Fan"
+      ],
+      "date": "2026-03-10",
+      "source": "HuggingFace Daily",
+      "url": "https://huggingface.co/papers/2603.09229",
+      "pdf": "https://arxiv.org/pdf/2603.09229",
+      "upvotes": 51,
+      "relevance_score": 0,
+      "tags": [],
+      "is_ai_frontier": true
+    },
+    {
+      "id": "hf:2603.08068",
+      "title": "In-Context Reinforcement Learning for Tool Use in Large Language Models",
+      "abstract": "While large language models (LLMs) exhibit strong reasoning abilities, their performance on complex tasks is often constrained by the limitations of their internal knowledge. A compelling approach to overcome this challenge is to augment these models with external tools -- such as Python interpreters for mathematical computations or search engines for retrieving factual information. However, enabling models to use these tools effectively remains a significant challenge. Existing methods typically rely on cold-start pipelines that begin with supervised fine-tuning (SFT), followed by reinforceme",
+      "authors": [
+        "Yaoqi Ye",
+        "Yiran Zhao",
+        "Keyu Duan",
+        "Zeyu Zheng",
+        "Kenji Kawaguchi"
+      ],
+      "date": "2026-03-09",
+      "source": "HuggingFace Daily",
+      "url": "https://huggingface.co/papers/2603.08068",
+      "pdf": "https://arxiv.org/pdf/2603.08068",
+      "upvotes": 19,
+      "relevance_score": 0,
+      "tags": [],
+      "is_ai_frontier": true
+    },
+    {
+      "id": "hf:2603.08982",
+      "title": "SVG-EAR: Parameter-Free Linear Compensation for Sparse Video Generation via Error-aware Routing",
+      "abstract": "Diffusion Transformers (DiTs) have become a leading backbone for video generation, yet their quadratic attention cost remains a major bottleneck. Sparse attention reduces this cost by computing only a subset of attention blocks. However, prior methods often either drop the remaining blocks, which incurs information loss, or rely on learned predictors to approximate them, introducing training overhead and potential output distribution shifting. In this paper, we show that the missing contributions can be recovered without training: after semantic clustering, keys and values within each block ex",
+      "authors": [
+        "Xuanyi Zhou",
+        "Qiuyang Mang",
+        "Shuo Yang",
+        "Haocheng Xi",
+        "Jintao Zhang"
+      ],
+      "date": "2026-03-09",
+      "source": "HuggingFace Daily",
+      "url": "https://huggingface.co/papers/2603.08982",
+      "pdf": "https://arxiv.org/pdf/2603.08982",
+      "upvotes": 14,
+      "relevance_score": 4,
+      "tags": [
+        "lightweight"
+      ],
+      "is_ai_frontier": true
+    },
+    {
+      "id": "hf:2603.10256",
+      "title": "ID-LoRA: Identity-Driven Audio-Video Personalization with In-Context LoRA",
+      "abstract": "Existing video personalization methods preserve visual likeness but treat video and audio separately. Without access to the visual scene, audio models cannot synchronize sounds with on-screen actions; and because classical voice-cloning models condition only on a reference recording, a text prompt cannot redirect speaking style or acoustic environment. We propose ID-LoRA (Identity-Driven In-Context LoRA), which jointly generates a subject's appearance and voice in a single model, letting a text prompt, a reference image, and a short audio clip govern both modalities together. ID-LoRA adapts th",
+      "authors": [
+        "Aviad Dahan",
+        "Moran Yanuka",
+        "Noa Kraicer",
+        "Lior Wolf",
+        "Raja Giryes"
+      ],
+      "date": "2026-03-10",
+      "source": "HuggingFace Daily",
+      "url": "https://huggingface.co/papers/2603.10256",
+      "pdf": "https://arxiv.org/pdf/2603.10256",
+      "upvotes": 11,
+      "relevance_score": 0,
+      "tags": [],
+      "is_ai_frontier": true
+    },
+    {
+      "id": "hf:2603.10705",
+      "title": "Prism-Δ: Differential Subspace Steering for Prompt Highlighting in Large Language Models",
+      "abstract": "Prompt highlighting steers a large language model to prioritize user-specified text spans during generation. A key challenge is extracting steering directions that capture the difference between relevant and irrelevant contexts, rather than shared structural patterns common to both. We propose PRISM-Δ (Projection-based Relevance-Informed Steering Method), which decomposes the difference between positive and negative cross-covariance matrices to maximize discriminative energy while eliminating shared directions. Each attention head receives a continuous softplus importance weight, letting weak-",
+      "authors": [
+        "Yuyao Ge",
+        "Shenghua Liu",
+        "Yiwei Wang",
+        "Tianyu Liu",
+        "Baolong Bi"
+      ],
+      "date": "2026-03-11",
+      "source": "HuggingFace Daily",
+      "url": "https://huggingface.co/papers/2603.10705",
+      "pdf": "https://arxiv.org/pdf/2603.10705",
+      "upvotes": 10,
+      "relevance_score": 0,
+      "tags": [],
+      "is_ai_frontier": true
+    },
+    {
+      "id": "hf:2603.11421",
+      "title": "ShotVerse: Advancing Cinematic Camera Control for Text-Driven Multi-Shot Video Creation",
+      "abstract": "Text-driven video generation has democratized film creation, but camera control in cinematic multi-shot scenarios remains a significant block. Implicit textual prompts lack precision, while explicit trajectory conditioning imposes prohibitive manual overhead and often triggers execution failures in current models. To overcome this bottleneck, we propose a data-centric paradigm shift, positing that aligned (Caption, Trajectory, Video) triplets form an inherent joint distribution that can connect automated plotting and precise execution. Guided by this insight, we present ShotVerse, a \"Plan-then",
+      "authors": [
+        "Songlin Yang",
+        "Zhe Wang",
+        "Xuyi Yang",
+        "Songchun Zhang",
+        "Xianghao Kong"
+      ],
+      "date": "2026-03-12",
+      "source": "HuggingFace Daily",
+      "url": "https://huggingface.co/papers/2603.11421",
+      "pdf": "https://arxiv.org/pdf/2603.11421",
+      "upvotes": 6,
+      "relevance_score": 0,
+      "tags": [],
+      "is_ai_frontier": true
+    },
+    {
+      "id": "hf:2603.12180",
+      "title": "Strategic Navigation or Stochastic Search? How Agents and Humans Reason Over Document Collections",
+      "abstract": "Multimodal agents offer a promising path to automating complex document-intensive workflows. Yet, a critical question remains: do these agents demonstrate genuine strategic reasoning, or merely stochastic trial-and-error search? To address this, we introduce MADQA, a benchmark of 2,250 human-authored questions grounded in 800 heterogeneous PDF documents. Guided by Classical Test Theory, we design it to maximize discriminative power across varying levels of agentic abilities. To evaluate agentic behaviour, we introduce a novel evaluation protocol measuring the accuracy-effort trade-off. Using t",
+      "authors": [
+        "Łukasz Borchmann",
+        "Jordy Van Landeghem",
+        "Michał Turski",
+        "Shreyansh Padarha",
+        "Ryan Othniel Kearns"
+      ],
+      "date": "2026-03-12",
+      "source": "HuggingFace Daily",
+      "url": "https://huggingface.co/papers/2603.12180",
+      "pdf": "https://arxiv.org/pdf/2603.12180",
+      "upvotes": 4,
+      "relevance_score": 0,
+      "tags": [],
+      "is_ai_frontier": true
+    },
+    {
+      "id": "hf:2603.08754",
+      "title": "Hindsight Credit Assignment for Long-Horizon LLM Agents",
+      "abstract": "Large Language Model (LLM) agents often face significant credit assignment challenges in long-horizon, multi-step tasks due to sparse rewards. Existing value-free methods, such as Group Relative Policy Optimization (GRPO), encounter two fundamental bottlenecks: inaccurate step-level Q-value estimation and misaligned value baselines for intermediate states. To address these limitations, we introduce HCAPO, the first framework to integrate hindsight credit assignment into LLM agents. HCAPO leverages the LLM itself as a post-hoc critic to refine step-level Q-values through hindsight reasoning. Fu",
+      "authors": [
+        "Hui-Ze Tan",
+        "Xiao-Wen Yang",
+        "Hao Chen",
+        "Jie-Jing Shao",
+        "Yi Wen"
+      ],
+      "date": "2026-03-07",
+      "source": "HuggingFace Daily",
+      "url": "https://huggingface.co/papers/2603.08754",
+      "pdf": "https://arxiv.org/pdf/2603.08754",
+      "upvotes": 3,
+      "relevance_score": 0,
+      "tags": [],
+      "is_ai_frontier": true
+    },
+    {
+      "id": "hf:2603.10145",
+      "title": "Lost in Backpropagation: The LM Head is a Gradient Bottleneck",
+      "abstract": "The last layer of neural language models (LMs) projects output features of dimension D to logits in dimension V, the size of the vocabulary, where usually D ll V. This mismatch is known to raise risks of limited expressivity in neural LMs, creating a so-called softmax bottleneck. We show the softmax bottleneck is not only an expressivity bottleneck but also an optimization bottleneck. Backpropagating V-dimensional gradients through a rank-D linear layer induces unavoidable compression, which alters the training feedback provided to the vast majority of the parameters. We present a theoretical ",
+      "authors": [
+        "Nathan Godey",
+        "Yoav Artzi"
+      ],
+      "date": "2026-03-10",
+      "source": "HuggingFace Daily",
+      "url": "https://huggingface.co/papers/2603.10145",
+      "pdf": "https://arxiv.org/pdf/2603.10145",
+      "upvotes": 3,
+      "relevance_score": 0,
+      "tags": [],
+      "is_ai_frontier": true
+    },
+    {
+      "id": "hf:2603.11048",
+      "title": "COMIC: Agentic Sketch Comedy Generation",
+      "abstract": "We propose a fully automated AI system that produces short comedic videos similar to sketch shows such as Saturday Night Live. Starting with character references, the system employs a population of agents loosely based on real production studio roles, structured to optimize the quality and diversity of ideas and outputs through iterative competition, evaluation, and improvement. A key contribution is the introduction of LLM critics aligned with real viewer preferences through the analysis of a corpus of comedy videos on YouTube to automatically evaluate humor. Our experiments show that our fra",
+      "authors": [
+        "Susung Hong",
+        "Brian Curless",
+        "Ira Kemelmacher-Shlizerman",
+        "Steve Seitz"
+      ],
+      "date": "2026-03-11",
+      "source": "HuggingFace Daily",
+      "url": "https://huggingface.co/papers/2603.11048",
+      "pdf": "https://arxiv.org/pdf/2603.11048",
+      "upvotes": 3,
+      "relevance_score": 0,
+      "tags": [],
+      "is_ai_frontier": true
+    },
+    {
+      "id": "hf:2603.10377",
+      "title": "Causal Concept Graphs in LLM Latent Space for Stepwise Reasoning",
+      "abstract": "Sparse autoencoders can localize where concepts live in language models, but not how they interact during multi-step reasoning. We propose Causal Concept Graphs (CCG): a directed acyclic graph over sparse, interpretable latent features, where edges capture learned causal dependencies between concepts. We combine task-conditioned sparse autoencoders for concept discovery with DAGMA-style differentiable structure learning for graph recovery and introduce the Causal Fidelity Score (CFS) to evaluate whether graph-guided interventions induce larger downstream effects than random ones. On ARC-Challe",
+      "authors": [
+        "Md Muntaqim Meherab",
+        "Noor Islam S. Mohammad",
+        "Faiza Feroz"
+      ],
+      "date": "2026-03-11",
+      "source": "HuggingFace Daily",
+      "url": "https://huggingface.co/papers/2603.10377",
+      "pdf": "https://arxiv.org/pdf/2603.10377",
+      "upvotes": 3,
+      "relevance_score": 0,
+      "tags": [],
+      "is_ai_frontier": true
+    },
+    {
+      "id": "hf:2603.10702",
+      "title": "UniCom: Unified Multimodal Modeling via Compressed Continuous Semantic Representations",
+      "abstract": "Current unified multimodal models typically rely on discrete visual tokenizers to bridge the modality gap. However, discretization inevitably discards fine-grained semantic information, leading to suboptimal performance in visual understanding tasks. Conversely, directly modeling continuous semantic representations (e.g., CLIP, SigLIP) poses significant challenges in high-dimensional generative modeling, resulting in slow convergence and training instability. To resolve this dilemma, we introduce UniCom, a unified framework that harmonizes multimodal understanding and generation via compressed",
+      "authors": [
+        "Yaqi Zhao",
+        "Wang Lin",
+        "Zijian Zhang",
+        "Miles Yang",
+        "Jingyuan Chen"
+      ],
+      "date": "2026-03-11",
+      "source": "HuggingFace Daily",
+      "url": "https://huggingface.co/papers/2603.10702",
+      "pdf": "https://arxiv.org/pdf/2603.10702",
+      "upvotes": 3,
+      "relevance_score": 0,
+      "tags": [],
+      "is_ai_frontier": true
+    },
+    {
+      "id": "hf:2603.12265",
+      "title": "OmniStream: Mastering Perception, Reconstruction and Action in Continuous Streams",
+      "abstract": "Modern visual agents require representations that are general, causal, and physically structured to operate in real-time streaming environments. However, current vision foundation models remain fragmented, specializing narrowly in image semantic perception, offline temporal modeling, or spatial geometry. This paper introduces OmniStream, a unified streaming visual backbone that effectively perceives, reconstructs, and acts from diverse visual inputs. By incorporating causal spatiotemporal attention and 3D rotary positional embeddings (3D-RoPE), our model supports efficient, frame-by-frame onli",
+      "authors": [
+        "Yibin Yan",
+        "Jilan Xu",
+        "Shangzhe Di",
+        "Haoning Wu",
+        "Weidi Xie"
+      ],
+      "date": "2026-03-12",
+      "source": "HuggingFace Daily",
+      "url": "https://huggingface.co/papers/2603.12265",
+      "pdf": "https://arxiv.org/pdf/2603.12265",
+      "upvotes": 3,
+      "relevance_score": 0,
+      "tags": [],
+      "is_ai_frontier": true
+    },
+    {
+      "id": "hf:2603.01990",
+      "title": "According to Me: Long-Term Personalized Referential Memory QA",
+      "abstract": "Personalized AI assistants must recall and reason over long-term user memory, which naturally spans multiple modalities and sources such as images, videos, and emails. However, existing Long-term Memory benchmarks focus primarily on dialogue history, failing to capture realistic personalized references grounded in lived experience. We introduce ATM-Bench, the first benchmark for multimodal, multi-source personalized referential Memory QA. ATM-Bench contains approximately four years of privacy-preserving personal memory data and human-annotated question-answer pairs with ground-truth memory evi",
+      "authors": [
+        "Jingbiao Mei",
+        "Jinghong Chen",
+        "Guangyu Yang",
+        "Xinyu Hou",
+        "Margaret Li"
+      ],
+      "date": "2026-03-02",
+      "source": "HuggingFace Daily",
+      "url": "https://huggingface.co/papers/2603.01990",
+      "pdf": "https://arxiv.org/pdf/2603.01990",
+      "upvotes": 2,
+      "relevance_score": 0,
+      "tags": [],
+      "is_ai_frontier": true
+    },
+    {
+      "id": "hf:2603.09018",
+      "title": "Meissa: Multi-modal Medical Agentic Intelligence",
+      "abstract": "Multi-modal large language models (MM-LLMs) have shown strong performance in medical image understanding and clinical reasoning. Recent medical agent systems extend them with tool use and multi-agent collaboration, enabling complex decision-making. However, these systems rely almost entirely on frontier models (e.g., GPT), whose API-based deployment incurs high cost, high latency, and privacy risks that conflict with on-premise clinical requirements. We present Meissa, a lightweight 4B-parameter medical MM-LLM that brings agentic capability offline. Instead of imitating static answers, Meissa ",
+      "authors": [
+        "Yixiong Chen",
+        "Xinyi Bai",
+        "Yue Pan",
+        "Zongwei Zhou",
+        "Alan Yuille"
+      ],
+      "date": "2026-03-09",
+      "source": "HuggingFace Daily",
+      "url": "https://huggingface.co/papers/2603.09018",
+      "pdf": "https://arxiv.org/pdf/2603.09018",
+      "upvotes": 2,
+      "relevance_score": 4,
+      "tags": [
+        "lightweight"
+      ],
+      "is_ai_frontier": true
+    },
+    {
+      "id": "hf:2603.07988",
+      "title": "TeamHOI: Learning a Unified Policy for Cooperative Human-Object Interactions with Any Team Size",
+      "abstract": "Physics-based humanoid control has achieved remarkable progress in enabling realistic and high-performing single-agent behaviors, yet extending these capabilities to cooperative human-object interaction (HOI) remains challenging. We present TeamHOI, a framework that enables a single decentralized policy to handle cooperative HOIs across any number of cooperating agents. Each agent operates using local observations while attending to other teammates through a Transformer-based policy network with teammate tokens, allowing scalable coordination across variable team sizes. To enforce motion reali",
+      "authors": [
+        "Stefan Lionar",
+        "Gim Hee Lee"
+      ],
+      "date": "2026-03-09",
+      "source": "HuggingFace Daily",
+      "url": "https://huggingface.co/papers/2603.07988",
+      "pdf": "https://arxiv.org/pdf/2603.07988",
+      "upvotes": 1,
+      "relevance_score": 0,
+      "tags": [],
+      "is_ai_frontier": true
+    },
+    {
+      "id": "hf:2603.10178",
+      "title": "Video-Based Reward Modeling for Computer-Use Agents",
+      "abstract": "Computer-using agents (CUAs) are becoming increasingly capable; however, it remains difficult to scale evaluation of whether a trajectory truly fulfills a user instruction. In this work, we study reward modeling from execution video: a sequence of keyframes from an agent trajectory that is independent of the agent's internal reasoning or actions. Although video-execution modeling is method-agnostic, it presents key challenges, including highly redundant layouts and subtle, localized cues that determine success. We introduce Execution Video Reward 53k (ExeVR-53k), a dataset of 53k high-quality ",
+      "authors": [
+        "Linxin Song",
+        "Jieyu Zhang",
+        "Huanxin Sheng",
+        "Taiwei Shi",
+        "Gupta Rahul"
+      ],
+      "date": "2026-03-10",
+      "source": "HuggingFace Daily",
+      "url": "https://huggingface.co/papers/2603.10178",
+      "pdf": "https://arxiv.org/pdf/2603.10178",
+      "upvotes": 1,
+      "relevance_score": 0,
+      "tags": [],
+      "is_ai_frontier": true
+    },
+    {
+      "id": "hf:2603.10652",
+      "title": "Are Video Reasoning Models Ready to Go Outside?",
+      "abstract": "In real-world deployment, vision-language models often encounter disturbances such as weather, occlusion, and camera motion. Under such conditions, their understanding and reasoning degrade substantially, revealing a gap between clean, controlled (i.e., unperturbed) evaluation settings and real-world robustness. To address this limitation, we propose ROVA, a novel training framework that improves robustness by modeling a robustness-aware consistency reward under spatio-temporal corruptions. ROVA introduces a difficulty-aware online training strategy that prioritizes informative samples based o",
+      "authors": [
+        "Yangfan He",
+        "Changgyu Boo",
+        "Jaehong Yoon"
+      ],
+      "date": "2026-03-11",
+      "source": "HuggingFace Daily",
+      "url": "https://huggingface.co/papers/2603.10652",
+      "pdf": "https://arxiv.org/pdf/2603.10652",
+      "upvotes": 1,
+      "relevance_score": 0,
+      "tags": [],
+      "is_ai_frontier": true
+    },
+    {
+      "id": "hf:2603.10365",
+      "title": "Geometric Autoencoder for Diffusion Models",
+      "abstract": "Latent diffusion models have established a new state-of-the-art in high-resolution visual generation. Integrating Vision Foundation Model priors improves generative efficiency, yet existing latent designs remain largely heuristic. These approaches often struggle to unify semantic discriminability, reconstruction fidelity, and latent compactness. In this paper, we propose Geometric Autoencoder (GAE), a principled framework that systematically addresses these challenges. By analyzing various alignment paradigms, GAE constructs an optimized low-dimensional semantic supervision target from VFMs to",
+      "authors": [
+        "Hangyu Liu",
+        "Jianyong Wang",
+        "Yutao Sun"
+      ],
+      "date": "2026-03-11",
+      "source": "HuggingFace Daily",
+      "url": "https://huggingface.co/papers/2603.10365",
+      "pdf": "https://arxiv.org/pdf/2603.10365",
+      "upvotes": 1,
+      "relevance_score": 0,
+      "tags": [],
+      "is_ai_frontier": true
+    },
+    {
+      "id": "hf:2603.11510",
+      "title": "Tiny Aya: Bridging Scale and Multilingual Depth",
+      "abstract": "Tiny Aya redefines what a small multilingual language model can achieve. Trained on 70 languages and refined through region-aware posttraining, it delivers state-of-the-art in translation quality, strong multilingual understanding, and high-quality target-language generation, all with just 3.35B parameters. The release includes a pretrained foundation model, a globally balanced instruction-tuned variant, and three region-specialized models targeting languages from Africa, South Asia, Europe, Asia-Pacific, and West Asia. This report details the training strategy, data composition, and comprehen",
+      "authors": [
+        "Alejandro R. Salamanca",
+        "Diana Abagyan",
+        "Daniel D'souza",
+        "Ammar Khairi",
+        "David Mora"
+      ],
+      "date": "2026-03-12",
+      "source": "HuggingFace Daily",
+      "url": "https://huggingface.co/papers/2603.11510",
+      "pdf": "https://arxiv.org/pdf/2603.11510",
+      "upvotes": 1,
+      "relevance_score": 0,
+      "tags": [],
+      "is_ai_frontier": true
+    },
+    {
+      "id": "rss:20ca70bcf0da",
+      "title": "Cappy: Outperforming and boosting large multi-task language models with a small scorer",
+      "abstract": "Posted by Yun Zhu and Lijuan Liu, Software Engineers, Google Research\n\n\n\n\n\nLarge language model (LLM) advancements have led to a new paradigm that unifies various natural language processing (NLP) tasks within an instruction-following framework. This paradigm is exemplified by recent multi-task LLMs, such as T0, FLAN, and OPT-IML. First, multi-task data is gathered with each task following a task-",
+      "authors": [
+        "Google AI Blog"
+      ],
+      "date": "2024-03-14",
+      "source": "Google AI Blog",
+      "url": "http://blog.research.google/feeds/7868032799856333119/comments/default",
+      "pdf": "",
+      "relevance_score": 0,
+      "tags": [],
+      "is_ai_frontier": true,
+      "is_blog": true
+    },
+    {
+      "id": "rss:c8c8f5a02511",
+      "title": "HEAL: A framework for health equity assessment of machine learning performance",
+      "abstract": "Posted by Mike Schaekermann, Research Scientist, Google Research, and Ivor Horn, Chief Health Equity Officer &amp; Director, Google Core\n\n\n\n\nHealth equity is a major societal concern worldwide with disparities having many causes. These sources include limitations in access to healthcare, differences in clinical treatment, and even fundamental differences in the diagnostic technology. In dermatolog",
+      "authors": [
+        "Google AI Blog"
+      ],
+      "date": "2024-03-15",
+      "source": "Google AI Blog",
+      "url": "http://blog.research.google/feeds/977556648557231190/comments/default",
+      "pdf": "",
+      "relevance_score": 0,
+      "tags": [],
+      "is_ai_frontier": true,
+      "is_blog": true
+    },
+    {
+      "id": "rss:f4b708fcec65",
+      "title": "MELON: Reconstructing 3D objects from images with unknown poses",
+      "abstract": "Posted by Mark Matthews, Senior Software Engineer, and Dmitry Lagun, Research Scientist, Google Research\n\n\n\n\n\nA person's prior experience and understanding of the world generally enables them to easily infer what an object looks like in whole, even if only looking at a few 2D pictures of it. Yet the capacity for a computer to reconstruct the shape of an object in 3D given only a few images has rem",
+      "authors": [
+        "Google AI Blog"
+      ],
+      "date": "2024-03-18",
+      "source": "Google AI Blog",
+      "url": "http://blog.research.google/feeds/757976001746578714/comments/default",
+      "pdf": "",
+      "relevance_score": 0,
+      "tags": [],
+      "is_ai_frontier": true,
+      "is_blog": true
+    },
+    {
+      "id": "rss:759787b5664b",
+      "title": "ScreenAI: A visual language model for UI and visually-situated language understanding",
+      "abstract": "Posted by Srinivas Sunkara and Gilles Baechler, Software Engineers, Google Research\n\n\n\n\n\nScreen user interfaces (UIs) and infographics, such as charts, diagrams and tables, play important roles in human communication and human-machine interaction as they facilitate rich and interactive user experiences. UIs and infographics share similar design principles and visual language (e.g., icons and layou",
+      "authors": [
+        "Google AI Blog"
+      ],
+      "date": "2024-03-19",
+      "source": "Google AI Blog",
+      "url": "http://blog.research.google/feeds/520087429457973735/comments/default",
+      "pdf": "",
+      "relevance_score": 0,
+      "tags": [],
+      "is_ai_frontier": true,
+      "is_blog": true
+    },
+    {
+      "id": "rss:24a9ca936d0d",
+      "title": "SCIN: A new resource for representative dermatology images",
+      "abstract": "Posted by Pooja Rao, Research Scientist, Google Research\n\n\n\n\nHealth datasets play a crucial role in research and medical education, but it can be challenging to create a dataset that represents the real world. For example, dermatology conditions are diverse in their appearance and severity and manifest differently across skin tones. Yet, existing dermatology image datasets often lack representatio",
+      "authors": [
+        "Google AI Blog"
+      ],
+      "date": "2024-03-19",
+      "source": "Google AI Blog",
+      "url": "http://blog.research.google/feeds/4328167517765145678/comments/default",
+      "pdf": "",
+      "relevance_score": 0,
+      "tags": [],
+      "is_ai_frontier": true,
+      "is_blog": true
+    },
+    {
+      "id": "rss:2b50f9f4271a",
+      "title": "Talk like a graph: Encoding graphs for large language models",
+      "abstract": "Posted by Bahare Fatemi and Bryan Perozzi, Research Scientists, Google Research\n\n\n\n\nImagine all the things around you — your friends, tools in your kitchen, or even the parts of your bike. They are all connected in different ways. In computer science, the term graph is used to describe connections between objects. Graphs consist of nodes (the objects themselves) and edges (connections between two ",
+      "authors": [
+        "Google AI Blog"
+      ],
+      "date": "2024-03-19",
+      "source": "Google AI Blog",
+      "url": "http://blog.research.google/feeds/6090481872694489715/comments/default",
+      "pdf": "",
+      "relevance_score": 0,
+      "tags": [],
+      "is_ai_frontier": true,
+      "is_blog": true
+    },
+    {
+      "id": "rss:16f99f6a0235",
+      "title": "Computer-aided diagnosis for lung cancer screening",
+      "abstract": "Posted by Atilla Kiraly, Software Engineer, and Rory Pilgrim, Product Manager, Google Research \n\n\n\n\n\nLung cancer is the leading cause of cancer-related deaths globally with 1.8 million deaths reported in 2020. Late diagnosis dramatically reduces the chances of survival. Lung cancer screening via computed tomography (CT), which provides a detailed 3D image of the lungs, has been shown to reduce mor",
+      "authors": [
+        "Google AI Blog"
+      ],
+      "date": "2024-03-20",
+      "source": "Google AI Blog",
+      "url": "http://blog.research.google/feeds/7061041222399769838/comments/default",
+      "pdf": "",
+      "relevance_score": 0,
+      "tags": [],
+      "is_ai_frontier": true,
+      "is_blog": true
+    },
+    {
+      "id": "rss:1f5fabcdbc22",
+      "title": "Using AI to expand global access to reliable flood forecasts",
+      "abstract": "Posted by Yossi Matias, VP Engineering &amp; Research, and Grey Nearing, Research Scientist, Google Research\n\n\n\n\nFloods are the most common natural disaster, and are responsible for roughly $50 billion in annual financial damages worldwide. The rate of flood-related disasters has more than doubled since the year 2000 partly due to climate change. Nearly 1.5 billion people, making up 19% of the wor",
+      "authors": [
+        "Google AI Blog"
+      ],
+      "date": "2024-03-20",
+      "source": "Google AI Blog",
+      "url": "http://blog.research.google/feeds/4615278636568583418/comments/default",
+      "pdf": "",
+      "relevance_score": 0,
+      "tags": [],
+      "is_ai_frontier": true,
+      "is_blog": true
+    },
+    {
+      "id": "rss:5b36414aee47",
+      "title": "Generative AI to quantify uncertainty in weather forecasting",
+      "abstract": "Posted by Lizao (Larry) Li, Software Engineer, and Rob Carver, Research Scientist, Google Research\n\n\n\n\nAccurate weather forecasts can have a direct impact on people’s lives, from helping make routine decisions, like what to pack for a day’s activities, to informing urgent actions, for example, protecting people in the face of hazardous weather conditions. The importance of accurate and timely weat",
+      "authors": [
+        "Google AI Blog"
+      ],
+      "date": "2024-03-29",
+      "source": "Google AI Blog",
+      "url": "http://blog.research.google/feeds/1569605132526995799/comments/default",
+      "pdf": "",
+      "relevance_score": 0,
+      "tags": [],
+      "is_ai_frontier": true,
+      "is_blog": true
+    },
+    {
+      "id": "rss:c49fbd573dd1",
+      "title": "AutoBNN: Probabilistic time series forecasting with compositional bayesian neural networks",
+      "abstract": "Posted by Urs Köster, Software Engineer, Google Research\n\n\n\n\nTime series problems are ubiquitous, from forecasting weather and traffic patterns to understanding economic trends. Bayesian approaches start with an assumption about the data's patterns (prior probability), collecting evidence (e.g., new time series data), and continuously updating that assumption to form a posterior probability distri",
+      "authors": [
+        "Google AI Blog"
+      ],
+      "date": "2024-03-29",
+      "source": "Google AI Blog",
+      "url": "http://blog.research.google/feeds/1799535679952845079/comments/default",
+      "pdf": "",
+      "relevance_score": 0,
+      "tags": [],
+      "is_ai_frontier": true,
+      "is_blog": true
+    },
+    {
+      "id": "arxiv:2405.14490v1",
+      "title": "Impact of Non-Standard Unicode Characters on Security and Comprehension in Large Language Models",
+      "abstract": "The advancement of large language models has significantly improved natural language processing. However, challenges such as jailbreaks (prompt injections that cause an LLM to follow instructions contrary to its intended use), hallucinations (generating incorrect or misleading information), and comprehension errors remain prevalent. In this report, we present a comparative analysis of the performance of fifteen distinct models, with each model undergoing a standardized test comprising 38 queries across three key metrics: jailbreaks, hallucinations, and comprehension errors. The models are asse",
+      "authors": [
+        "Johan S Daniel",
+        "Anand Pal"
+      ],
+      "date": "2024-05-23",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2405.14490v1",
+      "pdf": "https://arxiv.org/pdf/2405.14490v1",
+      "categories": [
+        "cs.CL"
+      ],
+      "relevance_score": 0,
+      "tags": [],
+      "is_ai_frontier": true
+    },
+    {
+      "id": "arxiv:2502.13965v1",
+      "title": "Autellix: An Efficient Serving Engine for LLM Agents as General Programs",
+      "abstract": "Large language model (LLM) applications are evolving beyond simple chatbots into dynamic, general-purpose agentic programs, which scale LLM calls and output tokens to help AI agents reason, explore, and solve complex tasks. However, existing LLM serving systems ignore dependencies between programs and calls, missing significant opportunities for optimization. Our analysis reveals that programs submitted to LLM serving engines experience long cumulative wait times, primarily due to head-of-line blocking at both the individual LLM request and the program. To address this, we introduce Autellix, ",
+      "authors": [
+        "Michael Luo",
+        "Xiaoxiang Shi",
+        "Colin Cai",
+        "Tianjun Zhang",
+        "Justin Wong"
+      ],
+      "date": "2025-02-19",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2502.13965v1",
+      "pdf": "https://arxiv.org/pdf/2502.13965v1",
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "cs.DC"
+      ],
+      "relevance_score": 0,
+      "tags": [],
+      "is_ai_frontier": true
+    },
+    {
+      "id": "arxiv:2503.24110v1",
+      "title": "Grounding Agent Reasoning in Image Schemas: A Neurosymbolic Approach to Embodied Cognition",
+      "abstract": "Despite advances in embodied AI, agent reasoning systems still struggle to capture the fundamental conceptual structures that humans naturally use to understand and interact with their environment. To address this, we propose a novel framework that bridges embodied cognition theory and agent systems by leveraging a formal characterization of image schemas, which are defined as recurring patterns of sensorimotor experience that structure human cognition. By customizing LLMs to translate natural language descriptions into formal representations based on these sensorimotor patterns, we will be ab",
+      "authors": [
+        "François Olivier",
+        "Zied Bouraoui"
+      ],
+      "date": "2025-03-31",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2503.24110v1",
+      "pdf": "https://arxiv.org/pdf/2503.24110v1",
+      "categories": [
+        "cs.AI",
+        "cs.CL"
+      ],
+      "relevance_score": 0,
+      "tags": [],
+      "is_ai_frontier": true
+    },
+    {
+      "id": "arxiv:2504.11496v1",
+      "title": "IEA-Plugin: An AI Agent Reasoner for Test Data Analytics",
+      "abstract": "This paper introduces IEA-plugin, a novel AI agent-based reasoning module developed as a new front-end for the Intelligent Engineering Assistant (IEA). The primary objective of IEA-plugin is to utilize the advanced reasoning and coding capabilities of Large Language Models (LLMs) to effectively address two critical practical challenges: capturing diverse engineering requirements and improving system scalability. Built on the LangGraph agentic programming platform, IEAplugin is specifically tailored for industrial deployment and integration with backend test data analytics tools. Compared to th",
+      "authors": [
+        "Seoyeon Kim",
+        "Yu Su",
+        "Li-C. Wang"
+      ],
+      "date": "2025-04-14",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2504.11496v1",
+      "pdf": "https://arxiv.org/pdf/2504.11496v1",
+      "categories": [
+        "cs.SE"
+      ],
+      "relevance_score": 3,
+      "tags": [
+        "industrial"
+      ],
+      "is_ai_frontier": true
+    },
+    {
+      "id": "arxiv:2505.14539v1",
+      "title": "A Logic of General Attention Using Edge-Conditioned Event Models (Extended Version)",
+      "abstract": "In this work, we present the first general logic of attention. Attention is a powerful cognitive ability that allows agents to focus on potentially complex information, such as logically structured propositions, higher-order beliefs, or what other agents pay attention to. This ability is a strength, as it helps to ignore what is irrelevant, but it can also introduce biases when some types of information or agents are systematically ignored. Existing dynamic epistemic logics for attention cannot model such complex attention scenarios, as they only model attention to atomic formulas. Additionall",
+      "authors": [
+        "Gaia Belardinelli",
+        "Thomas Bolander",
+        "Sebastian Watzl"
+      ],
+      "date": "2025-05-20",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2505.14539v1",
+      "pdf": "https://arxiv.org/pdf/2505.14539v1",
+      "categories": [
+        "cs.AI"
+      ],
+      "relevance_score": 0,
+      "tags": [],
+      "is_ai_frontier": true
+    },
+    {
+      "id": "arxiv:2506.05748v1",
+      "title": "Efficient Online RFT with Plug-and-Play LLM Judges: Unlocking State-of-the-Art Performance",
+      "abstract": "Reward-model training is the cost bottleneck in modern Reinforcement Learning Human Feedback (RLHF) pipelines, often requiring tens of billions of parameters and an offline preference-tuning phase. In the proposed method, a frozen, instruction-tuned 7B LLM is augmented with only a one line JSON rubric and a rank-16 LoRA adapter (affecting just 0.8% of the model's parameters), enabling it to serve as a complete substitute for the previously used heavyweight evaluation models. The plug-and-play judge achieves 96.2% accuracy on RewardBench, outperforming specialized reward networks ranging from 2",
+      "authors": [
+        "Rudransh Agnihotri",
+        "Ananya Pandey"
+      ],
+      "date": "2025-06-06",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2506.05748v1",
+      "pdf": "https://arxiv.org/pdf/2506.05748v1",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "relevance_score": 0,
+      "tags": [],
+      "is_ai_frontier": true
+    },
+    {
+      "id": "arxiv:2507.08664v1",
+      "title": "Introspection of Thought Helps AI Agents",
+      "abstract": "AI Agents rely on Large Language Models (LLMs) and Multimodal-LLMs (MLLMs) to perform interpretation and inference in text and image tasks without post-training, where LLMs and MLLMs play the most critical role and determine the initial ability and limitations of AI Agents. Usually, AI Agents utilize sophisticated prompt engineering and external reasoning framework to obtain a promising interaction with LLMs, e.g., Chain-of-Thought, Iteration of Thought and Image-of-Thought. However, they are still constrained by the inherent limitations of LLM in understanding natural language, and the iterat",
+      "authors": [
+        "Haoran Sun",
+        "Shaoning Zeng"
+      ],
+      "date": "2025-07-11",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2507.08664v1",
+      "pdf": "https://arxiv.org/pdf/2507.08664v1",
+      "categories": [
+        "cs.AI"
+      ],
+      "relevance_score": 0,
+      "tags": [],
+      "is_ai_frontier": true
+    },
+    {
+      "id": "arxiv:2507.18267v1",
+      "title": "An Empirical Study on Embodied Artificial Intelligence Robot (EAIR) Software Bugs",
+      "abstract": "Embodied Artificial Intelligence Robots (EAIR) is an emerging and rapidly evolving technological domain. Ensuring their program correctness is fundamental to their successful deployment. However, a general and in-depth understanding of EAIR system bugs remains lacking, which hinders the development of practices and techniques to tackle EAIR system bugs. To bridge this gap, we conducted the first systematic study of 885 EAIR system bugs collected from 80 EAIR system projects to investigate their symptoms, underlying causes, and module distribution. Our analysis takes considerable effort, which ",
+      "authors": [
+        "Zeqin Liao",
+        "Zibin Zheng",
+        "Peifan Reng",
+        "Henglong Liang",
+        "Zixu Gao"
+      ],
+      "date": "2025-07-24",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2507.18267v1",
+      "pdf": "https://arxiv.org/pdf/2507.18267v1",
+      "categories": [
+        "cs.SE"
+      ],
+      "relevance_score": 0,
+      "tags": [],
+      "is_ai_frontier": true
+    },
+    {
+      "id": "arxiv:2511.02651v1",
+      "title": "Apriel-H1: Towards Efficient Enterprise Reasoning Models",
+      "abstract": "Large Language Models (LLMs) achieve remarkable reasoning capabilities through transformer architectures with attention mechanisms. However, transformers suffer from quadratic time and memory complexity in the attention module (MHA) and require caching key-value states during inference, which severely limits throughput and scalability. High inference throughput is critical for agentic tasks, long-context reasoning, efficient deployment under high request loads, and more efficient test-time compute scaling. State Space Models (SSMs) such as Mamba offer a promising alternative with linear infere",
+      "authors": [
+        "Oleksiy Ostapenko",
+        "Luke Kumar",
+        "Raymond Li",
+        "Denis Kocetkov",
+        "Joel Lamy-Poirier"
+      ],
+      "date": "2025-11-04",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2511.02651v1",
+      "pdf": "https://arxiv.org/pdf/2511.02651v1",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "relevance_score": 16,
+      "tags": [
+        "attention mechanism",
+        "mamba",
+        "state space model"
+      ],
+      "is_ai_frontier": true
+    },
+    {
+      "id": "arxiv:2511.20906v1",
+      "title": "Dynamic Test-Time Compute Scaling in Control Policy: Difficulty-Aware Stochastic Interpolant Policy",
+      "abstract": "Diffusion- and flow-based policies deliver state-of-the-art performance on long-horizon robotic manipulation and imitation learning tasks. However, these controllers employ a fixed inference budget at every control step, regardless of task complexity, leading to computational inefficiency for simple subtasks while potentially underperforming on challenging ones. To address these issues, we introduce Difficulty-Aware Stochastic Interpolant Policy (DA-SIP), a framework that enables robotic controllers to adaptively adjust their integration horizon in real time based on task difficulty. Our appro",
+      "authors": [
+        "Inkook Chun",
+        "Seungjae Lee",
+        "Michael S. Albergo",
+        "Saining Xie",
+        "Eric Vanden-Eijnden"
+      ],
+      "date": "2025-11-25",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2511.20906v1",
+      "pdf": "https://arxiv.org/pdf/2511.20906v1",
+      "categories": [
+        "cs.RO",
+        "cs.AI"
+      ],
+      "relevance_score": 0,
+      "tags": [],
+      "is_ai_frontier": true
+    },
+    {
+      "id": "arxiv:2511.21185v1",
+      "title": "Progress by Pieces: Test-Time Scaling for Autoregressive Image Generation",
+      "abstract": "Recent visual autoregressive (AR) models have shown promising capabilities in text-to-image generation, operating in a manner similar to large language models. While test-time computation scaling has brought remarkable success in enabling reasoning-enhanced outputs for challenging natural language tasks, its adaptation to visual AR models remains unexplored and poses unique challenges. Naively applying test-time scaling strategies such as Best-of-N can be suboptimal: they consume full-length computation on erroneous generation trajectories, while the raster-scan decoding scheme lacks a bluepri",
+      "authors": [
+        "Joonhyung Park",
+        "Hyeongwon Jang",
+        "Joowon Kim",
+        "Eunho Yang"
+      ],
+      "date": "2025-11-26",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2511.21185v1",
+      "pdf": "https://arxiv.org/pdf/2511.21185v1",
+      "categories": [
+        "cs.CV",
+        "cs.AI"
+      ],
+      "relevance_score": 0,
+      "tags": [],
+      "is_ai_frontier": true
+    },
+    {
+      "id": "arxiv:2512.00466v1",
+      "title": "SCALE: Selective Resource Allocation for Overcoming Performance Bottlenecks in Mathematical Test-time Scaling",
+      "abstract": "Test-time compute scaling has emerged as a powerful paradigm for enhancing mathematical reasoning in large language models (LLMs) by allocating additional computational resources during inference. However, current methods employ uniform resource distribution across all reasoning sub-problems, creating fundamental bottlenecks where challenging sub-problems receive insufficient attention while routine operations consume disproportionate resources. This uniform allocation creates performance bottlenecks where additional computational resources yield diminishing returns. Inspired by dual-process t",
+      "authors": [
+        "Yang Xiao",
+        "Chunpu Xu",
+        "Ruifeng Yuan",
+        "Jiashuo Wang",
+        "Wenjie Li"
+      ],
+      "date": "2025-11-29",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2512.00466v1",
+      "pdf": "https://arxiv.org/pdf/2512.00466v1",
+      "categories": [
+        "cs.CL",
+        "cs.AI"
+      ],
+      "relevance_score": 0,
+      "tags": [],
+      "is_ai_frontier": true
+    },
+    {
+      "id": "arxiv:2512.21430v1",
+      "title": "EVE: A Generator-Verifier System for Generative Policies",
+      "abstract": "Visuomotor policies based on generative architectures such as diffusion and flow-based matching have shown strong performance but degrade under distribution shifts, demonstrating limited recovery capabilities without costly finetuning. In the language modeling domain, test-time compute scaling has revolutionized reasoning capabilities of modern LLMs by leveraging additional inference-time compute for candidate solution refinement. These methods typically leverage foundation models as verification modules in a zero-shot manner to synthesize improved candidate solutions. In this work, we hypothe",
+      "authors": [
+        "Yusuf Ali",
+        "Gryphon Patlin",
+        "Karthik Kothuri",
+        "Muhammad Zubair Irshad",
+        "Wuwei Liang"
+      ],
+      "date": "2025-12-24",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2512.21430v1",
+      "pdf": "https://arxiv.org/pdf/2512.21430v1",
+      "categories": [
+        "cs.RO"
+      ],
+      "relevance_score": 0,
+      "tags": [],
+      "is_ai_frontier": true
+    },
+    {
+      "id": "rss:7dcc7a7817b8",
+      "title": "D4RT: Teaching AI to see the world in four dimensions",
+      "abstract": "D4RT: Unified, efficient 4D reconstruction and tracking up to 300x faster than prior methods.",
+      "authors": [
+        "DeepMind Blog"
+      ],
+      "date": "2026-01-16",
+      "source": "DeepMind Blog",
+      "url": "https://deepmind.google/blog/d4rt-teaching-ai-to-see-the-world-in-four-dimensions/",
+      "pdf": "",
+      "relevance_score": 0,
+      "tags": [],
+      "is_ai_frontier": true,
+      "is_blog": true
+    },
+    {
+      "id": "rss:23fef0003888",
+      "title": "UniRG: Scaling medical imaging report generation with multimodal reinforcement learning",
+      "abstract": "AI can help generate medical image reports, but today’s models struggle with varying reporting schemes. Learn how UniRG uses reinforcement learning to boost performance of medical vision-language models.\nThe post UniRG: Scaling medical imaging report generation with multimodal reinforcement learning appeared first on Microsoft Research.",
+      "authors": [
+        "Microsoft Research"
+      ],
+      "date": "2026-01-27",
+      "source": "Microsoft Research",
+      "url": "https://www.microsoft.com/en-us/research/blog/unirg-scaling-medical-imaging-report-generation-with-multimodal-reinforcement-learning/",
+      "pdf": "",
+      "relevance_score": 0,
+      "tags": [],
+      "is_ai_frontier": true,
+      "is_blog": true
+    },
+    {
+      "id": "rss:aa71044d96b5",
+      "title": "Project Genie: Experimenting with infinite, interactive worlds",
+      "abstract": "Google AI Ultra subscribers in the U.S. can try out Project Genie, an experimental research prototype that lets you create and explore worlds.",
+      "authors": [
+        "DeepMind Blog"
+      ],
+      "date": "2026-01-29",
+      "source": "DeepMind Blog",
+      "url": "https://deepmind.google/blog/project-genie-experimenting-with-infinite-interactive-worlds/",
+      "pdf": "",
+      "relevance_score": 0,
+      "tags": [],
+      "is_ai_frontier": true,
+      "is_blog": true
+    },
+    {
+      "id": "arxiv:2601.22786v1",
+      "title": "Toward IIT-Inspired Consciousness in LLMs: A Reward-Based Learning Framework",
+      "abstract": "The pursuit of Artificial General Intelligence (AGI) is a central goal in language model development, in which consciousness-like processing could serve as a key facilitator. While current language models are not conscious, they exhibit behaviors analogous to certain aspects of consciousness. This paper investigates the implementation of a leading theory of consciousness, Integrated Information Theory (IIT), within language models via a reward-based learning paradigm. IIT provides a formal, axiom-based mathematical framework for quantifying consciousness. Drawing inspiration from its core prin",
+      "authors": [
+        "Hamid Reza Akbari",
+        "Mohammad Hossein Sameti",
+        "Amir M. Mansourian",
+        "Mohammad Hossein Rohban",
+        "Hossein Sameti"
+      ],
+      "date": "2026-01-30",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2601.22786v1",
+      "pdf": "https://arxiv.org/pdf/2601.22786v1",
+      "categories": [
+        "cs.AI"
+      ],
+      "relevance_score": 0,
+      "tags": [],
+      "is_ai_frontier": true
+    },
+    {
+      "id": "arxiv:2602.01070v3",
+      "title": "What If We Allocate Test-Time Compute Adaptively?",
+      "abstract": "Test-time compute scaling allocates inference computation uniformly, uses fixed sampling strategies, and applies verification only for reranking. In contrast, we propose a verifier-guided adaptive framework treating reasoning as iterative trajectory generation and selection. For each problem, the agent runs multiple inference iterations. In each iteration, it optionally produces a high-level plan, selects a set of reasoning tools and a compute strategy together with an exploration parameter, and then generates a candidate reasoning trajectory. A process reward model (PRM) serves as a unified c",
+      "authors": [
+        "Ahsan Bilal",
+        "Ahmed Mohsin",
+        "Muhammad Umer",
+        "Ali Subhan",
+        "Hassan Rizwan"
+      ],
+      "date": "2026-02-01",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2602.01070v3",
+      "pdf": "https://arxiv.org/pdf/2602.01070v3",
+      "categories": [
+        "cs.CL"
+      ],
+      "relevance_score": 0,
+      "tags": [],
+      "is_ai_frontier": true
+    },
+    {
+      "id": "rss:d204da77546c",
+      "title": "Rethinking imitation learning with Predictive Inverse Dynamics Models",
+      "abstract": "This research looks at why Predictive Inverse Dynamics Models often outperform standard Behavior Cloning in imitation learning. By using simple predictions of what happens next, PIDMs reduce ambiguity and learn from far fewer demonstrations.\nThe post Rethinking imitation learning with Predictive Inverse Dynamics Models appeared first on Microsoft Research.",
+      "authors": [
+        "Microsoft Research"
+      ],
+      "date": "2026-02-05",
+      "source": "Microsoft Research",
+      "url": "https://www.microsoft.com/en-us/research/blog/rethinking-imitation-learning-with-predictive-inverse-dynamics-models/",
+      "pdf": "",
+      "relevance_score": 0,
+      "tags": [],
+      "is_ai_frontier": true,
+      "is_blog": true
+    },
+    {
+      "id": "rss:f93e244a6f53",
+      "title": "Paza: Introducing automatic speech recognition benchmarks and models for low resource languages",
+      "abstract": "Microsoft Research unveils Paza, a human-centered speech pipeline, and PazaBench, the first leaderboard for low-resource languages. It covers 39 African languages and 52 models and is tested with communities in real settings. \nThe post Paza: Introducing automatic speech recognition benchmarks and models for low resource languages appeared first on Microsoft Research.",
+      "authors": [
+        "Microsoft Research"
+      ],
+      "date": "2026-02-05",
+      "source": "Microsoft Research",
+      "url": "https://www.microsoft.com/en-us/research/blog/paza-introducing-automatic-speech-recognition-benchmarks-and-models-for-low-resource-languages/",
+      "pdf": "",
+      "relevance_score": 0,
+      "tags": [],
+      "is_ai_frontier": true,
+      "is_blog": true
+    }
+  ]
+}
