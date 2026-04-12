@@ -1,0 +1,1107 @@
+<!DOCTYPE html>
+<html lang="zh-CN" translate="yes">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Li's Research Radar 🛰️</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Noto+Sans+SC:wght@300;400;500;700&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+/* ========== CSS Variables & Reset ========== */
+:root {
+  --bg: #0a0a12;
+  --bg-card: #12121e;
+  --bg-card-hover: #1a1a2e;
+  --bg-surface: #16162a;
+  --text: #e4e4ef;
+  --text-dim: #8888a4;
+  --text-muted: #55556a;
+  --accent: #7c6fff;
+  --accent-glow: rgba(124, 111, 255, 0.15);
+  --accent2: #00d4aa;
+  --accent3: #ff6b9d;
+  --border: #1e1e35;
+  --border-light: #2a2a45;
+  --tag-bg: rgba(124, 111, 255, 0.12);
+  --tag-text: #a99fff;
+  --score-bg: linear-gradient(135deg, #7c6fff, #00d4aa);
+  --radius: 10px;
+  --radius-sm: 6px;
+  --font-body: 'DM Sans', 'Noto Sans SC', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --transition: 0.2s ease;
+}
+.light {
+  --bg: #f5f5f8;
+  --bg-card: #ffffff;
+  --bg-card-hover: #fafafe;
+  --bg-surface: #ebebf0;
+  --text: #1a1a2e;
+  --text-dim: #666680;
+  --text-muted: #9999aa;
+  --border: #e0e0e8;
+  --border-light: #d5d5e0;
+  --tag-bg: rgba(124, 111, 255, 0.08);
+  --tag-text: #5a4fcf;
+  --accent-glow: rgba(124, 111, 255, 0.06);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  min-height: 100vh;
+  transition: background var(--transition), color var(--transition);
+}
+
+/* ========== Utility ========== */
+.container { max-width: 960px; margin: 0 auto; padding: 0 20px; }
+.hidden { display: none !important; }
+
+/* ========== Header ========== */
+.header {
+  padding: 32px 0 24px;
+  border-bottom: 1px solid var(--border);
+  position: relative;
+}
+.header-inner {
+  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+}
+.logo {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 22px; font-weight: 700; letter-spacing: -0.5px;
+}
+.logo span { font-size: 26px; }
+.logo-sub { font-size: 11px; font-weight: 400; color: var(--text-muted); letter-spacing: 0.3px; margin-top: 2px; }
+.header-controls { display: flex; align-items: center; gap: 8px; }
+.header-controls button, .header-controls select {
+  background: var(--bg-surface); color: var(--text-dim); border: 1px solid var(--border);
+  border-radius: var(--radius-sm); padding: 6px 12px; font-size: 13px; cursor: pointer;
+  font-family: var(--font-body); transition: all var(--transition);
+}
+.header-controls button:hover, .header-controls select:hover {
+  border-color: var(--accent); color: var(--text);
+}
+.stats-bar {
+  display: flex; gap: 20px; margin-top: 16px; flex-wrap: wrap;
+}
+.stat-item {
+  display: flex; align-items: baseline; gap: 6px; font-size: 13px; color: var(--text-dim);
+}
+.stat-item .num {
+  font-family: var(--font-mono); font-size: 20px; font-weight: 600; color: var(--accent);
+}
+.stat-item .num.green { color: var(--accent2); }
+.stat-item .num.pink { color: var(--accent3); }
+.updated-time { font-size: 11px; color: var(--text-muted); font-family: var(--font-mono); margin-top: 8px; }
+
+/* ========== Tabs ========== */
+.tabs {
+  display: flex; gap: 4px; margin: 24px 0 16px; border-bottom: 1px solid var(--border);
+  overflow-x: auto;
+}
+.tab {
+  padding: 10px 18px; font-size: 14px; font-weight: 500; cursor: pointer;
+  color: var(--text-dim); border-bottom: 2px solid transparent;
+  transition: all var(--transition); white-space: nowrap; background: none; border-top: none;
+  border-left: none; border-right: none; font-family: var(--font-body);
+}
+.tab:hover { color: var(--text); }
+.tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+.tab .count {
+  font-size: 11px; background: var(--tag-bg); color: var(--tag-text);
+  padding: 1px 6px; border-radius: 8px; margin-left: 6px; font-family: var(--font-mono);
+}
+
+/* ========== Search & Filter ========== */
+.toolbar {
+  display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; align-items: center;
+}
+.search-box {
+  flex: 1; min-width: 200px; position: relative;
+}
+.search-box input {
+  width: 100%; padding: 10px 14px 10px 36px;
+  background: var(--bg-surface); border: 1px solid var(--border); border-radius: var(--radius);
+  color: var(--text); font-size: 14px; font-family: var(--font-body); outline: none;
+  transition: border-color var(--transition);
+}
+.search-box input:focus { border-color: var(--accent); }
+.search-box::before {
+  content: "⌕"; position: absolute; left: 12px; top: 50%; transform: translateY(-50%);
+  font-size: 16px; color: var(--text-muted); pointer-events: none;
+}
+.filter-chips { display: flex; gap: 6px; flex-wrap: wrap; }
+.chip {
+  padding: 5px 12px; font-size: 12px; border-radius: 20px; cursor: pointer;
+  background: var(--bg-surface); border: 1px solid var(--border); color: var(--text-dim);
+  transition: all var(--transition); font-family: var(--font-body);
+}
+.chip:hover { border-color: var(--accent); color: var(--text); }
+.chip.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+/* ========== Paper Card ========== */
+.paper-list { display: flex; flex-direction: column; gap: 8px; }
+.paper-card {
+  background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 16px 18px; transition: all var(--transition); cursor: default;
+  position: relative;
+}
+.paper-card:hover { background: var(--bg-card-hover); border-color: var(--border-light); }
+.paper-card .title-row { display: flex; align-items: flex-start; gap: 10px; }
+.paper-card .title {
+  font-size: 14.5px; font-weight: 600; line-height: 1.45; flex: 1;
+}
+.paper-card .title a { color: var(--text); text-decoration: none; }
+.paper-card .title a:hover { color: var(--accent); }
+.paper-card .meta {
+  font-size: 12px; color: var(--text-dim); margin-top: 6px;
+  display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+}
+.paper-card .meta .source {
+  font-family: var(--font-mono); font-size: 11px; background: var(--bg-surface);
+  padding: 1px 6px; border-radius: 4px;
+}
+.paper-card .abstract {
+  font-size: 13px; color: var(--text-dim); margin-top: 8px; line-height: 1.55;
+  max-height: 0; overflow: hidden; transition: max-height 0.3s ease;
+}
+.paper-card.expanded .abstract { max-height: 300px; }
+.paper-card .tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 8px; }
+.paper-card .tag {
+  font-size: 10.5px; padding: 2px 8px; border-radius: 10px;
+  background: var(--tag-bg); color: var(--tag-text); font-family: var(--font-mono);
+}
+.paper-card .actions {
+  display: flex; gap: 8px; margin-top: 8px; align-items: center;
+}
+.paper-card .actions button {
+  background: none; border: none; color: var(--text-muted); cursor: pointer;
+  font-size: 12px; padding: 2px 6px; border-radius: 4px; transition: all var(--transition);
+  font-family: var(--font-body);
+}
+.paper-card .actions button:hover { color: var(--accent); background: var(--accent-glow); }
+.paper-card .actions .fav-btn.active { color: var(--accent3); }
+.paper-card .actions .note-btn.active { color: var(--accent2); }
+.paper-card .upvotes {
+  font-size: 11px; color: var(--accent2); font-family: var(--font-mono);
+}
+.note-area {
+  margin-top: 8px; display: none;
+}
+.note-area.visible { display: block; }
+.note-area textarea {
+  width: 100%; padding: 8px 10px; font-size: 12px; font-family: var(--font-body);
+  background: var(--bg-surface); border: 1px solid var(--border); border-radius: var(--radius-sm);
+  color: var(--text); resize: vertical; min-height: 60px; outline: none;
+  transition: border-color var(--transition);
+}
+.note-area textarea:focus { border-color: var(--accent2); }
+.note-area textarea::placeholder { color: var(--text-muted); }
+.note-history { display: flex; flex-direction: column; gap: 3px; margin-bottom: 6px; }
+.note-history:empty { display: none; }
+.note-history-item { display: flex; align-items: baseline; gap: 6px; font-size: 12px; color: var(--text-dim); background: var(--bg); border-radius: var(--radius-sm); padding: 4px 8px; }
+.note-history-text { flex: 1; font-style: italic; word-break: break-word; }
+.note-history-time { font-family: var(--font-mono); font-size: 10px; color: var(--text-muted); white-space: nowrap; }
+.note-del-btn { background: none; border: none; color: var(--text-muted); cursor: pointer; font-size: 14px; line-height: 1; padding: 0 2px; flex-shrink: 0; }
+.note-del-btn:hover { color: var(--accent3); }
+.note-save-btn {
+  margin-top: 6px; font-size: 12px; padding: 3px 12px;
+  background: var(--accent2); color: #fff; border: none; border-radius: var(--radius-sm);
+  cursor: pointer; font-family: var(--font-body); transition: opacity var(--transition);
+}
+.note-save-btn:hover { opacity: 0.85; }
+
+/* Reading status badge */
+.status-btn {
+  font-size: 11px; padding: 2px 8px; border-radius: 10px; font-family: var(--font-mono);
+  cursor: pointer; border: 1px solid var(--border); background: var(--bg-surface);
+  color: var(--text-muted); transition: all var(--transition);
+}
+.status-btn.read { background: rgba(0,212,170,0.12); color: var(--accent2); border-color: var(--accent2); }
+.status-btn.important { background: rgba(255,107,157,0.15); color: var(--accent3); border-color: var(--accent3); }
+
+.status-timestamp { font-size: 10px; color: var(--text-muted); font-family: var(--font-mono); margin-left: 4px; }
+/* Note preview: always-visible text+time below actions */
+.note-preview {
+  margin-top: 8px; padding: 6px 10px; font-size: 12px; color: var(--text-dim);
+  background: var(--bg-surface); border-left: 2px solid var(--border-light);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0; line-height: 1.5;
+}
+.note-preview .note-preview-text { font-style: italic; }
+.note-preview .note-preview-time { font-family: var(--font-mono); font-size: 10px; color: var(--text-muted); margin-left: 6px; }
+.source-filter { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 10px; align-items: center; }
+.source-filter .label { font-size: 11px; color: var(--text-muted); font-family: var(--font-mono); }
+
+/* ========== Loading & Empty ========== */
+.loading {
+  text-align: center; padding: 60px 20px; color: var(--text-muted);
+}
+.loading .spinner {
+  width: 32px; height: 32px; border: 3px solid var(--border);
+  border-top-color: var(--accent); border-radius: 50%;
+  animation: spin 0.8s linear infinite; margin: 0 auto 16px;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+.empty { text-align: center; padding: 60px 20px; color: var(--text-muted); font-size: 14px; }
+.empty .icon { font-size: 40px; margin-bottom: 12px; }
+
+/* ========== Date Nav ========== */
+.date-nav {
+  display: flex; gap: 8px; align-items: center; margin-bottom: 20px;
+  font-size: 13px;
+}
+.date-nav button {
+  background: var(--bg-surface); border: 1px solid var(--border); color: var(--text-dim);
+  padding: 5px 10px; border-radius: var(--radius-sm); cursor: pointer;
+  font-family: var(--font-body); transition: all var(--transition);
+}
+.date-nav button:hover { border-color: var(--accent); color: var(--text); }
+.date-nav .current-date { font-family: var(--font-mono); color: var(--text); font-weight: 500; }
+
+/* ========== Footer ========== */
+.footer {
+  text-align: center; padding: 40px 0 24px; font-size: 11px; color: var(--text-muted);
+  border-top: 1px solid var(--border); margin-top: 40px;
+}
+.footer a { color: var(--accent); text-decoration: none; }
+
+/* ========== Responsive ========== */
+@media (max-width: 640px) {
+  .header-inner { flex-direction: column; align-items: flex-start; }
+  .stats-bar { gap: 14px; }
+  .tabs { gap: 0; }
+  .tab { padding: 10px 12px; font-size: 13px; }
+  .toolbar { flex-direction: column; }
+  .paper-card { padding: 12px 14px; }
+}
+
+/* ========== Gist Sync Modal ========== */
+.modal-overlay {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 200;
+  display: flex; align-items: center; justify-content: center;
+}
+.modal-overlay.hidden { display: none !important; }
+.modal {
+  background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 24px; max-width: 440px; width: 90%; box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+}
+.modal h3 { margin: 0 0 6px; font-size: 15px; }
+.modal p { font-size: 12px; color: var(--text-dim); margin: 0 0 16px; line-height: 1.6; }
+.modal input {
+  width: 100%; padding: 8px 10px; font-size: 12px; font-family: var(--font-mono);
+  background: var(--bg-surface); border: 1px solid var(--border); border-radius: var(--radius-sm);
+  color: var(--text); outline: none; margin-bottom: 10px;
+}
+.modal input:focus { border-color: var(--accent); }
+.modal-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+.modal-actions button {
+  font-size: 12px; padding: 6px 14px; border-radius: var(--radius-sm);
+  cursor: pointer; font-family: var(--font-body); border: 1px solid var(--border);
+  background: var(--bg-surface); color: var(--text-dim); transition: all var(--transition);
+}
+.modal-actions button.primary {
+  background: var(--accent); color: #fff; border-color: var(--accent);
+}
+.modal-actions button:hover { border-color: var(--accent); color: var(--text); }
+.sync-status { font-size: 11px; color: var(--text-muted); margin-top: 8px; min-height: 16px; }
+
+/* ========== Scroll to top ========== */
+.scroll-top {
+  position: fixed; bottom: 24px; right: 24px; width: 40px; height: 40px;
+  background: var(--accent); color: #fff; border: none; border-radius: 50%;
+  cursor: pointer; font-size: 18px; display: none; align-items: center; justify-content: center;
+  box-shadow: 0 2px 12px rgba(124,111,255,0.3); transition: transform var(--transition);
+  z-index: 100;
+}
+.scroll-top:hover { transform: scale(1.1); }
+.scroll-top.visible { display: flex; }
+</style>
+</head>
+<body>
+<div class="container">
+  <!-- Header -->
+  <header class="header">
+    <div class="header-inner">
+      <div class="logo">
+        <div><span>🛰️</span> Li's Research Radar</div>
+        <div class="logo-sub">Tracking PHM · Knowledge Distillation · AI Frontier</div>
+      </div>
+      <div class="header-controls">
+        <select id="langSwitch" title="Language" onchange="switchLang(this.value)">
+          <option value="zh">中文</option>
+          <option value="en">English</option>
+        </select>
+        <button type="button" onclick="toggleTheme()" id="themeBtn">🌙</button>
+        <button type="button" onclick="openSyncModal()" title="云同步笔记和收藏">☁️</button>
+      </div>
+    </div>
+    <div class="stats-bar" id="statsBar">
+      <div class="stat-item"><span class="num" id="statTotal">-</span> <span data-i18n="stats.total">论文追踪</span></div>
+      <div class="stat-item"><span class="num green" id="statResearch">-</span> <span data-i18n="stats.research">研究相关</span></div>
+      <div class="stat-item"><span class="num pink" id="statAI">-</span> <span data-i18n="stats.ai">AI 前沿</span></div>
+    </div>
+    <div class="updated-time" id="updatedTime"></div>
+  </header>
+
+  <!-- Tabs -->
+  <div class="tabs" id="tabs">
+    <button class="tab active" data-tab="research" onclick="switchTab('research')">
+      <span data-i18n="tab.research">📚 研究论文</span>
+      <span class="count" id="tabCountResearch">0</span>
+    </button>
+    <button class="tab" data-tab="ai" onclick="switchTab('ai')">
+      <span data-i18n="tab.ai">🚀 AI 前沿</span>
+      <span class="count" id="tabCountAI">0</span>
+    </button>
+    <button class="tab" data-tab="favs" onclick="switchTab('favs')">
+      <span data-i18n="tab.favs">⭐ 收藏</span>
+      <span class="count" id="tabCountFavs">0</span>
+    </button>
+    <button class="tab" data-tab="marked" onclick="switchTab('marked')">
+      <span data-i18n="tab.marked">🔖 已标记</span>
+      <span class="count" id="tabCountMarked">0</span>
+    </button>
+  </div>
+
+  <!-- Date Navigation -->
+  <div class="date-nav" id="dateNav">
+    <button onclick="navigateDate(1)">← <span data-i18n="nav.prev">前一天</span></button>
+    <span class="current-date" id="currentDate"></span>
+    <button onclick="navigateDate(-1)"><span data-i18n="nav.next">后一天</span> →</button>
+    <button onclick="loadLatest()" style="margin-left:auto"><span data-i18n="nav.latest">最新</span></button>
+  </div>
+
+  <!-- Source Filter -->
+  <div class="source-filter" id="sourceFilter">
+    <span class="label" data-i18n="label.source">来源</span>
+  </div>
+
+  <!-- Toolbar -->
+  <div class="toolbar">
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="搜索论文标题、作者、关键词..."
+             data-i18n-placeholder="search.placeholder" oninput="filterPapers()">
+    </div>
+    <div class="filter-chips" id="filterChips"></div>
+  </div>
+
+  <!-- Paper List -->
+  <div id="paperList" class="paper-list">
+    <div class="loading" id="loadingState">
+      <div class="spinner"></div>
+      <div data-i18n="loading">正在加载论文数据...</div>
+    </div>
+  </div>
+</div>
+
+<!-- Scroll to top -->
+<button class="scroll-top" id="scrollTopBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<!-- Gist Sync Modal -->
+<div class="modal-overlay hidden" id="syncModal">
+  <div class="modal">
+    <h3>☁️ 云同步 (GitHub Gist)</h3>
+    <p>将你的笔记和收藏同步到 GitHub Gist，换设备后可恢复。<br>
+    需要一个有 <code>gist</code> 权限的 Personal Access Token。<br>
+    Token 仅保存在本地浏览器，不会上传到任何服务器。</p>
+    <input type="password" id="gistToken" placeholder="GitHub Personal Access Token (gist scope)" autocomplete="off">
+    <input type="text" id="gistId" placeholder="Gist ID（首次留空，系统自动创建）">
+    <div class="modal-actions">
+      <button type="button" class="primary" onclick="syncToGist()">上传备份</button>
+      <button type="button" onclick="restoreFromGist()">从云端恢复</button>
+      <button type="button" onclick="closeSyncModal()">取消</button>
+    </div>
+    <div class="sync-status" id="syncStatus"></div>
+  </div>
+</div>
+
+<footer class="footer container">
+  <div>Li's Research Radar · <span data-i18n="footer.auto">自动更新</span> · <a href="https://github.com/L-WangLi/paper-radar" target="_blank" rel="noopener noreferrer">GitHub</a></div>
+  <div class="footer-sources">
+    <span data-i18n="footer.powered">数据来源</span>: arXiv · CrossRef · Semantic Scholar · OpenReview · OpenAlex · HuggingFace · Papers with Code · RSS
+  </div>
+</footer>
+
+<script>
+// ============================================================
+// i18n
+// ============================================================
+const i18n = {
+  zh: {
+    "stats.total": "论文追踪",
+    "stats.research": "研究相关",
+    "stats.ai": "AI 前沿",
+    "tab.research": "📚 研究论文",
+    "tab.ai": "🚀 AI 前沿",
+    "tab.favs": "⭐ 收藏",
+    "tab.marked": "🔖 已标记",
+    "nav.prev": "前一天",
+    "nav.next": "后一天",
+    "nav.latest": "最新",
+    "search.placeholder": "搜索论文标题、作者、关键词...",
+    "loading": "正在加载论文数据...",
+    "empty.research": "今日没有找到与你研究相关的论文",
+    "empty.ai": "今日没有 AI 前沿论文",
+    "empty.favs": "还没有收藏的论文",
+    "empty.marked": "当前日期没有已标记的论文",
+    "empty.search": "没有匹配的结果",
+    "btn.expand": "展开摘要",
+    "btn.collapse": "收起",
+    "btn.fav": "收藏",
+    "btn.unfav": "已收藏",
+    "btn.pdf": "PDF",
+    "footer.auto": "自动更新",
+    "footer.powered": "数据来源",
+    "label.source": "来源",
+    "label.updated": "更新时间",
+    "error.load": "加载数据失败，请稍后刷新",
+    "citations": "引用",
+    "btn.note": "笔记",
+    "btn.note_saved": "有笔记",
+    "btn.save_note": "保存",
+    "note.placeholder": "记录你的想法、阅读笔记...",
+    "btn.bibtex": "BibTeX",
+    "bibtex.copied": "已复制",
+    "status.unread": "未读",
+    "status.read": "已读",
+    "status.important": "重要参考",
+  },
+  en: {
+    "stats.total": "Papers Tracked",
+    "stats.research": "Research",
+    "stats.ai": "AI Frontier",
+    "tab.research": "📚 Research",
+    "tab.ai": "🚀 AI Frontier",
+    "tab.favs": "⭐ Favorites",
+    "tab.marked": "🔖 Marked",
+    "nav.prev": "Previous",
+    "nav.next": "Next",
+    "nav.latest": "Latest",
+    "search.placeholder": "Search by title, author, keyword...",
+    "loading": "Loading papers...",
+    "empty.research": "No research papers found today",
+    "empty.ai": "No AI frontier papers today",
+    "empty.favs": "No favorites yet",
+    "empty.marked": "No marked papers in current date",
+    "empty.search": "No matching results",
+    "btn.expand": "Abstract",
+    "btn.collapse": "Collapse",
+    "btn.fav": "Favorite",
+    "btn.unfav": "Saved",
+    "btn.pdf": "PDF",
+    "footer.auto": "Auto-updated",
+    "footer.powered": "Sources",
+    "label.source": "Source",
+    "label.updated": "Last updated",
+    "error.load": "Failed to load data. Please refresh.",
+    "citations": "citations",
+    "btn.note": "Note",
+    "btn.note_saved": "Noted",
+    "btn.save_note": "Save",
+    "note.placeholder": "Add your thoughts, reading notes...",
+    "btn.bibtex": "BibTeX",
+    "bibtex.copied": "Copied!",
+    "status.unread": "Unread",
+    "status.read": "Read",
+    "status.important": "Key Ref",
+  },
+};
+
+// Highlight = research-question words only, NOT specific method names.
+// Goal: bold what's relevant to the user's research direction,
+//       not signal "this paper uses a known architecture".
+const HIGHLIGHT_KEYWORDS = [
+  // RUL / PHM research area
+  "remaining useful life","RUL prediction","RUL estimation",
+  "predictive maintenance","prognostics and health management",
+  "degradation prediction","degradation modeling","condition monitoring",
+  "turbofan engine degradation",
+  // Model efficiency research area
+  "knowledge distillation","model compression","model pruning",
+  "neural network quantization","lightweight",
+  // Time series research area
+  "time series forecasting","time series prediction","time series classification",
+  "multivariate time series",
+  // Benchmark datasets (precise identifiers)
+  "C-MAPSS","N-CMAPSS","PRONOSTIA","FEMTO","XJTU-SY",
+  "IMS bearing","CWRU bearing","Paderborn bearing","SEU bearing","MFPT bearing",
+  // Acronyms
+  "RUL","PHM",
+];
+
+// Sort by length desc so longer phrases match before their substrings
+const _hlSorted = [...HIGHLIGHT_KEYWORDS].sort((a, b) => b.length - a.length);
+const _hlRegex = new RegExp(
+  "(" + _hlSorted.map(k => k.replace(/[-/\\^$*+?.()|[\]{}]/g, "\\$&")).join("|") + ")",
+  "gi"
+);
+
+function highlightText(text) {
+  if (!text) return "";
+  // Escape HTML first, then wrap keyword matches in <strong>
+  const escaped = text.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+  return escaped.replace(_hlRegex, "<strong>$1</strong>");
+}
+
+let currentLang = localStorage.getItem("pr_lang") || "zh";
+let currentTab = "research";
+let currentData = null;
+let availableDates = [];
+let currentDateIdx = 0;
+let favorites = JSON.parse(localStorage.getItem("pr_favs") || "{}");
+let notes = JSON.parse(localStorage.getItem("pr_notes") || "{}");
+let readStatus = JSON.parse(localStorage.getItem("pr_status") || "{}");
+let activeFilters = new Set();
+let activeSourceFilter = null;
+let papersMap = {};
+
+// Compat helpers: support both old (string) and new (object) storage formats
+function getStatus(id) {
+  const s = readStatus[id];
+  if (!s) return "";
+  return typeof s === "string" ? s : (s.status || "");
+}
+function getStatusTime(id) {
+  const s = readStatus[id];
+  if (!s || typeof s === "string") return "";
+  return s.markedAt || "";
+}
+function getNoteEntries(id) {
+  const n = notes[id];
+  if (!n) return [];
+  if (Array.isArray(n)) return n;
+  // migrate old formats
+  if (typeof n === "object" && n.text) return [n];
+  if (typeof n === "string" && n) return [{ text: n, savedAt: "" }];
+  return [];
+}
+function getNoteText(id) {
+  const e = getNoteEntries(id);
+  return e.length ? e[0].text : "";
+}
+function getNoteTime(id) {
+  const e = getNoteEntries(id);
+  return e.length ? (e[0].savedAt || "") : "";
+}
+function fmtTime(iso) {
+  if (!iso) return "";
+  try { return new Date(iso).toLocaleString(currentLang === "zh" ? "zh-CN" : "en-US", {month:"2-digit",day:"2-digit",hour:"2-digit",minute:"2-digit"}); }
+  catch { return iso.slice(0,16).replace("T"," "); }
+}
+function updateMarkedCount() {
+  if (!currentData) return;
+  const all = [...(currentData.research_papers || []), ...(currentData.ai_frontier || [])];
+  const n = all.filter(p => getStatus(p.id)).length;
+  const el = document.getElementById("tabCountMarked");
+  if (el) el.textContent = n;
+}
+
+function t(key) { return (i18n[currentLang] || i18n.zh)[key] || key; }
+
+function switchLang(lang) {
+  currentLang = lang;
+  localStorage.setItem("pr_lang", lang);
+  document.getElementById("langSwitch").value = lang;
+  document.documentElement.lang = (lang === "zh" ? "zh-CN" : "en");
+  document.querySelectorAll("[data-i18n]").forEach(el => {
+    el.textContent = t(el.dataset.i18n);
+  });
+  document.querySelectorAll("[data-i18n-placeholder]").forEach(el => {
+    el.placeholder = t(el.dataset.i18nPlaceholder);
+  });
+  renderPapers();
+}
+
+// ============================================================
+// Theme
+// ============================================================
+let isDark = localStorage.getItem("pr_theme") !== "light";
+function applyTheme() {
+  document.body.classList.toggle("light", !isDark);
+  document.getElementById("themeBtn").textContent = isDark ? "🌙" : "☀️";
+}
+function toggleTheme() {
+  isDark = !isDark;
+  localStorage.setItem("pr_theme", isDark ? "dark" : "light");
+  applyTheme();
+}
+applyTheme();
+
+// ============================================================
+// Data Loading
+// ============================================================
+const DATA_BASE = "./data";
+
+async function loadIndex() {
+  try {
+    const resp = await fetch(`${DATA_BASE}/index.json`);
+    if (!resp.ok) throw new Error("No index");
+    const index = await resp.json();
+    availableDates = index.dates || [];
+  } catch {
+    // Fallback: try latest.json directly
+    availableDates = [];
+  }
+}
+
+async function loadData(date) {
+  const listEl = document.getElementById("paperList");
+  listEl.innerHTML = `<div class="loading"><div class="spinner"></div><div>${t("loading")}</div></div>`;
+
+  try {
+    let url;
+    if (date && availableDates.includes(date)) {
+      url = `${DATA_BASE}/papers_${date}.json`;
+    } else {
+      url = `${DATA_BASE}/latest.json`;
+    }
+
+    const resp = await fetch(url);
+    if (!resp.ok) throw new Error("fetch failed");
+    currentData = await resp.json();
+
+    updateStats();
+    buildFilterChips();
+    buildSourceFilter();
+    renderPapers();
+    document.getElementById("currentDate").textContent = currentData.date || "latest";
+
+    const updatedTime = currentData.fetched_at
+      ? new Date(currentData.fetched_at).toLocaleString(currentLang === "zh" ? "zh-CN" : "en-US")
+      : "";
+    document.getElementById("updatedTime").textContent = updatedTime
+      ? `${t("label.updated")}: ${updatedTime}` : "";
+
+  } catch (err) {
+    listEl.innerHTML = `<div class="empty"><div class="icon">⚠️</div>${t("error.load")}</div>`;
+  }
+}
+
+async function loadLatest() {
+  currentDateIdx = 0;
+  await loadData(availableDates[0]);
+}
+
+async function navigateDate(dir) {
+  currentDateIdx = Math.max(0, Math.min(availableDates.length - 1, currentDateIdx + dir));
+  await loadData(availableDates[currentDateIdx]);
+}
+
+function updateStats() {
+  if (!currentData) return;
+  const s = currentData.stats || {};
+  document.getElementById("statTotal").textContent = s.total || 0;
+  document.getElementById("statResearch").textContent = s.research || 0;
+  document.getElementById("statAI").textContent = s.ai_frontier || 0;
+  document.getElementById("tabCountResearch").textContent = (currentData.research_papers || []).length;
+  document.getElementById("tabCountAI").textContent = (currentData.ai_frontier || []).length;
+  document.getElementById("tabCountFavs").textContent = Object.keys(favorites).length;
+  updateMarkedCount();
+}
+
+// ============================================================
+// Filter Chips
+// ============================================================
+function buildFilterChips() {
+  if (!currentData) return;
+  const allPapers = [...(currentData.research_papers || []), ...(currentData.ai_frontier || [])];
+  const tagCount = {};
+  allPapers.forEach(p => {
+    (p.tags || []).forEach(tag => {
+      tagCount[tag] = (tagCount[tag] || 0) + 1;
+    });
+  });
+
+  const sorted = Object.entries(tagCount).sort((a, b) => b[1] - a[1]).slice(0, 8);
+  const container = document.getElementById("filterChips");
+  container.innerHTML = sorted.map(([tag, count]) =>
+    `<button class="chip ${activeFilters.has(tag) ? 'active' : ''}" onclick="toggleFilter('${tag}')">${tag} <small>(${count})</small></button>`
+  ).join("");
+}
+
+function toggleFilter(tag) {
+  if (activeFilters.has(tag)) activeFilters.delete(tag);
+  else activeFilters.add(tag);
+  buildFilterChips();
+  renderPapers();
+}
+
+// ============================================================
+// Source Filter
+// ============================================================
+function buildSourceFilter() {
+  if (!currentData) return;
+  const allPapers = [...(currentData.research_papers || []), ...(currentData.ai_frontier || [])];
+  const sources = [...new Set(allPapers.map(p => p.source).filter(Boolean))].sort();
+  const container = document.getElementById("sourceFilter");
+  const label = container.querySelector(".label");
+  container.innerHTML = "";
+  container.appendChild(label);
+  sources.forEach(src => {
+    const btn = document.createElement("button");
+    btn.className = "chip" + (activeSourceFilter === src ? " active" : "");
+    btn.textContent = src;
+    btn.onclick = () => {
+      activeSourceFilter = activeSourceFilter === src ? null : src;
+      buildSourceFilter();
+      renderPapers();
+    };
+    container.appendChild(btn);
+  });
+}
+
+// ============================================================
+// Tab Switching
+// ============================================================
+function switchTab(tab) {
+  currentTab = tab;
+  document.querySelectorAll(".tab").forEach(el => el.classList.toggle("active", el.dataset.tab === tab));
+  renderPapers();
+}
+
+// ============================================================
+// Rendering
+// ============================================================
+function getPapersForTab() {
+  if (!currentData) return [];
+  if (currentTab === "research") return currentData.research_papers || [];
+  if (currentTab === "ai") return currentData.ai_frontier || [];
+  if (currentTab === "favs") {
+    const all = [...(currentData.research_papers || []), ...(currentData.ai_frontier || [])];
+    return all.filter(p => favorites[p.id]);
+  }
+  if (currentTab === "marked") {
+    const all = [...(currentData.research_papers || []), ...(currentData.ai_frontier || [])];
+    return all
+      .filter(p => getStatus(p.id))
+      .sort((a, b) => (getStatusTime(b.id) || "").localeCompare(getStatusTime(a.id) || ""));
+  }
+  return [];
+}
+
+function filterPapers() { renderPapers(); }
+
+function renderPapers() {
+  let papers = getPapersForTab();
+  const query = document.getElementById("searchInput").value.trim().toLowerCase();
+
+  // Search filter
+  if (query) {
+    papers = papers.filter(p => {
+      const text = `${p.title} ${(p.authors||[]).join(" ")} ${(p.tags||[]).join(" ")} ${p.venue||""} ${p.abstract||""}`.toLowerCase();
+      return text.includes(query);
+    });
+  }
+
+  // Tag filter
+  if (activeFilters.size > 0) {
+    papers = papers.filter(p => {
+      const pTags = new Set((p.tags || []).map(t => t.toLowerCase()));
+      for (const f of activeFilters) {
+        if (pTags.has(f.toLowerCase())) return true;
+      }
+      return false;
+    });
+  }
+
+  // Source filter
+  if (activeSourceFilter) {
+    papers = papers.filter(p => p.source === activeSourceFilter);
+  }
+
+  const listEl = document.getElementById("paperList");
+
+  if (papers.length === 0) {
+    const emptyKey = query ? "empty.search" : (i18n[currentLang][`empty.${currentTab}`] ? `empty.${currentTab}` : "empty.research");
+    listEl.innerHTML = `<div class="empty"><div class="icon">📭</div>${t(emptyKey)}</div>`;
+    return;
+  }
+
+  papers.forEach(p => { papersMap[p.id] = p; });
+
+  listEl.innerHTML = papers.map((p, idx) => {
+    const isFav = favorites[p.id];
+    const status = getStatus(p.id);
+    const statusClass = status === "read" ? " read" : status === "important" ? " important" : "";
+    const statusLabel = t(status === "read" ? "status.read" : status === "important" ? "status.important" : "status.unread");
+    const statusTime = getStatusTime(p.id);
+    const statusTimeHtml = statusTime ? `<span class="status-timestamp">${fmtTime(statusTime)}</span>` : "";
+    const authorsStr = (p.authors || []).slice(0, 3).join(", ");
+    const tagsHtml = (p.tags || []).slice(0, 4).map(tag => `<span class="tag">${tag}</span>`).join("");
+    const venueHtml = p.venue ? `<span class="source">${p.venue}</span>` : "";
+    const citationsHtml = p.citations ? ` · ${p.citations} ${t("citations")}` : "";
+    const upvotesHtml = p.upvotes ? `<span class="upvotes">👍 ${p.upvotes}</span>` : "";
+    const pdfBtn = p.pdf ? `<a href="${p.pdf}" target="_blank" rel="noopener noreferrer" style="text-decoration:none"><button type="button">${t("btn.pdf")}</button></a>` : "";
+    const noteEntries = getNoteEntries(p.id);
+    const hasNote = noteEntries.length > 0;
+    const notePreviewHtml = hasNote
+      ? `<div class="note-preview" id="note-preview-${idx}"><span class="note-preview-text">"${noteEntries[0].text.replace(/</g,"&lt;")}"</span><span class="note-preview-time">${fmtTime(noteEntries[0].savedAt)}</span></div>`
+      : `<div class="note-preview" id="note-preview-${idx}" style="display:none"></div>`;
+    const noteHistoryHtml = noteEntries.map((e, i) => {
+      const t2 = e.text.replace(/</g,"&lt;").replace(/>/g,"&gt;");
+      return `<div class="note-history-item"><span class="note-history-text">"${t2}"</span><span class="note-history-time">${fmtTime(e.savedAt)}</span><button class="note-del-btn" onclick="deleteNoteEntry('${p.id}','note-${idx}',${i})">×</button></div>`;
+    }).join("");
+    return `
+    <div class="paper-card" id="card-${idx}">
+      <div class="title-row">
+        <div class="title"><a href="${p.url}" target="_blank" rel="noopener noreferrer">${highlightText(p.title)}</a></div>
+      </div>
+      <div class="meta">
+        <span>${authorsStr}</span>
+        <span class="source">${p.source}</span>
+        ${venueHtml}
+        <span>${p.date || ""}</span>
+        ${citationsHtml}
+        ${upvotesHtml}
+      </div>
+      ${p.abstract ? `<div class="abstract">${highlightText(p.abstract)}</div>` : ""}
+      ${tagsHtml ? `<div class="tags">${tagsHtml}</div>` : ""}
+      <div class="actions">
+        <button type="button" onclick="toggleExpand(${idx})">${t("btn.expand")}</button>
+        ${pdfBtn}
+        <button type="button" class="fav-btn ${isFav ? "active" : ""}" onclick="toggleFav('${p.id}', this)">
+          ${isFav ? "★ " + t("btn.unfav") : "☆ " + t("btn.fav")}
+        </button>
+        <button type="button" class="note-btn ${hasNote ? "active" : ""}" onclick="toggleNoteArea('note-${idx}', this)">
+          📝 ${hasNote ? t("btn.note_saved") : t("btn.note")}
+        </button>
+        <button type="button" onclick="copyBibTeX('${p.id}', this)">${t("btn.bibtex")}</button>
+        <button type="button" id="status-${idx}" class="status-btn${statusClass}" onclick="cycleStatus('${p.id}', ${idx})">${statusLabel}</button>
+        ${statusTimeHtml}
+      </div>
+      ${notePreviewHtml}
+      <div class="note-area ${hasNote ? "visible" : ""}" id="note-${idx}">
+        <div class="note-history" id="note-history-${idx}">${noteHistoryHtml}</div>
+        <textarea id="ta-note-${idx}" placeholder="${t("note.placeholder")}"></textarea>
+        <button type="button" class="note-save-btn" onclick="saveNote('${p.id}', 'note-${idx}', this)">${t("btn.save_note")}</button>
+      </div>
+    </div>`;
+  }).join("");
+}
+
+function toggleExpand(idx) {
+  const card = document.getElementById(`card-${idx}`);
+  if (card) card.classList.toggle("expanded");
+}
+
+function toggleFav(id, btn) {
+  if (favorites[id]) {
+    delete favorites[id];
+  } else {
+    favorites[id] = true;
+  }
+  localStorage.setItem("pr_favs", JSON.stringify(favorites));
+  document.getElementById("tabCountFavs").textContent = Object.keys(favorites).length;
+  renderPapers();
+}
+
+function toggleNoteArea(areaId, btn) {
+  const area = document.getElementById(areaId);
+  if (!area) return;
+  area.classList.toggle("visible");
+  if (area.classList.contains("visible")) {
+    area.querySelector("textarea").focus();
+  }
+}
+
+function deleteNoteEntry(id, areaId, entryIdx) {
+  const entries = getNoteEntries(id);
+  entries.splice(entryIdx, 1);
+  if (entries.length === 0) delete notes[id];
+  else notes[id] = entries;
+  localStorage.setItem("pr_notes", JSON.stringify(notes));
+  updateNoteUI(id, areaId);
+}
+function updateNoteUI(id, areaId) {
+  const entries = getNoteEntries(id);
+  const hasNote = entries.length > 0;
+  const cardIdx = areaId.replace("note-", "");
+  const previewEl = document.getElementById("note-preview-" + cardIdx);
+  if (previewEl) {
+    if (hasNote) {
+      const t2 = entries[0].text.replace(/</g,"&lt;");
+      previewEl.innerHTML = `<span class="note-preview-text">"${t2}"</span><span class="note-preview-time">${fmtTime(entries[0].savedAt)}</span>`;
+      previewEl.style.display = "";
+    } else { previewEl.style.display = "none"; }
+  }
+  const histEl = document.getElementById("note-history-" + cardIdx);
+  if (histEl) {
+    histEl.innerHTML = entries.map((e, i) => {
+      const tx = e.text.replace(/</g,"&lt;").replace(/>/g,"&gt;");
+      return `<div class="note-history-item"><span class="note-history-text">"${tx}"</span><span class="note-history-time">${fmtTime(e.savedAt)}</span><button class="note-del-btn" onclick="deleteNoteEntry('${id}','${areaId}',${i})">×</button></div>`;
+    }).join("");
+  }
+  const noteArea = document.getElementById(areaId);
+  if (noteArea) {
+    const card = noteArea.closest(".paper-card");
+    if (card) {
+      const nb = card.querySelector(".note-btn");
+      if (nb) { nb.classList.toggle("active", hasNote); nb.innerHTML = `📝 ${hasNote ? t("btn.note_saved") : t("btn.note")}`; }
+    }
+  }
+}
+function saveNote(id, areaId, btn) {
+  const ta = document.getElementById("ta-" + areaId);
+  const text = ta ? ta.value.trim() : "";
+  if (!text) return;
+  const now = new Date().toISOString();
+  const existing = getNoteEntries(id);
+  existing.unshift({ text, savedAt: now });
+  if (existing.length > 20) existing.length = 20;
+  notes[id] = existing;
+  if (ta) ta.value = "";
+  localStorage.setItem("pr_notes", JSON.stringify(notes));
+  updateNoteUI(id, areaId);
+  if (btn) {
+    const orig = btn.textContent;
+    btn.textContent = "✓ " + t("btn.save_note");
+    setTimeout(() => { btn.textContent = orig; }, 1500);
+  }
+}
+
+function cycleStatus(id, cardIdx) {
+  const cur = getStatus(id);
+  const now = new Date().toISOString();
+  if (!cur) readStatus[id] = { status: "read", markedAt: now };
+  else if (cur === "read") readStatus[id] = { status: "important", markedAt: now };
+  else delete readStatus[id];
+  localStorage.setItem("pr_status", JSON.stringify(readStatus));
+  // Update button
+  const btn = document.getElementById("status-" + cardIdx);
+  if (btn) {
+    const s = getStatus(id);
+    btn.className = "status-btn" + (s === "read" ? " read" : s === "important" ? " important" : "");
+    btn.textContent = t(s === "read" ? "status.read" : s === "important" ? "status.important" : "status.unread");
+    // Update timestamp display next to button
+    let tsEl = btn.nextElementSibling;
+    if (tsEl && tsEl.classList.contains("status-timestamp")) tsEl.remove();
+    const st = getStatusTime(id);
+    if (st) {
+      const span = document.createElement("span");
+      span.className = "status-timestamp";
+      span.textContent = fmtTime(st);
+      btn.insertAdjacentElement("afterend", span);
+    }
+  }
+  updateMarkedCount();
+}
+
+function copyBibTeX(id, btn) {
+  const p = papersMap[id];
+  if (!p) return;
+  const firstAuthor = ((p.authors || ["Unknown"])[0] || "Unknown").trim().split(" ").pop();
+  const year = (p.date || "").slice(0, 4) || "XXXX";
+  const titleKey = p.title.replace(/[^a-zA-Z\s]/g, "").split(" ").filter(Boolean).slice(0, 3).map(w => w[0].toUpperCase() + w.slice(1)).join("");
+  const key = `${firstAuthor}${year}${titleKey}`;
+  const authors = (p.authors || []).join(" and ") || "Unknown";
+  let bib;
+  if (p.source === "arXiv") {
+    const arxivId = (p.id || "").replace("arxiv:", "");
+    bib = `@article{${key},\n  title   = {${p.title}},\n  author  = {${authors}},\n  journal = {arXiv preprint arXiv:${arxivId}},\n  year    = {${year}},\n  url     = {${p.url}}\n}`;
+  } else {
+    bib = `@article{${key},\n  title  = {${p.title}},\n  author = {${authors}},\n  year   = {${year}},\n  url    = {${p.url}}\n}`;
+  }
+  navigator.clipboard.writeText(bib).then(() => {
+    const orig = btn.textContent;
+    btn.textContent = t("bibtex.copied");
+    setTimeout(() => { btn.textContent = orig; }, 1500);
+  });
+}
+
+// ============================================================
+// Scroll to top
+// ============================================================
+window.addEventListener("scroll", () => {
+  document.getElementById("scrollTopBtn").classList.toggle("visible", window.scrollY > 400);
+});
+
+// ============================================================
+// Gist Cloud Sync
+// ============================================================
+function openSyncModal() {
+  document.getElementById("syncModal").classList.remove("hidden");
+  document.getElementById("gistToken").value = localStorage.getItem("pr_gist_token") || "";
+  document.getElementById("gistId").value = localStorage.getItem("pr_gist_id") || "";
+  document.getElementById("syncStatus").textContent = "";
+}
+function closeSyncModal() {
+  document.getElementById("syncModal").classList.add("hidden");
+}
+
+function setSyncStatus(msg, ok) {
+  const el = document.getElementById("syncStatus");
+  el.textContent = msg;
+  el.style.color = ok ? "var(--accent2)" : "var(--accent3)";
+}
+
+async function syncToGist() {
+  const token = document.getElementById("gistToken").value.trim();
+  const gistId = document.getElementById("gistId").value.trim();
+  if (!token) { setSyncStatus("请填写 Token", false); return; }
+
+  const payload = { notes, favorites, readStatus, exported_at: new Date().toISOString() };
+  const body = { description: "Paper Radar backup", public: false,
+    files: { "paper-radar-backup.json": { content: JSON.stringify(payload, null, 2) } } };
+
+  setSyncStatus("上传中...", true);
+  try {
+    const url = gistId ? `https://api.github.com/gists/${gistId}` : "https://api.github.com/gists";
+    const method = gistId ? "PATCH" : "POST";
+    const resp = await fetch(url, { method, headers: {
+      Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
+      body: JSON.stringify(body) });
+    if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+    const data = await resp.json();
+    localStorage.setItem("pr_gist_token", token);
+    localStorage.setItem("pr_gist_id", data.id);
+    document.getElementById("gistId").value = data.id;
+    setSyncStatus(`✓ 备份成功 (Gist: ${data.id.slice(0, 8)}...)`, true);
+  } catch (e) { setSyncStatus(`上传失败: ${e.message}`, false); }
+}
+
+async function restoreFromGist() {
+  const token = document.getElementById("gistToken").value.trim();
+  const gistId = document.getElementById("gistId").value.trim();
+  if (!token || !gistId) { setSyncStatus("请填写 Token 和 Gist ID", false); return; }
+
+  setSyncStatus("恢复中...", true);
+  try {
+    const resp = await fetch(`https://api.github.com/gists/${gistId}`,
+      { headers: { Authorization: `Bearer ${token}` } });
+    if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+    const gist = await resp.json();
+    const content = gist.files["paper-radar-backup.json"]?.content;
+    if (!content) throw new Error("备份文件不存在");
+    const data = JSON.parse(content);
+    if (data.notes) { notes = data.notes; localStorage.setItem("pr_notes", JSON.stringify(notes)); }
+    if (data.favorites) { favorites = data.favorites; localStorage.setItem("pr_favs", JSON.stringify(favorites)); }
+    if (data.readStatus) { readStatus = data.readStatus; localStorage.setItem("pr_status", JSON.stringify(readStatus)); }
+    localStorage.setItem("pr_gist_token", token);
+    localStorage.setItem("pr_gist_id", gistId);
+    renderPapers();
+    setSyncStatus(`✓ 恢复成功 (${data.exported_at?.slice(0,10) || ""})`, true);
+  } catch (e) { setSyncStatus(`恢复失败: ${e.message}`, false); }
+}
+
+// Close modal on overlay click
+document.getElementById("syncModal").addEventListener("click", function(e) {
+  if (e.target === this) closeSyncModal();
+});
+
+// ============================================================
+// Init
+// ============================================================
+async function init() {
+  switchLang(currentLang);
+  await loadIndex();
+  await loadLatest();
+}
+
+init();
+</script>
+</body>
+</html>
