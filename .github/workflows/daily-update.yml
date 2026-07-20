@@ -43,7 +43,7 @@ jobs:
       - name: Build static site
         run: python scripts/build_site.py
 
-      - name: Send weekly email digest (Mondays only)
+      - name: Send weekly email digest (Fridays only)
         env:
           SMTP_HOST: ${{ secrets.SMTP_HOST }}
           SMTP_PORT: ${{ secrets.SMTP_PORT }}

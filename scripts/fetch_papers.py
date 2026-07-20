@@ -71,14 +71,14 @@ RESEARCH_KEYWORDS = [
 ]
 
 AI_FRONTIER_KEYWORDS = [
-    "large language model",
-    "diffusion model",
-    "multimodal foundation model",
-    "AI agent reasoning",
-    "reinforcement learning human feedback",
-    "vision language model",
-    "test time compute scaling",
-    "model alignment",
+    "time series foundation model",
+    "time series forecasting",
+    "time series anomaly detection",
+    "time series representation learning",
+    "predictive maintenance",
+    "remaining useful life",
+    "prognostics and health management",
+    "battery state of health",
 ]
 
 METHOD_KEYWORDS = [
@@ -125,8 +125,9 @@ SHORT_KEYWORDS = {"RUL", "PHM", "SOH", "CBM"}
 # of these terms. Applied to CrossRef and S2 (the noisiest sources).
 # Using longer phrases avoids false positives from short ambiguous words.
 TITLE_FILTER = [
-    "remaining useful life", "state of health", "rul", "prognostic", "phm",
-    "predictive maintenance", "degradation", "turbofan",
+    "remaining useful life", "state of health", "rul", "phm",
+    "predictive maintenance", "degradation prediction", "degradation modeling",
+    "turbofan degradation", "turbofan engine", "bearing degradation",
     "knowledge distillation", "model compression", "model pruning",
     "network pruning", "lightweight", "quantization",
     "time series forecasting", "time series prediction", "time series",
@@ -134,6 +135,34 @@ TITLE_FILTER = [
     "xjtu", "ims bearing", "cwru", "paderborn", "mfpt",
     "condition monitoring", "health monitoring", "health management",
 ]
+
+CORE_RELEVANCE_TERMS = [
+    "remaining useful life", "rul prediction", "rul estimation", "rul",
+    "prognostics and health management", "prognostic health management", "phm",
+    "predictive maintenance", "condition-based maintenance", "condition based maintenance",
+    "state of health", "soh", "battery state of health",
+]
+
+TIME_SERIES_TERMS = [
+    "time series forecasting", "time series prediction", "time series classification",
+    "time series anomaly detection", "time series foundation model",
+    "time series representation", "multivariate time series", "time series",
+]
+
+DOMAIN_CONTEXT_TERMS = [
+    "degradation prediction", "degradation modeling", "turbofan engine degradation",
+    "turbofan degradation", "bearing degradation", "condition monitoring",
+    "health monitoring", "fault prognosis", "run-to-failure", "run to failure",
+]
+
+METHOD_CONTEXT_TERMS = [
+    "knowledge distillation", "model compression", "model pruning",
+    "network pruning", "lightweight model", "quantization",
+    "self-supervised", "transfer learning", "domain adaptation",
+    "federated learning", "physics-informed", "state space model", "transformer",
+]
+
+MAX_FUTURE_DAYS = 31
 
 
 def title_is_relevant(title: str) -> bool:
@@ -255,6 +284,124 @@ def compute_tags(title, abstract):
 def normalize_title(title):
     """Normalize title for deduplication."""
     return re.sub(r"[^a-z0-9]", "", title.lower())
+
+
+def term_in_text(text, term):
+    """Match short acronyms with word boundaries and longer phrases by substring."""
+    text_l = (text or "").lower()
+    term_l = term.lower()
+    if term.upper() in SHORT_KEYWORDS or len(term_l) <= 4:
+        return re.search(rf"\b{re.escape(term_l)}\b", text_l) is not None
+    return term_l in text_l
+
+
+def has_any_term(text, terms):
+    return any(term_in_text(text, term) for term in terms)
+
+
+def normalize_date(date_str):
+    """Keep valid, non-future YYYY-MM-DD dates; return empty string otherwise."""
+    if not date_str:
+        return ""
+    raw = str(date_str).strip()
+    match = re.match(r"^(\d{4})(?:-(\d{1,2})(?:-(\d{1,2}))?)?", raw)
+    if not match:
+        return ""
+
+    year = int(match.group(1))
+    month = int(match.group(2) or 1)
+    day = int(match.group(3) or 1)
+    try:
+        dt = datetime(year, month, day)
+    except ValueError:
+        return ""
+
+    max_date = datetime.utcnow() + timedelta(days=MAX_FUTURE_DAYS)
+    if dt.year < 1990 or dt > max_date:
+        return ""
+    return dt.strftime("%Y-%m-%d")
+
+
+def compute_relevance_score(title, abstract="", tags=None):
+    """Score RUL/PHM/time-series relevance; method-only matches are not enough."""
+    title = title or ""
+    abstract = abstract or ""
+    tags = tags or []
+    tag_text = " ".join(tags)
+
+    score = 0
+    for term in CORE_RELEVANCE_TERMS:
+        if term_in_text(title, term):
+            score += 10
+        elif term_in_text(abstract, term):
+            score += 4
+        elif term_in_text(tag_text, term):
+            score += 5
+
+    for term in TIME_SERIES_TERMS:
+        if term_in_text(title, term):
+            score += 8
+        elif term_in_text(abstract, term):
+            score += 3
+        elif term_in_text(tag_text, term):
+            score += 4
+
+    for term in DOMAIN_CONTEXT_TERMS:
+        if term_in_text(title, term):
+            score += 6
+        elif term_in_text(abstract, term):
+            score += 2
+        elif term_in_text(tag_text, term):
+            score += 3
+
+    for term in DATASET_KEYWORDS:
+        if term_in_text(title, term):
+            score += 10
+        elif term_in_text(abstract, term):
+            score += 4
+        elif term_in_text(tag_text, term):
+            score += 5
+
+    method_hits = 0
+    for term in METHOD_CONTEXT_TERMS:
+        if term_in_text(title, term):
+            score += 2
+            method_hits += 1
+        elif term_in_text(abstract, term):
+            score += 1
+            method_hits += 1
+
+    has_topic_anchor = (
+        has_any_term(title + " " + abstract + " " + tag_text, CORE_RELEVANCE_TERMS)
+        or has_any_term(title + " " + abstract + " " + tag_text, TIME_SERIES_TERMS)
+        or has_any_term(title + " " + abstract + " " + tag_text, DATASET_KEYWORDS)
+        or has_any_term(title + " " + abstract + " " + tag_text, DOMAIN_CONTEXT_TERMS)
+    )
+    if method_hits and not has_topic_anchor:
+        return 0
+    return score
+
+
+def is_relevant_paper(paper, min_score=6):
+    title = paper.get("title", "")
+    abstract = paper.get("abstract", "")
+    if not title:
+        return False
+    tags = paper.get("tags") or compute_tags(title, abstract)
+    score = compute_relevance_score(title, abstract, tags)
+    paper["tags"] = tags
+    paper["relevance_score"] = score
+    paper["date"] = normalize_date(paper.get("date", ""))
+    return score >= min_score
+
+
+def filter_relevant_papers(papers, min_score=6):
+    """Final safety gate applied after all source-specific fetches and caches."""
+    filtered = []
+    for p in papers:
+        if is_relevant_paper(p, min_score=min_score):
+            filtered.append(p)
+    return filtered
 
 
 # ============================================================
@@ -493,7 +640,7 @@ def fetch_openreview(venues=None, max_per_venue=30):
 
                 tags = compute_tags(title, abstract)
 
-                batch.append({
+                paper_item = {
                     "id": f"or:{note_id}",
                     "title": title,
                     "abstract": abstract[:600],
@@ -505,7 +652,9 @@ def fetch_openreview(venues=None, max_per_venue=30):
                     "venue": venue.split("/")[0],
                     "relevance_score": 0,
                     "tags": tags,
-                })
+                }
+                if is_relevant_paper(paper_item, min_score=6):
+                    batch.append(paper_item)
 
             time.sleep(3)  # OpenReview rate limit
 
@@ -556,7 +705,7 @@ def fetch_huggingface_daily():
 
         tags = compute_tags(title, abstract)
 
-        papers.append({
+        paper_item = {
             "id": f"hf:{arxiv_id}",
             "title": title,
             "abstract": abstract[:600],
@@ -569,10 +718,12 @@ def fetch_huggingface_daily():
             "relevance_score": 0,
             "tags": tags,
             "is_ai_frontier": True,
-        })
+        }
+        if is_relevant_paper(paper_item, min_score=6):
+            papers.append(paper_item)
 
     set_cache(cache_key, papers)
-    print(f"  ✓ {len(papers)} daily papers")
+    print(f"  ✓ {len(papers)} relevant daily papers")
     return papers
 
 
@@ -617,7 +768,7 @@ def fetch_rss_feeds():
                         except ValueError:
                             continue
 
-                batch.append({
+                rss_item = {
                     "id": f"rss:{hashlib.md5(link.encode()).hexdigest()[:12]}",
                     "title": title,
                     "abstract": desc[:400],
@@ -630,7 +781,9 @@ def fetch_rss_feeds():
                     "tags": [],
                     "is_ai_frontier": True,
                     "is_blog": True,
-                })
+                }
+                if is_relevant_paper(rss_item, min_score=6):
+                    batch.append(rss_item)
 
             # Try Atom format if no items found
             if not batch:
@@ -644,7 +797,7 @@ def fetch_rss_feeds():
                     summary = re.sub(r"<[^>]+>", "", summary)
                     updated = (entry.findtext("a:updated", namespaces=ns) or "")[:10]
 
-                    batch.append({
+                    rss_item = {
                         "id": f"rss:{hashlib.md5(link.encode()).hexdigest()[:12]}",
                         "title": title,
                         "abstract": summary[:400],
@@ -657,7 +810,9 @@ def fetch_rss_feeds():
                         "tags": [],
                         "is_ai_frontier": True,
                         "is_blog": True,
-                    })
+                    }
+                    if is_relevant_paper(rss_item, min_score=6):
+                        batch.append(rss_item)
 
         except ET.ParseError:
             print(f"  ✗ {feed_info['name']}: XML parse error")
@@ -725,7 +880,7 @@ def fetch_paperswithcode(max_per_term=10):
 
             tags = compute_tags(title, abstract)
 
-            batch.append({
+            paper_item = {
                 "id": f"pwc:{pid}",
                 "title": title,
                 "abstract": abstract[:600],
@@ -736,7 +891,9 @@ def fetch_paperswithcode(max_per_term=10):
                 "pdf": url_pdf,
                 "relevance_score": 0,
                 "tags": tags,
-            })
+            }
+            if is_relevant_paper(paper_item, min_score=6):
+                batch.append(paper_item)
 
         papers.extend(batch)
         print(f"  ✓ '{term}': {len(batch)} papers")
@@ -922,7 +1079,7 @@ def fetch_openalex(keywords, max_per_kw=15):
 
             tags = compute_tags(title, abstract)
 
-            batch.append({
+            paper_item = {
                 "id": f"openalex:{pid.split('/')[-1]}",
                 "title": title,
                 "abstract": abstract[:600],
@@ -935,7 +1092,9 @@ def fetch_openalex(keywords, max_per_kw=15):
                 "tags": tags,
                 "venue": venue,
                 "doi": item.get("doi", ""),
-            })
+            }
+            if is_relevant_paper(paper_item, min_score=6):
+                batch.append(paper_item)
 
         set_cache(cache_key, batch)
         papers.extend(batch)
@@ -1077,20 +1236,21 @@ def main():
     rss_items = fetch_rss_feeds()
     pwc_papers = fetch_paperswithcode()
 
-    # 2. Combine and deduplicate
+    # 2. Combine, filter by RUL/PHM/time-series relevance, and deduplicate
     all_papers = (arxiv_research + arxiv_ai + arxiv_rss + crossref_papers
                   + s2_papers + openalex_papers + or_papers + hf_papers + rss_items + pwc_papers)
+    all_papers = filter_relevant_papers(all_papers, min_score=6)
     all_papers = deduplicate(all_papers)
 
-    # 3. Classify — sort by date descending (newest first)
+    # 3. Classify — sort by date descending, then relevance
     research_papers = sorted(
         [p for p in all_papers if not p.get("is_ai_frontier")],
-        key=lambda x: x.get("date", ""),
+        key=lambda x: (x.get("date", ""), x.get("relevance_score", 0)),
         reverse=True,
     )
     ai_frontier = sorted(
         [p for p in all_papers if p.get("is_ai_frontier")],
-        key=lambda x: (x.get("date", ""), x.get("upvotes", 0)),
+        key=lambda x: (x.get("date", ""), x.get("relevance_score", 0), x.get("upvotes", 0)),
         reverse=True,
     )
 

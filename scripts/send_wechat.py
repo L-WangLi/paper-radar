@@ -27,27 +27,30 @@ SERVERCHAN_API = "https://sctapi.ftqq.com/{key}.send"
 def build_message(data):
     """Build WeChat message content in Markdown."""
     today = data.get("date", datetime.utcnow().strftime("%Y-%m-%d"))
-    research = data.get("research_papers", [])[:5]
-    ai = data.get("ai_frontier", [])[:3]
+    research_pool = [p for p in data.get("research_papers", []) if p.get("relevance_score", 0) >= 6]
+    news_pool = [p for p in data.get("ai_frontier", []) if p.get("relevance_score", 0) >= 6]
+    sort_key = lambda p: (p.get("date", ""), p.get("relevance_score", 0), p.get("upvotes", 0))
+    research = sorted(research_pool, key=sort_key, reverse=True)[:5]
+    related_news = sorted(news_pool, key=sort_key, reverse=True)[:3]
     site_url = os.environ.get("SITE_URL", "")
 
-    lines = [f"## 📚 今日研究论文 Top {len(research)}\n"]
+    lines = [f"## 📚 今日 RUL / 时间序列论文 Top {len(research)}\n"]
     for i, p in enumerate(research, 1):
         tags = " · ".join(p.get("tags", [])[:2])
         source = p.get("source", "")
         date = p.get("date", "")
         lines.append(f"**{i}. [{p['title']}]({p['url']})**")
-        lines.append(f"来源: {source} · {date}")
+        lines.append(f"来源: {source} · {date} · 相关度: {p.get('relevance_score', 0)}")
         if tags:
             lines.append(f"标签: {tags}")
         lines.append("")
 
-    if ai:
-        lines.append(f"---\n## 🚀 AI 前沿动态 Top {len(ai)}\n")
-        for i, p in enumerate(ai, 1):
+    if related_news:
+        lines.append(f"---\n## 🛰️ 相关资讯 Top {len(related_news)}\n")
+        for i, p in enumerate(related_news, 1):
             source = p.get("source", "")
             lines.append(f"**{i}. [{p['title']}]({p['url']})**")
-            lines.append(f"来源: {source} · {p.get('date', '')}")
+            lines.append(f"来源: {source} · {p.get('date', '')} · 相关度: {p.get('relevance_score', 0)}")
             lines.append("")
 
     if site_url:
@@ -96,7 +99,7 @@ def main():
     today = data.get("date", "")
     stats = data.get("stats", {})
 
-    title = f"Paper Radar {today} | {stats.get('research', 0)} 篇研究 + {stats.get('ai_frontier', 0)} AI 动态"
+    title = f"Paper Radar {today} | {stats.get('research', 0)} 篇 RUL/时间序列 + {stats.get('ai_frontier', 0)} 条相关资讯"
     content = build_message(data)
 
     print(f"📱 Sending WeChat push for {today}...")
