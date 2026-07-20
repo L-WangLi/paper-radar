@@ -175,6 +175,17 @@ body {
   font-size: 10.5px; padding: 2px 8px; border-radius: 10px;
   background: var(--tag-bg); color: var(--tag-text); font-family: var(--font-mono);
 }
+.radar-row {
+  display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin-top: 8px;
+  font-size: 11px; color: var(--text-dim);
+}
+.radar-badge {
+  padding: 2px 7px; border-radius: 4px; background: var(--bg-surface);
+  border: 1px solid var(--border); color: var(--text-dim); font-family: var(--font-mono);
+}
+.radar-badge.action { color: var(--accent2); border-color: rgba(0,212,170,0.35); }
+.radar-badge.question { color: var(--accent); border-color: rgba(124,111,255,0.35); }
+.radar-reason { flex-basis: 100%; line-height: 1.45; color: var(--text-dim); }
 .paper-card .actions {
   display: flex; gap: 8px; margin-top: 8px; align-items: center;
 }
@@ -336,6 +347,7 @@ body {
           <option value="en">English</option>
         </select>
         <button type="button" onclick="toggleTheme()" id="themeBtn">🌙</button>
+        <button type="button" onclick="exportResearchMemory()" title="导出研究记忆">⬇</button>
         <button type="button" onclick="openSyncModal()" title="云同步笔记和收藏">☁️</button>
       </div>
     </div>
@@ -364,6 +376,10 @@ body {
     <button class="tab" data-tab="marked" onclick="switchTab('marked')">
       <span data-i18n="tab.marked">🔖 已标记</span>
       <span class="count" id="tabCountMarked">0</span>
+    </button>
+    <button class="tab" data-tab="memory" onclick="switchTab('memory')">
+      <span data-i18n="tab.memory">🗂️ 研究记忆</span>
+      <span class="count" id="tabCountMemory">0</span>
     </button>
   </div>
 
@@ -436,6 +452,7 @@ const i18n = {
     "tab.ai": "🚀 AI 前沿",
     "tab.favs": "⭐ 收藏",
     "tab.marked": "🔖 已标记",
+    "tab.memory": "🗂️ 研究记忆",
     "nav.prev": "前一天",
     "nav.next": "后一天",
     "nav.latest": "最新",
@@ -445,6 +462,7 @@ const i18n = {
     "empty.ai": "今日没有 AI 前沿论文",
     "empty.favs": "还没有收藏的论文",
     "empty.marked": "当前日期没有已标记的论文",
+    "empty.memory": "还没有沉淀到研究记忆的论文",
     "empty.search": "没有匹配的结果",
     "btn.expand": "展开摘要",
     "btn.collapse": "收起",
@@ -466,6 +484,8 @@ const i18n = {
     "status.unread": "未读",
     "status.read": "已读",
     "status.important": "重要参考",
+    "btn.memory": "记忆",
+    "btn.export_memory": "导出研究记忆",
   },
   en: {
     "stats.total": "Papers Tracked",
@@ -475,6 +495,7 @@ const i18n = {
     "tab.ai": "🚀 AI Frontier",
     "tab.favs": "⭐ Favorites",
     "tab.marked": "🔖 Marked",
+    "tab.memory": "🗂️ Memory",
     "nav.prev": "Previous",
     "nav.next": "Next",
     "nav.latest": "Latest",
@@ -484,6 +505,7 @@ const i18n = {
     "empty.ai": "No AI frontier papers today",
     "empty.favs": "No favorites yet",
     "empty.marked": "No marked papers in current date",
+    "empty.memory": "No papers saved to research memory yet",
     "empty.search": "No matching results",
     "btn.expand": "Abstract",
     "btn.collapse": "Collapse",
@@ -505,6 +527,8 @@ const i18n = {
     "status.unread": "Unread",
     "status.read": "Read",
     "status.important": "Key Ref",
+    "btn.memory": "Remember",
+    "btn.export_memory": "Export Memory",
   },
 };
 
@@ -552,9 +576,67 @@ let currentDateIdx = 0;
 let favorites = JSON.parse(localStorage.getItem("pr_favs") || "{}");
 let notes = JSON.parse(localStorage.getItem("pr_notes") || "{}");
 let readStatus = JSON.parse(localStorage.getItem("pr_status") || "{}");
+let researchMemory = JSON.parse(localStorage.getItem("pr_memory") || "{}");
 let activeFilters = new Set();
 let activeSourceFilter = null;
 let papersMap = {};
+
+const questionLabels = {
+  zh: {
+    core_rul_phm: "核心 RUL/PHM",
+    dataset_benchmark: "数据集/基准",
+    time_series_method: "时间序列方法",
+    method_transfer: "方法借鉴",
+    related_news: "相关资讯",
+    related: "相关论文",
+  },
+  en: {
+    core_rul_phm: "Core RUL/PHM",
+    dataset_benchmark: "Dataset/Benchmark",
+    time_series_method: "Time-series Method",
+    method_transfer: "Method Transfer",
+    related_news: "Related News",
+    related: "Related Paper",
+  }
+};
+
+function escapeHtml(text) {
+  return String(text || "").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+}
+
+function questionLabel(key) {
+  return (questionLabels[currentLang] || questionLabels.zh)[key] || (currentLang === "zh" ? "相关论文" : "Related Paper");
+}
+
+function updateMemoryCount() {
+  const el = document.getElementById("tabCountMemory");
+  if (el) el.textContent = Object.keys(researchMemory).length;
+}
+
+function compactPaper(p) {
+  return {
+    id: p.id, title: p.title, abstract: p.abstract, authors: p.authors || [],
+    date: p.date || "", source: p.source || "", url: p.url || "", pdf: p.pdf || "",
+    venue: p.venue || "", tags: p.tags || [], citations: p.citations || 0,
+    relevance_score: p.relevance_score || 0, score_breakdown: p.score_breakdown || {},
+    research_question: p.research_question || "related",
+    recommendation: p.recommendation || "",
+    decision_reason: p.decision_reason || "",
+  };
+}
+
+function rememberPaper(id, reason) {
+  const p = papersMap[id] || (researchMemory[id] && researchMemory[id].paper);
+  if (!p) return;
+  researchMemory[id] = {
+    paper: compactPaper(p),
+    reason: reason || researchMemory[id]?.reason || "manual",
+    rememberedAt: researchMemory[id]?.rememberedAt || new Date().toISOString(),
+    updatedAt: new Date().toISOString(),
+  };
+  localStorage.setItem("pr_memory", JSON.stringify(researchMemory));
+  updateMemoryCount();
+}
 
 // Compat helpers: support both old (string) and new (object) storage formats
 function getStatus(id) {
@@ -691,6 +773,7 @@ function updateStats() {
   document.getElementById("tabCountAI").textContent = (currentData.ai_frontier || []).length;
   document.getElementById("tabCountFavs").textContent = Object.keys(favorites).length;
   updateMarkedCount();
+  updateMemoryCount();
 }
 
 // ============================================================
@@ -770,6 +853,11 @@ function getPapersForTab() {
       .filter(p => getStatus(p.id))
       .sort((a, b) => (getStatusTime(b.id) || "").localeCompare(getStatusTime(a.id) || ""));
   }
+  if (currentTab === "memory") {
+    return Object.values(researchMemory)
+      .sort((a, b) => (b.updatedAt || b.rememberedAt || "").localeCompare(a.updatedAt || a.rememberedAt || ""))
+      .map(item => item.paper);
+  }
   return [];
 }
 
@@ -826,6 +914,25 @@ function renderPapers() {
     const citationsHtml = p.citations ? ` · ${p.citations} ${t("citations")}` : "";
     const upvotesHtml = p.upvotes ? `<span class="upvotes">👍 ${p.upvotes}</span>` : "";
     const pdfBtn = p.pdf ? `<a href="${p.pdf}" target="_blank" rel="noopener noreferrer" style="text-decoration:none"><button type="button">${t("btn.pdf")}</button></a>` : "";
+    const qLabel = questionLabel(p.research_question || "related");
+    const rec = p.recommendation || (currentLang === "zh" ? "快读" : "Skim");
+    const score = p.relevance_score || 0;
+    const sb = p.score_breakdown || {};
+    const scoreParts = [
+      sb.topic ? `T${sb.topic}` : "",
+      sb.time_series ? `TS${sb.time_series}` : "",
+      sb.dataset ? `D${sb.dataset}` : "",
+      sb.method ? `M${sb.method}` : "",
+      sb.freshness ? `N${sb.freshness}` : "",
+    ].filter(Boolean).join(" · ");
+    const reason = escapeHtml(p.decision_reason || "");
+    const radarHtml = `
+      <div class="radar-row">
+        <span class="radar-badge question">${escapeHtml(qLabel)}</span>
+        <span class="radar-badge action">${escapeHtml(rec)}</span>
+        <span class="radar-badge">S${score}${scoreParts ? " · " + scoreParts : ""}</span>
+        ${reason ? `<span class="radar-reason">${reason}</span>` : ""}
+      </div>`;
     const noteEntries = getNoteEntries(p.id);
     const hasNote = noteEntries.length > 0;
     const notePreviewHtml = hasNote
@@ -848,6 +955,7 @@ function renderPapers() {
         ${citationsHtml}
         ${upvotesHtml}
       </div>
+      ${radarHtml}
       ${p.abstract ? `<div class="abstract">${highlightText(p.abstract)}</div>` : ""}
       ${tagsHtml ? `<div class="tags">${tagsHtml}</div>` : ""}
       <div class="actions">
@@ -860,6 +968,7 @@ function renderPapers() {
           📝 ${hasNote ? t("btn.note_saved") : t("btn.note")}
         </button>
         <button type="button" onclick="copyBibTeX('${p.id}', this)">${t("btn.bibtex")}</button>
+        <button type="button" onclick="rememberPaper('${p.id}', 'manual')">${t("btn.memory")}</button>
         <button type="button" id="status-${idx}" class="status-btn${statusClass}" onclick="cycleStatus('${p.id}', ${idx})">${statusLabel}</button>
         ${statusTimeHtml}
       </div>
@@ -883,6 +992,7 @@ function toggleFav(id, btn) {
     delete favorites[id];
   } else {
     favorites[id] = true;
+    rememberPaper(id, "favorite");
   }
   localStorage.setItem("pr_favs", JSON.stringify(favorites));
   document.getElementById("tabCountFavs").textContent = Object.keys(favorites).length;
@@ -943,6 +1053,7 @@ function saveNote(id, areaId, btn) {
   existing.unshift({ text, savedAt: now });
   if (existing.length > 20) existing.length = 20;
   notes[id] = existing;
+  rememberPaper(id, "note");
   if (ta) ta.value = "";
   localStorage.setItem("pr_notes", JSON.stringify(notes));
   updateNoteUI(id, areaId);
@@ -959,6 +1070,7 @@ function cycleStatus(id, cardIdx) {
   if (!cur) readStatus[id] = { status: "read", markedAt: now };
   else if (cur === "read") readStatus[id] = { status: "important", markedAt: now };
   else delete readStatus[id];
+  if (readStatus[id]) rememberPaper(id, getStatus(id));
   localStorage.setItem("pr_status", JSON.stringify(readStatus));
   // Update button
   const btn = document.getElementById("status-" + cardIdx);
@@ -1002,6 +1114,52 @@ function copyBibTeX(id, btn) {
   });
 }
 
+function paperToMarkdown(p) {
+  const authors = (p.authors || []).join(", ");
+  const tags = (p.tags || []).map(t => `#${String(t).replace(/\s+/g, "-")}`).join(" ");
+  const notesMd = getNoteEntries(p.id).map(e => `- ${e.savedAt || ""} ${e.text}`).join("\n");
+  return `## ${p.title}
+
+- 类型: ${questionLabel(p.research_question || "related")}
+- 建议: ${p.recommendation || "快读"}
+- 相关度: ${p.relevance_score || 0}
+- 来源: ${p.source || ""} ${p.date || ""}
+- 作者: ${authors}
+- 链接: ${p.url || ""}
+- PDF: ${p.pdf || ""}
+- 标签: ${tags}
+- 推荐理由: ${p.decision_reason || ""}
+
+### Abstract
+${p.abstract || ""}
+
+### Notes
+${notesMd || "- "}
+`;
+}
+
+function exportResearchMemory() {
+  const items = Object.values(researchMemory)
+    .sort((a, b) => (b.updatedAt || b.rememberedAt || "").localeCompare(a.updatedAt || a.rememberedAt || ""));
+  const body = items.map(item => paperToMarkdown(item.paper)).join("\n---\n\n");
+  const md = `# Paper Radar Research Memory
+
+Exported: ${new Date().toISOString()}
+Count: ${items.length}
+
+${body}
+`;
+  const blob = new Blob([md], { type: "text/markdown;charset=utf-8" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = `paper-radar-memory-${new Date().toISOString().slice(0,10)}.md`;
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  URL.revokeObjectURL(url);
+}
+
 // ============================================================
 // Scroll to top
 // ============================================================
@@ -1033,7 +1191,7 @@ async function syncToGist() {
   const gistId = document.getElementById("gistId").value.trim();
   if (!token) { setSyncStatus("请填写 Token", false); return; }
 
-  const payload = { notes, favorites, readStatus, exported_at: new Date().toISOString() };
+  const payload = { notes, favorites, readStatus, researchMemory, exported_at: new Date().toISOString() };
   const body = { description: "Paper Radar backup", public: false,
     files: { "paper-radar-backup.json": { content: JSON.stringify(payload, null, 2) } } };
 
@@ -1070,6 +1228,7 @@ async function restoreFromGist() {
     if (data.notes) { notes = data.notes; localStorage.setItem("pr_notes", JSON.stringify(notes)); }
     if (data.favorites) { favorites = data.favorites; localStorage.setItem("pr_favs", JSON.stringify(favorites)); }
     if (data.readStatus) { readStatus = data.readStatus; localStorage.setItem("pr_status", JSON.stringify(readStatus)); }
+    if (data.researchMemory) { researchMemory = data.researchMemory; localStorage.setItem("pr_memory", JSON.stringify(researchMemory)); }
     localStorage.setItem("pr_gist_token", token);
     localStorage.setItem("pr_gist_id", gistId);
     renderPapers();

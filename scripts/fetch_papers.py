@@ -149,6 +149,12 @@ TIME_SERIES_TERMS = [
     "time series representation", "multivariate time series", "time series",
 ]
 
+TIME_SERIES_RESEARCH_TERMS = [
+    "time series forecasting", "time series prediction", "time series classification",
+    "time series anomaly detection", "time series foundation model",
+    "time series representation",
+]
+
 DOMAIN_CONTEXT_TERMS = [
     "degradation prediction", "degradation modeling", "turbofan engine degradation",
     "turbofan degradation", "bearing degradation", "condition monitoring",
@@ -162,7 +168,25 @@ METHOD_CONTEXT_TERMS = [
     "federated learning", "physics-informed", "state space model", "transformer",
 ]
 
-MAX_FUTURE_DAYS = 31
+NEGATIVE_KEYWORDS = [
+    "cancer prognosis", "clinical prognosis", "mortality prediction",
+    "patient survival", "survival analysis", "public health", "health policy",
+    "hospital", "coronary", "tumor", "cancer", "oncology", "burn patients",
+    "financial time series", "stock prediction", "stock market", "cryptocurrency",
+    "social media", "public organization", "religious", "tourism", "education policy",
+]
+
+SOURCE_SCORES = {
+    "arXiv": 3,
+    "Semantic Scholar": 2,
+    "CrossRef": 2,
+    "OpenAlex": 1,
+    "OpenReview": 2,
+    "Papers with Code": 2,
+    "HuggingFace Daily": 1,
+}
+
+MAX_FUTURE_DAYS = 1
 
 
 def title_is_relevant(title: str) -> bool:
@@ -267,7 +291,7 @@ def set_cache(key, payload):
 def keyword_in_text(text, kw):
     kw_l = kw.lower()
     if kw in SHORT_KEYWORDS or len(kw_l) <= 4:
-        return re.search(rf"\\b{re.escape(kw_l)}\\b", text) is not None
+        return re.search(rf"\b{re.escape(kw_l)}\b", text) is not None
     return kw_l in text
 
 
@@ -299,6 +323,10 @@ def has_any_term(text, terms):
     return any(term_in_text(text, term) for term in terms)
 
 
+def matched_terms(text, terms):
+    return [term for term in terms if term_in_text(text, term)]
+
+
 def normalize_date(date_str):
     """Keep valid, non-future YYYY-MM-DD dates; return empty string otherwise."""
     if not date_str:
@@ -322,64 +350,164 @@ def normalize_date(date_str):
     return dt.strftime("%Y-%m-%d")
 
 
-def compute_relevance_score(title, abstract="", tags=None):
-    """Score RUL/PHM/time-series relevance; method-only matches are not enough."""
+def compute_freshness_score(date_str):
+    date_norm = normalize_date(date_str)
+    if not date_norm:
+        return 0
+    try:
+        days = (datetime.utcnow() - datetime.strptime(date_norm, "%Y-%m-%d")).days
+    except ValueError:
+        return 0
+    if days <= 14:
+        return 8
+    if days <= 60:
+        return 5
+    if days <= 180:
+        return 3
+    if days <= 730:
+        return 1
+    return 0
+
+
+def source_score(source):
+    if not source:
+        return 0
+    for name, score in SOURCE_SCORES.items():
+        if name in source:
+            return score
+    return 0
+
+
+def compute_score_breakdown(title, abstract="", tags=None, date="", source=""):
+    """Score a paper as a research-question radar item, not a broad aggregator hit."""
     title = title or ""
     abstract = abstract or ""
     tags = tags or []
+    full_text = f"{title} {abstract} {' '.join(tags)}"
     tag_text = " ".join(tags)
 
-    score = 0
+    topic_score = 0
     for term in CORE_RELEVANCE_TERMS:
         if term_in_text(title, term):
-            score += 10
+            topic_score += 10
         elif term_in_text(abstract, term):
-            score += 4
+            topic_score += 4
         elif term_in_text(tag_text, term):
-            score += 5
+            topic_score += 5
 
+    time_series_score = 0
     for term in TIME_SERIES_TERMS:
         if term_in_text(title, term):
-            score += 8
+            time_series_score += 8
         elif term_in_text(abstract, term):
-            score += 3
+            time_series_score += 3
         elif term_in_text(tag_text, term):
-            score += 4
+            time_series_score += 4
 
+    domain_score = 0
     for term in DOMAIN_CONTEXT_TERMS:
         if term_in_text(title, term):
-            score += 6
+            domain_score += 6
         elif term_in_text(abstract, term):
-            score += 2
+            domain_score += 2
         elif term_in_text(tag_text, term):
-            score += 3
+            domain_score += 3
 
+    dataset_score = 0
     for term in DATASET_KEYWORDS:
         if term_in_text(title, term):
-            score += 10
+            dataset_score += 10
         elif term_in_text(abstract, term):
-            score += 4
+            dataset_score += 4
         elif term_in_text(tag_text, term):
-            score += 5
+            dataset_score += 5
 
-    method_hits = 0
+    method_score = 0
     for term in METHOD_CONTEXT_TERMS:
         if term_in_text(title, term):
-            score += 2
-            method_hits += 1
+            method_score += 2
         elif term_in_text(abstract, term):
-            score += 1
-            method_hits += 1
+            method_score += 1
 
     has_topic_anchor = (
-        has_any_term(title + " " + abstract + " " + tag_text, CORE_RELEVANCE_TERMS)
-        or has_any_term(title + " " + abstract + " " + tag_text, TIME_SERIES_TERMS)
-        or has_any_term(title + " " + abstract + " " + tag_text, DATASET_KEYWORDS)
-        or has_any_term(title + " " + abstract + " " + tag_text, DOMAIN_CONTEXT_TERMS)
+        topic_score > 0 or time_series_score > 0 or dataset_score > 0 or domain_score > 0
     )
-    if method_hits and not has_topic_anchor:
-        return 0
-    return score
+    negative_hits = matched_terms(full_text, NEGATIVE_KEYWORDS)
+    negative_penalty = 0
+    if negative_hits:
+        negative_penalty = 18 if (topic_score + dataset_score + domain_score) < 12 else 6
+
+    freshness_score = compute_freshness_score(date)
+    source_quality_score = source_score(source)
+    if method_score and not has_topic_anchor:
+        method_score = 0
+
+    total = (
+        topic_score + time_series_score + domain_score + dataset_score
+        + method_score + freshness_score + source_quality_score - negative_penalty
+    )
+    return {
+        "topic": topic_score + domain_score,
+        "time_series": time_series_score,
+        "dataset": dataset_score,
+        "method": method_score,
+        "freshness": freshness_score,
+        "source": source_quality_score,
+        "negative": -negative_penalty,
+        "total": max(0, total),
+        "negative_hits": negative_hits[:5],
+    }
+
+
+def compute_relevance_score(title, abstract="", tags=None):
+    """Backward-compatible total score."""
+    return compute_score_breakdown(title, abstract, tags).get("total", 0)
+
+
+def classify_research_question(score_breakdown, tags, is_blog=False):
+    if is_blog:
+        return "related_news"
+    if score_breakdown["topic"] >= 16 or any(t in tags for t in ["remaining useful life", "RUL prediction", "RUL estimation"]):
+        return "core_rul_phm"
+    if score_breakdown["dataset"] >= 10:
+        return "dataset_benchmark"
+    if score_breakdown["time_series"] >= 8 and score_breakdown["topic"] < 10:
+        return "time_series_method"
+    if score_breakdown["method"] >= 2:
+        return "method_transfer"
+    return "related"
+
+
+def recommendation_for(score_breakdown, question):
+    total = score_breakdown["total"]
+    if question == "core_rul_phm" and total >= 18:
+        return "精读"
+    if question == "dataset_benchmark":
+        return "对比实验"
+    if question in {"time_series_method", "method_transfer"}:
+        return "方法借鉴"
+    if question == "related_news":
+        return "关注"
+    return "快读"
+
+
+def decision_reason_for(score_breakdown, tags, negative_hits):
+    reasons = []
+    if score_breakdown["topic"]:
+        reasons.append(f"主题相关 {score_breakdown['topic']}")
+    if score_breakdown["dataset"]:
+        reasons.append(f"数据集相关 {score_breakdown['dataset']}")
+    if score_breakdown["time_series"]:
+        reasons.append(f"时间序列 {score_breakdown['time_series']}")
+    if score_breakdown["method"]:
+        reasons.append(f"方法可借鉴 {score_breakdown['method']}")
+    if score_breakdown["freshness"]:
+        reasons.append(f"近期 {score_breakdown['freshness']}")
+    if negative_hits:
+        reasons.append(f"噪声风险: {', '.join(negative_hits[:2])}")
+    if tags:
+        reasons.append("命中: " + ", ".join(tags[:3]))
+    return "；".join(reasons[:5])
 
 
 def is_relevant_paper(paper, min_score=6):
@@ -388,11 +516,27 @@ def is_relevant_paper(paper, min_score=6):
     if not title:
         return False
     tags = paper.get("tags") or compute_tags(title, abstract)
-    score = compute_relevance_score(title, abstract, tags)
+    date = normalize_date(paper.get("date", ""))
+    score_breakdown = compute_score_breakdown(
+        title, abstract, tags, date=date, source=paper.get("source", "")
+    )
+    score = score_breakdown["total"]
+    question = classify_research_question(score_breakdown, tags, paper.get("is_blog", False))
     paper["tags"] = tags
     paper["relevance_score"] = score
-    paper["date"] = normalize_date(paper.get("date", ""))
-    return score >= min_score
+    paper["score_breakdown"] = {k: v for k, v in score_breakdown.items() if k != "negative_hits"}
+    paper["negative_hits"] = score_breakdown["negative_hits"]
+    paper["research_question"] = question
+    paper["recommendation"] = recommendation_for(score_breakdown, question)
+    paper["decision_reason"] = decision_reason_for(score_breakdown, tags, score_breakdown["negative_hits"])
+    paper["date"] = date
+    text = f"{title} {abstract} {' '.join(tags)}"
+    has_strong_positive = (
+        score_breakdown["topic"] >= 8
+        or score_breakdown["dataset"] >= 10
+        or (score_breakdown["time_series"] >= 8 and has_any_term(text, TIME_SERIES_RESEARCH_TERMS))
+    )
+    return score >= min_score and has_strong_positive
 
 
 def filter_relevant_papers(papers, min_score=6):

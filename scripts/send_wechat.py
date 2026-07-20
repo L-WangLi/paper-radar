@@ -23,13 +23,44 @@ from pathlib import Path
 DATA_DIR = Path(__file__).parent.parent / "data"
 SERVERCHAN_API = "https://sctapi.ftqq.com/{key}.send"
 
+QUESTION_LABELS = {
+    "core_rul_phm": "核心 RUL/PHM",
+    "dataset_benchmark": "数据集/基准",
+    "time_series_method": "时间序列方法",
+    "method_transfer": "方法借鉴",
+    "related_news": "相关资讯",
+    "related": "相关论文",
+}
+
+
+def question_label(paper):
+    return QUESTION_LABELS.get(paper.get("research_question", ""), "相关论文")
+
+
+def decision_line(paper):
+    rec = paper.get("recommendation") or "快读"
+    reason = paper.get("decision_reason") or "命中你的研究关键词"
+    return f"建议: {rec} · 类型: {question_label(paper)} · {reason}"
+
+
+def paper_priority(paper):
+    order = {
+        "core_rul_phm": 5,
+        "time_series_method": 4,
+        "method_transfer": 3,
+        "dataset_benchmark": 2,
+        "related": 1,
+        "related_news": 1,
+    }
+    return order.get(paper.get("research_question", ""), 1)
+
 
 def build_message(data):
     """Build WeChat message content in Markdown."""
     today = data.get("date", datetime.utcnow().strftime("%Y-%m-%d"))
     research_pool = [p for p in data.get("research_papers", []) if p.get("relevance_score", 0) >= 6]
     news_pool = [p for p in data.get("ai_frontier", []) if p.get("relevance_score", 0) >= 6]
-    sort_key = lambda p: (p.get("date", ""), p.get("relevance_score", 0), p.get("upvotes", 0))
+    sort_key = lambda p: (paper_priority(p), p.get("date", ""), p.get("relevance_score", 0), p.get("upvotes", 0))
     research = sorted(research_pool, key=sort_key, reverse=True)[:5]
     related_news = sorted(news_pool, key=sort_key, reverse=True)[:3]
     site_url = os.environ.get("SITE_URL", "")
@@ -41,6 +72,7 @@ def build_message(data):
         date = p.get("date", "")
         lines.append(f"**{i}. [{p['title']}]({p['url']})**")
         lines.append(f"来源: {source} · {date} · 相关度: {p.get('relevance_score', 0)}")
+        lines.append(decision_line(p))
         if tags:
             lines.append(f"标签: {tags}")
         lines.append("")
@@ -51,6 +83,7 @@ def build_message(data):
             source = p.get("source", "")
             lines.append(f"**{i}. [{p['title']}]({p['url']})**")
             lines.append(f"来源: {source} · {p.get('date', '')} · 相关度: {p.get('relevance_score', 0)}")
+            lines.append(decision_line(p))
             lines.append("")
 
     if site_url:
