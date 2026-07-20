@@ -1,5 +1,6 @@
 # Data cache (regenerated daily)
 data/cache/
+data/papers_*.json
 
 # Build output
 dist/

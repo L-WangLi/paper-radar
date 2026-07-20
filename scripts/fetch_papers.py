@@ -1254,7 +1254,7 @@ def main():
         reverse=True,
     )
 
-    # 4. Build daily data file
+    # 4. Build latest data snapshot
     daily_data = {
         "date": today,
         "fetched_at": datetime.utcnow().isoformat() + "Z",
@@ -1277,27 +1277,20 @@ def main():
         "ai_frontier": ai_frontier,
     }
 
-    # Save daily file
-    daily_file = DATA_DIR / f"papers_{today}.json"
-    daily_file.write_text(json.dumps(daily_data, ensure_ascii=False, indent=2), encoding="utf-8")
-    print(f"\n💾 Saved daily data → {daily_file.name}")
-
-    # Also save as latest.json for easy access
+    # Save only latest.json. Historical daily JSON files are intentionally not
+    # generated because the site and push workflow only need the newest data.
     latest_file = DATA_DIR / "latest.json"
     latest_file.write_text(json.dumps(daily_data, ensure_ascii=False, indent=2), encoding="utf-8")
+    print(f"\n💾 Saved latest data → {latest_file.name}")
 
-    # 5. Update index.json (list of all available dates)
+    # 5. Update minimal index.json for the static site
     index_file = DATA_DIR / "index.json"
-    if index_file.exists():
-        index = json.loads(index_file.read_text("utf-8"))
-    else:
-        index = {"dates": [], "total_papers_tracked": 0}
-
-    if today not in index["dates"]:
-        index["dates"].insert(0, today)
-    index["dates"] = index["dates"][:90]  # Keep 90 days
-    index["last_updated"] = datetime.utcnow().isoformat() + "Z"
-    index["total_papers_tracked"] = index.get("total_papers_tracked", 0) + len(all_papers)
+    index = {
+        "dates": [],
+        "latest_date": today,
+        "last_updated": datetime.utcnow().isoformat() + "Z",
+        "latest_total": len(all_papers),
+    }
 
     index_file.write_text(json.dumps(index, ensure_ascii=False, indent=2), encoding="utf-8")
 

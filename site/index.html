@@ -367,12 +367,9 @@ body {
     </button>
   </div>
 
-  <!-- Date Navigation -->
+  <!-- Latest Snapshot -->
   <div class="date-nav" id="dateNav">
-    <button onclick="navigateDate(1)">← <span data-i18n="nav.prev">前一天</span></button>
     <span class="current-date" id="currentDate"></span>
-    <button onclick="navigateDate(-1)"><span data-i18n="nav.next">后一天</span> →</button>
-    <button onclick="loadLatest()" style="margin-left:auto"><span data-i18n="nav.latest">最新</span></button>
   </div>
 
   <!-- Source Filter -->
@@ -653,13 +650,7 @@ async function loadData(date) {
   listEl.innerHTML = `<div class="loading"><div class="spinner"></div><div>${t("loading")}</div></div>`;
 
   try {
-    let url;
-    if (date && availableDates.includes(date)) {
-      url = `${DATA_BASE}/papers_${date}.json`;
-    } else {
-      url = `${DATA_BASE}/latest.json`;
-    }
-
+    const url = `${DATA_BASE}/latest.json`;
     const resp = await fetch(url);
     if (!resp.ok) throw new Error("fetch failed");
     currentData = await resp.json();
@@ -683,12 +674,11 @@ async function loadData(date) {
 
 async function loadLatest() {
   currentDateIdx = 0;
-  await loadData(availableDates[0]);
+  await loadData();
 }
 
 async function navigateDate(dir) {
-  currentDateIdx = Math.max(0, Math.min(availableDates.length - 1, currentDateIdx + dir));
-  await loadData(availableDates[currentDateIdx]);
+  await loadLatest();
 }
 
 function updateStats() {

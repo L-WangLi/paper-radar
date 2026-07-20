@@ -173,9 +173,8 @@ paper-radar/
 ├── site/
 │   └── index.html                # 网站前端（单文件，含 CSS/JS）
 ├── data/                         # 论文数据（自动生成）
-│   ├── index.json                # 日期索引
+│   ├── index.json                # 最新快照索引
 │   ├── latest.json               # 最新数据快照
-│   ├── papers_YYYY-MM-DD.json    # 按日期存档（90 天）
 │   └── cache/                    # API 请求缓存（7 天有效）
 ├── dist/                         # 构建输出（部署到 gh-pages）
 └── README.md

@@ -28,8 +28,10 @@ def build():
     data_out = DIST_DIR / "data"
     data_out.mkdir()
 
-    for f in DATA_DIR.glob("*.json"):
-        shutil.copy2(f, data_out / f.name)
+    for name in ("latest.json", "index.json"):
+        src = DATA_DIR / name
+        if src.exists():
+            shutil.copy2(src, data_out / name)
 
     # Copy the main HTML
     html_src = SITE_DIR / "index.html"
