@@ -10,6 +10,7 @@ permissions:
   contents: write
   pages: write
   id-token: write
+  models: read
 
 concurrency:
   group: "paper-radar"
@@ -40,18 +41,13 @@ jobs:
       - name: Fetch papers
         run: python scripts/fetch_papers.py
 
+      - name: Summarize papers (GitHub Models)
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python scripts/summarize_papers.py
+
       - name: Build static site
         run: python scripts/build_site.py
-
-      - name: Send weekly email digest (Fridays only)
-        env:
-          SMTP_HOST: ${{ secrets.SMTP_HOST }}
-          SMTP_PORT: ${{ secrets.SMTP_PORT }}
-          SMTP_USER: ${{ secrets.SMTP_USER }}
-          SMTP_PASS: ${{ secrets.SMTP_PASS }}
-          EMAIL_TO: ${{ secrets.EMAIL_TO }}
-          SITE_URL: ${{ vars.SITE_URL }}
-        run: python scripts/send_email.py
 
       - name: Send WeChat daily push
         env:
@@ -64,6 +60,7 @@ jobs:
           git config user.name "Paper Radar Bot"
           git config user.email "bot@paper-radar"
           git add data/latest.json data/index.json
+          if [ -f data/pushed_history.json ]; then git add data/pushed_history.json; fi
           git diff --staged --quiet || git commit -m "📡 Update papers $(date -u +%Y-%m-%d)"
           git fetch origin main
           git rebase origin/main

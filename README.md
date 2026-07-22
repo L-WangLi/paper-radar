@@ -32,6 +32,8 @@
 
 **个人研究管理**
 
+- **精选模式** — 默认只展示「精读 / 方法借鉴 / 对比实验」类论文，隐藏快读/关注类以减少每日扫读量，一键切换查看全部
+- **LLM 一句话总结** — 通过 GitHub Models（免费，无需额外配置）为论文生成中文总结，客观复述论文内容，折叠态卡片和微信推送都直接显示；未生成时自动降级为摘要关键句
 - **阅读状态** — 每篇论文可标记：未读 / 已读 / 重要参考（含标记时间戳）
 - **个人笔记** — 每篇论文可添加阅读笔记，手动保存，显示保存时间
 - **已标记 tab** — 独立查看所有已标记论文，按标记时间排序
@@ -41,8 +43,7 @@
 
 **通知推送**
 
-- **微信推送** — 每日 Top5 论文推送到微信（可选配置）
-- **周报邮件** — 每周五发送邮件摘要（可选配置）
+- **微信推送** — 每天北京时间 08:00 推送 Top5 论文到微信（可选配置），已推送过的论文 30 天内不会重复推送
 
 **部署**
 
@@ -118,30 +119,11 @@ RSS_FEEDS = [
 | ------------------ | ----------------- | ---------------------------------------------------- |
 | `SERVERCHAN_KEY` | Server 酱 SendKey | [sct.ftqq.com](https://sct.ftqq.com) 微信扫码注册，免费 |
 
-### 邮件周报（可选，每周五发送）
-
-| Secret        | 说明         | 示例                        |
-| ------------- | ------------ | --------------------------- |
-| `SMTP_HOST` | SMTP 服务器  | `smtp.gmail.com`          |
-| `SMTP_PORT` | SMTP 端口    | `587`                     |
-| `SMTP_USER` | 发件邮箱     | `you@gmail.com`           |
-| `SMTP_PASS` | 应用专用密码 | (Gmail 需生成 App Password) |
-| `EMAIL_TO`  | 收件邮箱     | `you@example.com`         |
-
 在 **Variables** 中添加：
 
 | Variable     | 说明         | 示例                                   |
 | ------------ | ------------ | -------------------------------------- |
 | `SITE_URL` | 你的网站地址 | `https://xxx.github.io/paper-radar/` |
-
-**常见邮箱 SMTP 配置：**
-
-| 邮箱     | SMTP_HOST              | SMTP_PORT | 备注                      |
-| -------- | ---------------------- | --------- | ------------------------- |
-| Gmail    | `smtp.gmail.com`     | `587`   | 需开启 2FA + App Password |
-| QQ 邮箱  | `smtp.qq.com`        | `587`   | 需开启 SMTP 并获取授权码  |
-| 163 邮箱 | `smtp.163.com`       | `465`   | 需开启 SMTP 并获取授权码  |
-| Outlook  | `smtp.office365.com` | `587`   |                           |
 
 ### 云同步笔记/收藏（可选，前端配置）
 
@@ -167,14 +149,15 @@ paper-radar/
 │       └── daily-update.yml      # GitHub Actions 定时任务
 ├── scripts/
 │   ├── fetch_papers.py           # 论文抓取主脚本（含所有数据源和关键词配置）
-│   ├── send_email.py             # 邮件周报脚本（每周五）
-│   ├── send_wechat.py            # 微信推送脚本（每日）
+│   ├── summarize_papers.py       # LLM 一句话总结（GitHub Models，免费）
+│   ├── send_wechat.py            # 微信推送脚本（每日 08:00，已推送去重）
 │   └── build_site.py             # 静态网站构建脚本
 ├── site/
 │   └── index.html                # 网站前端（单文件，含 CSS/JS）
 ├── data/                         # 论文数据（自动生成）
 │   ├── index.json                # 最新快照索引
 │   ├── latest.json               # 最新数据快照
+│   ├── pushed_history.json       # 已推送论文记录（30 天滚动窗口，用于去重）
 │   └── cache/                    # API 请求缓存（7 天有效）
 ├── dist/                         # 构建输出（部署到 gh-pages）
 └── README.md
@@ -185,7 +168,6 @@ paper-radar/
 ## 🔮 Roadmap
 
 - [ ] Semantic Scholar API Key 支持（提升抓取量上限）
-- [ ] Claude API 自动生成论文中文一句话摘要
 - [ ] 引用追踪（追踪关键论文的新引用）
 - [ ] 已标记论文跨日期汇总（目前仅显示当日已标记）
 - [ ] Cloudflare Pages 镜像（改善国内访问速度）

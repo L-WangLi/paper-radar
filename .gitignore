@@ -5,9 +5,6 @@ data/papers_*.json
 # Build output
 dist/
 
-# Email preview
-data/email_preview.html
-
 # Python
 __pycache__/
 *.pyc

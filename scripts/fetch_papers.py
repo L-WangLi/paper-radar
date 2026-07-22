@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Paper Radar - Daily Paper Fetcher
-Sources: arXiv, Semantic Scholar, OpenReview, OpenAlex, CrossRef, HuggingFace Daily Papers, Papers with Code, RSS feeds
+Sources: arXiv, Semantic Scholar, OpenReview, OpenAlex, CrossRef, HuggingFace Daily Papers, RSS feeds
 Outputs date-based JSON files + index.json for the static site.
 """
 
@@ -182,7 +182,6 @@ SOURCE_SCORES = {
     "CrossRef": 2,
     "OpenAlex": 1,
     "OpenReview": 2,
-    "Papers with Code": 2,
     "HuggingFace Daily": 1,
 }
 
@@ -325,6 +324,36 @@ def has_any_term(text, terms):
 
 def matched_terms(text, terms):
     return [term for term in terms if term_in_text(text, term)]
+
+
+SNIPPET_PRIORITY_TERMS = list(dict.fromkeys(
+    CORE_RELEVANCE_TERMS + DATASET_KEYWORDS + TIME_SERIES_TERMS
+    + DOMAIN_CONTEXT_TERMS + METHOD_CONTEXT_TERMS
+))
+
+
+def extract_snippet(abstract, tags, max_len=220):
+    """Pick the single most informative abstract sentence for collapsed-card triage,
+    so a paper's core claim is visible without clicking 展开."""
+    if not abstract:
+        return ""
+    sentences = [s.strip() for s in re.split(r"(?<=[.!?])\s+", abstract.strip()) if s.strip()]
+    if not sentences:
+        return ""
+
+    priority_terms = [t for t in SNIPPET_PRIORITY_TERMS if t in (tags or [])] or SNIPPET_PRIORITY_TERMS
+    best_sentence = sentences[0]
+    best_hits = -1
+    for sent in sentences:
+        hits = sum(1 for term in priority_terms if term_in_text(sent, term))
+        if hits > best_hits:
+            best_hits = hits
+            best_sentence = sent
+
+    snippet = best_sentence
+    if len(snippet) > max_len:
+        snippet = snippet[:max_len].rsplit(" ", 1)[0].rstrip(",;: ") + "…"
+    return snippet
 
 
 def normalize_date(date_str):
@@ -530,6 +559,7 @@ def is_relevant_paper(paper, min_score=6):
     paper["recommendation"] = recommendation_for(score_breakdown, question)
     paper["decision_reason"] = decision_reason_for(score_breakdown, tags, score_breakdown["negative_hits"])
     paper["date"] = date
+    paper["snippet"] = extract_snippet(abstract, tags)
     text = f"{title} {abstract} {' '.join(tags)}"
     has_strong_positive = (
         score_breakdown["topic"] >= 8
@@ -969,84 +999,6 @@ def fetch_rss_feeds():
     return items
 
 
-def fetch_paperswithcode(max_per_term=10):
-    """Fetch papers from Papers with Code API (no key required)."""
-    print("\n📊 [Papers with Code] Fetching...")
-
-    cache_key = f"pwc:{datetime.utcnow().strftime('%Y-%m-%d')}"
-    cached = get_cache(cache_key)
-    if cached:
-        print(f"  ✓ (cached, {len(cached)} papers)")
-        return cached
-
-    search_terms = [
-        "remaining-useful-life",
-        "predictive-maintenance",
-        "knowledge-distillation",
-        "model-compression",
-        "time-series-forecasting",
-        "condition-monitoring",
-        "prognostics",
-        "degradation-prediction",
-        "lightweight-model",
-    ]
-
-    papers = []
-    seen = set()
-
-    for term in search_terms:
-        url = (
-            f"https://paperswithcode.com/api/v1/papers/"
-            f"?q={term}&ordering=-published&page_size={max_per_term}"
-        )
-        data = safe_request(url, headers={"Accept": "application/json"}, delay=3)
-        if not data:
-            print(f"  ✗ '{term}': failed")
-            continue
-
-        try:
-            result = json.loads(data)
-        except json.JSONDecodeError:
-            continue
-
-        batch = []
-        for p in result.get("results", []):
-            pid = str(p.get("id", ""))
-            if pid in seen or not pid:
-                continue
-            seen.add(pid)
-
-            title = p.get("title", "")
-            abstract = p.get("abstract", "") or ""
-            pub_date = (p.get("published", "") or "")[:10]
-            url_abs = p.get("url_abs", "") or ""
-            url_pdf = p.get("url_pdf", "") or ""
-
-            tags = compute_tags(title, abstract)
-
-            paper_item = {
-                "id": f"pwc:{pid}",
-                "title": title,
-                "abstract": abstract[:600],
-                "authors": [],
-                "date": pub_date,
-                "source": "Papers with Code",
-                "url": f"https://paperswithcode.com{url_abs}" if url_abs.startswith("/") else url_abs,
-                "pdf": url_pdf,
-                "relevance_score": 0,
-                "tags": tags,
-            }
-            if is_relevant_paper(paper_item, min_score=6):
-                batch.append(paper_item)
-
-        papers.extend(batch)
-        print(f"  ✓ '{term}': {len(batch)} papers")
-        time.sleep(3)
-
-    set_cache(cache_key, papers)
-    return papers
-
-
 def fetch_crossref(max_per_kw=15):
     """Fetch papers from CrossRef API (free, no key). Covers Elsevier/IEEE/Springer/Nature."""
     print("\n📗 [CrossRef] Fetching...")
@@ -1075,12 +1027,16 @@ def fetch_crossref(max_per_kw=15):
     seen = set()
 
     for kw in target_kws:
-        query = urllib.parse.quote(kw)
+        # Quote as an exact phrase and sort by relevance: CrossRef's title search is a
+        # bag-of-words ranker, so an unquoted multi-word phrase sorted by date returns
+        # noise (e.g. "remaining useful life" surfacing unrelated "life" papers) with
+        # no truly relevant results surviving the row limit.
+        query = urllib.parse.quote(f'"{kw}"')
         url = (
             f"https://api.crossref.org/works?"
             f"query.title={query}"  # title-only search avoids noise from bibliographic fields
             f"&filter=from-pub-date:{two_years_ago}"
-            f"&sort=published&order=desc"
+            f"&sort=relevance&order=desc"
             f"&rows={max_per_kw}"
             f"&select=DOI,title,author,published,abstract,URL,container-title,type"
         )
@@ -1378,11 +1334,10 @@ def main():
     or_papers = fetch_openreview()
     hf_papers = fetch_huggingface_daily()
     rss_items = fetch_rss_feeds()
-    pwc_papers = fetch_paperswithcode()
 
     # 2. Combine, filter by RUL/PHM/time-series relevance, and deduplicate
     all_papers = (arxiv_research + arxiv_ai + arxiv_rss + crossref_papers
-                  + s2_papers + openalex_papers + or_papers + hf_papers + rss_items + pwc_papers)
+                  + s2_papers + openalex_papers + or_papers + hf_papers + rss_items)
     all_papers = filter_relevant_papers(all_papers, min_score=6)
     all_papers = deduplicate(all_papers)
 
@@ -1413,7 +1368,6 @@ def main():
                 "openalex": len([p for p in all_papers if p["source"] == "OpenAlex"]),
                 "openreview": len([p for p in all_papers if "OpenReview" in p["source"]]),
                 "huggingface": len([p for p in all_papers if p["source"] == "HuggingFace Daily"]),
-                "paperswithcode": len([p for p in all_papers if p["source"] == "Papers with Code"]),
                 "rss": len([p for p in all_papers if p.get("is_blog")]),
             },
         },
@@ -1449,7 +1403,6 @@ def main():
           f"  OA={daily_data['stats']['sources']['openalex']}"
           f"  OR={daily_data['stats']['sources']['openreview']}"
           f"  HF={daily_data['stats']['sources']['huggingface']}"
-          f"  PwC={daily_data['stats']['sources']['paperswithcode']}"
           f"  RSS={daily_data['stats']['sources']['rss']}")
     print(f"{'='*60}")
 

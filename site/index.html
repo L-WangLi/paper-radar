@@ -135,6 +135,11 @@ body {
   font-size: 16px; color: var(--text-muted); pointer-events: none;
 }
 .filter-chips { display: flex; gap: 6px; flex-wrap: wrap; }
+.focus-hint {
+  display: none; font-size: 12px; color: var(--text-muted); margin-bottom: 10px;
+}
+.focus-hint.visible { display: block; }
+.focus-hint .link { color: var(--accent); cursor: pointer; text-decoration: underline; }
 .chip {
   padding: 5px 12px; font-size: 12px; border-radius: 20px; cursor: pointer;
   background: var(--bg-surface); border: 1px solid var(--border); color: var(--text-dim);
@@ -170,6 +175,11 @@ body {
   max-height: 0; overflow: hidden; transition: max-height 0.3s ease;
 }
 .paper-card.expanded .abstract { max-height: 300px; }
+.paper-card .abstract-preview {
+  font-size: 12.5px; color: var(--text-dim); margin-top: 8px; line-height: 1.5;
+  font-style: italic; opacity: 0.9;
+}
+.paper-card.expanded .abstract-preview { display: none; }
 .paper-card .tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 8px; }
 .paper-card .tag {
   font-size: 10.5px; padding: 2px 8px; border-radius: 10px;
@@ -400,8 +410,12 @@ body {
       <input type="text" id="searchInput" placeholder="搜索论文标题、作者、关键词..."
              data-i18n-placeholder="search.placeholder" oninput="filterPapers()">
     </div>
+    <button type="button" id="focusToggle" class="chip" onclick="toggleFocusMode()" data-i18n="focus.toggle">🎯 精选模式</button>
     <div class="filter-chips" id="filterChips"></div>
   </div>
+
+  <!-- Focus mode hint -->
+  <div class="focus-hint" id="focusHint"></div>
 
   <!-- Paper List -->
   <div id="paperList" class="paper-list">
@@ -436,7 +450,7 @@ body {
 <footer class="footer container">
   <div>Li's Research Radar · <span data-i18n="footer.auto">自动更新</span> · <a href="https://github.com/L-WangLi/paper-radar" target="_blank" rel="noopener noreferrer">GitHub</a></div>
   <div class="footer-sources">
-    <span data-i18n="footer.powered">数据来源</span>: arXiv · CrossRef · Semantic Scholar · OpenReview · OpenAlex · HuggingFace · Papers with Code · RSS
+    <span data-i18n="footer.powered">数据来源</span>: arXiv · CrossRef · Semantic Scholar · OpenReview · OpenAlex · HuggingFace · RSS
   </div>
 </footer>
 
@@ -491,6 +505,9 @@ const i18n = {
     "status.important": "重要参考",
     "btn.memory": "记忆",
     "btn.export_memory": "导出研究记忆",
+    "focus.toggle": "🎯 精选模式",
+    "focus.hint": "已隐藏 {n} 篇「快读/关注」类论文 · ",
+    "focus.showall": "显示全部",
   },
   en: {
     "stats.total": "Papers Tracked",
@@ -538,6 +555,9 @@ const i18n = {
     "status.important": "Key Ref",
     "btn.memory": "Remember",
     "btn.export_memory": "Export Memory",
+    "focus.toggle": "🎯 Focus Mode",
+    "focus.hint": "{n} skim/watch papers hidden · ",
+    "focus.showall": "Show all",
   },
 };
 
@@ -589,6 +609,8 @@ let researchMemory = JSON.parse(localStorage.getItem("pr_memory") || "{}");
 let activeFilters = new Set();
 let activeSourceFilter = null;
 let papersMap = {};
+let focusMode = localStorage.getItem("pr_focus") !== "off"; // default on: fewer papers to scan per day
+const FOCUS_RECOMMENDATIONS = new Set(["精读", "方法借鉴", "对比实验"]);
 
 const questionLabels = {
   zh: {
@@ -845,6 +867,12 @@ function switchTab(tab) {
   renderPapers();
 }
 
+function toggleFocusMode() {
+  focusMode = !focusMode;
+  localStorage.setItem("pr_focus", focusMode ? "on" : "off");
+  renderPapers();
+}
+
 // ============================================================
 // Rendering
 // ============================================================
@@ -900,6 +928,32 @@ function renderPapers() {
     papers = papers.filter(p => p.source === activeSourceFilter);
   }
 
+  // Focus mode: on research/ai tabs, hide low-priority skim/watch papers by
+  // default so a day's scan is limited to what's actually worth deciding on.
+  const focusApplicable = (currentTab === "research" || currentTab === "ai");
+  let hiddenByFocus = 0;
+  if (focusApplicable && focusMode) {
+    const beforeCount = papers.length;
+    papers = papers.filter(p => FOCUS_RECOMMENDATIONS.has(p.recommendation));
+    hiddenByFocus = beforeCount - papers.length;
+  }
+  const focusToggleBtn = document.getElementById("focusToggle");
+  if (focusToggleBtn) {
+    focusToggleBtn.style.display = focusApplicable ? "" : "none";
+    focusToggleBtn.classList.toggle("active", focusMode);
+  }
+  const focusHintEl = document.getElementById("focusHint");
+  if (focusHintEl) {
+    if (focusApplicable && focusMode && hiddenByFocus > 0) {
+      focusHintEl.classList.add("visible");
+      focusHintEl.innerHTML = escapeHtml(t("focus.hint").replace("{n}", hiddenByFocus))
+        + `<span class="link" onclick="toggleFocusMode()">${escapeHtml(t("focus.showall"))}</span>`;
+    } else {
+      focusHintEl.classList.remove("visible");
+      focusHintEl.innerHTML = "";
+    }
+  }
+
   const listEl = document.getElementById("paperList");
 
   if (papers.length === 0) {
@@ -917,9 +971,9 @@ function renderPapers() {
     const statusLabel = t(status === "read" ? "status.read" : status === "important" ? "status.important" : "status.unread");
     const statusTime = getStatusTime(p.id);
     const statusTimeHtml = statusTime ? `<span class="status-timestamp">${fmtTime(statusTime)}</span>` : "";
-    const authorsStr = (p.authors || []).slice(0, 3).join(", ");
-    const tagsHtml = (p.tags || []).slice(0, 4).map(tag => `<span class="tag">${tag}</span>`).join("");
-    const venueHtml = p.venue ? `<span class="source">${p.venue}</span>` : "";
+    const authorsStr = escapeHtml((p.authors || []).slice(0, 3).join(", "));
+    const tagsHtml = (p.tags || []).slice(0, 4).map(tag => `<span class="tag">${escapeHtml(tag)}</span>`).join("");
+    const venueHtml = p.venue ? `<span class="source">${escapeHtml(p.venue)}</span>` : "";
     const citationsHtml = p.citations ? ` · ${p.citations} ${t("citations")}` : "";
     const upvotesHtml = p.upvotes ? `<span class="upvotes">👍 ${p.upvotes}</span>` : "";
     const pdfBtn = p.pdf ? `<a href="${p.pdf}" target="_blank" rel="noopener noreferrer" style="text-decoration:none"><button type="button">${t("btn.pdf")}</button></a>` : "";
@@ -958,13 +1012,14 @@ function renderPapers() {
       </div>
       <div class="meta">
         <span>${authorsStr}</span>
-        <span class="source">${p.source}</span>
+        <span class="source">${escapeHtml(p.source)}</span>
         ${venueHtml}
         <span>${p.date || ""}</span>
         ${citationsHtml}
         ${upvotesHtml}
       </div>
       ${radarHtml}
+      ${(p.summary || p.snippet) ? `<div class="abstract-preview">${highlightText(p.summary || p.snippet)}</div>` : ""}
       ${p.abstract ? `<div class="abstract">${highlightText(p.abstract)}</div>` : ""}
       ${tagsHtml ? `<div class="tags">${tagsHtml}</div>` : ""}
       <div class="actions">

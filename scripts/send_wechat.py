@@ -17,11 +17,18 @@ import json
 import os
 import urllib.request
 import urllib.parse
-from datetime import datetime
+from datetime import datetime, timedelta
 from pathlib import Path
 
 DATA_DIR = Path(__file__).parent.parent / "data"
 SERVERCHAN_API = "https://sctapi.ftqq.com/{key}.send"
+
+# Papers already pushed once stay out of future pushes for this many days.
+# A paper can realistically stay near the top of the daily ranking for a
+# while (fresh papers keep re-entering the fetch each day), so without this
+# the same paper would get pushed again on every subsequent run.
+PUSHED_HISTORY_FILE = DATA_DIR / "pushed_history.json"
+PUSHED_RETENTION_DAYS = 30
 
 QUESTION_LABELS = {
     "core_rul_phm": "核心 RUL/PHM",
@@ -39,8 +46,8 @@ def question_label(paper):
 
 def decision_line(paper):
     rec = paper.get("recommendation") or "快读"
-    reason = paper.get("decision_reason") or "命中你的研究关键词"
-    return f"建议: {rec} · 类型: {question_label(paper)} · {reason}"
+    desc = paper.get("summary") or paper.get("snippet") or paper.get("decision_reason") or "命中你的研究关键词"
+    return f"建议: {rec} · 类型: {question_label(paper)} · {desc}"
 
 
 def paper_priority(paper):
@@ -55,27 +62,55 @@ def paper_priority(paper):
     return order.get(paper.get("research_question", ""), 1)
 
 
-def build_message(data):
-    """Build WeChat message content in Markdown."""
-    today = data.get("date", datetime.utcnow().strftime("%Y-%m-%d"))
-    research_pool = [p for p in data.get("research_papers", []) if p.get("relevance_score", 0) >= 6]
-    news_pool = [p for p in data.get("ai_frontier", []) if p.get("relevance_score", 0) >= 6]
+def load_pushed_history():
+    if PUSHED_HISTORY_FILE.exists():
+        try:
+            return json.loads(PUSHED_HISTORY_FILE.read_text("utf-8"))
+        except json.JSONDecodeError:
+            return {}
+    return {}
+
+
+def save_pushed_history(history):
+    PUSHED_HISTORY_FILE.write_text(
+        json.dumps(history, ensure_ascii=False, indent=2), encoding="utf-8"
+    )
+
+
+def prune_pushed_history(history, retention_days=PUSHED_RETENTION_DAYS):
+    cutoff = (datetime.utcnow() - timedelta(days=retention_days)).strftime("%Y-%m-%d")
+    return {pid: date for pid, date in history.items() if date >= cutoff}
+
+
+def build_message(data, pushed_ids):
+    """Build WeChat message content in Markdown. Returns (content, research, related_news) —
+    the two paper lists are exactly what got included, so the caller can mark them pushed."""
+    research_pool = [
+        p for p in data.get("research_papers", [])
+        if p.get("relevance_score", 0) >= 6 and p["id"] not in pushed_ids
+    ]
+    news_pool = [
+        p for p in data.get("ai_frontier", [])
+        if p.get("relevance_score", 0) >= 6 and p["id"] not in pushed_ids
+    ]
     sort_key = lambda p: (paper_priority(p), p.get("date", ""), p.get("relevance_score", 0), p.get("upvotes", 0))
     research = sorted(research_pool, key=sort_key, reverse=True)[:5]
     related_news = sorted(news_pool, key=sort_key, reverse=True)[:3]
     site_url = os.environ.get("SITE_URL", "")
 
-    lines = [f"## 📚 今日 RUL / 时间序列论文 Top {len(research)}\n"]
-    for i, p in enumerate(research, 1):
-        tags = " · ".join(p.get("tags", [])[:2])
-        source = p.get("source", "")
-        date = p.get("date", "")
-        lines.append(f"**{i}. [{p['title']}]({p['url']})**")
-        lines.append(f"来源: {source} · {date} · 相关度: {p.get('relevance_score', 0)}")
-        lines.append(decision_line(p))
-        if tags:
-            lines.append(f"标签: {tags}")
-        lines.append("")
+    lines = []
+    if research:
+        lines.append(f"## 📚 今日 RUL / 时间序列论文 Top {len(research)}\n")
+        for i, p in enumerate(research, 1):
+            tags = " · ".join(p.get("tags", [])[:2])
+            source = p.get("source", "")
+            date = p.get("date", "")
+            lines.append(f"**{i}. [{p['title']}]({p['url']})**")
+            lines.append(f"来源: {source} · {date} · 相关度: {p.get('relevance_score', 0)}")
+            lines.append(decision_line(p))
+            if tags:
+                lines.append(f"标签: {tags}")
+            lines.append("")
 
     if related_news:
         lines.append(f"---\n## 🛰️ 相关资讯 Top {len(related_news)}\n")
@@ -89,7 +124,7 @@ def build_message(data):
     if site_url:
         lines.append(f"---\n[查看完整列表 →]({site_url})")
 
-    return "\n".join(lines)
+    return "\n".join(lines), research, related_news
 
 
 def send_wechat(title, content):
@@ -130,13 +165,25 @@ def main():
 
     data = json.loads(latest_file.read_text("utf-8"))
     today = data.get("date", "")
-    stats = data.get("stats", {})
 
-    title = f"Paper Radar {today} | {stats.get('research', 0)} 篇 RUL/时间序列 + {stats.get('ai_frontier', 0)} 条相关资讯"
-    content = build_message(data)
+    pushed_history = load_pushed_history()
+    pushed_ids = set(pushed_history.keys())
+
+    content, research, related_news = build_message(data, pushed_ids)
+    if not research and not related_news:
+        print("📭 Nothing new to push today — today's top candidates were already sent before.")
+        return
+
+    title = f"Paper Radar {today} | {len(research)} 篇 RUL/时间序列 + {len(related_news)} 条相关资讯"
 
     print(f"📱 Sending WeChat push for {today}...")
-    send_wechat(title, content)
+    if send_wechat(title, content):
+        for p in research + related_news:
+            pushed_history[p["id"]] = today
+        pushed_history = prune_pushed_history(pushed_history)
+        save_pushed_history(pushed_history)
+        print(f"   Marked {len(research) + len(related_news)} paper(s) as pushed; "
+              f"history now has {len(pushed_history)} entries.")
 
 
 if __name__ == "__main__":
