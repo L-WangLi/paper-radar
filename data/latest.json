@@ -1,15 +1,15 @@
 {
-  "date": "2026-07-21",
-  "fetched_at": "2026-07-21T02:32:14.372801Z",
+  "date": "2026-07-22",
+  "fetched_at": "2026-07-22T02:35:45.576027Z",
   "stats": {
-    "total": 127,
-    "research": 126,
+    "total": 130,
+    "research": 129,
     "ai_frontier": 1,
     "sources": {
-      "arxiv": 2,
+      "arxiv": 11,
       "crossref": 0,
-      "semantic_scholar": 51,
-      "openalex": 55,
+      "semantic_scholar": 46,
+      "openalex": 54,
       "openreview": 18,
       "huggingface": 0,
       "paperswithcode": 0,
@@ -18,20 +18,90 @@
   },
   "research_papers": [
     {
-      "id": "arxiv:2607.15799",
-      "title": "Knowledge-Assisted Multi-Graph Dependency Learning for Multivariate Time Series Anomaly Detection in Multi-Stage Industrial Processes",
-      "abstract": "arXiv:2607.15799v1 Announce Type: new \nAbstract: Industrial processes often generate complex, interdependent time-series data from multiple sensors across multiple stages, forming complex dependencies among variables and process stages. Effective monitoring and timely anomaly detection of these time series through multivariate time series anomaly detection (MTAD) is crucial for preventing failures and ensuring the reliability of automated systems. Graph neural networks (GNNs) have advanced MTAD by leveraging data-driven graphs to model complex dependencies among variables, effectively capturin",
+      "id": "arxiv:2607.16969",
+      "title": "SurvCF(t): Counterfactual Explanations for Survival Analysis in Predictive Maintenance Multivariate Time Series Data",
+      "abstract": "arXiv:2607.16969v1 Announce Type: new \nAbstract: Predictive maintenance relies on accurate Remaining Useful Life estimation, often formulated using survival analysis over multivariate time-series data. While modern deep survival models achieve strong predictive performance, their black-box nature limits their use in safety-critical settings where actionable insight is required. In this work, we introduce \\textit{SurvCF(t)}, the first framework for generating counterfactual explanations for survival models operating on time-series data. \\textit{SurvCF(t)} identifies minimal, plausible, and temp",
       "authors": [
-        "Jaeyeong Lee, Taeseong Yoon, Wonmo Koo, Heeyoung Kim"
+        "Zara Karazian, Panagiotis Papapetrou, Sindri Magn\\'usson, Erik Frisk, Tony Lindgren"
       ],
-      "date": "2026-07-21",
+      "date": "2026-07-22",
       "source": "arXiv",
-      "url": "https://arxiv.org/abs/2607.15799",
-      "pdf": "https://arxiv.org/pdf/2607.15799.pdf",
+      "url": "https://arxiv.org/abs/2607.16969",
+      "pdf": "https://arxiv.org/pdf/2607.16969.pdf",
+      "relevance_score": 50,
+      "tags": [
+        "remaining useful life",
+        "C-MAPSS",
+        "predictive maintenance",
+        "N-CMAPSS",
+        "multivariate time series",
+        "CMAPSS"
+      ],
+      "score_breakdown": {
+        "topic": 14,
+        "time_series": 16,
+        "dataset": 15,
+        "method": 0,
+        "freshness": 8,
+        "source": 3,
+        "negative": -6,
+        "total": 50
+      },
+      "negative_hits": [
+        "survival analysis"
+      ],
+      "research_question": "core_rul_phm",
+      "recommendation": "精读",
+      "decision_reason": "主题相关 14；数据集相关 15；时间序列 16；近期 8；噪声风险: survival analysis"
+    },
+    {
+      "id": "arxiv:2607.16493",
+      "title": "Leakage-Robust Evaluation and Data-Scale Sensitivity of Attention-Enhanced Multi-Task Learning for Joint Fault Diagnosis and Remaining Useful Life Estimation",
+      "abstract": "arXiv:2607.16493v1 Announce Type: new \nAbstract: Multi-task deep learning models that jointly perform fault classification and remaining useful life (RUL) regression are increasingly used in predictive maintenance, yet reported performance can be strongly affected by how sliding-window sequences are split into training and test sets. We investigate this issue using AMTLNet, an attention-enhanced multi-task architecture, on three public benchmarks: NASA C-MAPSS, NASA IMS, and the UCI Hydraulic System dataset. We show that naive splitting can inflate classification accuracy from a genuine 20-60 ",
+      "authors": [
+        "Md Mahamudur Rahaman Shamim, Md. Nuruzzaman, Zannatul Ferdus, Md Rajib Ahmed, Abieer Nwshad Anward, Mohammad Tooneer, Johir Uddin Khan, Khalid Hossen"
+      ],
+      "date": "2026-07-22",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2607.16493",
+      "pdf": "https://arxiv.org/pdf/2607.16493.pdf",
+      "relevance_score": 37,
+      "tags": [
+        "remaining useful life",
+        "C-MAPSS",
+        "predictive maintenance",
+        "IMS"
+      ],
+      "score_breakdown": {
+        "topic": 18,
+        "time_series": 0,
+        "dataset": 8,
+        "method": 0,
+        "freshness": 8,
+        "source": 3,
+        "negative": 0,
+        "total": 37
+      },
+      "negative_hits": [],
+      "research_question": "core_rul_phm",
+      "recommendation": "精读",
+      "decision_reason": "主题相关 18；数据集相关 8；近期 8；命中: remaining useful life, C-MAPSS, predictive maintenance"
+    },
+    {
+      "id": "arxiv:2510.13634",
+      "title": "Multivariate Time Series Forecasting with Gate-Based Quantum Reservoir Computing on NISQ Hardware",
+      "abstract": "arXiv:2510.13634v2 Announce Type: replace \nAbstract: Quantum reservoir computing (QRC) offers a hardware-friendly approach to temporal learning, yet most studies target univariate signals and overlook near-term hardware constraints. This work introduces a gate-based QRC for multivariate time series (MTS-QRC) that pairs injection and memory qubits and uses a Trotterized nearest-neighbor transverse-field Ising evolution optimized for current device connectivity and depth. On Lorenz-63 and ENSO, the method achieves a mean square error (MSE) of 0.0087 and 0.0036, respectively, performing on par wi",
+      "authors": [
+        "Wissal Hamhoum, Soumaya Cherkaoui, Jean-Frederic Laprade, Ola Ahmad, Shengrui Wang"
+      ],
+      "date": "2026-07-22",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2510.13634",
+      "pdf": "https://arxiv.org/pdf/2510.13634.pdf",
       "relevance_score": 35,
       "tags": [
-        "multivariate time series",
-        "time series anomaly detection"
+        "time series forecasting",
+        "multivariate time series"
       ],
       "score_breakdown": {
         "topic": 0,
@@ -46,38 +116,387 @@
       "negative_hits": [],
       "research_question": "time_series_method",
       "recommendation": "方法借鉴",
-      "decision_reason": "时间序列 24；近期 8；命中: multivariate time series, time series anomaly detection"
+      "decision_reason": "时间序列 24；近期 8；命中: time series forecasting, multivariate time series"
     },
     {
-      "id": "arxiv:2607.15774",
-      "title": "Scaling Time Series Classification via XAI-Driven Data Reduction",
-      "abstract": "arXiv:2607.15774v1 Announce Type: new \nAbstract: Explainable AI (XAI) for time series has seen significant algorithmic growth, but its utility in providing measurable performance gains for downstream tasks remains under-explored. This paper bridges this gap by introducing drXAI, a novel methodology that repurposes XAI attribution methods for effective data reduction in Time Series Classification (TSC). The core challenge in modern TSC is scalability; state-of-the-art models, such as Transformers, exhibit quadratic complexity relative to sequence length and linear complexity relative to the num",
+      "id": "arxiv:2511.02152",
+      "title": "ProtoTSNet: Interpretable Multivariate Time Series Classification With Prototypical Parts",
+      "abstract": "arXiv:2511.02152v2 Announce Type: replace \nAbstract: Time series data is one of the most popular data modalities in critical domains such as industry and medicine. The demand for algorithms that not only exhibit high accuracy but also offer interpretability is crucial in such fields, as decisions made there bear significant consequences. In this paper, we present ProtoTSNet, a novel approach to interpretable classification of multivariate time series data, through substantial enhancements to the ProtoPNet architecture. Our method is tailored to overcome the unique challenges of time series ana",
       "authors": [
-        "Davide Italo Serramazza, Thach Le Nguyen, Georgiana Ifrim"
+        "Bart{\\l}omiej Ma{\\l}kus, Szymon Bobek, Grzegorz J. Nalepa"
       ],
-      "date": "2026-07-21",
+      "date": "2026-07-22",
       "source": "arXiv",
-      "url": "https://arxiv.org/abs/2607.15774",
-      "pdf": "https://arxiv.org/pdf/2607.15774.pdf",
-      "relevance_score": 28,
+      "url": "https://arxiv.org/abs/2511.02152",
+      "pdf": "https://arxiv.org/pdf/2511.02152.pdf",
+      "relevance_score": 35,
       "tags": [
         "time series classification",
+        "multivariate time series"
+      ],
+      "score_breakdown": {
+        "topic": 0,
+        "time_series": 24,
+        "dataset": 0,
+        "method": 0,
+        "freshness": 8,
+        "source": 3,
+        "negative": 0,
+        "total": 35
+      },
+      "negative_hits": [],
+      "research_question": "time_series_method",
+      "recommendation": "方法借鉴",
+      "decision_reason": "时间序列 24；近期 8；命中: time series classification, multivariate time series"
+    },
+    {
+      "id": "arxiv:2607.16882",
+      "title": "HyBDM: Multi-Scale Hybrid Experts for Time Series Forecasting with Bidirectional Dependency Modeling",
+      "abstract": "arXiv:2607.16882v1 Announce Type: new \nAbstract: Time series forecasting (TSF) is vital to many applications, yet existing models often struggle to capture the heterogeneous long-range global patterns and short-range local variations in multivariate time series. While some approaches partially model these dependencies, they often do not jointly exploit temporal and feature-wise information. To address this challenge, we propose HyBDM, a multi-scale hybrid model that decomposes temporal dynamics into global patterns and local variations, which are modeled by two specialized experts. The Global ",
+      "authors": [
+        "Wenqiang Ma, Chen Cheng, Xue Cheng, Jiarui Ye"
+      ],
+      "date": "2026-07-22",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2607.16882",
+      "pdf": "https://arxiv.org/pdf/2607.16882.pdf",
+      "relevance_score": 30,
+      "tags": [
+        "time series forecasting",
+        "multivariate time series",
         "transformer"
+      ],
+      "score_breakdown": {
+        "topic": 0,
+        "time_series": 19,
+        "dataset": 0,
+        "method": 0,
+        "freshness": 8,
+        "source": 3,
+        "negative": 0,
+        "total": 30
+      },
+      "negative_hits": [],
+      "research_question": "time_series_method",
+      "recommendation": "方法借鉴",
+      "decision_reason": "时间序列 19；近期 8；命中: time series forecasting, multivariate time series, transformer"
+    },
+    {
+      "id": "arxiv:2607.17511",
+      "title": "Lightweight Wrappers for Adapting Time Series Foundation Models to Regional Drought Forecasting",
+      "abstract": "arXiv:2607.17511v1 Announce Type: new \nAbstract: Large \\emph{Time Series Foundation Models} (TSFMs) demonstrate strong zero-shot forecasting capabilities across diverse domains. However, their application to regional climate forecasting faces practical challenges: model weights are often proprietary, local training records are limited, and computational budgets are constrained, making traditional fine-tuning approaches infeasible. To address these constraints, we introduce a lightweight, black-box adaptation framework (requiring no access to backbone parameters and no backbone fine-tuning) tha",
+      "authors": [
+        "Wentao Gao, Jiuyong Li, Lin Liu, Thuc Duy Le, Jixue Liu, Yanchang Zhao, Yun Chen"
+      ],
+      "date": "2026-07-22",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2607.17511",
+      "pdf": "https://arxiv.org/pdf/2607.17511.pdf",
+      "relevance_score": 27,
+      "tags": [
+        "time series foundation model"
       ],
       "score_breakdown": {
         "topic": 0,
         "time_series": 16,
         "dataset": 0,
-        "method": 1,
+        "method": 0,
         "freshness": 8,
         "source": 3,
         "negative": 0,
-        "total": 28
+        "total": 27
       },
       "negative_hits": [],
       "research_question": "time_series_method",
       "recommendation": "方法借鉴",
-      "decision_reason": "时间序列 16；方法可借鉴 1；近期 8；命中: time series classification, transformer"
+      "decision_reason": "时间序列 16；近期 8；命中: time series foundation model"
+    },
+    {
+      "id": "arxiv:2607.17758",
+      "title": "Towards Reliable Zero-Shot Crowd Forecasting: Evaluating Time Series Foundation Models for Special Event Pedestrian Forecasting",
+      "abstract": "arXiv:2607.17758v1 Announce Type: new \nAbstract: Managing massive crowds during infrequent special events requires reliable real-time pedestrian-flow forecasting to ensure public safety and operational efficiency. However, supervised forecasting methods face limitations in these contexts due to scarce historical data, heterogeneous data distributions, and short in-event observation windows. To effectively support operational decision-making, forecasts should provide not only accurate point estimates but also informative predictive uncertainty. Probabilistic uncertainty quantification plays a c",
+      "authors": [
+        "Ziteng Li, Yanan Xin, Tina Comes, Serge Hoogendoorn"
+      ],
+      "date": "2026-07-22",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2607.17758",
+      "pdf": "https://arxiv.org/pdf/2607.17758.pdf",
+      "relevance_score": 27,
+      "tags": [
+        "time series foundation model"
+      ],
+      "score_breakdown": {
+        "topic": 0,
+        "time_series": 16,
+        "dataset": 0,
+        "method": 0,
+        "freshness": 8,
+        "source": 3,
+        "negative": 0,
+        "total": 27
+      },
+      "negative_hits": [],
+      "research_question": "time_series_method",
+      "recommendation": "方法借鉴",
+      "decision_reason": "时间序列 16；近期 8；命中: time series foundation model"
+    },
+    {
+      "id": "arxiv:2604.22328",
+      "title": "FETS Benchmark: Foundation Models Enable Scalable and Generalizable Energy Time Series Forecasting",
+      "abstract": "arXiv:2604.22328v2 Announce Type: replace \nAbstract: Driven by the transition towards a climate-neutral energy system, accurate energy time series forecasting is critical for planning and operations. Yet, it remains a dataset-specific task, requiring comprehensive training data, limiting scalability, and resulting in high model development and maintenance effort. Recently, foundation models aiming to learn generalizable patterns via extensive pretraining have shown strong performance in multiple prediction tasks. Despite their success and strong potential in energy forecasting, a systematic, u",
+      "authors": [
+        "Marco Obermeier, Marco Pruckner, Florian Haselbeck, Andreas Zeiselmair"
+      ],
+      "date": "2026-07-22",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2604.22328",
+      "pdf": "https://arxiv.org/pdf/2604.22328.pdf",
+      "relevance_score": 27,
+      "tags": [
+        "time series forecasting"
+      ],
+      "score_breakdown": {
+        "topic": 0,
+        "time_series": 16,
+        "dataset": 0,
+        "method": 0,
+        "freshness": 8,
+        "source": 3,
+        "negative": 0,
+        "total": 27
+      },
+      "negative_hits": [],
+      "research_question": "time_series_method",
+      "recommendation": "方法借鉴",
+      "decision_reason": "时间序列 16；近期 8；命中: time series forecasting"
+    },
+    {
+      "id": "arxiv:2607.16235",
+      "title": "OpenMHC: Accelerating the Science of Wearable Foundation Models",
+      "abstract": "arXiv:2607.16235v1 Announce Type: new \nAbstract: Mobile and wearable devices offer an unprecedented opportunity for continuous, passive health monitoring and active health coaching. However, the largest wearable datasets are not publicly available for research, and leading wearable foundation models trained on such datasets are rarely open-weight or come with reproducible training code. To accelerate open science in wearable health, we release OpenMyHeartCounts (OpenMHC), the largest and most comprehensive open-access wearable health dataset to date, alongside open-source implementations of re",
+      "authors": [
+        "Narayan Schuetz, Yuze Bai, Lianggang Pan, Edgar Eggert, Favour Nerrise, Juan Delgado-SanMartin, Max Rosenblattl, Milana Gurbanova, Mohammad Asadi, Anders Johnson, Paul Schmiedmayer, Dennis Wang, Allan Lawrie, Daniel Seung Kim, Xin Liu, Akshay Paruchuri, Ehsan Adeli, Euan Ashley, Kelly W. Zhang"
+      ],
+      "date": "2026-07-22",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2607.16235",
+      "pdf": "https://arxiv.org/pdf/2607.16235.pdf",
+      "relevance_score": 25,
+      "tags": [
+        "multivariate time series",
+        "time series foundation model"
+      ],
+      "score_breakdown": {
+        "topic": 2,
+        "time_series": 12,
+        "dataset": 0,
+        "method": 0,
+        "freshness": 8,
+        "source": 3,
+        "negative": 0,
+        "total": 25
+      },
+      "negative_hits": [],
+      "research_question": "time_series_method",
+      "recommendation": "方法借鉴",
+      "decision_reason": "主题相关 2；时间序列 12；近期 8；命中: multivariate time series, time series foundation model"
+    },
+    {
+      "id": "arxiv:2603.13065",
+      "title": "L2GTX: From Local to Global Time Series Explanations",
+      "abstract": "arXiv:2603.13065v2 Announce Type: replace \nAbstract: Deep learning models achieve high accuracy in time series classification, yet understanding their class-level decision behaviour remains challenging. Explanations for time series must respect temporal dependencies and identify patterns that recur across instances. Existing approaches face three limitations: model-agnostic XAI methods developed for images and tabular data do not readily extend to time series, global explanation synthesis for time series remains underexplored, and most existing global approaches are model-specific. We propose ",
+      "authors": [
+        "Ephrem Tibebe Mekonnen, Luca Longo, Lucas Rizzo, Pierpaolo Dondio"
+      ],
+      "date": "2026-07-22",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2603.13065",
+      "pdf": "https://arxiv.org/pdf/2603.13065.pdf",
+      "relevance_score": 22,
+      "tags": [
+        "time series classification"
+      ],
+      "score_breakdown": {
+        "topic": 0,
+        "time_series": 11,
+        "dataset": 0,
+        "method": 0,
+        "freshness": 8,
+        "source": 3,
+        "negative": 0,
+        "total": 22
+      },
+      "negative_hits": [],
+      "research_question": "time_series_method",
+      "recommendation": "方法借鉴",
+      "decision_reason": "时间序列 11；近期 8；命中: time series classification"
+    },
+    {
+      "id": "arxiv:2603.15802",
+      "title": "Time-Aware Prior Fitted Networks for Zero-Shot Forecasting with Exogenous Variables",
+      "abstract": "arXiv:2603.15802v2 Announce Type: replace \nAbstract: In many time series forecasting settings, the target time series is accompanied by exogenous covariates, such as promotions and prices in retail demand; temperature in energy load; calendar and holiday indicators for traffic or sales; and grid load or fuel costs in electricity pricing. Ignoring these exogenous signals can substantially degrade forecasting accuracy, particularly when they drive spikes, discontinuities, or regime and phase changes in the target series. Most current time series foundation models (e.g., Chronos, Sundial, TimesFM",
+      "authors": [
+        "Andres Potapczynski, Ravi Kiran Selvam, Tatiana Konstantinova, Malcolm Wolff, Kin G. Olivares, Ruijun Ma, Michael W. Mahoney, Andrew Gordon Wilson, Boris N. Oreshkin, Dmitry Efimov"
+      ],
+      "date": "2026-07-22",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2603.15802",
+      "pdf": "https://arxiv.org/pdf/2603.15802.pdf",
+      "relevance_score": 20,
+      "tags": [
+        "time series forecasting",
+        "time series foundation model"
+      ],
+      "score_breakdown": {
+        "topic": 0,
+        "time_series": 9,
+        "dataset": 0,
+        "method": 0,
+        "freshness": 8,
+        "source": 3,
+        "negative": 0,
+        "total": 20
+      },
+      "negative_hits": [],
+      "research_question": "time_series_method",
+      "recommendation": "方法借鉴",
+      "decision_reason": "时间序列 9；近期 8；命中: time series forecasting, time series foundation model"
+    },
+    {
+      "id": "openalex:W7169777737",
+      "title": "Optimizing Maintenance Schedules of Turbofan Engines Using Remaining Useful Life ( RUL) Prediction",
+      "abstract": "Turbofan engines operate under extreme thermal, mechanical, and environmental stresses, making timely maintenance critical for safety, reliability, and cost efficiency. Traditional maintenance strategies such as reactive and fixed-interval preventive maintenance often lead to unexpected failures or unnecessary component replacements. Remaining Useful Life (RUL) prediction introduces a predictive-maintenance framework that estimates the time or operational cycles left before an engine component reaches its failure threshold. By leveraging historical sensor data, operational parameters, and degr",
+      "authors": [
+        "Mrs.N.Vaishnavi Rakshitha S"
+      ],
+      "date": "2026-07-20",
+      "source": "OpenAlex",
+      "url": "https://doi.org/10.5281/zenodo.21454410",
+      "pdf": "",
+      "relevance_score": 29,
+      "tags": [
+        "remaining useful life"
+      ],
+      "venue": "",
+      "doi": "https://doi.org/10.5281/zenodo.21454410",
+      "score_breakdown": {
+        "topic": 20,
+        "time_series": 0,
+        "dataset": 0,
+        "method": 0,
+        "freshness": 8,
+        "source": 1,
+        "negative": 0,
+        "total": 29
+      },
+      "negative_hits": [],
+      "research_question": "core_rul_phm",
+      "recommendation": "精读",
+      "decision_reason": "主题相关 20；近期 8；命中: remaining useful life"
+    },
+    {
+      "id": "openalex:W7169770240",
+      "title": "Design of an Improved Physics-Aware Early-Life Prognostic Framework for Reliable Remaining Useful Life Prediction of Lithium-Ion Batteries in Real-Time Battery Management Systems",
+      "abstract": "Unanticipated lithium-ion battery RUL deterioration creates economic loss, reliability issues, and safety hazards in electric mobility, grid-scale storage, and safety-critical cyber-physical systems. Data-driven prognostics has improved, but earlylife prediction, physical interpretability of learnt representations, and real-time Battery Management System (BMS) deployability remain difficult challenges. Many models rely on raw voltage, current, and temperature inputs drawn from a large share of battery lifespan data, but deep learning approaches show unstable generalization and opaque decision ",
+      "authors": [
+        "Vinaya Sonparote"
+      ],
+      "date": "2026-07-20",
+      "source": "OpenAlex",
+      "url": "https://doi.org/10.22214/ijraset.2026.84327",
+      "pdf": "",
+      "relevance_score": 23,
+      "tags": [
+        "remaining useful life"
+      ],
+      "venue": "",
+      "doi": "https://doi.org/10.22214/ijraset.2026.84327",
+      "score_breakdown": {
+        "topic": 14,
+        "time_series": 0,
+        "dataset": 0,
+        "method": 0,
+        "freshness": 8,
+        "source": 1,
+        "negative": 0,
+        "total": 23
+      },
+      "negative_hits": [],
+      "research_question": "core_rul_phm",
+      "recommendation": "精读",
+      "decision_reason": "主题相关 14；近期 8；命中: remaining useful life"
+    },
+    {
+      "id": "openalex:W7169798125",
+      "title": "Domain-Specific Structured Reliability-Aware Open-Set Domain Adaptation for Cross-Condition Rolling Bearing Fault Diagnosis",
+      "abstract": "Cross-condition fault diagnosis is important for ensuring the reliable operation of mechanical systems. However, most existing methods assume that the source and target domains share identical fault label spaces and data distributions, limiting adaptation to unknown faults and cross-condition shifts in practical industrial scenarios. To address this issue, a structured, reliable, domain-specific open-set domain adaptation method is proposed. The proposed method first constructs a domain-specific batch normalization-based feature extraction network, in which independent normalization branches m",
+      "authors": [
+        "Hang Ruan",
+        "Jiafang Pan",
+        "Jie Yang",
+        "Hongwei Zhu",
+        "Faguo Huang"
+      ],
+      "date": "2026-07-20",
+      "source": "OpenAlex",
+      "url": "https://doi.org/10.3390/app16147246",
+      "pdf": "",
+      "relevance_score": 21,
+      "tags": [
+        "CWRU bearing",
+        "domain adaptation",
+        "CWRU"
+      ],
+      "venue": "",
+      "doi": "https://doi.org/10.3390/app16147246",
+      "score_breakdown": {
+        "topic": 0,
+        "time_series": 0,
+        "dataset": 10,
+        "method": 2,
+        "freshness": 8,
+        "source": 1,
+        "negative": 0,
+        "total": 21
+      },
+      "negative_hits": [],
+      "research_question": "dataset_benchmark",
+      "recommendation": "对比实验",
+      "decision_reason": "数据集相关 10；方法可借鉴 2；近期 8；命中: CWRU bearing, domain adaptation, CWRU"
+    },
+    {
+      "id": "openalex:W7169808026",
+      "title": "The Nano Paradox: AI and Machine Learning in Predicting Semiconductor Degradation",
+      "abstract": "Semiconductors such as MOSFETs and advanced transistor devices form the foundation of modern electronics, enabling applications in Artificial Intelligence, communication systems, and power electronics. As device dimensions continue to scale into the nanometer regime, reliability challenges associated with thermal stress, voltage fluctuations, Electromigration (EM), Hot Carrier Injection (HCI), Bias Temperature Instability (BTI), and other degradation mechanisms become increasingly significant. Traditional reliability assessment methods are often limited in their ability to model complex nonlin",
+      "authors": [
+        "Reshma Barik"
+      ],
+      "date": "2026-07-20",
+      "source": "OpenAlex",
+      "url": "https://doi.org/10.5281/zenodo.21448635",
+      "pdf": "",
+      "relevance_score": 17,
+      "tags": [
+        "remaining useful life",
+        "degradation prediction"
+      ],
+      "venue": "",
+      "doi": "https://doi.org/10.5281/zenodo.21448635",
+      "score_breakdown": {
+        "topic": 8,
+        "time_series": 0,
+        "dataset": 0,
+        "method": 0,
+        "freshness": 8,
+        "source": 1,
+        "negative": 0,
+        "total": 17
+      },
+      "negative_hits": [],
+      "research_question": "core_rul_phm",
+      "recommendation": "快读",
+      "decision_reason": "主题相关 8；近期 8；命中: remaining useful life, degradation prediction"
     },
     {
       "id": "openalex:W7169714708",
@@ -112,43 +531,6 @@
       "research_question": "core_rul_phm",
       "recommendation": "精读",
       "decision_reason": "主题相关 22；近期 8；命中: RUL prediction"
-    },
-    {
-      "id": "openalex:W7169723408",
-      "title": "Multi-Scale Degradation Trend Perception for Voltage Degradation Prediction of Proton Exchange Membrane Fuel Cells",
-      "abstract": "Precise prediction of voltage degradation is critical for the prognostics and health management of proton exchange membrane fuel cells (PEMFCs). The performance degradation of PEMFCs is governed by a complex coupling of multiple physicochemical mechanisms, including catalyst layer and proton exchange membrane degradation. Crucially, these internal degradation processes evolve across highly heterogeneous time scales, ranging from transient high-frequency fluctuations to low-frequency and long-term irreversible performance fade. Conventional predictive models, which typically rely on single-scal",
-      "authors": [
-        "Xicheng Zhang",
-        "Wenbo Hao",
-        "Kai Zhao",
-        "Zengzhe Shi",
-        "Jian Mei"
-      ],
-      "date": "2026-07-19",
-      "source": "OpenAlex",
-      "url": "https://doi.org/10.3390/batteries12070262",
-      "pdf": "",
-      "relevance_score": 19,
-      "tags": [
-        "prognostics and health management",
-        "degradation prediction"
-      ],
-      "venue": "",
-      "doi": "https://doi.org/10.3390/batteries12070262",
-      "score_breakdown": {
-        "topic": 10,
-        "time_series": 0,
-        "dataset": 0,
-        "method": 0,
-        "freshness": 8,
-        "source": 1,
-        "negative": 0,
-        "total": 19
-      },
-      "negative_hits": [],
-      "research_question": "related",
-      "recommendation": "快读",
-      "decision_reason": "主题相关 10；近期 8；命中: prognostics and health management, degradation prediction"
     },
     {
       "id": "openalex:W7169506948",
@@ -252,6 +634,42 @@
       "research_question": "core_rul_phm",
       "recommendation": "精读",
       "decision_reason": "主题相关 20；近期 8；命中: remaining useful life"
+    },
+    {
+      "id": "openalex:W7169816852",
+      "title": "A Comparative Study of Machine Learning and Deep Learning Models for State of Charge and Remaining Useful Life Estimation on a Rotary-Wing UAV Battery",
+      "abstract": "Battery state estimation is the main safety constraint for electric rotary-wing unmanned aerial vehicles (UAVs): mission decisions depend on both the instantaneous State of Charge (SOC) and the Remaining Useful Life (RUL). The present study compares seven machine learning and deep learning models (LR, SVM, k-NN, GBT, EL, LSTM, and a simplified RWKV) on real flight data from a rotary-wing helicopter testbed with a Pixhawk autopilot and an NVIDIA Jetson Nano mission computer. The dataset has 1310 samples (∼262 s) of nine on-board sensor signals. Mission-based RUL is defined as the projected time",
+      "authors": [
+        "Mehmet Konar",
+        "S. Arık Hatipoğlu",
+        "İsmail Erol",
+        "Ömer Çam",
+        "Sümeyra Tuna"
+      ],
+      "date": "2026-07-18",
+      "source": "OpenAlex",
+      "url": "https://doi.org/10.3390/drones10070549",
+      "pdf": "",
+      "relevance_score": 23,
+      "tags": [
+        "remaining useful life"
+      ],
+      "venue": "",
+      "doi": "https://doi.org/10.3390/drones10070549",
+      "score_breakdown": {
+        "topic": 14,
+        "time_series": 0,
+        "dataset": 0,
+        "method": 0,
+        "freshness": 8,
+        "source": 1,
+        "negative": 0,
+        "total": 23
+      },
+      "negative_hits": [],
+      "research_question": "core_rul_phm",
+      "recommendation": "精读",
+      "decision_reason": "主题相关 14；近期 8；命中: remaining useful life"
     },
     {
       "id": "openalex:W7169584399",
@@ -361,39 +779,6 @@
       "decision_reason": "主题相关 18；近期 8；命中: remaining useful life, RUL prediction"
     },
     {
-      "id": "openalex:W7169494440",
-      "title": "Hybrid Deep Learning Architecture for Prognosticating Lithium-Ion Battery Degradation: A Mixture of Experts Approach",
-      "abstract": "Accurate prediction of remaining useful life (RUL) for lithium-ion batteries is critical for ensuring reliability and safety in energy storage systems. This paper introduces a novel hybrid deep learning architecture that synergistically combines bidirectional gated recurrent units with multi-head attention mechanisms and MLP-Mixer modules within a mixture of experts framework. The proposed model effectively captures complex temporal dependencies and degradation patterns from battery capacity time series data. Extensive experimental evaluation on NASA and CALCE public datasets demonstrates the ",
-      "authors": [
-        "Saketh Merugu"
-      ],
-      "date": "2026-07-17",
-      "source": "OpenAlex",
-      "url": "https://doi.org/10.26434/chemrxiv.15006228/v1",
-      "pdf": "",
-      "relevance_score": 25,
-      "tags": [
-        "remaining useful life",
-        "RUL prediction"
-      ],
-      "venue": "",
-      "doi": "https://doi.org/10.26434/chemrxiv.15006228/v1",
-      "score_breakdown": {
-        "topic": 13,
-        "time_series": 3,
-        "dataset": 0,
-        "method": 0,
-        "freshness": 8,
-        "source": 1,
-        "negative": 0,
-        "total": 25
-      },
-      "negative_hits": [],
-      "research_question": "core_rul_phm",
-      "recommendation": "精读",
-      "decision_reason": "主题相关 13；时间序列 3；近期 8；命中: remaining useful life, RUL prediction"
-    },
-    {
       "id": "openalex:W7169561688",
       "title": "AI-Powered Predictive Maintenance: A Comprehensive Review of Deep Learning Approaches for Smart Manufacturing",
       "abstract": "The rapid emergence of Industry 4.0 technologies has significantly transformed manufacturing industries by integrating Artificial Intelligence (AI), Industrial Internet of Things (IIoT), Cloud Computing, Big Data Analytics, and CyberPhysical Systems. Among these advancements, predictive maintenance has emerged as one of the most promising applications for improving operational efficiency and equipment reliability. Traditional maintenance strategies, such as corrective and preventive maintenance, often lead to increased operational costs, unnecessary maintenance activities, and unexpected equip",
@@ -501,111 +886,41 @@
       "decision_reason": "主题相关 8；数据集相关 5；近期 8；命中: remaining useful life, transformer, CMAPSS"
     },
     {
-      "id": "openalex:W7169574308",
-      "title": "Optimising Aircraft Fleet Maintenance with Reinforcement Learning: A numerical case study",
-      "abstract": "Unexpected failures and inefficient maintenance plans lead to costly downtime in many industrial fields, undermining operational sustainability and overall profitability, or, in the worst scenarios, creating unsafe situations for people. These issues justify a shift towards predictive maintenance, and structural health monitoring (SHM) has emerged as a viable option. By exploiting modern hardware and software technologies, the diagnosis and prognosis of monitored structures can be performed while accounting for estimation uncertainty. In addition, for complex structures, monitoring all compone",
+      "id": "openalex:W7169755510",
+      "title": "Hyperbolic Hypergraph Neural Networks for Hierarchical Fault Diagnosis in Rotating Machinery",
+      "abstract": "Intelligent fault diagnosis of rotating machinery is essential for ensuring the safety and reliability of industrial systems. While hypergraph neural networks (HGNNs) have recently shown promise for modeling high-order dependencies beyond pairwise graph methods, most existing variants operate in Euclidean space, which is not explicitly aligned with hierarchical fault-response structure (root cause to fault mode to observed response). To address this limitation, we propose Hyperbolic Hypergraph Neural Network (H2GNN), a framework that integrates hyperbolic geometry with hypergraph neural networ",
       "authors": [
-        "Emanuele Petriconi",
-        "Claudio Giglio, marco, sbarufatti"
+        "Lingzheng Pan",
+        "Kyaw Hlaing Bwar",
+        "Rifai Chai",
+        "Yuqi Wang",
+        "Boon Xian Chai"
       ],
       "date": "2026-07-17",
       "source": "OpenAlex",
-      "url": "https://doi.org/10.58286/33785",
+      "url": "https://doi.org/10.3390/s26144549",
       "pdf": "",
-      "relevance_score": 20,
+      "relevance_score": 19,
       "tags": [
-        "remaining useful life",
-        "predictive maintenance"
+        "CWRU",
+        "MFPT"
       ],
       "venue": "",
-      "doi": "https://doi.org/10.58286/33785",
+      "doi": "https://doi.org/10.3390/s26144549",
       "score_breakdown": {
-        "topic": 11,
+        "topic": 0,
         "time_series": 0,
-        "dataset": 0,
+        "dataset": 10,
         "method": 0,
         "freshness": 8,
         "source": 1,
         "negative": 0,
-        "total": 20
+        "total": 19
       },
       "negative_hits": [],
-      "research_question": "core_rul_phm",
-      "recommendation": "精读",
-      "decision_reason": "主题相关 11；近期 8；命中: remaining useful life, predictive maintenance"
-    },
-    {
-      "id": "openalex:W7169213346",
-      "title": "Hybrid temporal deep learning and ensemble regression framework for remaining useful life prediction of lithium-ion batteries in energy storage systems",
-      "abstract": "Accurate prediction of the remaining useful life (RUL) of lithium-ion batteries (LIBs) is essential for enhancing the reliability, operational safety, and energy management efficiency of electric vehicles and modern energy storage systems. However, battery degradation is governed by highly nonlinear electrochemical mechanisms and complex temporal dependencies that are difficult to model using conventional physics-based approaches or standalone machine learning techniques. To address these challenges, this article proposes a hybrid data-driven framework integrating a Temporal Convolutional Netw",
-      "authors": [
-        "T. Mariprasath",
-        "Kumaresh S S",
-        "Seif Al Bustanji",
-        "Viktoriia Bereznychenko"
-      ],
-      "date": "2026-07-16",
-      "source": "OpenAlex",
-      "url": "https://doi.org/10.1177/01445987261470170",
-      "pdf": "",
-      "relevance_score": 38,
-      "tags": [
-        "remaining useful life",
-        "predictive maintenance",
-        "RUL prediction",
-        "RUL estimation"
-      ],
-      "venue": "",
-      "doi": "https://doi.org/10.1177/01445987261470170",
-      "score_breakdown": {
-        "topic": 29,
-        "time_series": 0,
-        "dataset": 0,
-        "method": 0,
-        "freshness": 8,
-        "source": 1,
-        "negative": 0,
-        "total": 38
-      },
-      "negative_hits": [],
-      "research_question": "core_rul_phm",
-      "recommendation": "精读",
-      "decision_reason": "主题相关 29；近期 8；命中: remaining useful life, predictive maintenance, RUL prediction"
-    },
-    {
-      "id": "openalex:W7168909414",
-      "title": "Source-Free Joint SOC/SOH Estimation for Lithium-ion Batteries via Task-Specific Adapters and Interaction Attention",
-      "abstract": "In some practical applications, source domain data are unavailable during transfer stage due to constraints such as data privacy and commercial confidentiality. This limitation presents a major challenge for cross-condition estimation of lithium-ion batteries. To address this scenario, this paper proposes a Source-Free Joint Estimation framework for the simultaneous prediction of State of Charge (SOC) and State of Health (SOH). The framework disentangles general and task-specific representations through a shared backbone, two parallel task-specific modules, and a subsequent task interaction at",
-      "authors": [
-        "Ruhui Fan",
-        "Yi Lyu",
-        "Xu Xiao",
-        "Guiduo Duan"
-      ],
-      "date": "2026-07-16",
-      "source": "OpenAlex",
-      "url": "https://doi.org/10.17531/ein/225071",
-      "pdf": "",
-      "relevance_score": 23,
-      "tags": [
-        "state of health"
-      ],
-      "venue": "",
-      "doi": "https://doi.org/10.17531/ein/225071",
-      "score_breakdown": {
-        "topic": 14,
-        "time_series": 0,
-        "dataset": 0,
-        "method": 0,
-        "freshness": 8,
-        "source": 1,
-        "negative": 0,
-        "total": 23
-      },
-      "negative_hits": [],
-      "research_question": "related",
-      "recommendation": "快读",
-      "decision_reason": "主题相关 14；近期 8；命中: state of health"
+      "research_question": "dataset_benchmark",
+      "recommendation": "对比实验",
+      "decision_reason": "数据集相关 10；近期 8；命中: CWRU, MFPT"
     },
     {
       "id": "openalex:W7168387478",
@@ -1044,44 +1359,6 @@
       "decision_reason": "主题相关 23；数据集相关 5；近期 8；命中: remaining useful life, C-MAPSS, predictive maintenance"
     },
     {
-      "id": "openalex:W7168088750",
-      "title": "Edge‐Based Stochastic Koopman–Lyapunov Graph for Anomaly Detection and RUL Prediction in Turbofan Engines",
-      "abstract": "ABSTRACT The detection of anomalies and prediction of remaining useful life (RUL) of aircraft engines is crucial for ensuring flight safety, optimizing maintenance, and reducing operational costs. Thus, this work proposes a Dual‐Rate Physics‐Guided Stochastic Graph Prognostics Framework for robust anomaly detection and precise RUL prediction in turbofan engines. During anomaly detection, dual‐rate cascading failures behavior hides early precursor signals and leads to a dormant fault mystification effect and reduced reliability. To tackle this, a Stochastic Koopman–Lyapunov Graph Bayesian Netwo",
-      "authors": [
-        "Sasmita Pani",
-        "Binod Kumar Pattanayak",
-        "Bhupendra Kumar Gupta",
-        "Sudeepta Pal",
-        "Omkar Pattnaik"
-      ],
-      "date": "2026-07-12",
-      "source": "OpenAlex",
-      "url": "https://doi.org/10.1002/qre.70313",
-      "pdf": "",
-      "relevance_score": 36,
-      "tags": [
-        "remaining useful life",
-        "degradation prediction",
-        "RUL prediction"
-      ],
-      "venue": "",
-      "doi": "https://doi.org/10.1002/qre.70313",
-      "score_breakdown": {
-        "topic": 27,
-        "time_series": 0,
-        "dataset": 0,
-        "method": 0,
-        "freshness": 8,
-        "source": 1,
-        "negative": 0,
-        "total": 36
-      },
-      "negative_hits": [],
-      "research_question": "core_rul_phm",
-      "recommendation": "精读",
-      "decision_reason": "主题相关 27；近期 8；命中: remaining useful life, degradation prediction, RUL prediction"
-    },
-    {
       "id": "openalex:W7168098178",
       "title": "Replication package for Privacy-Aware Federated Measurement Analytics for Remaining Useful Life Estimation from Distributed Sensor Streams",
       "abstract": "Code, derived result tables, and generated figures for privacy-aware federated remaining useful life experiments on NASA C-MAPSS and NASA IMS bearing vibration benchmarks. Raw public benchmark datasets are not redistributed; the README describes how to place or reference them.",
@@ -1517,7 +1794,7 @@
       "source": "OpenAlex",
       "url": "https://doi.org/10.1016/j.ress.2026.113108",
       "pdf": "",
-      "relevance_score": 19,
+      "relevance_score": 16,
       "tags": [
         "remaining useful life"
       ],
@@ -1528,15 +1805,15 @@
         "time_series": 0,
         "dataset": 0,
         "method": 0,
-        "freshness": 8,
+        "freshness": 5,
         "source": 1,
         "negative": 0,
-        "total": 19
+        "total": 16
       },
       "negative_hits": [],
       "research_question": "core_rul_phm",
-      "recommendation": "精读",
-      "decision_reason": "主题相关 10；近期 8；命中: remaining useful life"
+      "recommendation": "快读",
+      "decision_reason": "主题相关 10；近期 5；命中: remaining useful life"
     },
     {
       "id": "openalex:W7167482517",
@@ -1993,42 +2270,6 @@
       "decision_reason": "数据集相关 10；近期 5；命中: CWRU, MFPT"
     },
     {
-      "id": "openalex:W7163417313",
-      "title": "BEAM-Net: A Lightweight Bearing Fault Diagnosis Network via Spectral Trend Decomposition and Weighted Convolution",
-      "abstract": "Rolling bearing fault diagnosis is critical for ensuring the safe operation of rotating machinery, yet it faces significant challenges in noisy environments. This paper proposes BEAM-Net (Bearing-spectrum Enhanced by EMA and Weighted Spectral Convolution Network), a lightweight neural network designed specifically for rolling bearing fault diagnosis under strong noise conditions. Classifying bearing faults from vibration signals remains a challenging task when fault-related features are subtle and easily submerged in background noise—especially when the signal-to-noise ratio (SNR) is low. To a",
-      "authors": [
-        "Ran Duan",
-        "Tingzhang Zhou",
-        "Guangyin Jin"
-      ],
-      "date": "2026-06-03",
-      "source": "OpenAlex",
-      "url": "https://doi.org/10.3390/app16115602",
-      "pdf": "",
-      "relevance_score": 21,
-      "tags": [
-        "CWRU",
-        "Paderborn",
-        "MFPT"
-      ],
-      "venue": "",
-      "doi": "https://doi.org/10.3390/app16115602",
-      "score_breakdown": {
-        "topic": 0,
-        "time_series": 0,
-        "dataset": 15,
-        "method": 0,
-        "freshness": 5,
-        "source": 1,
-        "negative": 0,
-        "total": 21
-      },
-      "negative_hits": [],
-      "research_question": "dataset_benchmark",
-      "recommendation": "对比实验",
-      "decision_reason": "数据集相关 15；近期 5；命中: CWRU, Paderborn, MFPT"
-    },
-    {
       "id": "s2:95721a5c4767aee6e8b6",
       "title": "MTCAT: A Modern Temporal Convolution and Enhanced Attention Transformer Model for Remaining Useful Life Prediction of Aerospace Self-Lubricating Bearings",
       "abstract": "As mission-critical components in aircraft flap actuation systems, aerospace self-lubricating bearings play a pivotal role in ensuring operational safety during critical flight phases. Conventional machine learning approaches for remaining useful life (RUL) prediction suffer from limited time-series and nonlinear modeling capabilities. Especially individual models, built on a single algorithmic paradigm, struggle to address the complex, multidimensional challenges of RUL prediction. To solve the above challenge, this study proposes an innovative hybrid deep learning method integrating moderniz",
@@ -2244,6 +2485,41 @@
       "decision_reason": "时间序列 20；近期 1；命中: time series forecasting, time series foundation model"
     },
     {
+      "id": "s2:b408c0b3bef7650bafd0",
+      "title": "Comparison of deep learning models for predictive maintenance in industrial manufacturing systems using sensor data",
+      "abstract": "This paper presents a comprehensive comparison of deep learning models for predictive maintenance (PdM) in industrial manufacturing systems using sensor data. We propose a framework that encompasses data acquisition, preprocessing, and model construction using various deep learning architectures, including Convolutional Neural Networks (CNNs), Long Short-Term Memory (LSTM) networks, and their hybrid variants. Experiments conducted on three industrial datasets demonstrate the effectiveness of these models in predicting equipment failures and estimating remaining useful life. The CNN-LSTM hybrid",
+      "authors": [
+        "Wenjun Li",
+        "Ting Li"
+      ],
+      "date": "2025-07-02",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/b408c0b3bef7650bafd047f1eebb9cd88363580f",
+      "pdf": "",
+      "venue": "Scientific Reports",
+      "citations": 64,
+      "doi": "10.1038/s41598-025-08515-z",
+      "relevance_score": 17,
+      "tags": [
+        "remaining useful life",
+        "predictive maintenance"
+      ],
+      "score_breakdown": {
+        "topic": 14,
+        "time_series": 0,
+        "dataset": 0,
+        "method": 0,
+        "freshness": 1,
+        "source": 2,
+        "negative": 0,
+        "total": 17
+      },
+      "negative_hits": [],
+      "research_question": "core_rul_phm",
+      "recommendation": "快读",
+      "decision_reason": "主题相关 14；近期 1；命中: remaining useful life, predictive maintenance"
+    },
+    {
       "id": "s2:e14028c2234f2077395b",
       "title": "Federated transfer learning for remaining useful life prediction in prognostics with data privacy",
       "abstract": "Collaborative model training with multiple clients is becoming an effective solution for prognostic problems, due to the scarcity of the machine run-to-failure data in the real industries. However, direct data sharing and centralized learning are usually not feasible in practice, since the private local data basically cannot be exposed to the other commercial clients. Furthermore, the machines at different clients mostly have different degradation patterns and failure modes, resulting in different data distributions. That poses great challenges for data-driven knowledge transfer across clients",
@@ -2281,39 +2557,41 @@
       "decision_reason": "主题相关 12；方法可借鉴 2；近期 1；命中: remaining useful life, transfer learning"
     },
     {
-      "id": "s2:73c186d0eb88f0e79182",
-      "title": "Multiscale Temporal Dynamic Learning for Time Series Classification",
-      "abstract": "Time series classification (TSC) is crucial in many applications, yet accurately modeling complex time series patterns remains challenging. Model-based TSC strives to aptly model time series by capturing their intrinsic temporal dynamics, deriving effective dynamic representations for classification. Despite significant progress in this domain, existing works are still constrained by a singular and overly simplistic modeling paradigm, which proves inadequate to handle the multiscale hierarchies inherent in time series. Additionally, the prevailing reliance on manual model configuration fails t",
+      "id": "s2:d3cb34af033058bc64aa",
+      "title": "Addressing Sensor Data Heterogeneity and Sample Imbalance: A Transformer-Based Approach for Battery Degradation Prediction in Electric Vehicles",
+      "abstract": "Battery health monitoring and remaining useful life (RUL) estimation for electric vehicles face two significant challenges: battery data heterogeneity and sample imbalance. This study presents a novel approach based on Transformer architecture to specifically address these issues. We utilized the NASA lithium-ion battery cycling dataset, which contains charge-discharge and impedance measurement data under various temperature conditions. To tackle data heterogeneity, we developed a multimodal feature fusion strategy that effectively integrates battery sensor data from different sources and form",
       "authors": [
-        "Shikang Liu",
-        "Xiren Zhou",
-        "Huanhuan Chen"
+        "Bi Wu",
+        "Shi Qiu",
+        "Wenhe Liu"
       ],
       "date": "2025-06-01",
       "source": "Semantic Scholar",
-      "url": "https://www.semanticscholar.org/paper/73c186d0eb88f0e791823dcb61b37c7ad1828217",
+      "url": "https://www.semanticscholar.org/paper/d3cb34af033058bc64aa833c25954602ba8a73e1",
       "pdf": "",
-      "venue": "IEEE Transactions on Knowledge and Data Engineering",
-      "citations": 26,
-      "doi": "10.1109/TKDE.2025.3542799",
-      "relevance_score": 19,
+      "venue": "Italian National Conference on Sensors",
+      "citations": 14,
+      "doi": "10.3390/s25113564",
+      "relevance_score": 21,
       "tags": [
-        "time series classification"
+        "remaining useful life",
+        "degradation prediction",
+        "transformer"
       ],
       "score_breakdown": {
-        "topic": 0,
-        "time_series": 16,
+        "topic": 16,
+        "time_series": 0,
         "dataset": 0,
-        "method": 0,
+        "method": 2,
         "freshness": 1,
         "source": 2,
         "negative": 0,
-        "total": 19
+        "total": 21
       },
       "negative_hits": [],
-      "research_question": "time_series_method",
-      "recommendation": "方法借鉴",
-      "decision_reason": "时间序列 16；近期 1；命中: time series classification"
+      "research_question": "core_rul_phm",
+      "recommendation": "精读",
+      "decision_reason": "主题相关 16；方法可借鉴 2；近期 1；命中: remaining useful life, degradation prediction, transformer"
     },
     {
       "id": "s2:844e00b6372a258235fa",
@@ -2349,44 +2627,6 @@
       "research_question": "time_series_method",
       "recommendation": "方法借鉴",
       "decision_reason": "时间序列 20；近期 1；命中: time series forecasting, time series prediction"
-    },
-    {
-      "id": "s2:6d3a2b57731d89c28d39",
-      "title": "Temporal Query Network for Efficient Multivariate Time Series Forecasting",
-      "abstract": "Sufficiently modeling the correlations among variables (aka channels) is crucial for achieving accurate multivariate time series forecasting (MTSF). In this paper, we propose a novel technique called Temporal Query (TQ) to more effectively capture multivariate correlations, thereby improving model performance in MTSF tasks. Technically, the TQ technique employs periodically shifted learnable vectors as queries in the attention mechanism to capture global inter-variable patterns, while the keys and values are derived from the raw input data to encode local, sample-level correlations. Building u",
-      "authors": [
-        "Shengsheng Lin",
-        "Haojun Chen",
-        "Haijie Wu",
-        "Chunyu Qiu",
-        "Weiwei Lin"
-      ],
-      "date": "2025-05-19",
-      "source": "Semantic Scholar",
-      "url": "https://www.semanticscholar.org/paper/6d3a2b57731d89c28d39cca589e84118c9055a6f",
-      "pdf": "https://arxiv.org/pdf/2505.12917",
-      "venue": "International Conference on Machine Learning",
-      "citations": 45,
-      "doi": "10.48550/arXiv.2505.12917",
-      "relevance_score": 27,
-      "tags": [
-        "time series forecasting",
-        "multivariate time series"
-      ],
-      "score_breakdown": {
-        "topic": 0,
-        "time_series": 24,
-        "dataset": 0,
-        "method": 0,
-        "freshness": 1,
-        "source": 2,
-        "negative": 0,
-        "total": 27
-      },
-      "negative_hits": [],
-      "research_question": "time_series_method",
-      "recommendation": "方法借鉴",
-      "decision_reason": "时间序列 24；近期 1；命中: time series forecasting, multivariate time series"
     },
     {
       "id": "s2:49fce9c5269f71afb4a1",
@@ -2676,6 +2916,78 @@
       "decision_reason": "主题相关 10；近期 1；命中: remaining useful life"
     },
     {
+      "id": "s2:7940703c0a5a7b86feb0",
+      "title": "AI for Predictive Maintenance in Industrial Systems",
+      "abstract": "Predictive maintenance or PdM has taken the lead in the control and productivity of industrial systems. Adaptations of artificial intelligence, particularly the machine learning (ML) and neural networks, which enabled real-time predictive analytics based on sensor data, have revolutionizing traditional methods of conducting maintenance. This paper studies the power of AI in predictive maintenance of industrial systems with a focus on its forecasting abilities of equipment failures, creation of optimal maintenance schedules, and downtime minimization. The paper expresses various AI methods such",
+      "authors": [
+        "Zainab Al Ghurabli",
+        "Ahmed Ali Otoom"
+      ],
+      "date": "2025-04-16",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/7940703c0a5a7b86feb0286c37f662d04f7eb24a",
+      "pdf": "",
+      "venue": "2025 International Conference on Business Intelligence for Technology Innovation (ICBITI)",
+      "citations": 29,
+      "doi": "10.1109/ICBITI65527.2025.11500820",
+      "relevance_score": 13,
+      "tags": [
+        "predictive maintenance",
+        "federated learning"
+      ],
+      "score_breakdown": {
+        "topic": 10,
+        "time_series": 0,
+        "dataset": 0,
+        "method": 0,
+        "freshness": 1,
+        "source": 2,
+        "negative": 0,
+        "total": 13
+      },
+      "negative_hits": [],
+      "research_question": "related",
+      "recommendation": "快读",
+      "decision_reason": "主题相关 10；近期 1；命中: predictive maintenance, federated learning"
+    },
+    {
+      "id": "s2:f09c40fabbcddb9db54d",
+      "title": "Systematic review of predictive maintenance practices in the manufacturing sector",
+      "abstract": "",
+      "authors": [
+        "Abdeldjalil Benhanifia",
+        "Zied Ben Cheikh",
+        "Paulo Moura Oliveira",
+        "António Valente",
+        "José Lima"
+      ],
+      "date": "2025-04-01",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/f09c40fabbcddb9db54d8ac2f0aa3939a3a61897",
+      "pdf": "",
+      "venue": "Intelligent Systems with Applications",
+      "citations": 62,
+      "doi": "10.1016/j.iswa.2025.200501",
+      "relevance_score": 13,
+      "tags": [
+        "predictive maintenance"
+      ],
+      "score_breakdown": {
+        "topic": 10,
+        "time_series": 0,
+        "dataset": 0,
+        "method": 0,
+        "freshness": 1,
+        "source": 2,
+        "negative": 0,
+        "total": 13
+      },
+      "negative_hits": [],
+      "research_question": "related",
+      "recommendation": "快读",
+      "decision_reason": "主题相关 10；近期 1；命中: predictive maintenance"
+    },
+    {
       "id": "s2:296cfb2c19c042286ff4",
       "title": "Detection of cyber attacks in electric vehicle charging systems using a remaining useful life generative adversarial network",
       "abstract": "Cybersecurity attacks targeting electric vehicle supply equipment (EVSE) and the broader electric vehicle (EV) ecosystem have become an escalating concern with the increasing adoption of EVs and the growing connectivity of the infrastructure supporting them. The present research aims to contribute to continuing cybersecurity studies on electric vehicle charging stations. In line with this objective, this study proposes the remaining useful life (RUL) approach to demonstrate the potential impact of estimating the remaining time of a cyber attack on EVSE and what revolutionary changes it can bri",
@@ -2711,6 +3023,114 @@
       "research_question": "core_rul_phm",
       "recommendation": "快读",
       "decision_reason": "主题相关 14；近期 1；命中: remaining useful life"
+    },
+    {
+      "id": "s2:f237796397b54c144a92",
+      "title": "A comprehensive review on artificial intelligence driven predictive maintenance in vehicles: technologies, challenges and future research directions",
+      "abstract": "Predictive maintenance has rapidly grown in automotive industries with the advancements in artificial intelligence (AI) technologies like machine learning, deep learning, and now generative AI. The amount of data extracted from machines with sensors and other network technologies can be valuable and useful for building advanced solutions in predictive maintenance tasks. This, in turn, helps improve vehicle up-time and reliability. This paper comprehensively reviews the different technologies and methods used for predictive maintenance. A systematic literature review of 94 papers was conducted ",
+      "authors": [
+        "Yashashree Mahale",
+        "Shrikrishna Kolhar",
+        "A. More"
+      ],
+      "date": "2025-03-20",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/f237796397b54c144a92e8b24a034267c8d40965",
+      "pdf": "",
+      "venue": "Discover Applied Sciences",
+      "citations": 46,
+      "doi": "10.1007/s42452-025-06681-3",
+      "relevance_score": 18,
+      "tags": [
+        "remaining useful life",
+        "predictive maintenance"
+      ],
+      "score_breakdown": {
+        "topic": 15,
+        "time_series": 0,
+        "dataset": 0,
+        "method": 0,
+        "freshness": 1,
+        "source": 2,
+        "negative": 0,
+        "total": 18
+      },
+      "negative_hits": [],
+      "research_question": "core_rul_phm",
+      "recommendation": "精读",
+      "decision_reason": "主题相关 15；近期 1；命中: remaining useful life, predictive maintenance"
+    },
+    {
+      "id": "s2:26d6adb220a7a9c5b3d0",
+      "title": "AI-Driven Predictive Maintenance in Mining: A Systematic Literature Review on Fault Detection, Digital Twins, and Intelligent Asset Management",
+      "abstract": "The mining industry faces increasing challenges in maintaining high production levels while minimizing unplanned failures and operational costs. Critical assets, such as crushers, conveyor belts, mills, and ventilation systems, operate under extreme conditions, leading to accelerated wear and failure risks. Traditional maintenance strategies often fail to prevent unexpected downtimes, safety hazards, and economic losses. As a response, industries are integrating predictive monitoring technologies, including machine learning, the Internet of Things, and digital twins, to enhance early fault det",
+      "authors": [
+        "Luis Rojas",
+        "Álvaro Peña",
+        "José García"
+      ],
+      "date": "2025-03-19",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/26d6adb220a7a9c5b3d0f7cb8191648c99e0d8e6",
+      "pdf": "",
+      "venue": "Applied Sciences",
+      "citations": 104,
+      "doi": "10.3390/app15063337",
+      "relevance_score": 13,
+      "tags": [
+        "predictive maintenance"
+      ],
+      "score_breakdown": {
+        "topic": 10,
+        "time_series": 0,
+        "dataset": 0,
+        "method": 0,
+        "freshness": 1,
+        "source": 2,
+        "negative": 0,
+        "total": 13
+      },
+      "negative_hits": [],
+      "research_question": "related",
+      "recommendation": "快读",
+      "decision_reason": "主题相关 10；近期 1；命中: predictive maintenance"
+    },
+    {
+      "id": "s2:5dbb0776662824df97bf",
+      "title": "Generative AI in AI-Based Digital Twins for Fault Diagnosis for Predictive Maintenance in Industry 4.0/5.0",
+      "abstract": "Generative AI (GenAI) is revolutionizing digital twins (DTs) for fault diagnosis and predictive maintenance in Industry 4.0 and 5.0 by enabling real-time simulation, data augmentation, and improved anomaly detection. DTs, virtual replicas of physical systems, already use generative models to simulate various failure scenarios and rare events, improving system resilience and failure prediction accuracy. They create synthetic datasets that improve training quality while addressing data scarcity and data imbalance. The aim of this paper was to present the current state of the art and perspectives",
+      "authors": [
+        "Emilia Mikołajewska",
+        "D. Mikołajewski",
+        "Tadeusz Mikołajczyk",
+        "T. Pączkowski"
+      ],
+      "date": "2025-03-14",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/5dbb0776662824df97bf31db96abfea0c230068b",
+      "pdf": "",
+      "venue": "Applied Sciences",
+      "citations": 99,
+      "doi": "10.3390/app15063166",
+      "relevance_score": 13,
+      "tags": [
+        "predictive maintenance",
+        "federated learning"
+      ],
+      "score_breakdown": {
+        "topic": 10,
+        "time_series": 0,
+        "dataset": 0,
+        "method": 0,
+        "freshness": 1,
+        "source": 2,
+        "negative": 0,
+        "total": 13
+      },
+      "negative_hits": [],
+      "research_question": "related",
+      "recommendation": "快读",
+      "decision_reason": "主题相关 10；近期 1；命中: predictive maintenance, federated learning"
     },
     {
       "id": "s2:5ff17a8fb64ca32fb381",
@@ -2823,42 +3243,76 @@
       "decision_reason": "主题相关 10；近期 1；命中: remaining useful life"
     },
     {
-      "id": "s2:5d6839c5bc24f1e79952",
-      "title": "Mantis: Lightweight Foundation Model for Time Series Classification",
-      "abstract": "While foundation models have revolutionized various domains, their application to time series classification remains rather under-explored, with existing literature predominantly focused on forecasting. To bridge this gap, we introduce \\textbf{Mantis}, a transformer-based foundation model pre-trained exclusively on synthetic data via self-supervised contrastive learning. We demonstrate that effective tokenization is critical to unlocking the full potential of transformers, proposing a novel token generator unit. Furthermore, we introduce an enhanced test-time methodology that bridges the perfo",
+      "id": "s2:ef384efee35c639ce8c8",
+      "title": "Intelligent Performance Degradation Prediction of Light-Duty Gas Turbine Engine Based on Limited Data",
+      "abstract": "The health monitoring system has been the main technological approach to extending the life of gas turbine engines and reducing maintenance costs resulting from performance degradation caused by asymmetric factors like carbon deposition, damage, or deformation. One of the most critical techniques within the health monitoring system is performance degradation prediction. At present, most research on degradation prediction is carried out using NASA’s open dataset, C-MAPSS, without considering that monitoring measurements are not always available, as in the ideal dataset. This limitation makes fa",
       "authors": [
-        "Vasilii Feofanov",
-        "Songkang Wen",
-        "Shifeng Xie",
-        "Simon Roschmann",
-        "Marius Alonso"
+        "Chunyan Hu",
+        "Keqiang Miao",
+        "Mingyang Zhou",
+        "Yafeng Shen",
+        "Jiaxian Sun"
       ],
-      "date": "2025-02-21",
+      "date": "2025-02-11",
       "source": "Semantic Scholar",
-      "url": "https://www.semanticscholar.org/paper/5d6839c5bc24f1e79952ab1945efebd0c6b8f8e1",
-      "pdf": "https://arxiv.org/pdf/2502.15637",
-      "venue": "",
-      "citations": 26,
-      "doi": "",
-      "relevance_score": 21,
+      "url": "https://www.semanticscholar.org/paper/ef384efee35c639ce8c8c1129ce70b4c7586bb56",
+      "pdf": "",
+      "venue": "Symmetry",
+      "citations": 5,
+      "doi": "10.3390/sym17020277",
+      "relevance_score": 20,
       "tags": [
-        "time series classification",
-        "transformer"
+        "remaining useful life",
+        "C-MAPSS",
+        "degradation prediction"
       ],
       "score_breakdown": {
-        "topic": 0,
-        "time_series": 16,
-        "dataset": 0,
-        "method": 2,
+        "topic": 13,
+        "time_series": 0,
+        "dataset": 4,
+        "method": 0,
         "freshness": 1,
         "source": 2,
         "negative": 0,
-        "total": 21
+        "total": 20
       },
       "negative_hits": [],
-      "research_question": "time_series_method",
-      "recommendation": "方法借鉴",
-      "decision_reason": "时间序列 16；方法可借鉴 2；近期 1；命中: time series classification, transformer"
+      "research_question": "core_rul_phm",
+      "recommendation": "精读",
+      "decision_reason": "主题相关 13；数据集相关 4；近期 1；命中: remaining useful life, C-MAPSS, degradation prediction"
+    },
+    {
+      "id": "s2:20a4e3233ee714e8689c",
+      "title": "AI-DRIVEN FAULT DETECTION AND PREDICTIVE MAINTENANCE IN ELECTRICAL POWER SYSTEMS: A SYSTEMATIC REVIEW OF DATA-DRIVEN APPROACHES, DIGITAL TWINS, AND SELF-HEALING GRIDS",
+      "abstract": "The increasing complexity of electrical power systems necessitates advanced fault detection and predictive maintenance strategies to enhance operational efficiency and grid reliability. Traditional maintenance approaches, such as reactive and preventive maintenance, have proven insufficient in mitigating unplanned outages and optimizing asset utilization. Recent advancements in artificial intelligence (AI) have introduced data-driven solutions that significantly improve fault classification, failure prediction, and automated recovery processes. This study conducts a systematic review of 180 hi",
+      "authors": [
+        "Sohel Rana"
+      ],
+      "date": "2025-02-03",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/20a4e3233ee714e8689c3ec2fb550040bb41a9f9",
+      "pdf": "",
+      "venue": "American Journal of Advanced Technology and Engineering Solutions",
+      "citations": 67,
+      "doi": "10.63125/4p25x993",
+      "relevance_score": 13,
+      "tags": [
+        "predictive maintenance"
+      ],
+      "score_breakdown": {
+        "topic": 10,
+        "time_series": 0,
+        "dataset": 0,
+        "method": 0,
+        "freshness": 1,
+        "source": 2,
+        "negative": 0,
+        "total": 13
+      },
+      "negative_hits": [],
+      "research_question": "related",
+      "recommendation": "快读",
+      "decision_reason": "主题相关 10；近期 1；命中: predictive maintenance"
     },
     {
       "id": "s2:3455be426af77f62199f",
@@ -3072,43 +3526,6 @@
       "decision_reason": "主题相关 30；近期 1；命中: remaining useful life, RUL prediction, RUL estimation"
     },
     {
-      "id": "s2:f642d2fa83b8531ad7d1",
-      "title": "A multiscale model for multivariate time series forecasting",
-      "abstract": "Transformer based models for time-series forecasting have shown promising performance and during the past few years different Transformer variants have been proposed in time-series forecasting domain. However, most of the existing methods, mainly represent the time-series from a single scale, making it challenging to capture various time granularities or ignore inter-series correlations between the series which might lead to inaccurate forecasts. In this paper, we address the above mentioned shortcomings and propose a Transformer based model which integrates multi-scale patch-wise temporal mod",
-      "authors": [
-        "Vahid Naghashi",
-        "Mounir Boukadoum",
-        "A. Diallo"
-      ],
-      "date": "2025-01-10",
-      "source": "Semantic Scholar",
-      "url": "https://www.semanticscholar.org/paper/f642d2fa83b8531ad7d1a88c9da0cd91f1bb714c",
-      "pdf": "",
-      "venue": "Scientific Reports",
-      "citations": 41,
-      "doi": "10.1038/s41598-024-82417-4",
-      "relevance_score": 28,
-      "tags": [
-        "time series forecasting",
-        "multivariate time series",
-        "transformer"
-      ],
-      "score_breakdown": {
-        "topic": 0,
-        "time_series": 24,
-        "dataset": 0,
-        "method": 1,
-        "freshness": 1,
-        "source": 2,
-        "negative": 0,
-        "total": 28
-      },
-      "negative_hits": [],
-      "research_question": "time_series_method",
-      "recommendation": "方法借鉴",
-      "decision_reason": "时间序列 24；方法可借鉴 1；近期 1；命中: time series forecasting, multivariate time series, transformer"
-    },
-    {
       "id": "s2:3cbf73d3908621b2135f",
       "title": "Remaining Useful Life Prediction Methodologies With Health Indicator Dependence for Rotating Machinery: A Comprehensive Review",
       "abstract": "Facilitated by artificial intelligence (AI) technologies such as deep learning (DL), predictive maintenance (PdM) has emerged as the most cost-effective maintenance approach for significantly enhancing the safety and availability of industrial equipment. Remaining useful life (RUL) prediction of rotating machinery (RM) is one of the core tasks of PdM, which can assist in maintenance decision-making and optimize asset allocation. Among them, the prognostic approach with health indicator (HI) as an intermediate bridge has attracted increasing attention due to its advantages in combining health c",
@@ -3227,44 +3644,6 @@
       "decision_reason": "主题相关 19；近期 1；命中: remaining useful life, RUL prediction"
     },
     {
-      "id": "s2:e725b39906251f9e47bf",
-      "title": "A Survey of Deep Anomaly Detection in Multivariate Time Series: Taxonomy, Applications, and Directions",
-      "abstract": "Multivariate time series anomaly detection (MTSAD) can effectively identify and analyze anomalous behavior in complex systems, which is particularly important in fields such as financial monitoring, industrial equipment fault detection, and cybersecurity. MTSAD requires simultaneously analyze temporal dependencies and inter-variable relationships have prompted researchers to develop specialized deep learning models to detect anomalous patterns. In this paper, we conducted a structured and comprehensive overview of the latest techniques in deep learning for multivariate time series anomaly dete",
-      "authors": [
-        "Fengling Wang",
-        "Yiyue Jiang",
-        "Rongjie Zhang",
-        "Aimin Wei",
-        "Jingming Xie"
-      ],
-      "date": "2025-01-01",
-      "source": "Semantic Scholar",
-      "url": "https://www.semanticscholar.org/paper/e725b39906251f9e47bf99e06ad11015856fba3d",
-      "pdf": "",
-      "venue": "Italian National Conference on Sensors",
-      "citations": 91,
-      "doi": "10.3390/s25010190",
-      "relevance_score": 22,
-      "tags": [
-        "multivariate time series",
-        "time series anomaly detection"
-      ],
-      "score_breakdown": {
-        "topic": 0,
-        "time_series": 19,
-        "dataset": 0,
-        "method": 0,
-        "freshness": 1,
-        "source": 2,
-        "negative": 0,
-        "total": 22
-      },
-      "negative_hits": [],
-      "research_question": "time_series_method",
-      "recommendation": "方法借鉴",
-      "decision_reason": "时间序列 19；近期 1；命中: multivariate time series, time series anomaly detection"
-    },
-    {
       "id": "s2:b0d6ffb827a9cdfb3b45",
       "title": "A survey on few-shot learning for remaining useful life prediction",
       "abstract": "",
@@ -3299,6 +3678,42 @@
       "research_question": "core_rul_phm",
       "recommendation": "快读",
       "decision_reason": "主题相关 10；近期 1；命中: remaining useful life"
+    },
+    {
+      "id": "s2:dd653951c844ac0776a2",
+      "title": "Review of Recent Advances in Predictive Maintenance and Cybersecurity for Solar Plants",
+      "abstract": "This paper presents a systematic review that explores the latest advancements in predictive maintenance methods and cybersecurity for solar panel systems, shedding light on the advantages and challenges of the most recent developments in predictive maintenance techniques for solar plants. Numerous important research studies, reviews, and empirical studies published between 2018 and 2023 are examined. These technologies help in detecting defects, degradation, and anomalies in solar panels by facilitating early intervention and reducing the probability of inverter failures. The analysis also emp",
+      "authors": [
+        "Younes Ledmaoui",
+        "Adila El Maghraoui",
+        "Mohamed El Aroussi",
+        "R. Saadane"
+      ],
+      "date": "2025-01-01",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/dd653951c844ac0776a2b6da96e3e6a193a07b89",
+      "pdf": "",
+      "venue": "Italian National Conference on Sensors",
+      "citations": 40,
+      "doi": "10.3390/s25010206",
+      "relevance_score": 13,
+      "tags": [
+        "predictive maintenance"
+      ],
+      "score_breakdown": {
+        "topic": 10,
+        "time_series": 0,
+        "dataset": 0,
+        "method": 0,
+        "freshness": 1,
+        "source": 2,
+        "negative": 0,
+        "total": 13
+      },
+      "negative_hits": [],
+      "research_question": "related",
+      "recommendation": "快读",
+      "decision_reason": "主题相关 10；近期 1；命中: predictive maintenance"
     },
     {
       "id": "or:UCeZMMyjm2",
@@ -3445,155 +3860,372 @@
       "decision_reason": "时间序列 19；近期 1；命中: time series forecasting, time series foundation model, transformer"
     },
     {
-      "id": "s2:8cdfa5f70c7855bb297e",
-      "title": "Time series prediction model using LSTM-Transformer neural network for mine water inflow",
-      "abstract": "Mine flooding accidents have occurred frequently in recent years, and the predicting of mine water inflow is one of the most crucial flood warning indicators. Further, the mine water inflow is characterized by non-linearity and instability, making it difficult to predict. Accordingly, we propose a time series prediction model based on the fusion of the Transformer algorithm, which relies on self-attention, and the LSTM algorithm, which captures long-term dependencies. In this paper, Baotailong mine water inflow in Heilongjiang Province is used as sample data, and the sample data is divided int",
+      "id": "s2:14286fc3ee6440d9d09f",
+      "title": "Degradation Prediction of PEMFC Based on Data-Driven Method With Adaptive Fuzzy Sampling",
+      "abstract": "Durability is one of the concerns in the large-scale application of proton exchange membrane fuel cells (PEMFCs). The objective of this article is to propose a data-driven approach to achieve long-term prediction. The echo state network-cycle reservoir with a jump (ESN-CRJ) is an extended network based on an echo state network (ESN). ESN model is used to extract state information in the reservoir and transmit it to the cycle reservoir with a jump (CRJ) for voltage prediction of the stack. In addition, an adaptive fuzzy sampling (AFS) method is adopted to sample the training data in this articl",
       "authors": [
-        "Junwei Shi",
-        "Shiqi Wang",
-        "Pengfei Qu",
-        "Jianli Shao"
+        "Jiashu Jin",
+        "Yuepeng Chen",
+        "C. Xie",
+        "Fen Wu"
       ],
-      "date": "2024-08-07",
+      "date": "2024-06-01",
       "source": "Semantic Scholar",
-      "url": "https://www.semanticscholar.org/paper/8cdfa5f70c7855bb297ec93fced80fa685fffdfd",
+      "url": "https://www.semanticscholar.org/paper/14286fc3ee6440d9d09ff4ea8f3ad897d643ed8d",
       "pdf": "",
-      "venue": "Scientific Reports",
-      "citations": 103,
-      "doi": "10.1038/s41598-024-69418-z",
-      "relevance_score": 21,
+      "venue": "IEEE Transactions on Transportation Electrification",
+      "citations": 24,
+      "doi": "10.1109/TTE.2023.3296719",
+      "relevance_score": 13,
       "tags": [
-        "time series prediction",
-        "transformer"
+        "remaining useful life",
+        "degradation prediction"
       ],
       "score_breakdown": {
-        "topic": 0,
-        "time_series": 16,
-        "dataset": 0,
-        "method": 2,
-        "freshness": 1,
-        "source": 2,
-        "negative": 0,
-        "total": 21
-      },
-      "negative_hits": [],
-      "research_question": "time_series_method",
-      "recommendation": "方法借鉴",
-      "decision_reason": "时间序列 16；方法可借鉴 2；近期 1；命中: time series prediction, transformer"
-    },
-    {
-      "id": "s2:dc8c1cd62f6f4d6eae9c",
-      "title": "TimeCMA: Towards LLM-Empowered Multivariate Time Series Forecasting via Cross-Modality Alignment",
-      "abstract": "Multivariate time series forecasting (MTSF) aims to learn temporal dynamics among variables to forecast future time series. Existing statistical and deep learning-based methods suffer from limited learnable parameters and small-scale training data. Recently, large language models (LLMs) combining time series with textual prompts have achieved promising performance in MTSF. However, we discovered that current LLM-based solutions fall short in learning disentangled embeddings. We introduce TimeCMA, an intuitive yet effective framework for MTSF via cross-modality alignment. Specifically, we prese",
-      "authors": [
-        "Chenxi Liu",
-        "Qianxiong Xu",
-        "Hao Miao",
-        "Sun Yang",
-        "Lingzheng Zhang"
-      ],
-      "date": "2024-06-03",
-      "source": "Semantic Scholar",
-      "url": "https://www.semanticscholar.org/paper/dc8c1cd62f6f4d6eae9cda3068592495382d57b7",
-      "pdf": "https://arxiv.org/pdf/2406.01638",
-      "venue": "AAAI Conference on Artificial Intelligence",
-      "citations": 193,
-      "doi": "10.1609/aaai.v39i18.34067",
-      "relevance_score": 26,
-      "tags": [
-        "time series forecasting",
-        "multivariate time series"
-      ],
-      "score_breakdown": {
-        "topic": 0,
-        "time_series": 24,
+        "topic": 11,
+        "time_series": 0,
         "dataset": 0,
         "method": 0,
         "freshness": 0,
         "source": 2,
         "negative": 0,
-        "total": 26
+        "total": 13
       },
       "negative_hits": [],
-      "research_question": "time_series_method",
-      "recommendation": "方法借鉴",
-      "decision_reason": "时间序列 24；命中: time series forecasting, multivariate time series"
+      "research_question": "core_rul_phm",
+      "recommendation": "快读",
+      "decision_reason": "主题相关 11；命中: remaining useful life, degradation prediction"
     },
     {
-      "id": "s2:94a310a7328b9155f0d6",
-      "title": "SOFTS: Efficient Multivariate Time Series Forecasting with Series-Core Fusion",
-      "abstract": "Multivariate time series forecasting plays a crucial role in various fields such as finance, traffic management, energy, and healthcare. Recent studies have highlighted the advantages of channel independence to resist distribution drift but neglect channel correlations, limiting further enhancements. Several methods utilize mechanisms like attention or mixer to address this by capturing channel correlations, but they either introduce excessive complexity or rely too heavily on the correlation to achieve satisfactory results under distribution drifts, particularly with a large number of channel",
+      "id": "s2:4a75047c079db38e5bc6",
+      "title": "Predictive maintenance in Industry 4.0: a survey of planning models and machine learning techniques",
+      "abstract": "Equipment downtime resulting from maintenance in various sectors around the globe has become a major concern. The effectiveness of conventional reactive maintenance methods in addressing interruptions and enhancing operational efficiency has become inadequate. Therefore, acknowledging the constraints associated with reactive maintenance and the growing need for proactive approaches to proactively detect possible breakdowns is necessary. The need for optimisation of asset management and reduction of costly downtime emerges from the demand for industries. The work highlights the use of Internet ",
       "authors": [
-        "Lu Han",
-        "Xu-Yang Chen",
-        "Han-Jia Ye",
-        "De-Chuan Zhan"
+        "Ida Hector",
+        "Rukmani Panjanathan"
       ],
-      "date": "2024-04-22",
+      "date": "2024-05-14",
       "source": "Semantic Scholar",
-      "url": "https://www.semanticscholar.org/paper/94a310a7328b9155f0d6936dd18622f3769220d4",
-      "pdf": "https://arxiv.org/pdf/2404.14197",
-      "venue": "Neural Information Processing Systems",
-      "citations": 172,
-      "doi": "10.48550/arXiv.2404.14197",
-      "relevance_score": 26,
+      "url": "https://www.semanticscholar.org/paper/4a75047c079db38e5bc69f5ad4e98ca9f4f126b5",
+      "pdf": "",
+      "venue": "PeerJ Computer Science",
+      "citations": 77,
+      "doi": "10.7717/peerj-cs.2016",
+      "relevance_score": 12,
       "tags": [
-        "time series forecasting",
-        "multivariate time series"
+        "predictive maintenance"
       ],
       "score_breakdown": {
-        "topic": 0,
-        "time_series": 24,
+        "topic": 10,
+        "time_series": 0,
         "dataset": 0,
         "method": 0,
         "freshness": 0,
         "source": 2,
         "negative": 0,
-        "total": 26
+        "total": 12
       },
       "negative_hits": [],
-      "research_question": "time_series_method",
-      "recommendation": "方法借鉴",
-      "decision_reason": "时间序列 24；命中: time series forecasting, multivariate time series"
+      "research_question": "related",
+      "recommendation": "快读",
+      "decision_reason": "主题相关 10；命中: predictive maintenance"
     },
     {
-      "id": "s2:4cb1c9e91e833784079f",
-      "title": "Densely Knowledge-Aware Network for Multivariate Time Series Classification",
-      "abstract": "Multivariate time series classification (MTSC) based on deep learning (DL) has attracted increasingly more research attention. The performance of a DL-based MTSC algorithm is heavily dependent on the quality of the learned representations providing semantic information for downstream tasks, e.g., classification. Hence, a model’s representation learning ability is critical for enhancing its performance. This article proposes a densely knowledge-aware network (DKN) for MTSC. The DKN’s feature extractor consists of a residual multihead convolutional network (ResMulti) and a transformer-based netw",
+      "id": "s2:884d3ec5e844693577b9",
+      "title": "Towards a Distributed Digital Twin Framework for Predictive Maintenance in Industrial Internet of Things (IIoT)",
+      "abstract": "This study uses a wind turbine case study as a subdomain of Industrial Internet of Things (IIoT) to showcase an architecture for implementing a distributed digital twin in which all important aspects of a predictive maintenance solution in a DT use a fog computing paradigm, and the typical predictive maintenance DT is improved to offer better asset utilization and management through real-time condition monitoring, predictive analytics, and health management of selected components of wind turbines in a wind farm. Digital twin (DT) is a technology that sits at the intersection of Internet of Thi",
       "authors": [
-        "Zhiwen Xiao",
-        "Huanlai Xing",
-        "Rong Qu",
-        "Li Feng",
-        "Shouxi Luo"
+        "Ibrahim Abdullahi",
+        "Stefano Longo",
+        "Mohammad Samie"
       ],
       "date": "2024-04-01",
       "source": "Semantic Scholar",
-      "url": "https://www.semanticscholar.org/paper/4cb1c9e91e833784079f66c41e1310f8c46d186a",
+      "url": "https://www.semanticscholar.org/paper/884d3ec5e844693577b91f7b86d269ecffdb88d7",
       "pdf": "",
-      "venue": "IEEE Transactions on Systems, Man & Cybernetics. Systems",
-      "citations": 107,
-      "doi": "10.1109/TSMC.2023.3342640",
-      "relevance_score": 27,
+      "venue": "Italian National Conference on Sensors",
+      "citations": 77,
+      "doi": "10.3390/s24082663",
+      "relevance_score": 14,
       "tags": [
-        "time series classification",
-        "multivariate time series",
-        "transformer"
+        "predictive maintenance",
+        "condition monitoring"
       ],
       "score_breakdown": {
-        "topic": 0,
-        "time_series": 24,
+        "topic": 12,
+        "time_series": 0,
         "dataset": 0,
-        "method": 1,
+        "method": 0,
         "freshness": 0,
         "source": 2,
         "negative": 0,
-        "total": 27
+        "total": 14
       },
       "negative_hits": [],
-      "research_question": "time_series_method",
-      "recommendation": "方法借鉴",
-      "decision_reason": "时间序列 24；方法可借鉴 1；命中: time series classification, multivariate time series, transformer"
+      "research_question": "related",
+      "recommendation": "快读",
+      "decision_reason": "主题相关 12；命中: predictive maintenance, condition monitoring"
+    },
+    {
+      "id": "s2:a94c306ae74012b35414",
+      "title": "A dual attention LSTM lightweight model based on exponential smoothing for remaining useful life prediction",
+      "abstract": "",
+      "authors": [
+        "Jiayu Shi",
+        "Jingshu Zhong",
+        "Yuxuan Zhang",
+        "Bin Xiao",
+        "Lei Xiao"
+      ],
+      "date": "2024-03-01",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/a94c306ae74012b3541471a99149214fccaadaff",
+      "pdf": "",
+      "venue": "Reliability Engineering & System Safety",
+      "citations": 143,
+      "doi": "10.1016/j.ress.2023.109821",
+      "relevance_score": 14,
+      "tags": [
+        "remaining useful life",
+        "lightweight model"
+      ],
+      "score_breakdown": {
+        "topic": 10,
+        "time_series": 0,
+        "dataset": 0,
+        "method": 2,
+        "freshness": 0,
+        "source": 2,
+        "negative": 0,
+        "total": 14
+      },
+      "negative_hits": [],
+      "research_question": "core_rul_phm",
+      "recommendation": "快读",
+      "decision_reason": "主题相关 10；方法可借鉴 2；命中: remaining useful life, lightweight model"
+    },
+    {
+      "id": "s2:72b9253b8d462f33bd92",
+      "title": "Toward Physics-Informed Machine-Learning-Based Predictive Maintenance for Power Converters—A Review",
+      "abstract": "Predictive maintenance for power electronic converters has emerged as a critical area of research and development. With the rapid advancements in deep-learning techniques, new possibilities have emerged for enhancing the performance and reliability of power converters. However, addressing challenges related to data resources, physical consistency, and generalizability has become crucial in achieving optimal strategies. This comprehensive review article presents an insightful overview of the recent advancements in the field of predictive maintenance for power converters. It explores three parad",
+      "authors": [
+        "Youssof Fassi",
+        "Vincent Heiries",
+        "Jérôme Boutet",
+        "S. Boisseau"
+      ],
+      "date": "2024-02-01",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/72b9253b8d462f33bd92f99a81bb2a0253eb67f8",
+      "pdf": "",
+      "venue": "IEEE transactions on power electronics",
+      "citations": 109,
+      "doi": "10.1109/TPEL.2023.3328438",
+      "relevance_score": 19,
+      "tags": [
+        "remaining useful life",
+        "predictive maintenance",
+        "physics-informed"
+      ],
+      "score_breakdown": {
+        "topic": 15,
+        "time_series": 0,
+        "dataset": 0,
+        "method": 2,
+        "freshness": 0,
+        "source": 2,
+        "negative": 0,
+        "total": 19
+      },
+      "negative_hits": [],
+      "research_question": "core_rul_phm",
+      "recommendation": "精读",
+      "decision_reason": "主题相关 15；方法可借鉴 2；命中: remaining useful life, predictive maintenance, physics-informed"
+    },
+    {
+      "id": "s2:91ac58f3877e6fb04049",
+      "title": "AI in renewable energy: A review of predictive maintenance and energy optimization",
+      "abstract": "In the dynamic landscape of the burgeoning renewable energy sector, optimizing energy output, ensuring robust infrastructure maintenance, and seamless integration into the grid present formidable challenges. This paper delves into the transformative potential of artificial intelligence (AI) as a solution to these critical issues. The focus of this study is on the current state of AI applications within the renewable energy domain, particularly honing in on its profound impact on predictive maintenance and energy optimization across diverse sources such as solar, wind, and hydro. By examining t",
+      "authors": [
+        "Emmanuel Augustine Etukudoh",
+        "Ahmad Hamdan",
+        "Kenneth Ifeanyi Ibekwe",
+        "Valentine Ikenna Ilojianya",
+        "Sedat Sonko"
+      ],
+      "date": "2024-01-30",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/91ac58f3877e6fb04049373e792bd44918a65380",
+      "pdf": "",
+      "venue": "International Journal of Science and Research Archive",
+      "citations": 96,
+      "doi": "10.30574/ijsra.2024.11.1.0112",
+      "relevance_score": 12,
+      "tags": [
+        "predictive maintenance"
+      ],
+      "score_breakdown": {
+        "topic": 10,
+        "time_series": 0,
+        "dataset": 0,
+        "method": 0,
+        "freshness": 0,
+        "source": 2,
+        "negative": 0,
+        "total": 12
+      },
+      "negative_hits": [],
+      "research_question": "related",
+      "recommendation": "快读",
+      "decision_reason": "主题相关 10；命中: predictive maintenance"
+    },
+    {
+      "id": "s2:b9609f23d937b3524e9a",
+      "title": "Artificial intelligence (AI) in renewable energy: A review of predictive maintenance and energy optimization",
+      "abstract": "The integration of Artificial Intelligence (AI) in the renewable energy sector has emerged as a transformative force, enhancing the efficiency and sustainability of energy systems. This paper provides a comprehensive review of the application of AI in two critical aspects of renewable energy in relation to predictive maintenance and energy optimization. Predictive maintenance, enabled by AI, has revolutionized the renewable energy landscape by predicting and preventing equipment failures before they occur. Utilizing machine learning algorithms, AI analyzes vast amounts of data from sensors and",
+      "authors": [
+        "Samuel Onimisi Dawodu",
+        "Shedrack Onwusinkwue",
+        "Femi Osasona",
+        "Islam Ahmad",
+        "Ibrahim Ahmad"
+      ],
+      "date": "2024-01-30",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/b9609f23d937b3524e9a2acfe2a501ffc2606003",
+      "pdf": "",
+      "venue": "World Journal of Advanced Research and Reviews",
+      "citations": 94,
+      "doi": "10.30574/wjarr.2024.21.1.0347",
+      "relevance_score": 12,
+      "tags": [
+        "predictive maintenance"
+      ],
+      "score_breakdown": {
+        "topic": 10,
+        "time_series": 0,
+        "dataset": 0,
+        "method": 0,
+        "freshness": 0,
+        "source": 2,
+        "negative": 0,
+        "total": 12
+      },
+      "negative_hits": [],
+      "research_question": "related",
+      "recommendation": "快读",
+      "decision_reason": "主题相关 10；命中: predictive maintenance"
+    },
+    {
+      "id": "s2:402303ecf9fe73d15254",
+      "title": "Artificial Intelligence for Predictive Maintenance Applications: Key Components, Trustworthiness, and Future Trends",
+      "abstract": "Predictive maintenance (PdM) is a policy applying data and analytics to predict when one of the components in a real system has been destroyed, and some anomalies appear so that maintenance can be performed before a breakdown takes place. Using cutting-edge technologies like data analytics and artificial intelligence (AI) enhances the performance and accuracy of predictive maintenance systems and increases their autonomy and adaptability in complex and dynamic working environments. This paper reviews the recent developments in AI-based PdM, focusing on key components, trustworthiness, and futu",
+      "authors": [
+        "Aysegul Ucar",
+        "Mehmet Karakose",
+        "Necim Kırımça"
+      ],
+      "date": "2024-01-20",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/402303ecf9fe73d152543a4e78d4014f1c7e2df2",
+      "pdf": "",
+      "venue": "Applied Sciences",
+      "citations": 327,
+      "doi": "10.3390/app14020898",
+      "relevance_score": 12,
+      "tags": [
+        "predictive maintenance"
+      ],
+      "score_breakdown": {
+        "topic": 10,
+        "time_series": 0,
+        "dataset": 0,
+        "method": 0,
+        "freshness": 0,
+        "source": 2,
+        "negative": 0,
+        "total": 12
+      },
+      "negative_hits": [],
+      "research_question": "related",
+      "recommendation": "快读",
+      "decision_reason": "主题相关 10；命中: predictive maintenance"
+    },
+    {
+      "id": "s2:05d60eb7f58639816aa4",
+      "title": "A Lithium-Ion Battery Degradation Prediction Model With Uncertainty Quantification for Its Predictive Maintenance",
+      "abstract": "Battery degradation modeling in the presence of uncertainty is a key but challenging issue in the application of battery predictive maintenance. This article develops a capacity prediction model with uncertainty quantification for lithium-ion batteries and proposes a dynamic maintenance strategy that can help to make an optimized decision at each battery cycle stage. To be specific, after using the 1-D convolution neural network (1dCNN), deep representative features hidden in original measured signals are extracted. Then, the bidirectional long short-term memory (Bi-LSTM) is applied to estimat",
+      "authors": [
+        "Chuang Chen",
+        "Guanye Tao",
+        "Jiantao Shi",
+        "M. Shen",
+        "Zhenghong Zhu"
+      ],
+      "date": "2024-01-01",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/05d60eb7f58639816aa44025f28979299a70ed78",
+      "pdf": "",
+      "venue": "IEEE transactions on industrial electronics (1982. Print)",
+      "citations": 78,
+      "doi": "10.1109/TIE.2023.3274874",
+      "relevance_score": 20,
+      "tags": [
+        "predictive maintenance",
+        "degradation prediction",
+        "degradation modeling"
+      ],
+      "score_breakdown": {
+        "topic": 18,
+        "time_series": 0,
+        "dataset": 0,
+        "method": 0,
+        "freshness": 0,
+        "source": 2,
+        "negative": 0,
+        "total": 20
+      },
+      "negative_hits": [],
+      "research_question": "core_rul_phm",
+      "recommendation": "精读",
+      "decision_reason": "主题相关 18；命中: predictive maintenance, degradation prediction, degradation modeling"
+    },
+    {
+      "id": "s2:38350b2b3969040f0e7f",
+      "title": "Explainable Predictive Maintenance of Rotating Machines Using LIME, SHAP, PDP, ICE",
+      "abstract": "Artificial Intelligence (AI) is a key component in Industry 4.0. Rotating machines are critical components in manufacturing industries. In the vast world of Industry 4.0, where an IoT network acts as a monitoring and decision-making system, predictive maintenance is quickly gaining importance. Predictive maintenance is a method that uses AI to handle potential problems before they cause breakdowns in operations, processes or systems. However, there is a significant issue with the AI models’ (also known as “black boxes”) inability to explain their decisions. This interpretability is vital for m",
+      "authors": [
+        "Shreyas Gawde",
+        "S. Patil",
+        "Satish Kumar",
+        "P. Kamat",
+        "K. Kotecha"
+      ],
+      "date": "2024-01-01",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/38350b2b3969040f0e7f153c6c143792f9a2ad65",
+      "pdf": "",
+      "venue": "IEEE Access",
+      "citations": 93,
+      "doi": "10.1109/ACCESS.2024.3367110",
+      "relevance_score": 12,
+      "tags": [
+        "predictive maintenance"
+      ],
+      "score_breakdown": {
+        "topic": 10,
+        "time_series": 0,
+        "dataset": 0,
+        "method": 0,
+        "freshness": 0,
+        "source": 2,
+        "negative": 0,
+        "total": 12
+      },
+      "negative_hits": [],
+      "research_question": "related",
+      "recommendation": "快读",
+      "decision_reason": "主题相关 10；命中: predictive maintenance"
     },
     {
       "id": "s2:7eeeb0dafff6320989d6",
@@ -3705,6 +4337,40 @@
       "decision_reason": "时间序列 16；命中: time series prediction, transformer"
     },
     {
+      "id": "s2:4d5797b16e6c606f1c09",
+      "title": "Self-Interpretable Time Series Prediction with Counterfactual Explanations",
+      "abstract": "Interpretable time series prediction is crucial for safety-critical areas such as healthcare and autonomous driving. Most existing methods focus on interpreting predictions by assigning important scores to segments of time series. In this paper, we take a different and more challenging route and aim at developing a self-interpretable model, dubbed Counterfactual Time Series (CounTS), which generates counterfactual and actionable explanations for time series predictions. Specifically, we formalize the problem of time series counterfactual explanations, establish associated evaluation protocols,",
+      "authors": [
+        "Jingquan Yan",
+        "Hao Wang"
+      ],
+      "date": "2023-06-09",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/4d5797b16e6c606f1c096b6a455f962a5d9f0476",
+      "pdf": "https://arxiv.org/pdf/2306.06024",
+      "venue": "International Conference on Machine Learning",
+      "citations": 31,
+      "doi": "10.48550/arXiv.2306.06024",
+      "relevance_score": 18,
+      "tags": [
+        "time series prediction"
+      ],
+      "score_breakdown": {
+        "topic": 0,
+        "time_series": 16,
+        "dataset": 0,
+        "method": 0,
+        "freshness": 0,
+        "source": 2,
+        "negative": 0,
+        "total": 18
+      },
+      "negative_hits": [],
+      "research_question": "time_series_method",
+      "recommendation": "方法借鉴",
+      "decision_reason": "时间序列 16；命中: time series prediction"
+    },
+    {
       "id": "s2:1823ce7fc8179b71d636",
       "title": "Non-autoregressive Conditional Diffusion Models for Time Series Prediction",
       "abstract": "Recently, denoising diffusion models have led to significant breakthroughs in the generation of images, audio and text. However, it is still an open question on how to adapt their strong modeling ability to model time series. In this paper, we propose TimeDiff, a non-autoregressive diffusion model that achieves high-quality time series prediction with the introduction of two novel conditioning mechanisms: future mixup and autoregressive initialization. Similar to teacher forcing, future mixup allows parts of the ground-truth future predictions for conditioning, while autoregressive initializat",
@@ -3777,42 +4443,6 @@
       "decision_reason": "时间序列 16；方法可借鉴 2；命中: time series prediction, transfer learning"
     },
     {
-      "id": "s2:fb45d31cc89207aec392",
-      "title": "Crossformer: Transformer Utilizing Cross-Dimension Dependency for Multivariate Time Series Forecasting",
-      "abstract": "",
-      "authors": [
-        "Yunhao Zhang",
-        "Junchi Yan"
-      ],
-      "date": "2023-01-01",
-      "source": "Semantic Scholar",
-      "url": "https://www.semanticscholar.org/paper/fb45d31cc89207aec392dbac8908cc24db2df871",
-      "pdf": "",
-      "venue": "International Conference on Learning Representations",
-      "citations": 1315,
-      "doi": "",
-      "relevance_score": 28,
-      "tags": [
-        "time series forecasting",
-        "multivariate time series",
-        "transformer"
-      ],
-      "score_breakdown": {
-        "topic": 0,
-        "time_series": 24,
-        "dataset": 0,
-        "method": 2,
-        "freshness": 0,
-        "source": 2,
-        "negative": 0,
-        "total": 28
-      },
-      "negative_hits": [],
-      "research_question": "time_series_method",
-      "recommendation": "方法借鉴",
-      "decision_reason": "时间序列 24；方法可借鉴 2；命中: time series forecasting, multivariate time series, transformer"
-    },
-    {
       "id": "s2:4df722ade427f18352f6",
       "title": "Time Series Prediction Based on LSTM-Attention-LSTM Model",
       "abstract": "Time series forecasting uses data from the past periods of time to predict future information, which is of great significance in many applications. Existing time series forecasting methods still have problems such as low accuracy when dealing with some non-stationary multivariate time series data forecasting. Aiming at the shortcomings of existing methods, in this paper we propose a new time series forecasting model LSTM-attention-LSTM. The model uses two LSTM models as the encoder and decoder, and introduces an attention mechanism between the encoder and decoder. The model has two distinctive",
@@ -3847,81 +4477,6 @@
       "research_question": "time_series_method",
       "recommendation": "方法借鉴",
       "decision_reason": "时间序列 22；命中: time series forecasting, time series prediction, multivariate time series"
-    },
-    {
-      "id": "s2:dad15404d372a23b4b3b",
-      "title": "A Time Series is Worth 64 Words: Long-term Forecasting with Transformers",
-      "abstract": "We propose an efficient design of Transformer-based models for multivariate time series forecasting and self-supervised representation learning. It is based on two key components: (i) segmentation of time series into subseries-level patches which are served as input tokens to Transformer; (ii) channel-independence where each channel contains a single univariate time series that shares the same embedding and Transformer weights across all the series. Patching design naturally has three-fold benefit: local semantic information is retained in the embedding; computation and memory usage of the att",
-      "authors": [
-        "Yuqi Nie",
-        "Nam H. Nguyen",
-        "Phanwadee Sinthong",
-        "J. Kalagnanam"
-      ],
-      "date": "2022-11-27",
-      "source": "Semantic Scholar",
-      "url": "https://www.semanticscholar.org/paper/dad15404d372a23b4b3bf9a63b3124693df3c85e",
-      "pdf": "https://arxiv.org/pdf/2211.14730",
-      "venue": "International Conference on Learning Representations",
-      "citations": 4009,
-      "doi": "10.48550/arXiv.2211.14730",
-      "relevance_score": 19,
-      "tags": [
-        "time series forecasting",
-        "multivariate time series",
-        "transformer"
-      ],
-      "score_breakdown": {
-        "topic": 0,
-        "time_series": 14,
-        "dataset": 0,
-        "method": 3,
-        "freshness": 0,
-        "source": 2,
-        "negative": 0,
-        "total": 19
-      },
-      "negative_hits": [],
-      "research_question": "time_series_method",
-      "recommendation": "方法借鉴",
-      "decision_reason": "时间序列 14；方法可借鉴 3；命中: time series forecasting, multivariate time series, transformer"
-    },
-    {
-      "id": "s2:dd45bfa7f5d75edddc5d",
-      "title": "HIVE-COTE 2.0: a new meta ensemble for time series classification",
-      "abstract": "The Hierarchical Vote Collective of Transformation-based Ensembles (HIVE-COTE) is a heterogeneous meta ensemble for time series classification. HIVE-COTE forms its ensemble from classifiers of multiple domains, including phase-independent shapelets, bag-of-words based dictionaries and phase-dependent intervals. Since it was first proposed in 2016, the algorithm has remained state of the art for accuracy on the UCR time series classification archive. Over time it has been incrementally updated, culminating in its current state, HIVE-COTE 1.0. During this time a number of algorithms have been pr",
-      "authors": [
-        "Matthew Middlehurst",
-        "J. Large",
-        "Michael Flynn",
-        "Jason Lines",
-        "A. Bostrom"
-      ],
-      "date": "2021-04-15",
-      "source": "Semantic Scholar",
-      "url": "https://www.semanticscholar.org/paper/dd45bfa7f5d75edddc5d999334f86594334cf4bb",
-      "pdf": "https://arxiv.org/pdf/2104.07551",
-      "venue": "Machine-mediated learning",
-      "citations": 342,
-      "doi": "10.1007/s10994-021-06057-9",
-      "relevance_score": 18,
-      "tags": [
-        "time series classification"
-      ],
-      "score_breakdown": {
-        "topic": 0,
-        "time_series": 16,
-        "dataset": 0,
-        "method": 0,
-        "freshness": 0,
-        "source": 2,
-        "negative": 0,
-        "total": 18
-      },
-      "negative_hits": [],
-      "research_question": "time_series_method",
-      "recommendation": "方法借鉴",
-      "decision_reason": "时间序列 16；命中: time series classification"
     },
     {
       "id": "s2:a7628f4eaaae73d5f525",
@@ -3961,151 +4516,6 @@
       "decision_reason": "时间序列 16；命中: time series prediction"
     },
     {
-      "id": "s2:bbae866c5edd477c1c39",
-      "title": "MiniRocket: A Very Fast (Almost) Deterministic Transform for Time Series Classification",
-      "abstract": "Rocket achieves state-of-the-art accuracy for time series classification with a fraction of the computational expense of most existing methods by transforming input time series using random convolutional kernels, and using the transformed features to train a linear classifier. We reformulate Rocket into a new method, MiniRocket. MiniRocket is up to 75 times faster than Rocket on larger datasets, and almost deterministic (and optionally, fully deterministic), while maintaining essentially the same accuracy. Using this method, it is possible to train and test a classifier on all of 109 datasets ",
-      "authors": [
-        "Angus Dempster",
-        "Daniel F. Schmidt",
-        "Geoffrey I. Webb"
-      ],
-      "date": "2020-12-16",
-      "source": "Semantic Scholar",
-      "url": "https://www.semanticscholar.org/paper/bbae866c5edd477c1c39921436c47fd43d1f6e5c",
-      "pdf": "https://arxiv.org/pdf/2012.08791",
-      "venue": "Knowledge Discovery and Data Mining",
-      "citations": 545,
-      "doi": "10.1145/3447548.3467231",
-      "relevance_score": 18,
-      "tags": [
-        "time series classification"
-      ],
-      "score_breakdown": {
-        "topic": 0,
-        "time_series": 16,
-        "dataset": 0,
-        "method": 0,
-        "freshness": 0,
-        "source": 2,
-        "negative": 0,
-        "total": 18
-      },
-      "negative_hits": [],
-      "research_question": "time_series_method",
-      "recommendation": "方法借鉴",
-      "decision_reason": "时间序列 16；命中: time series classification"
-    },
-    {
-      "id": "s2:2051548f7681c96d603d",
-      "title": "A Transformer-based Framework for Multivariate Time Series Representation Learning",
-      "abstract": "We present a novel framework for multivariate time series representation learning based on the transformer encoder architecture. The framework includes an unsupervised pre-training scheme, which can offer substantial performance benefits over fully supervised learning on downstream tasks, both with but even without leveraging additional unlabeled data, i.e., by reusing the existing data samples. Evaluating our framework on several public multivariate time series datasets from various domains and with diverse characteristics, we demonstrate that it performs significantly better than the best cu",
-      "authors": [
-        "George Zerveas",
-        "Srideepika Jayaraman",
-        "Dhaval Patel",
-        "A. Bhamidipaty",
-        "Carsten Eickhoff"
-      ],
-      "date": "2020-10-06",
-      "source": "Semantic Scholar",
-      "url": "https://www.semanticscholar.org/paper/2051548f7681c96d603de932ee23406c525276f9",
-      "pdf": "https://arxiv.org/pdf/2010.02803",
-      "venue": "Knowledge Discovery and Data Mining",
-      "citations": 1453,
-      "doi": "10.1145/3447548.3467401",
-      "relevance_score": 28,
-      "tags": [
-        "multivariate time series",
-        "transformer"
-      ],
-      "score_breakdown": {
-        "topic": 0,
-        "time_series": 24,
-        "dataset": 0,
-        "method": 2,
-        "freshness": 0,
-        "source": 2,
-        "negative": 0,
-        "total": 28
-      },
-      "negative_hits": [],
-      "research_question": "time_series_method",
-      "recommendation": "方法借鉴",
-      "decision_reason": "时间序列 24；方法可借鉴 2；命中: multivariate time series, transformer"
-    },
-    {
-      "id": "s2:f2a97118793a12734f38",
-      "title": "An empirical survey of data augmentation for time series classification with neural networks",
-      "abstract": "In recent times, deep artificial neural networks have achieved many successes in pattern recognition. Part of this success can be attributed to the reliance on big data to increase generalization. However, in the field of time series recognition, many datasets are often very small. One method of addressing this problem is through the use of data augmentation. In this paper, we survey data augmentation techniques for time series and their application to time series classification with neural networks. We propose a taxonomy and outline the four families in time series data augmentation, includin",
-      "authors": [
-        "B. Iwana",
-        "S. Uchida"
-      ],
-      "date": "2020-07-31",
-      "source": "Semantic Scholar",
-      "url": "https://www.semanticscholar.org/paper/f2a97118793a12734f38f6c5d01bb9b13d7fb1e4",
-      "pdf": "https://arxiv.org/pdf/2007.15951",
-      "venue": "PLoS ONE",
-      "citations": 667,
-      "doi": "10.1371/journal.pone.0254841",
-      "relevance_score": 18,
-      "tags": [
-        "time series classification"
-      ],
-      "score_breakdown": {
-        "topic": 0,
-        "time_series": 16,
-        "dataset": 0,
-        "method": 0,
-        "freshness": 0,
-        "source": 2,
-        "negative": 0,
-        "total": 18
-      },
-      "negative_hits": [],
-      "research_question": "time_series_method",
-      "recommendation": "方法借鉴",
-      "decision_reason": "时间序列 16；命中: time series classification"
-    },
-    {
-      "id": "s2:75e924bd79d27a23f3f9",
-      "title": "Connecting the Dots: Multivariate Time Series Forecasting with Graph Neural Networks",
-      "abstract": "Modeling multivariate time series has long been a subject that has attracted researchers from a diverse range of fields including economics, finance, and traffic. A basic assumption behind multivariate time series forecasting is that its variables depend on one another but, upon looking closely, it is fair to say that existing methods fail to fully exploit latent spatial dependencies between pairs of variables. In recent years, meanwhile, graph neural networks (GNNs) have shown high capability in handling relational dependencies. GNNs require well-defined graph structures for information propa",
-      "authors": [
-        "Zonghan Wu",
-        "Shirui Pan",
-        "Guodong Long",
-        "Jing Jiang",
-        "Xiaojun Chang"
-      ],
-      "date": "2020-05-24",
-      "source": "Semantic Scholar",
-      "url": "https://www.semanticscholar.org/paper/75e924bd79d27a23f3f93d9b1ab62a779505c8d2",
-      "pdf": "https://arxiv.org/pdf/2005.11650",
-      "venue": "Knowledge Discovery and Data Mining",
-      "citations": 2163,
-      "doi": "10.1145/3394486.3403118",
-      "relevance_score": 26,
-      "tags": [
-        "time series forecasting",
-        "multivariate time series"
-      ],
-      "score_breakdown": {
-        "topic": 0,
-        "time_series": 24,
-        "dataset": 0,
-        "method": 0,
-        "freshness": 0,
-        "source": 2,
-        "negative": 0,
-        "total": 26
-      },
-      "negative_hits": [],
-      "research_question": "time_series_method",
-      "recommendation": "方法借鉴",
-      "decision_reason": "时间序列 24；命中: time series forecasting, multivariate time series"
-    },
-    {
       "id": "s2:f96aa173e36163c5b9c3",
       "title": "A Hybrid Prognostics Approach for Estimating Remaining Useful Life of Rolling Element Bearings",
       "abstract": "Remaining useful life (RUL) prediction of rolling element bearings plays a pivotal role in reducing costly unplanned maintenance and increasing the reliability, availability, and safety of machines. This paper proposes a hybrid prognostics approach for RUL prediction of rolling element bearings. First, degradation data of bearings are sparsely represented using relevance vector machine regressions with different kernel parameters. Then, exponential degradation models coupled with the Fréchet distance are employed to estimate the RUL adaptively. The proposed approach is evaluated using the vibr",
@@ -4120,7 +4530,7 @@
       "url": "https://www.semanticscholar.org/paper/f96aa173e36163c5b9c31b4107b539462bbdd3b4",
       "pdf": "",
       "venue": "IEEE Transactions on Reliability",
-      "citations": 1563,
+      "citations": 1564,
       "doi": "10.1109/TR.2018.2882682",
       "relevance_score": 25,
       "tags": [
@@ -4144,265 +4554,6 @@
       "decision_reason": "主题相关 18；数据集相关 5；命中: remaining useful life, PRONOSTIA, RUL prediction"
     },
     {
-      "id": "s2:2deafb11372f085d504d",
-      "title": "ROCKET: exceptionally fast and accurate time series classification using random convolutional kernels",
-      "abstract": "Most methods for time series classification that attain state-of-the-art accuracy have high computational complexity, requiring significant training time even for smaller datasets, and are intractable for larger datasets. Additionally, many existing methods focus on a single type of feature such as shape or frequency. Building on the recent success of convolutional neural networks for time series classification, we show that simple linear classifiers using random convolutional kernels achieve state-of-the-art accuracy with a fraction of the computational expense of existing methods. Using this",
-      "authors": [
-        "Angus Dempster",
-        "Franccois Petitjean",
-        "Geoffrey I. Webb"
-      ],
-      "date": "2019-10-29",
-      "source": "Semantic Scholar",
-      "url": "https://www.semanticscholar.org/paper/2deafb11372f085d504db87fd626e478d8e965aa",
-      "pdf": "https://arxiv.org/pdf/1910.13051",
-      "venue": "Data mining and knowledge discovery",
-      "citations": 1086,
-      "doi": "10.1007/s10618-020-00701-z",
-      "relevance_score": 18,
-      "tags": [
-        "time series classification"
-      ],
-      "score_breakdown": {
-        "topic": 0,
-        "time_series": 16,
-        "dataset": 0,
-        "method": 0,
-        "freshness": 0,
-        "source": 2,
-        "negative": 0,
-        "total": 18
-      },
-      "negative_hits": [],
-      "research_question": "time_series_method",
-      "recommendation": "方法借鉴",
-      "decision_reason": "时间序列 16；命中: time series classification"
-    },
-    {
-      "id": "s2:0ddd01d67b0056cadc08",
-      "title": "InceptionTime: Finding AlexNet for time series classification",
-      "abstract": "This paper brings deep learning at the forefront of research into time series classification (TSC). TSC is the area of machine learning tasked with the categorization (or labelling) of time series. The last few decades of work in this area have led to significant progress in the accuracy of classifiers, with the state of the art now represented by the HIVE-COTE algorithm. While extremely accurate, HIVE-COTE cannot be applied to many real-world datasets because of its high training time complexity in O(N2·T4)\\documentclass[12pt]{minimal} \\usepackage{amsmath} \\usepackage{wasysym} \\usepackage{ams",
-      "authors": [
-        "Hassan Ismail Fawaz",
-        "Benjamin Lucas",
-        "G. Forestier",
-        "Charlotte Pelletier",
-        "Daniel F. Schmidt"
-      ],
-      "date": "2019-09-11",
-      "source": "Semantic Scholar",
-      "url": "https://www.semanticscholar.org/paper/0ddd01d67b0056cadc0845e0e020fee944afa916",
-      "pdf": "https://arxiv.org/pdf/1909.04939",
-      "venue": "Data mining and knowledge discovery",
-      "citations": 1670,
-      "doi": "10.1007/s10618-020-00710-y",
-      "relevance_score": 18,
-      "tags": [
-        "time series classification"
-      ],
-      "score_breakdown": {
-        "topic": 0,
-        "time_series": 16,
-        "dataset": 0,
-        "method": 0,
-        "freshness": 0,
-        "source": 2,
-        "negative": 0,
-        "total": 18
-      },
-      "negative_hits": [],
-      "research_question": "time_series_method",
-      "recommendation": "方法借鉴",
-      "decision_reason": "时间序列 16；命中: time series classification"
-    },
-    {
-      "id": "s2:440d248d148f7e36dad2",
-      "title": "Robust Anomaly Detection for Multivariate Time Series through Stochastic Recurrent Neural Network",
-      "abstract": "Industry devices (i.e., entities) such as server machines, spacecrafts, engines, etc., are typically monitored with multivariate time series, whose anomaly detection is critical for an entity's service quality management. However, due to the complex temporal dependence and stochasticity of multivariate time series, their anomaly detection remains a big challenge. This paper proposes OmniAnomaly, a stochastic recurrent neural network for multivariate time series anomaly detection that works well robustly for various devices. Its core idea is to capture the normal patterns of multivariate time s",
-      "authors": [
-        "Ya Su",
-        "Youjian Zhao",
-        "Chenhao Niu",
-        "Rong Liu",
-        "Wei Sun"
-      ],
-      "date": "2019-07-25",
-      "source": "Semantic Scholar",
-      "url": "https://www.semanticscholar.org/paper/440d248d148f7e36dad232e48f1c5c1cbc556d86",
-      "pdf": "",
-      "venue": "Knowledge Discovery and Data Mining",
-      "citations": 1893,
-      "doi": "10.1145/3292500.3330672",
-      "relevance_score": 21,
-      "tags": [
-        "multivariate time series",
-        "time series anomaly detection"
-      ],
-      "score_breakdown": {
-        "topic": 0,
-        "time_series": 19,
-        "dataset": 0,
-        "method": 0,
-        "freshness": 0,
-        "source": 2,
-        "negative": 0,
-        "total": 21
-      },
-      "negative_hits": [],
-      "research_question": "time_series_method",
-      "recommendation": "方法借鉴",
-      "decision_reason": "时间序列 19；命中: multivariate time series, time series anomaly detection"
-    },
-    {
-      "id": "s2:d8abb8206b913d185b4b",
-      "title": "The UEA multivariate time series classification archive, 2018",
-      "abstract": "In 2002, the UCR time series classification archive was first released with sixteen datasets. It gradually expanded, until 2015 when it increased in size from 45 datasets to 85 datasets. In October 2018 more datasets were added, bringing the total to 128. The new archive contains a wide range of problems, including variable length series, but it still only contains univariate time series classification problems. One of the motivations for introducing the archive was to encourage researchers to perform a more rigorous evaluation of newly proposed time series classification (TSC) algorithms. It ",
-      "authors": [
-        "A. Bagnall",
-        "Hoang Anh Dau",
-        "Jason Lines",
-        "Michael Flynn",
-        "J. Large"
-      ],
-      "date": "2018-10-31",
-      "source": "Semantic Scholar",
-      "url": "https://www.semanticscholar.org/paper/d8abb8206b913d185b4bd406880131c13759a6ff",
-      "pdf": "https://arxiv.org/pdf/1811.00075",
-      "venue": "arXiv.org",
-      "citations": 616,
-      "doi": "",
-      "relevance_score": 26,
-      "tags": [
-        "time series classification",
-        "multivariate time series"
-      ],
-      "score_breakdown": {
-        "topic": 0,
-        "time_series": 24,
-        "dataset": 0,
-        "method": 0,
-        "freshness": 0,
-        "source": 2,
-        "negative": 0,
-        "total": 26
-      },
-      "negative_hits": [],
-      "research_question": "time_series_method",
-      "recommendation": "方法借鉴",
-      "decision_reason": "时间序列 24；命中: time series classification, multivariate time series"
-    },
-    {
-      "id": "s2:1c2efb418f79b5d29913",
-      "title": "Deep learning for time series classification: a review",
-      "abstract": "Time Series Classification (TSC) is an important and challenging problem in data mining. With the increase of time series data availability, hundreds of TSC algorithms have been proposed. Among these methods, only a few have considered Deep Neural Networks (DNNs) to perform this task. This is surprising as deep learning has seen very successful applications in the last years. DNNs have indeed revolutionized the field of computer vision especially with the advent of novel deeper architectures such as Residual and Convolutional Neural Networks. Apart from images, sequential data such as text and",
-      "authors": [
-        "Hassan Ismail Fawaz",
-        "G. Forestier",
-        "J. Weber",
-        "L. Idoumghar",
-        "Pierre-Alain Muller"
-      ],
-      "date": "2018-09-12",
-      "source": "Semantic Scholar",
-      "url": "https://www.semanticscholar.org/paper/1c2efb418f79b5d29913e014a1dfd78865221c39",
-      "pdf": "https://arxiv.org/pdf/1809.04356",
-      "venue": "Data mining and knowledge discovery",
-      "citations": 3322,
-      "doi": "10.1007/s10618-019-00619-1",
-      "relevance_score": 22,
-      "tags": [
-        "time series classification",
-        "multivariate time series"
-      ],
-      "score_breakdown": {
-        "topic": 0,
-        "time_series": 20,
-        "dataset": 0,
-        "method": 0,
-        "freshness": 0,
-        "source": 2,
-        "negative": 0,
-        "total": 22
-      },
-      "negative_hits": [],
-      "research_question": "time_series_method",
-      "recommendation": "方法借鉴",
-      "decision_reason": "时间序列 20；命中: time series classification, multivariate time series"
-    },
-    {
-      "id": "s2:11c295c4e1ea15d5abd0",
-      "title": "Multivariate LSTM-FCNs for Time Series Classification",
-      "abstract": "Over the past decade, multivariate time series classification has received great attention. We propose transforming the existing univariate time series classification models, the Long Short Term Memory Fully Convolutional Network (LSTM-FCN) and Attention LSTM-FCN (ALSTM-FCN), into a multivariate time series classification model by augmenting the fully convolutional block with a squeeze-and-excitation block to further improve accuracy. Our proposed models outperform most state-of-the-art models while requiring minimum preprocessing. The proposed models work efficiently on various complex multiv",
-      "authors": [
-        "Fazle Karim",
-        "Somshubra Majumdar",
-        "H. Darabi",
-        "Samuel Harford"
-      ],
-      "date": "2018-01-14",
-      "source": "Semantic Scholar",
-      "url": "https://www.semanticscholar.org/paper/11c295c4e1ea15d5abd0c79aac2231783d243bdf",
-      "pdf": "https://arxiv.org/pdf/1801.04503",
-      "venue": "Neural Networks",
-      "citations": 1048,
-      "doi": "10.1016/j.neunet.2019.04.014",
-      "relevance_score": 21,
-      "tags": [
-        "time series classification",
-        "multivariate time series"
-      ],
-      "score_breakdown": {
-        "topic": 0,
-        "time_series": 19,
-        "dataset": 0,
-        "method": 0,
-        "freshness": 0,
-        "source": 2,
-        "negative": 0,
-        "total": 21
-      },
-      "negative_hits": [],
-      "research_question": "time_series_method",
-      "recommendation": "方法借鉴",
-      "decision_reason": "时间序列 19；命中: time series classification, multivariate time series"
-    },
-    {
-      "id": "s2:a75da5376b48c0cc1c30",
-      "title": "LSTM Fully Convolutional Networks for Time Series Classification",
-      "abstract": "Fully convolutional neural networks (FCNs) have been shown to achieve the state-of-the-art performance on the task of classifying time series sequences. We propose the augmentation of fully convolutional networks with long short term memory recurrent neural network (LSTM RNN) sub-modules for time series classification. Our proposed models significantly enhance the performance of fully convolutional networks with a nominal increase in model size and require minimal preprocessing of the data set. The proposed long short term memory fully convolutional network (LSTM-FCN) achieves the state-of-the",
-      "authors": [
-        "Fazle Karim",
-        "Somshubra Majumdar",
-        "H. Darabi",
-        "Shun Chen"
-      ],
-      "date": "2017-09-08",
-      "source": "Semantic Scholar",
-      "url": "https://www.semanticscholar.org/paper/a75da5376b48c0cc1c307561d14e0f177341afc0",
-      "pdf": "https://arxiv.org/pdf/1709.05206",
-      "venue": "IEEE Access",
-      "citations": 1303,
-      "doi": "10.1109/ACCESS.2017.2779939",
-      "relevance_score": 18,
-      "tags": [
-        "time series classification"
-      ],
-      "score_breakdown": {
-        "topic": 0,
-        "time_series": 16,
-        "dataset": 0,
-        "method": 0,
-        "freshness": 0,
-        "source": 2,
-        "negative": 0,
-        "total": 18
-      },
-      "negative_hits": [],
-      "research_question": "time_series_method",
-      "recommendation": "方法借鉴",
-      "decision_reason": "时间序列 16；命中: time series classification"
-    },
-    {
       "id": "s2:76624f8ff1391e942c33",
       "title": "A Dual-Stage Attention-Based Recurrent Neural Network for Time Series Prediction",
       "abstract": "The Nonlinear autoregressive exogenous (NARX) model, which predicts the current value of a time series based upon its previous values as well as the current and past values of multiple driving (exogenous) series, has been studied for decades. Despite the fact that various NARX models have been developed, few of them can capture the long-term temporal dependencies appropriately and select the relevant driving series to make predictions. In this paper, we propose a dual-stage attention-based recurrent neural network (DA-RNN) to address these two issues. In the first stage, we introduce an input ",
@@ -4418,7 +4569,7 @@
       "url": "https://www.semanticscholar.org/paper/76624f8ff1391e942c3313b79ed08a335aa5077a",
       "pdf": "https://arxiv.org/pdf/1704.02971",
       "venue": "International Joint Conference on Artificial Intelligence",
-      "citations": 1569,
+      "citations": 1570,
       "doi": "10.24963/ijcai.2017/366",
       "relevance_score": 18,
       "tags": [
@@ -4438,117 +4589,6 @@
       "research_question": "time_series_method",
       "recommendation": "方法借鉴",
       "decision_reason": "时间序列 16；命中: time series prediction"
-    },
-    {
-      "id": "s2:3b421dcebe21bf45c193",
-      "title": "The great time series classification bake off: a review and experimental evaluation of recent algorithmic advances",
-      "abstract": "In the last 5 years there have been a large number of new time series classification algorithms proposed in the literature. These algorithms have been evaluated on subsets of the 47 data sets in the University of California, Riverside time series classification archive. The archive has recently been expanded to 85 data sets, over half of which have been donated by researchers at the University of East Anglia. Aspects of previous evaluations have made comparisons between algorithms difficult. For example, several different programming languages have been used, experiments involved a single trai",
-      "authors": [
-        "A. Bagnall",
-        "Jason Lines",
-        "A. Bostrom",
-        "J. Large",
-        "Eamonn J. Keogh"
-      ],
-      "date": "2016-11-23",
-      "source": "Semantic Scholar",
-      "url": "https://www.semanticscholar.org/paper/3b421dcebe21bf45c1930b948cfda7ec95b55ac4",
-      "pdf": "",
-      "venue": "Data mining and knowledge discovery",
-      "citations": 1466,
-      "doi": "10.1007/s10618-016-0483-9",
-      "relevance_score": 18,
-      "tags": [
-        "time series classification"
-      ],
-      "score_breakdown": {
-        "topic": 0,
-        "time_series": 16,
-        "dataset": 0,
-        "method": 0,
-        "freshness": 0,
-        "source": 2,
-        "negative": 0,
-        "total": 18
-      },
-      "negative_hits": [],
-      "research_question": "time_series_method",
-      "recommendation": "方法借鉴",
-      "decision_reason": "时间序列 16；命中: time series classification"
-    },
-    {
-      "id": "s2:ca0917853ea55c0ec4cd",
-      "title": "Time series classification from scratch with deep neural networks: A strong baseline",
-      "abstract": "We propose a simple but strong baseline for time series classification from scratch with deep neural networks. Our proposed baseline models are pure end-to-end without any heavy preprocessing on the raw data or feature crafting. The proposed Fully Convolutional Network (FCN) achieves premium performance to other state-of-the-art approaches and our exploration of the very deep neural networks with the ResNet structure is also competitive. The global average pooling in our convolutional model enables the exploitation of the Class Activation Map (CAM) to find out the contributing region in the ra",
-      "authors": [
-        "Zhiguang Wang",
-        "Weizhong Yan",
-        "T. Oates"
-      ],
-      "date": "2016-11-20",
-      "source": "Semantic Scholar",
-      "url": "https://www.semanticscholar.org/paper/ca0917853ea55c0ec4cded50914eb825fd45d00f",
-      "pdf": "https://arxiv.org/pdf/1611.06455",
-      "venue": "IEEE International Joint Conference on Neural Network",
-      "citations": 2081,
-      "doi": "10.1109/IJCNN.2017.7966039",
-      "relevance_score": 18,
-      "tags": [
-        "time series classification"
-      ],
-      "score_breakdown": {
-        "topic": 0,
-        "time_series": 16,
-        "dataset": 0,
-        "method": 0,
-        "freshness": 0,
-        "source": 2,
-        "negative": 0,
-        "total": 18
-      },
-      "negative_hits": [],
-      "research_question": "time_series_method",
-      "recommendation": "方法借鉴",
-      "decision_reason": "时间序列 16；命中: time series classification"
-    },
-    {
-      "id": "s2:bd723bc768baa78b7bd3",
-      "title": "Recurrent Neural Networks for Multivariate Time Series with Missing Values",
-      "abstract": "Multivariate time series data in practical applications, such as health care, geoscience, and biology, are characterized by a variety of missing values. In time series prediction and other related tasks, it has been noted that missing values and their missing patterns are often correlated with the target labels, a.k.a., informative missingness. There is very limited work on exploiting the missing patterns for effective imputation and improving prediction performance. In this paper, we develop novel deep learning models, namely GRU-D, as one of the early attempts. GRU-D is based on Gated Recurr",
-      "authors": [
-        "Zhengping Che",
-        "S. Purushotham",
-        "Kyunghyun Cho",
-        "D. Sontag",
-        "Yan Liu"
-      ],
-      "date": "2016-06-06",
-      "source": "Semantic Scholar",
-      "url": "https://www.semanticscholar.org/paper/bd723bc768baa78b7bd3e6f28a401d6d5cfe87f8",
-      "pdf": "https://arxiv.org/pdf/1606.01865",
-      "venue": "Scientific Reports",
-      "citations": 2465,
-      "doi": "10.1038/s41598-018-24271-9",
-      "relevance_score": 25,
-      "tags": [
-        "time series prediction",
-        "time series classification",
-        "multivariate time series"
-      ],
-      "score_breakdown": {
-        "topic": 0,
-        "time_series": 23,
-        "dataset": 0,
-        "method": 0,
-        "freshness": 0,
-        "source": 2,
-        "negative": 0,
-        "total": 25
-      },
-      "negative_hits": [],
-      "research_question": "time_series_method",
-      "recommendation": "方法借鉴",
-      "decision_reason": "时间序列 23；命中: time series prediction, time series classification, multivariate time series"
     },
     {
       "id": "openalex:W7140163800",
