@@ -348,6 +348,7 @@ body {
         </select>
         <button type="button" onclick="toggleTheme()" id="themeBtn">🌙</button>
         <button type="button" onclick="exportResearchMemory()" title="导出研究记忆">⬇</button>
+        <button type="button" onclick="configureObsidianSettings()" title="配置 Obsidian">OB</button>
         <button type="button" onclick="openSyncModal()" title="云同步笔记和收藏">☁️</button>
       </div>
     </div>
@@ -481,6 +482,10 @@ const i18n = {
     "note.placeholder": "记录你的想法、阅读笔记...",
     "btn.bibtex": "BibTeX",
     "bibtex.copied": "已复制",
+    "btn.markdown": "复制MD",
+    "btn.obsidian": "Obsidian",
+    "obsidian.sent": "已发送",
+    "markdown.copied": "已复制MD",
     "status.unread": "未读",
     "status.read": "已读",
     "status.important": "重要参考",
@@ -524,6 +529,10 @@ const i18n = {
     "note.placeholder": "Add your thoughts, reading notes...",
     "btn.bibtex": "BibTeX",
     "bibtex.copied": "Copied!",
+    "btn.markdown": "Copy MD",
+    "btn.obsidian": "Obsidian",
+    "obsidian.sent": "Sent",
+    "markdown.copied": "MD copied",
     "status.unread": "Unread",
     "status.read": "Read",
     "status.important": "Key Ref",
@@ -968,6 +977,8 @@ function renderPapers() {
           📝 ${hasNote ? t("btn.note_saved") : t("btn.note")}
         </button>
         <button type="button" onclick="copyBibTeX('${p.id}', this)">${t("btn.bibtex")}</button>
+        <button type="button" onclick="copyPaperMarkdown('${p.id}', this)">${t("btn.markdown")}</button>
+        <button type="button" onclick="sendPaperToObsidian('${p.id}', this)">${t("btn.obsidian")}</button>
         <button type="button" onclick="rememberPaper('${p.id}', 'manual')">${t("btn.memory")}</button>
         <button type="button" id="status-${idx}" class="status-btn${statusClass}" onclick="cycleStatus('${p.id}', ${idx})">${statusLabel}</button>
         ${statusTimeHtml}
@@ -1092,21 +1103,23 @@ function cycleStatus(id, cardIdx) {
   updateMarkedCount();
 }
 
-function copyBibTeX(id, btn) {
-  const p = papersMap[id];
-  if (!p) return;
+function buildBibTeX(p) {
   const firstAuthor = ((p.authors || ["Unknown"])[0] || "Unknown").trim().split(" ").pop();
   const year = (p.date || "").slice(0, 4) || "XXXX";
   const titleKey = p.title.replace(/[^a-zA-Z\s]/g, "").split(" ").filter(Boolean).slice(0, 3).map(w => w[0].toUpperCase() + w.slice(1)).join("");
   const key = `${firstAuthor}${year}${titleKey}`;
   const authors = (p.authors || []).join(" and ") || "Unknown";
-  let bib;
   if (p.source === "arXiv") {
     const arxivId = (p.id || "").replace("arxiv:", "");
-    bib = `@article{${key},\n  title   = {${p.title}},\n  author  = {${authors}},\n  journal = {arXiv preprint arXiv:${arxivId}},\n  year    = {${year}},\n  url     = {${p.url}}\n}`;
-  } else {
-    bib = `@article{${key},\n  title  = {${p.title}},\n  author = {${authors}},\n  year   = {${year}},\n  url    = {${p.url}}\n}`;
+    return `@article{${key},\n  title   = {${p.title}},\n  author  = {${authors}},\n  journal = {arXiv preprint arXiv:${arxivId}},\n  year    = {${year}},\n  url     = {${p.url}}\n}`;
   }
+  return `@article{${key},\n  title  = {${p.title}},\n  author = {${authors}},\n  year   = {${year}},\n  url    = {${p.url}}\n}`;
+}
+
+function copyBibTeX(id, btn) {
+  const p = papersMap[id];
+  if (!p) return;
+  const bib = buildBibTeX(p);
   navigator.clipboard.writeText(bib).then(() => {
     const orig = btn.textContent;
     btn.textContent = t("bibtex.copied");
@@ -1118,7 +1131,21 @@ function paperToMarkdown(p) {
   const authors = (p.authors || []).join(", ");
   const tags = (p.tags || []).map(t => `#${String(t).replace(/\s+/g, "-")}`).join(" ");
   const notesMd = getNoteEntries(p.id).map(e => `- ${e.savedAt || ""} ${e.text}`).join("\n");
-  return `## ${p.title}
+  const safeTitle = String(p.title || "Untitled").replace(/"/g, '\\"');
+  return `---
+type: paper
+source: Paper Radar
+title: "${safeTitle}"
+date: ${p.date || ""}
+paper_source: ${p.source || ""}
+research_question: ${p.research_question || "related"}
+recommendation: ${p.recommendation || ""}
+relevance_score: ${p.relevance_score || 0}
+url: ${p.url || ""}
+pdf: ${p.pdf || ""}
+---
+
+# ${p.title}
 
 - 类型: ${questionLabel(p.research_question || "related")}
 - 建议: ${p.recommendation || "快读"}
@@ -1135,7 +1162,90 @@ ${p.abstract || ""}
 
 ### Notes
 ${notesMd || "- "}
+
+### BibTeX
+\`\`\`bibtex
+${buildBibTeX(p)}
+\`\`\`
 `;
+}
+
+function safeFileName(text) {
+  return String(text || "Untitled")
+    .replace(/[\\/:*?"<>|#^[\]]/g, " ")
+    .replace(/\s+/g, " ")
+    .trim()
+    .slice(0, 120) || "Untitled";
+}
+
+function getObsidianConfig() {
+  let vault = localStorage.getItem("pr_obsidian_vault") || "";
+  let folder = localStorage.getItem("pr_obsidian_folder") || "Paper Radar";
+  if (!vault) {
+    const inputVault = window.prompt("Obsidian vault 名称（必须和你的 vault 名完全一致）", vault);
+    if (inputVault === null) return null;
+    vault = inputVault.trim();
+    localStorage.setItem("pr_obsidian_vault", vault);
+  }
+  if (!localStorage.getItem("pr_obsidian_folder")) {
+    const inputFolder = window.prompt("保存目录", folder);
+    if (inputFolder !== null) folder = inputFolder.trim() || "Paper Radar";
+    localStorage.setItem("pr_obsidian_folder", folder);
+  }
+  return { vault, folder };
+}
+
+function configureObsidianSettings() {
+  const oldVault = localStorage.getItem("pr_obsidian_vault") || "";
+  const oldFolder = localStorage.getItem("pr_obsidian_folder") || "Paper Radar";
+  const vault = window.prompt("Obsidian vault 名称（必须和你的 vault 名完全一致）", oldVault);
+  if (vault === null) return;
+  const folder = window.prompt("保存目录", oldFolder);
+  if (folder === null) return;
+  localStorage.setItem("pr_obsidian_vault", vault.trim());
+  localStorage.setItem("pr_obsidian_folder", folder.trim() || "Paper Radar");
+}
+
+function paperMarkdownPayload(id) {
+  const p = papersMap[id] || (researchMemory[id] && researchMemory[id].paper);
+  if (!p) return null;
+  rememberPaper(id, "obsidian");
+  return { paper: p, markdown: paperToMarkdown(p) };
+}
+
+function flashButton(btn, textKey) {
+  if (!btn) return;
+  const orig = btn.textContent;
+  btn.textContent = t(textKey);
+  setTimeout(() => { btn.textContent = orig; }, 1500);
+}
+
+function copyPaperMarkdown(id, btn) {
+  const payload = paperMarkdownPayload(id);
+  if (!payload) return;
+  navigator.clipboard.writeText(payload.markdown).then(() => flashButton(btn, "markdown.copied"));
+}
+
+function sendPaperToObsidian(id, btn) {
+  const payload = paperMarkdownPayload(id);
+  if (!payload) return;
+  const cfg = getObsidianConfig();
+  if (!cfg) return;
+  const p = payload.paper;
+  const fileName = `${p.date || new Date().toISOString().slice(0,10)} - ${safeFileName(p.title)}.md`;
+  const filePath = `${cfg.folder.replace(/^\/+|\/+$/g, "")}/${fileName}`;
+
+  // Put the full note on the clipboard first. The URI also carries content,
+  // but the clipboard copy is a reliable fallback if a browser limits URL size.
+  navigator.clipboard.writeText(payload.markdown).catch(() => {});
+
+  const params = new URLSearchParams();
+  if (cfg.vault) params.set("vault", cfg.vault);
+  params.set("file", filePath);
+  params.set("content", payload.markdown);
+  params.set("overwrite", "false");
+  window.location.href = `obsidian://new?${params.toString()}`;
+  flashButton(btn, "obsidian.sent");
 }
 
 function exportResearchMemory() {
