@@ -1314,12 +1314,53 @@ def deduplicate(papers):
     return unique
 
 
+def canonical_paper_id(paper):
+    """Return a stable key for browser-side notes, status, and library history."""
+    doi = str(paper.get("doi") or "").strip().lower()
+    doi = re.sub(r"^https?://(?:dx\.)?doi\.org/", "", doi)
+    if doi:
+        return f"doi:{doi}"
+
+    source_id = str(paper.get("id") or "").strip()
+    if source_id.lower().startswith("arxiv:"):
+        arxiv_id = re.sub(r"v\d+$", "", source_id.split(":", 1)[1].lower())
+        return f"arxiv:{arxiv_id}"
+
+    for value in (paper.get("url"), paper.get("pdf")):
+        match = re.search(r"arxiv\.org/(?:abs|pdf)/([^/?#]+)", str(value or ""), re.IGNORECASE)
+        if match:
+            arxiv_id = re.sub(r"v\d+$", "", match.group(1).removesuffix(".pdf").lower())
+            return f"arxiv:{arxiv_id}"
+
+    normalized = normalize_title(str(paper.get("title") or ""))
+    return f"title:{normalized}" if normalized else source_id
+
+
+def load_previous_summaries():
+    """Keep LLM summaries when the daily snapshot is rebuilt from fresh sources."""
+    latest_file = DATA_DIR / "latest.json"
+    if not latest_file.exists():
+        return {}
+    try:
+        previous = json.loads(latest_file.read_text("utf-8"))
+    except (json.JSONDecodeError, OSError):
+        return {}
+
+    summaries = {}
+    for paper in previous.get("research_papers", []) + previous.get("ai_frontier", []):
+        summary = str(paper.get("summary") or "").strip()
+        if summary:
+            summaries[canonical_paper_id(paper)] = summary
+    return summaries
+
+
 def main():
     print("=" * 60)
     print(f"🛰️  Paper Radar — {datetime.utcnow().strftime('%Y-%m-%d %H:%M UTC')}")
     print("=" * 60)
 
     today = datetime.utcnow().strftime("%Y-%m-%d")
+    previous_summaries = load_previous_summaries()
 
     # 1. Fetch from all sources
     arxiv_research = fetch_arxiv(RESEARCH_KEYWORDS, max_per_query=20)
@@ -1340,6 +1381,11 @@ def main():
                   + s2_papers + openalex_papers + or_papers + hf_papers + rss_items)
     all_papers = filter_relevant_papers(all_papers, min_score=6)
     all_papers = deduplicate(all_papers)
+    for paper in all_papers:
+        paper["canonical_id"] = canonical_paper_id(paper)
+        previous_summary = previous_summaries.get(paper["canonical_id"])
+        if previous_summary:
+            paper["summary"] = previous_summary
 
     # 3. Classify — sort by date descending, then relevance
     research_papers = sorted(

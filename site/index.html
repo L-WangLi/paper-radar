@@ -197,7 +197,7 @@ body {
 .radar-badge.question { color: var(--accent); border-color: rgba(124,111,255,0.35); }
 .radar-reason { flex-basis: 100%; line-height: 1.45; color: var(--text-dim); }
 .paper-card .actions {
-  display: flex; gap: 8px; margin-top: 8px; align-items: center;
+  display: flex; gap: 8px; margin-top: 8px; align-items: center; flex-wrap: wrap;
 }
 .paper-card .actions button {
   background: none; border: none; color: var(--text-muted); cursor: pointer;
@@ -243,9 +243,15 @@ body {
   color: var(--text-muted); transition: all var(--transition);
 }
 .status-btn.read { background: rgba(0,212,170,0.12); color: var(--accent2); border-color: var(--accent2); }
-.status-btn.important { background: rgba(255,107,157,0.15); color: var(--accent3); border-color: var(--accent3); }
+.status-btn.reading { background: rgba(124,111,255,0.13); color: var(--accent); border-color: var(--accent); }
+.status-btn.to-read { background: var(--bg-surface); color: var(--text-dim); border-color: var(--border-light); }
 
 .status-timestamp { font-size: 10px; color: var(--text-muted); font-family: var(--font-mono); margin-left: 4px; }
+.obsidian-note-link {
+  color: var(--accent2); text-decoration: none; font-size: 11px; font-family: var(--font-mono);
+  padding: 2px 7px; border: 1px solid rgba(0,212,170,0.35); border-radius: 10px;
+}
+.obsidian-note-link:hover { background: rgba(0,212,170,0.1); }
 /* Note preview: always-visible text+time below actions */
 .note-preview {
   margin-top: 8px; padding: 6px 10px; font-size: 12px; color: var(--text-dim);
@@ -256,6 +262,83 @@ body {
 .note-preview .note-preview-time { font-family: var(--font-mono); font-size: 10px; color: var(--text-muted); margin-left: 6px; }
 .source-filter { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 10px; align-items: center; }
 .source-filter .label { font-size: 11px; color: var(--text-muted); font-family: var(--font-mono); }
+.library-view-toggle {
+  display: none; gap: 4px; padding: 3px; border: 1px solid var(--border);
+  border-radius: 20px; background: var(--bg-surface);
+}
+.library-view-toggle.visible { display: flex; }
+.library-view-toggle button {
+  padding: 4px 10px; border: none; border-radius: 16px; background: transparent;
+  color: var(--text-muted); cursor: pointer; font: 12px var(--font-body);
+}
+.library-view-toggle button.active { background: var(--accent); color: #fff; }
+.library-btn.in-library { color: var(--accent2) !important; }
+
+/* ========== Personal library timeline ========== */
+.library-timeline { position: relative; display: flex; flex-direction: column; gap: 22px; }
+.timeline-group { position: relative; }
+.timeline-day {
+  position: sticky; top: 0; z-index: 5; display: inline-block; margin-bottom: 8px;
+  padding: 4px 10px; border: 1px solid var(--border); border-radius: 14px;
+  background: var(--bg); color: var(--text-dim); font: 12px var(--font-mono);
+}
+.timeline-items { position: relative; margin-left: 12px; padding-left: 26px; }
+.timeline-items::before {
+  content: ""; position: absolute; left: 5px; top: 4px; bottom: 4px;
+  width: 1px; background: var(--border-light);
+}
+.timeline-item { position: relative; display: grid; grid-template-columns: 54px 1fr; gap: 10px; margin-bottom: 10px; }
+.timeline-item::before {
+  content: ""; position: absolute; left: -25px; top: 15px; width: 9px; height: 9px;
+  border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 4px var(--accent-glow);
+}
+.timeline-time { padding-top: 11px; color: var(--text-muted); font: 10px var(--font-mono); }
+.timeline-card {
+  padding: 12px 14px; border: 1px solid var(--border); border-radius: var(--radius);
+  background: var(--bg-card);
+}
+.timeline-card-title { font-size: 13.5px; font-weight: 600; line-height: 1.45; }
+.timeline-card-title a { color: var(--text); text-decoration: none; }
+.timeline-card-title a:hover { color: var(--accent); }
+.timeline-card-meta {
+  display: flex; flex-wrap: wrap; gap: 7px; margin-top: 5px;
+  color: var(--text-muted); font-size: 11px;
+}
+.timeline-card-note {
+  margin-top: 7px; padding-left: 8px; border-left: 2px solid var(--accent2);
+  color: var(--text-dim); font-size: 12px; font-style: italic;
+}
+
+/* ========== Weekly review ========== */
+.weekly-review { display: flex; flex-direction: column; gap: 18px; }
+.weekly-heading { display: flex; justify-content: space-between; gap: 12px; align-items: flex-end; flex-wrap: wrap; }
+.weekly-heading h2 { font-size: 20px; }
+.weekly-range { color: var(--text-muted); font: 11px var(--font-mono); }
+.weekly-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.weekly-stat {
+  padding: 18px; border: 1px solid var(--border); border-radius: var(--radius);
+  background: var(--bg-card);
+}
+.weekly-stat .num { display: block; color: var(--accent); font: 700 28px var(--font-mono); }
+.weekly-stat:nth-child(2) .num { color: var(--accent2); }
+.weekly-stat:nth-child(3) .num { color: var(--accent3); }
+.weekly-stat .label { color: var(--text-dim); font-size: 12px; }
+.weekly-section {
+  padding: 16px 18px; border: 1px solid var(--border); border-radius: var(--radius);
+  background: var(--bg-card);
+}
+.weekly-section h3 { font-size: 14px; margin-bottom: 10px; }
+.weekly-progress { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.weekly-progress-item {
+  padding: 10px 12px; border-radius: var(--radius-sm); background: var(--bg-surface);
+  color: var(--text-dim); font-size: 12px;
+}
+.weekly-progress-item strong { display: block; color: var(--text); font: 600 18px var(--font-mono); }
+.weekly-list { display: flex; flex-direction: column; gap: 7px; }
+.weekly-list-item { display: flex; justify-content: space-between; gap: 12px; color: var(--text-dim); font-size: 12px; }
+.weekly-list-item a { color: var(--text); text-decoration: none; }
+.weekly-list-item a:hover { color: var(--accent); }
+.weekly-empty { color: var(--text-muted); font-size: 12px; }
 
 /* ========== Loading & Empty ========== */
 .loading {
@@ -298,6 +381,7 @@ body {
   .tab { padding: 10px 12px; font-size: 13px; }
   .toolbar { flex-direction: column; }
   .paper-card { padding: 12px 14px; }
+  .weekly-stats, .weekly-progress { grid-template-columns: 1fr; }
 }
 
 /* ========== Gist Sync Modal ========== */
@@ -357,7 +441,7 @@ body {
           <option value="en">English</option>
         </select>
         <button type="button" onclick="toggleTheme()" id="themeBtn">🌙</button>
-        <button type="button" onclick="exportResearchMemory()" title="导出研究记忆">⬇</button>
+        <button type="button" onclick="exportResearchMemory()" title="导出我的文献库">⬇</button>
         <button type="button" onclick="configureObsidianSettings()" title="配置 Obsidian">OB</button>
         <button type="button" onclick="openSyncModal()" title="云同步笔记和收藏">☁️</button>
       </div>
@@ -389,8 +473,11 @@ body {
       <span class="count" id="tabCountMarked">0</span>
     </button>
     <button class="tab" data-tab="memory" onclick="switchTab('memory')">
-      <span data-i18n="tab.memory">🗂️ 研究记忆</span>
+      <span data-i18n="tab.memory">🗂️ 我的文献库</span>
       <span class="count" id="tabCountMemory">0</span>
+    </button>
+    <button class="tab" data-tab="weekly" onclick="switchTab('weekly')">
+      <span data-i18n="tab.weekly">📊 本周回顾</span>
     </button>
   </div>
 
@@ -411,6 +498,10 @@ body {
              data-i18n-placeholder="search.placeholder" oninput="filterPapers()">
     </div>
     <button type="button" id="focusToggle" class="chip" onclick="toggleFocusMode()" data-i18n="focus.toggle">🎯 精选模式</button>
+    <div class="library-view-toggle" id="libraryViewToggle">
+      <button type="button" data-view="cards" onclick="switchLibraryView('cards')" data-i18n="library.cards">卡片</button>
+      <button type="button" data-view="timeline" onclick="switchLibraryView('timeline')" data-i18n="library.timeline">时间线</button>
+    </div>
     <div class="filter-chips" id="filterChips"></div>
   </div>
 
@@ -467,7 +558,8 @@ const i18n = {
     "tab.ai": "🚀 AI 前沿",
     "tab.favs": "⭐ 收藏",
     "tab.marked": "🔖 已标记",
-    "tab.memory": "🗂️ 研究记忆",
+    "tab.memory": "🗂️ 我的文献库",
+    "tab.weekly": "📊 本周回顾",
     "nav.prev": "前一天",
     "nav.next": "后一天",
     "nav.latest": "最新",
@@ -477,13 +569,14 @@ const i18n = {
     "empty.ai": "今日没有 AI 前沿论文",
     "empty.favs": "还没有收藏的论文",
     "empty.marked": "当前日期没有已标记的论文",
-    "empty.memory": "还没有沉淀到研究记忆的论文",
+    "empty.memory": "文献库还是空的，先加入一篇论文吧",
     "empty.search": "没有匹配的结果",
     "btn.expand": "展开摘要",
     "btn.collapse": "收起",
     "btn.fav": "收藏",
     "btn.unfav": "已收藏",
     "btn.pdf": "PDF",
+    "btn.source": "打开原文",
     "footer.auto": "自动更新",
     "footer.powered": "数据来源",
     "label.source": "来源",
@@ -500,11 +593,33 @@ const i18n = {
     "btn.obsidian": "Obsidian",
     "obsidian.sent": "已发送",
     "markdown.copied": "已复制MD",
-    "status.unread": "未读",
+    "status.to_read": "待读",
+    "status.reading": "阅读中",
     "status.read": "已读",
-    "status.important": "重要参考",
-    "btn.memory": "记忆",
-    "btn.export_memory": "导出研究记忆",
+    "status.set_to_read": "设为待读",
+    "btn.memory": "加入文献库",
+    "btn.in_library": "已入库",
+    "btn.export_memory": "导出文献库",
+    "library.cards": "卡片",
+    "library.timeline": "时间线",
+    "library.added": "入库",
+    "library.published": "发表",
+    "library.latest_note": "最近笔记",
+    "btn.copy_doi": "复制 DOI",
+    "doi.copied": "DOI 已复制",
+    "btn.zotero_ris": "Zotero RIS",
+    "ris.downloaded": "RIS 已下载",
+    "btn.link_zotero": "关联 Zotero",
+    "btn.open_zotero": "打开 Zotero",
+    "zotero.linked": "已关联",
+    "btn.open_obsidian": "打开 OB 笔记",
+    "weekly.title": "本周阅读回顾",
+    "weekly.added": "本周加入",
+    "weekly.read": "本周读完",
+    "weekly.thoughts": "记录思考（Radar 笔记）",
+    "weekly.progress": "当前文献库进度",
+    "weekly.recent_read": "本周读完的文献",
+    "weekly.empty_read": "本周还没有标记为已读的文献",
     "focus.toggle": "🎯 精选模式",
     "focus.hint": "已隐藏 {n} 篇「快读/关注」类论文 · ",
     "focus.showall": "显示全部",
@@ -517,7 +632,8 @@ const i18n = {
     "tab.ai": "🚀 AI Frontier",
     "tab.favs": "⭐ Favorites",
     "tab.marked": "🔖 Marked",
-    "tab.memory": "🗂️ Memory",
+    "tab.memory": "🗂️ My Library",
+    "tab.weekly": "📊 Weekly Review",
     "nav.prev": "Previous",
     "nav.next": "Next",
     "nav.latest": "Latest",
@@ -527,13 +643,14 @@ const i18n = {
     "empty.ai": "No AI frontier papers today",
     "empty.favs": "No favorites yet",
     "empty.marked": "No marked papers in current date",
-    "empty.memory": "No papers saved to research memory yet",
+    "empty.memory": "Your library is empty. Add a paper to begin.",
     "empty.search": "No matching results",
     "btn.expand": "Abstract",
     "btn.collapse": "Collapse",
     "btn.fav": "Favorite",
     "btn.unfav": "Saved",
     "btn.pdf": "PDF",
+    "btn.source": "Open Source",
     "footer.auto": "Auto-updated",
     "footer.powered": "Sources",
     "label.source": "Source",
@@ -550,11 +667,33 @@ const i18n = {
     "btn.obsidian": "Obsidian",
     "obsidian.sent": "Sent",
     "markdown.copied": "MD copied",
-    "status.unread": "Unread",
+    "status.to_read": "To Read",
+    "status.reading": "Reading",
     "status.read": "Read",
-    "status.important": "Key Ref",
-    "btn.memory": "Remember",
-    "btn.export_memory": "Export Memory",
+    "status.set_to_read": "Set To Read",
+    "btn.memory": "Add to Library",
+    "btn.in_library": "In Library",
+    "btn.export_memory": "Export Library",
+    "library.cards": "Cards",
+    "library.timeline": "Timeline",
+    "library.added": "Added",
+    "library.published": "Published",
+    "library.latest_note": "Latest note",
+    "btn.copy_doi": "Copy DOI",
+    "doi.copied": "DOI copied",
+    "btn.zotero_ris": "Zotero RIS",
+    "ris.downloaded": "RIS downloaded",
+    "btn.link_zotero": "Link Zotero",
+    "btn.open_zotero": "Open Zotero",
+    "zotero.linked": "Linked",
+    "btn.open_obsidian": "Open OB Note",
+    "weekly.title": "Weekly Reading Review",
+    "weekly.added": "Added This Week",
+    "weekly.read": "Finished This Week",
+    "weekly.thoughts": "Thoughts (Radar Notes)",
+    "weekly.progress": "Current Library Progress",
+    "weekly.recent_read": "Papers Finished This Week",
+    "weekly.empty_read": "No papers marked as read this week",
     "focus.toggle": "🎯 Focus Mode",
     "focus.hint": "{n} skim/watch papers hidden · ",
     "focus.showall": "Show all",
@@ -606,10 +745,12 @@ let favorites = JSON.parse(localStorage.getItem("pr_favs") || "{}");
 let notes = JSON.parse(localStorage.getItem("pr_notes") || "{}");
 let readStatus = JSON.parse(localStorage.getItem("pr_status") || "{}");
 let researchMemory = JSON.parse(localStorage.getItem("pr_memory") || "{}");
+let paperLinks = JSON.parse(localStorage.getItem("pr_paper_links") || "{}");
 let activeFilters = new Set();
 let activeSourceFilter = null;
 let papersMap = {};
 let focusMode = localStorage.getItem("pr_focus") !== "off"; // default on: fewer papers to scan per day
+let libraryView = localStorage.getItem("pr_library_view") || "timeline";
 const FOCUS_RECOMMENDATIONS = new Set(["精读", "方法借鉴", "对比实验"]);
 
 const questionLabels = {
@@ -644,11 +785,133 @@ function updateMemoryCount() {
   if (el) el.textContent = Object.keys(researchMemory).length;
 }
 
+function normalizePaperTitle(title) {
+  return String(title || "").toLowerCase().replace(/[^a-z0-9]/g, "");
+}
+
+function paperStateId(p) {
+  if (!p) return "";
+  if (p.canonical_id) return p.canonical_id;
+  const doi = String(p.doi || "").trim().toLowerCase()
+    .replace(/^https?:\/\/(?:dx\.)?doi\.org\//, "");
+  if (doi) return `doi:${doi}`;
+  const sourceId = String(p.id || "");
+  if (sourceId.toLowerCase().startsWith("arxiv:")) {
+    return `arxiv:${sourceId.split(":").slice(1).join(":").toLowerCase().replace(/v\d+$/, "")}`;
+  }
+  const arxivMatch = `${p.url || ""} ${p.pdf || ""}`.match(/arxiv\.org\/(?:abs|pdf)\/([^/?#\s]+)/i);
+  if (arxivMatch) return `arxiv:${arxivMatch[1].replace(/\.pdf$/i, "").toLowerCase().replace(/v\d+$/, "")}`;
+  const normalized = normalizePaperTitle(p.title);
+  return normalized ? `title:${normalized}` : sourceId;
+}
+
+function paperArxivId(p) {
+  const sourceId = String(p?.id || "");
+  if (sourceId.toLowerCase().startsWith("arxiv:")) {
+    return sourceId.split(":").slice(1).join(":").replace(/v\d+$/i, "");
+  }
+  const match = `${p?.url || ""} ${p?.pdf || ""}`.match(/arxiv\.org\/(?:abs|pdf)\/([^/?#\s]+)/i);
+  return match ? match[1].replace(/\.pdf$/i, "").replace(/v\d+$/i, "") : "";
+}
+
+function getPaperLinks(id) {
+  return paperLinks[id] || {};
+}
+
+function mergeNoteEntries(a, b) {
+  const combined = [...(Array.isArray(a) ? a : []), ...(Array.isArray(b) ? b : [])];
+  const seen = new Set();
+  return combined
+    .filter(item => {
+      const key = `${item?.savedAt || ""}\n${item?.text || ""}`;
+      if (!item?.text || seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    })
+    .sort((x, y) => (y.savedAt || "").localeCompare(x.savedAt || ""))
+    .slice(0, 20);
+}
+
+function migrateStateRecord(store, oldId, newId, merge) {
+  if (!oldId || !newId || oldId === newId || store[oldId] === undefined) return false;
+  store[newId] = store[newId] === undefined ? store[oldId] : merge(store[newId], store[oldId]);
+  delete store[oldId];
+  return true;
+}
+
+function migrateLegacyState(allPapers) {
+  let changed = false;
+  const known = [...allPapers];
+  Object.values(researchMemory).forEach(item => {
+    if (item?.paper) known.push(item.paper);
+  });
+  known.forEach(p => {
+    const oldId = p?.id;
+    const newId = paperStateId(p);
+    if (!oldId || !newId) return;
+    p.canonical_id = newId;
+    changed = migrateStateRecord(favorites, oldId, newId, (a, b) => Boolean(a || b)) || changed;
+    changed = migrateStateRecord(readStatus, oldId, newId, (a, b) => {
+      const atA = typeof a === "object" ? (a.markedAt || "") : "";
+      const atB = typeof b === "object" ? (b.markedAt || "") : "";
+      return atB > atA ? b : a;
+    }) || changed;
+    changed = migrateStateRecord(notes, oldId, newId, (a, b) =>
+      mergeNoteEntries(
+        Array.isArray(a) ? a : (a ? [typeof a === "string" ? {text:a, savedAt:""} : a] : []),
+        Array.isArray(b) ? b : (b ? [typeof b === "string" ? {text:b, savedAt:""} : b] : [])
+      )
+    ) || changed;
+    changed = migrateStateRecord(paperLinks, oldId, newId, (a, b) => ({ ...b, ...a })) || changed;
+    changed = migrateStateRecord(researchMemory, oldId, newId, (a, b) => {
+      const addedA = a.addedAt || a.rememberedAt || "";
+      const addedB = b.addedAt || b.rememberedAt || "";
+      const updatedA = a.updatedAt || "";
+      const updatedB = b.updatedAt || "";
+      const preferred = updatedB > updatedA ? b : a;
+      return {
+        ...preferred,
+        addedAt: [addedA, addedB].filter(Boolean).sort()[0] || new Date().toISOString(),
+        rememberedAt: [addedA, addedB].filter(Boolean).sort()[0] || preferred.rememberedAt,
+        updatedAt: [updatedA, updatedB].sort().pop(),
+        events: [...(a.events || []), ...(b.events || [])]
+          .sort((x, y) => (x.at || "").localeCompare(y.at || ""))
+          .slice(-100),
+      };
+    }) || changed;
+  });
+  Object.keys(readStatus).forEach(id => {
+    const current = readStatus[id];
+    const status = typeof current === "string" ? current : current?.status;
+    const normalized = status === "important" ? "read"
+      : status === "unread" || !status ? "to_read"
+      : status;
+    if (typeof current === "string" || normalized !== status) {
+      const markedAt = typeof current === "object" ? (current.markedAt || "") : "";
+      readStatus[id] = {
+        status: normalized,
+        markedAt,
+        history: markedAt ? [{ status: normalized, at: markedAt }] : [],
+      };
+      changed = true;
+    }
+  });
+  if (changed) {
+    localStorage.setItem("pr_favs", JSON.stringify(favorites));
+    localStorage.setItem("pr_notes", JSON.stringify(notes));
+    localStorage.setItem("pr_status", JSON.stringify(readStatus));
+    localStorage.setItem("pr_memory", JSON.stringify(researchMemory));
+    localStorage.setItem("pr_paper_links", JSON.stringify(paperLinks));
+  }
+}
+
 function compactPaper(p) {
   return {
-    id: p.id, title: p.title, abstract: p.abstract, authors: p.authors || [],
+    id: p.id, canonical_id: paperStateId(p), title: p.title, abstract: p.abstract, authors: p.authors || [],
     date: p.date || "", source: p.source || "", url: p.url || "", pdf: p.pdf || "",
-    venue: p.venue || "", tags: p.tags || [], citations: p.citations || 0,
+    venue: p.venue || "", doi: p.doi || "", arxiv_id: paperArxivId(p),
+    tags: p.tags || [], citations: p.citations || 0,
+    summary: p.summary || "", snippet: p.snippet || "",
     relevance_score: p.relevance_score || 0, score_breakdown: p.score_breakdown || {},
     research_question: p.research_question || "related",
     recommendation: p.recommendation || "",
@@ -659,14 +922,38 @@ function compactPaper(p) {
 function rememberPaper(id, reason) {
   const p = papersMap[id] || (researchMemory[id] && researchMemory[id].paper);
   if (!p) return;
+  const key = paperStateId(p) || id;
+  const existing = researchMemory[key];
+  const now = new Date().toISOString();
+  const addedAt = existing?.addedAt || existing?.rememberedAt || now;
+  const events = [...(existing?.events || [])];
+  const eventType = reason === "manual" ? "added" : (reason || "added");
+  if (!existing) events.push({ type: "added", at: now, reason: eventType });
+  if (eventType !== "added") events.push({ type: eventType, at: now });
   researchMemory[id] = {
     paper: compactPaper(p),
-    reason: reason || researchMemory[id]?.reason || "manual",
-    rememberedAt: researchMemory[id]?.rememberedAt || new Date().toISOString(),
-    updatedAt: new Date().toISOString(),
+    reason: reason || existing?.reason || "manual",
+    addedAt,
+    rememberedAt: addedAt,
+    updatedAt: now,
+    sourceDate: existing?.sourceDate || currentData?.date || "",
+    events: events.slice(-100),
   };
+  if (key !== id) {
+    researchMemory[key] = researchMemory[id];
+    delete researchMemory[id];
+  }
+  if (!readStatus[key]) {
+    readStatus[key] = {
+      status: "to_read",
+      markedAt: now,
+      history: [{ status: "to_read", at: now }],
+    };
+    localStorage.setItem("pr_status", JSON.stringify(readStatus));
+  }
   localStorage.setItem("pr_memory", JSON.stringify(researchMemory));
   updateMemoryCount();
+  renderPapers();
 }
 
 // Compat helpers: support both old (string) and new (object) storage formats
@@ -675,10 +962,25 @@ function getStatus(id) {
   if (!s) return "";
   return typeof s === "string" ? s : (s.status || "");
 }
+function statusI18nKey(status) {
+  if (status === "reading") return "status.reading";
+  if (status === "read" || status === "important") return "status.read";
+  return "status.to_read";
+}
+function statusClassName(status) {
+  if (status === "reading") return "reading";
+  if (status === "read" || status === "important") return "read";
+  return "to-read";
+}
 function getStatusTime(id) {
   const s = readStatus[id];
   if (!s || typeof s === "string") return "";
   return s.markedAt || "";
+}
+function getStatusHistory(id) {
+  const s = readStatus[id];
+  if (!s || typeof s === "string") return [];
+  return Array.isArray(s.history) ? s.history : [];
 }
 function getNoteEntries(id) {
   const n = notes[id];
@@ -704,8 +1006,13 @@ function fmtTime(iso) {
 }
 function updateMarkedCount() {
   if (!currentData) return;
-  const all = [...(currentData.research_papers || []), ...(currentData.ai_frontier || [])];
-  const n = all.filter(p => getStatus(p.id)).length;
+  const byKey = new Map();
+  [...(currentData.research_papers || []), ...(currentData.ai_frontier || [])]
+    .forEach(p => byKey.set(paperStateId(p), p));
+  Object.values(researchMemory).forEach(item => {
+    if (item?.paper) byKey.set(paperStateId(item.paper), item.paper);
+  });
+  const n = [...byKey.values()].filter(p => getStatus(paperStateId(p))).length;
   const el = document.getElementById("tabCountMarked");
   if (el) el.textContent = n;
 }
@@ -767,6 +1074,14 @@ async function loadData(date) {
     const resp = await fetch(url);
     if (!resp.ok) throw new Error("fetch failed");
     currentData = await resp.json();
+    const allPapers = [...(currentData.research_papers || []), ...(currentData.ai_frontier || [])];
+    allPapers.forEach(p => {
+      const key = paperStateId(p);
+      p.canonical_id = key;
+      papersMap[p.id] = p;
+      papersMap[key] = p;
+    });
+    migrateLegacyState(allPapers);
 
     updateStats();
     buildFilterChips();
@@ -867,6 +1182,12 @@ function switchTab(tab) {
   renderPapers();
 }
 
+function switchLibraryView(view) {
+  libraryView = view === "cards" ? "cards" : "timeline";
+  localStorage.setItem("pr_library_view", libraryView);
+  renderPapers();
+}
+
 function toggleFocusMode() {
   focusMode = !focusMode;
   localStorage.setItem("pr_focus", focusMode ? "on" : "off");
@@ -881,18 +1202,28 @@ function getPapersForTab() {
   if (currentTab === "research") return currentData.research_papers || [];
   if (currentTab === "ai") return currentData.ai_frontier || [];
   if (currentTab === "favs") {
-    const all = [...(currentData.research_papers || []), ...(currentData.ai_frontier || [])];
-    return all.filter(p => favorites[p.id]);
+    const byKey = new Map();
+    [...(currentData.research_papers || []), ...(currentData.ai_frontier || [])]
+      .forEach(p => byKey.set(paperStateId(p), p));
+    Object.values(researchMemory).forEach(item => {
+      if (item?.paper) byKey.set(paperStateId(item.paper), item.paper);
+    });
+    return [...byKey.values()].filter(p => favorites[paperStateId(p)]);
   }
   if (currentTab === "marked") {
-    const all = [...(currentData.research_papers || []), ...(currentData.ai_frontier || [])];
-    return all
-      .filter(p => getStatus(p.id))
-      .sort((a, b) => (getStatusTime(b.id) || "").localeCompare(getStatusTime(a.id) || ""));
+    const byKey = new Map();
+    [...(currentData.research_papers || []), ...(currentData.ai_frontier || [])]
+      .forEach(p => byKey.set(paperStateId(p), p));
+    Object.values(researchMemory).forEach(item => {
+      if (item?.paper) byKey.set(paperStateId(item.paper), item.paper);
+    });
+    return [...byKey.values()]
+      .filter(p => getStatus(paperStateId(p)))
+      .sort((a, b) => (getStatusTime(paperStateId(b)) || "").localeCompare(getStatusTime(paperStateId(a)) || ""));
   }
   if (currentTab === "memory") {
     return Object.values(researchMemory)
-      .sort((a, b) => (b.updatedAt || b.rememberedAt || "").localeCompare(a.updatedAt || a.rememberedAt || ""))
+      .sort((a, b) => (b.addedAt || b.rememberedAt || "").localeCompare(a.addedAt || a.rememberedAt || ""))
       .map(item => item.paper);
   }
   return [];
@@ -900,7 +1231,169 @@ function getPapersForTab() {
 
 function filterPapers() { renderPapers(); }
 
+function localDayKey(value) {
+  const date = value instanceof Date ? value : new Date(value);
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const day = String(date.getDate()).padStart(2, "0");
+  return `${year}-${month}-${day}`;
+}
+
+function timelineDayLabel(iso) {
+  const value = new Date(iso);
+  const today = new Date();
+  const yesterday = new Date();
+  yesterday.setDate(today.getDate() - 1);
+  const key = localDayKey(value);
+  const todayKey = localDayKey(today);
+  const yesterdayKey = localDayKey(yesterday);
+  const dateText = value.toLocaleDateString(currentLang === "zh" ? "zh-CN" : "en-US", {
+    year: "numeric", month: "long", day: "numeric", weekday: "short",
+  });
+  if (key === todayKey) return `${currentLang === "zh" ? "今天" : "Today"} · ${dateText}`;
+  if (key === yesterdayKey) return `${currentLang === "zh" ? "昨天" : "Yesterday"} · ${dateText}`;
+  return dateText;
+}
+
+function renderLibraryTimeline(papers) {
+  const groups = new Map();
+  papers.forEach(p => {
+    const key = paperStateId(p);
+    const item = researchMemory[key] || {};
+    const addedAt = item.addedAt || item.rememberedAt || item.updatedAt || "";
+    const date = addedAt ? new Date(addedAt) : new Date(0);
+    const dayKey = localDayKey(date);
+    if (!groups.has(dayKey)) groups.set(dayKey, []);
+    groups.get(dayKey).push({ p, key, item, addedAt });
+  });
+  return [...groups.entries()]
+    .sort((a, b) => b[0].localeCompare(a[0]))
+    .map(([, items]) => {
+      items.sort((a, b) => (b.addedAt || "").localeCompare(a.addedAt || ""));
+      const dayIso = items[0]?.addedAt || "";
+      const cards = items.map(({ p, key, item, addedAt }) => {
+        const status = getStatus(key);
+        const statusLabel = t(statusI18nKey(status));
+        const note = getNoteText(key);
+        const obsidianUri = getPaperLinks(key).obsidianUri || "";
+        const addedTime = addedAt
+          ? new Date(addedAt).toLocaleTimeString(currentLang === "zh" ? "zh-CN" : "en-US", {hour:"2-digit", minute:"2-digit"})
+          : "--:--";
+        const authors = escapeHtml((p.authors || []).slice(0, 2).join(", "));
+        return `<div class="timeline-item">
+          <time class="timeline-time" datetime="${escapeHtml(addedAt)}">${escapeHtml(addedTime)}</time>
+          <article class="timeline-card">
+            <div class="timeline-card-title"><a href="${escapeHtml(p.url)}" target="_blank" rel="noopener noreferrer">${highlightText(p.title)}</a></div>
+            <div class="timeline-card-meta">
+              ${authors ? `<span>${authors}</span>` : ""}
+              <span>${escapeHtml(p.source || "")}</span>
+              ${p.date ? `<span>${t("library.published")} ${escapeHtml(p.date)}</span>` : ""}
+              <span>${escapeHtml(statusLabel)}</span>
+              ${item.sourceDate ? `<span>Radar ${escapeHtml(item.sourceDate)}</span>` : ""}
+              ${obsidianUri ? `<a class="obsidian-note-link" href="${escapeHtml(obsidianUri)}">${escapeHtml(t("btn.open_obsidian"))}</a>` : ""}
+            </div>
+            ${note ? `<div class="timeline-card-note">${escapeHtml(note)}</div>` : ""}
+          </article>
+        </div>`;
+      }).join("");
+      return `<section class="timeline-group">
+        <h3 class="timeline-day">${escapeHtml(timelineDayLabel(dayIso))}</h3>
+        <div class="timeline-items">${cards}</div>
+      </section>`;
+    }).join("");
+}
+
+function startOfCurrentWeek() {
+  const now = new Date();
+  const start = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  const day = start.getDay() || 7;
+  start.setDate(start.getDate() - day + 1);
+  return start;
+}
+
+function inCurrentWeek(value) {
+  if (!value) return false;
+  const date = new Date(value);
+  return !Number.isNaN(date.getTime()) && date >= startOfCurrentWeek();
+}
+
+function readCompletedAt(id) {
+  const history = getStatusHistory(id)
+    .filter(event => event?.status === "read" || event?.status === "important")
+    .map(event => event.at)
+    .filter(Boolean)
+    .sort();
+  if (history.length) return history[history.length - 1];
+  return getStatus(id) === "read" || getStatus(id) === "important" ? getStatusTime(id) : "";
+}
+
+function renderWeeklyReview() {
+  const libraryEntries = Object.entries(researchMemory);
+  const added = libraryEntries.filter(([, item]) => inCurrentWeek(item.addedAt || item.rememberedAt));
+  const read = libraryEntries
+    .map(([id, item]) => ({ id, item, completedAt: readCompletedAt(id) }))
+    .filter(entry => inCurrentWeek(entry.completedAt));
+  const thoughts = Object.values(notes)
+    .flatMap(value => Array.isArray(value) ? value : (value ? [value] : []))
+    .filter(entry => inCurrentWeek(entry?.savedAt));
+  const progress = { to_read: 0, reading: 0, read: 0 };
+  libraryEntries.forEach(([id]) => {
+    const status = getStatus(id);
+    if (status === "reading") progress.reading += 1;
+    else if (status === "read" || status === "important") progress.read += 1;
+    else progress.to_read += 1;
+  });
+
+  const start = startOfCurrentWeek();
+  const end = new Date(start);
+  end.setDate(start.getDate() + 6);
+  const locale = currentLang === "zh" ? "zh-CN" : "en-US";
+  const range = `${start.toLocaleDateString(locale, { month: "short", day: "numeric" })} – ${end.toLocaleDateString(locale, { month: "short", day: "numeric", year: "numeric" })}`;
+  const recentRead = read
+    .sort((a, b) => (b.completedAt || "").localeCompare(a.completedAt || ""))
+    .map(({ id, item, completedAt }) => {
+      const p = item.paper || papersMap[id] || {};
+      return `<div class="weekly-list-item">
+        <a href="${escapeHtml(p.url || "#")}" target="_blank" rel="noopener noreferrer">${escapeHtml(p.title || id)}</a>
+        <span>${escapeHtml(fmtTime(completedAt))}</span>
+      </div>`;
+    }).join("");
+
+  return `<section class="weekly-review">
+    <div class="weekly-heading">
+      <h2>${escapeHtml(t("weekly.title"))}</h2>
+      <span class="weekly-range">${escapeHtml(range)}</span>
+    </div>
+    <div class="weekly-stats">
+      <div class="weekly-stat"><span class="num">${added.length}</span><span class="label">${escapeHtml(t("weekly.added"))}</span></div>
+      <div class="weekly-stat"><span class="num">${read.length}</span><span class="label">${escapeHtml(t("weekly.read"))}</span></div>
+      <div class="weekly-stat"><span class="num">${thoughts.length}</span><span class="label">${escapeHtml(t("weekly.thoughts"))}</span></div>
+    </div>
+    <div class="weekly-section">
+      <h3>${escapeHtml(t("weekly.progress"))}</h3>
+      <div class="weekly-progress">
+        <div class="weekly-progress-item"><strong>${progress.to_read}</strong>${escapeHtml(t("status.to_read"))}</div>
+        <div class="weekly-progress-item"><strong>${progress.reading}</strong>${escapeHtml(t("status.reading"))}</div>
+        <div class="weekly-progress-item"><strong>${progress.read}</strong>${escapeHtml(t("status.read"))}</div>
+      </div>
+    </div>
+    <div class="weekly-section">
+      <h3>${escapeHtml(t("weekly.recent_read"))}</h3>
+      <div class="weekly-list">${recentRead || `<div class="weekly-empty">${escapeHtml(t("weekly.empty_read"))}</div>`}</div>
+    </div>
+  </section>`;
+}
+
 function renderPapers() {
+  const weeklyMode = currentTab === "weekly";
+  document.getElementById("dateNav").classList.toggle("hidden", weeklyMode);
+  document.getElementById("sourceFilter").classList.toggle("hidden", weeklyMode);
+  document.querySelector(".toolbar").classList.toggle("hidden", weeklyMode);
+  document.getElementById("focusHint").classList.toggle("hidden", weeklyMode);
+  if (weeklyMode) {
+    document.getElementById("paperList").innerHTML = renderWeeklyReview();
+    return;
+  }
   let papers = getPapersForTab();
   const query = document.getElementById("searchInput").value.trim().toLowerCase();
 
@@ -942,6 +1435,13 @@ function renderPapers() {
     focusToggleBtn.style.display = focusApplicable ? "" : "none";
     focusToggleBtn.classList.toggle("active", focusMode);
   }
+  const libraryViewToggle = document.getElementById("libraryViewToggle");
+  if (libraryViewToggle) {
+    libraryViewToggle.classList.toggle("visible", currentTab === "memory");
+    libraryViewToggle.querySelectorAll("button").forEach(button => {
+      button.classList.toggle("active", button.dataset.view === libraryView);
+    });
+  }
   const focusHintEl = document.getElementById("focusHint");
   if (focusHintEl) {
     if (focusApplicable && focusMode && hiddenByFocus > 0) {
@@ -962,14 +1462,25 @@ function renderPapers() {
     return;
   }
 
-  papers.forEach(p => { papersMap[p.id] = p; });
+  papers.forEach(p => {
+    const key = paperStateId(p);
+    papersMap[p.id] = p;
+    papersMap[key] = p;
+  });
+
+  if (currentTab === "memory" && libraryView === "timeline") {
+    listEl.innerHTML = `<div class="library-timeline">${renderLibraryTimeline(papers)}</div>`;
+    return;
+  }
 
   listEl.innerHTML = papers.map((p, idx) => {
-    const isFav = favorites[p.id];
-    const status = getStatus(p.id);
-    const statusClass = status === "read" ? " read" : status === "important" ? " important" : "";
-    const statusLabel = t(status === "read" ? "status.read" : status === "important" ? "status.important" : "status.unread");
-    const statusTime = getStatusTime(p.id);
+    const stateId = paperStateId(p);
+    const isFav = favorites[stateId];
+    const inLibrary = Boolean(researchMemory[stateId]);
+    const status = getStatus(stateId);
+    const statusClass = status ? ` ${statusClassName(status)}` : "";
+    const statusLabel = status ? t(statusI18nKey(status)) : t("status.set_to_read");
+    const statusTime = getStatusTime(stateId);
     const statusTimeHtml = statusTime ? `<span class="status-timestamp">${fmtTime(statusTime)}</span>` : "";
     const authorsStr = escapeHtml((p.authors || []).slice(0, 3).join(", "));
     const tagsHtml = (p.tags || []).slice(0, 4).map(tag => `<span class="tag">${escapeHtml(tag)}</span>`).join("");
@@ -977,6 +1488,7 @@ function renderPapers() {
     const citationsHtml = p.citations ? ` · ${p.citations} ${t("citations")}` : "";
     const upvotesHtml = p.upvotes ? `<span class="upvotes">👍 ${p.upvotes}</span>` : "";
     const pdfBtn = p.pdf ? `<a href="${p.pdf}" target="_blank" rel="noopener noreferrer" style="text-decoration:none"><button type="button">${t("btn.pdf")}</button></a>` : "";
+    const sourceBtn = p.url ? `<a href="${escapeHtml(p.url)}" target="_blank" rel="noopener noreferrer" style="text-decoration:none"><button type="button">${t("btn.source")}</button></a>` : "";
     const qLabel = questionLabel(p.research_question || "related");
     const rec = p.recommendation || (currentLang === "zh" ? "快读" : "Skim");
     const score = p.relevance_score || 0;
@@ -996,15 +1508,25 @@ function renderPapers() {
         <span class="radar-badge">S${score}${scoreParts ? " · " + scoreParts : ""}</span>
         ${reason ? `<span class="radar-reason">${reason}</span>` : ""}
       </div>`;
-    const noteEntries = getNoteEntries(p.id);
+    const noteEntries = getNoteEntries(stateId);
     const hasNote = noteEntries.length > 0;
     const notePreviewHtml = hasNote
       ? `<div class="note-preview" id="note-preview-${idx}"><span class="note-preview-text">"${noteEntries[0].text.replace(/</g,"&lt;")}"</span><span class="note-preview-time">${fmtTime(noteEntries[0].savedAt)}</span></div>`
       : `<div class="note-preview" id="note-preview-${idx}" style="display:none"></div>`;
     const noteHistoryHtml = noteEntries.map((e, i) => {
       const t2 = e.text.replace(/</g,"&lt;").replace(/>/g,"&gt;");
-      return `<div class="note-history-item"><span class="note-history-text">"${t2}"</span><span class="note-history-time">${fmtTime(e.savedAt)}</span><button class="note-del-btn" onclick="deleteNoteEntry('${p.id}','note-${idx}',${i})">×</button></div>`;
+      return `<div class="note-history-item"><span class="note-history-text">"${t2}"</span><span class="note-history-time">${fmtTime(e.savedAt)}</span><button class="note-del-btn" onclick="deleteNoteEntry('${stateId}','note-${idx}',${i})">×</button></div>`;
     }).join("");
+    const relation = getPaperLinks(stateId);
+    const obsidianLinkHtml = relation.obsidianUri
+      ? `<a class="obsidian-note-link" href="${escapeHtml(relation.obsidianUri)}">${escapeHtml(t("btn.open_obsidian"))}</a>`
+      : "";
+    const copyDoiBtn = p.doi
+      ? `<button type="button" onclick="copyDoi('${stateId}', this)">${t("btn.copy_doi")}</button>`
+      : "";
+    const zoteroBtn = relation.zoteroKey
+      ? `<button type="button" onclick="openOrLinkZotero('${stateId}', this)">✓ ${t("btn.open_zotero")}</button>`
+      : `<button type="button" onclick="openOrLinkZotero('${stateId}', this)">${t("btn.link_zotero")}</button>`;
     return `
     <div class="paper-card" id="card-${idx}">
       <div class="title-row">
@@ -1024,25 +1546,30 @@ function renderPapers() {
       ${tagsHtml ? `<div class="tags">${tagsHtml}</div>` : ""}
       <div class="actions">
         <button type="button" onclick="toggleExpand(${idx})">${t("btn.expand")}</button>
+        ${sourceBtn}
         ${pdfBtn}
-        <button type="button" class="fav-btn ${isFav ? "active" : ""}" onclick="toggleFav('${p.id}', this)">
+        <button type="button" class="fav-btn ${isFav ? "active" : ""}" onclick="toggleFav('${stateId}', this)">
           ${isFav ? "★ " + t("btn.unfav") : "☆ " + t("btn.fav")}
         </button>
         <button type="button" class="note-btn ${hasNote ? "active" : ""}" onclick="toggleNoteArea('note-${idx}', this)">
           📝 ${hasNote ? t("btn.note_saved") : t("btn.note")}
         </button>
-        <button type="button" onclick="copyBibTeX('${p.id}', this)">${t("btn.bibtex")}</button>
-        <button type="button" onclick="copyPaperMarkdown('${p.id}', this)">${t("btn.markdown")}</button>
-        <button type="button" onclick="sendPaperToObsidian('${p.id}', this)">${t("btn.obsidian")}</button>
-        <button type="button" onclick="rememberPaper('${p.id}', 'manual')">${t("btn.memory")}</button>
-        <button type="button" id="status-${idx}" class="status-btn${statusClass}" onclick="cycleStatus('${p.id}', ${idx})">${statusLabel}</button>
+        <button type="button" onclick="copyBibTeX('${stateId}', this)">${t("btn.bibtex")}</button>
+        ${copyDoiBtn}
+        <button type="button" onclick="downloadRis('${stateId}', this)">${t("btn.zotero_ris")}</button>
+        ${zoteroBtn}
+        <button type="button" onclick="copyPaperMarkdown('${stateId}', this)">${t("btn.markdown")}</button>
+        <button type="button" onclick="sendPaperToObsidian('${stateId}', this)">${t("btn.obsidian")}</button>
+        ${obsidianLinkHtml}
+        <button type="button" class="library-btn ${inLibrary ? "in-library" : ""}" onclick="rememberPaper('${stateId}', 'manual')">${inLibrary ? "✓ " + t("btn.in_library") : "＋ " + t("btn.memory")}</button>
+        <button type="button" id="status-${idx}" class="status-btn${statusClass}" onclick="cycleStatus('${stateId}', ${idx})">${statusLabel}</button>
         ${statusTimeHtml}
       </div>
       ${notePreviewHtml}
       <div class="note-area ${hasNote ? "visible" : ""}" id="note-${idx}">
         <div class="note-history" id="note-history-${idx}">${noteHistoryHtml}</div>
         <textarea id="ta-note-${idx}" placeholder="${t("note.placeholder")}"></textarea>
-        <button type="button" class="note-save-btn" onclick="saveNote('${p.id}', 'note-${idx}', this)">${t("btn.save_note")}</button>
+        <button type="button" class="note-save-btn" onclick="saveNote('${stateId}', 'note-${idx}', this)">${t("btn.save_note")}</button>
       </div>
     </div>`;
   }).join("");
@@ -1133,28 +1660,18 @@ function saveNote(id, areaId, btn) {
 function cycleStatus(id, cardIdx) {
   const cur = getStatus(id);
   const now = new Date().toISOString();
-  if (!cur) readStatus[id] = { status: "read", markedAt: now };
-  else if (cur === "read") readStatus[id] = { status: "important", markedAt: now };
-  else delete readStatus[id];
-  if (readStatus[id]) rememberPaper(id, getStatus(id));
+  const next = !cur ? "to_read"
+    : cur === "to_read" ? "reading"
+    : cur === "reading" ? "read"
+    : "to_read";
+  const previous = readStatus[id];
+  const history = typeof previous === "object" && Array.isArray(previous.history)
+    ? [...previous.history]
+    : [];
+  history.push({ status: next, at: now });
+  readStatus[id] = { status: next, markedAt: now, history: history.slice(-100) };
   localStorage.setItem("pr_status", JSON.stringify(readStatus));
-  // Update button
-  const btn = document.getElementById("status-" + cardIdx);
-  if (btn) {
-    const s = getStatus(id);
-    btn.className = "status-btn" + (s === "read" ? " read" : s === "important" ? " important" : "");
-    btn.textContent = t(s === "read" ? "status.read" : s === "important" ? "status.important" : "status.unread");
-    // Update timestamp display next to button
-    let tsEl = btn.nextElementSibling;
-    if (tsEl && tsEl.classList.contains("status-timestamp")) tsEl.remove();
-    const st = getStatusTime(id);
-    if (st) {
-      const span = document.createElement("span");
-      span.className = "status-timestamp";
-      span.textContent = fmtTime(st);
-      btn.insertAdjacentElement("afterend", span);
-    }
-  }
+  rememberPaper(id, next);
   updateMarkedCount();
 }
 
@@ -1172,7 +1689,7 @@ function buildBibTeX(p) {
 }
 
 function copyBibTeX(id, btn) {
-  const p = papersMap[id];
+  const p = papersMap[id] || researchMemory[id]?.paper;
   if (!p) return;
   const bib = buildBibTeX(p);
   navigator.clipboard.writeText(bib).then(() => {
@@ -1182,43 +1699,170 @@ function copyBibTeX(id, btn) {
   });
 }
 
+function copyDoi(id, btn) {
+  const p = papersMap[id] || researchMemory[id]?.paper;
+  if (!p?.doi) return;
+  const doi = String(p.doi).replace(/^https?:\/\/(?:dx\.)?doi\.org\//i, "");
+  navigator.clipboard.writeText(doi).then(() => flashButton(btn, "doi.copied"));
+}
+
+function buildRis(p) {
+  const lines = ["TY  - JOUR"];
+  lines.push(`TI  - ${String(p.title || "").replace(/\s+/g, " ").trim()}`);
+  (p.authors || []).forEach(author => lines.push(`AU  - ${String(author).replace(/\s+/g, " ").trim()}`));
+  if (p.date) lines.push(`PY  - ${String(p.date).slice(0, 4)}`);
+  if (p.venue || p.source) lines.push(`T2  - ${String(p.venue || p.source).replace(/\s+/g, " ").trim()}`);
+  if (p.doi) lines.push(`DO  - ${String(p.doi).replace(/^https?:\/\/(?:dx\.)?doi\.org\//i, "")}`);
+  const arxivId = paperArxivId(p);
+  if (arxivId) lines.push(`AN  - arXiv:${arxivId}`);
+  if (p.url) lines.push(`UR  - ${p.url}`);
+  if (p.abstract) lines.push(`AB  - ${String(p.abstract).replace(/\s+/g, " ").trim()}`);
+  lines.push(`N1  - Paper Radar canonical_id: ${paperStateId(p)}`);
+  lines.push("ER  - ");
+  return lines.join("\r\n");
+}
+
+function downloadRis(id, btn) {
+  const p = papersMap[id] || researchMemory[id]?.paper;
+  if (!p) return;
+  const blob = new Blob([buildRis(p)], { type: "application/x-research-info-systems;charset=utf-8" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = `${safeFileName(p.title).slice(0, 100)}.ris`;
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  URL.revokeObjectURL(url);
+  rememberPaper(id, "zotero_ris");
+  flashButton(btn, "ris.downloaded");
+}
+
+function normalizeZoteroKey(value) {
+  const match = String(value || "").toUpperCase().match(/[23456789ABCDEFGHIJKLMNPQRSTUVWXYZ]{8}(?:\b|$)/);
+  return match ? match[0] : "";
+}
+
+function openOrLinkZotero(id, btn) {
+  const relation = getPaperLinks(id);
+  if (relation.zoteroKey) {
+    window.location.href = `zotero://select/library/items/${encodeURIComponent(relation.zoteroKey)}`;
+    return;
+  }
+  const promptText = currentLang === "zh"
+    ? "粘贴 Zotero 条目 Key（8 位，例如 PXW99EKT）。可从 Zotero 条目链接末尾获取。"
+    : "Paste the 8-character Zotero item key, for example PXW99EKT.";
+  const input = window.prompt(promptText, "");
+  if (input === null) return;
+  const zoteroKey = normalizeZoteroKey(input);
+  if (!zoteroKey) {
+    window.alert(currentLang === "zh" ? "没有识别到有效的 Zotero 条目 Key。" : "No valid Zotero item key was found.");
+    return;
+  }
+  paperLinks[id] = { ...relation, zoteroKey, zoteroLinkedAt: new Date().toISOString() };
+  localStorage.setItem("pr_paper_links", JSON.stringify(paperLinks));
+  rememberPaper(id, "zotero_linked");
+  flashButton(btn, "zotero.linked");
+}
+
+function yamlQuote(value) {
+  return JSON.stringify(String(value || ""));
+}
+
 function paperToMarkdown(p) {
   const authors = (p.authors || []).join(", ");
   const tags = (p.tags || []).map(t => `#${String(t).replace(/\s+/g, "-")}`).join(" ");
-  const notesMd = getNoteEntries(p.id).map(e => `- ${e.savedAt || ""} ${e.text}`).join("\n");
-  const safeTitle = String(p.title || "Untitled").replace(/"/g, '\\"');
+  const notesMd = getNoteEntries(paperStateId(p)).map(e => `- ${e.savedAt || ""} ${e.text}`).join("\n");
+  const id = paperStateId(p);
+  const relation = getPaperLinks(id);
+  const memory = researchMemory[id] || {};
+  const status = getStatus(id) || "to_read";
+  const arxivId = paperArxivId(p);
+  const template = currentLang === "zh" ? {
+    reason: "为什么收藏",
+    summary: "一句话总结",
+    problem: "研究问题",
+    method: "方法与模型",
+    evidence: "实验与结论",
+    thoughts: "我的思考",
+    relation: "与我的研究的联系",
+    questions: "可以继续探索的问题",
+    quick: "Paper Radar 中的快速笔记",
+    abstract: "原始摘要",
+    bibtex: "BibTeX",
+  } : {
+    reason: "Why I Saved It",
+    summary: "One-sentence Summary",
+    problem: "Research Question",
+    method: "Method and Model",
+    evidence: "Experiments and Findings",
+    thoughts: "My Thoughts",
+    relation: "Connection to My Research",
+    questions: "Questions to Explore",
+    quick: "Quick Notes from Paper Radar",
+    abstract: "Original Abstract",
+    bibtex: "BibTeX",
+  };
   return `---
 type: paper
 source: Paper Radar
-title: "${safeTitle}"
-date: ${p.date || ""}
-paper_source: ${p.source || ""}
-research_question: ${p.research_question || "related"}
-recommendation: ${p.recommendation || ""}
+title: ${yamlQuote(p.title || "Untitled")}
+authors: ${JSON.stringify(p.authors || [])}
+published: ${yamlQuote(p.date || "")}
+paper_source: ${yamlQuote(p.source || "")}
+canonical_id: ${yamlQuote(id)}
+doi: ${yamlQuote(String(p.doi || "").replace(/^https?:\/\/(?:dx\.)?doi\.org\//i, ""))}
+arxiv_id: ${yamlQuote(arxivId)}
+zotero_key: ${yamlQuote(relation.zoteroKey || "")}
+status: ${yamlQuote(status)}
+radar_added: ${yamlQuote(memory.addedAt || memory.rememberedAt || "")}
+research_question: ${yamlQuote(p.research_question || "related")}
+recommendation: ${yamlQuote(p.recommendation || "")}
 relevance_score: ${p.relevance_score || 0}
-url: ${p.url || ""}
-pdf: ${p.pdf || ""}
+url: ${yamlQuote(p.url || "")}
+pdf: ${yamlQuote(p.pdf || "")}
+tags: ${JSON.stringify(["paper-radar", ...(p.tags || [])])}
 ---
 
 # ${p.title}
 
-- 类型: ${questionLabel(p.research_question || "related")}
-- 建议: ${p.recommendation || "快读"}
-- 相关度: ${p.relevance_score || 0}
-- 来源: ${p.source || ""} ${p.date || ""}
-- 作者: ${authors}
-- 链接: ${p.url || ""}
-- PDF: ${p.pdf || ""}
-- 标签: ${tags}
-- 推荐理由: ${p.decision_reason || ""}
+> ${p.summary || p.snippet || ""}
 
-### Abstract
-${p.abstract || ""}
+## ${template.reason}
 
-### Notes
+${p.decision_reason || ""}
+
+## ${template.summary}
+
+
+## ${template.problem}
+
+
+## ${template.method}
+
+
+## ${template.evidence}
+
+
+## ${template.thoughts}
+
+
+## ${template.relation}
+
+
+## ${template.questions}
+
+
+## ${template.quick}
+
 ${notesMd || "- "}
 
-### BibTeX
+## ${template.abstract}
+
+${p.abstract || ""}
+
+## ${template.bibtex}
+
 \`\`\`bibtex
 ${buildBibTeX(p)}
 \`\`\`
@@ -1231,6 +1875,22 @@ function safeFileName(text) {
     .replace(/\s+/g, " ")
     .trim()
     .slice(0, 120) || "Untitled";
+}
+
+function stableFileToken(value) {
+  let hash = 2166136261;
+  for (const char of String(value || "")) {
+    hash ^= char.charCodeAt(0);
+    hash = Math.imul(hash, 16777619);
+  }
+  return (hash >>> 0).toString(36).padStart(7, "0").slice(0, 7);
+}
+
+function paperNoteFileName(p) {
+  const year = String(p.date || "").slice(0, 4) || "Undated";
+  const author = safeFileName(((p.authors || ["Unknown"])[0] || "Unknown").split(/\s+/).pop()).slice(0, 24);
+  const title = safeFileName(p.title).slice(0, 82);
+  return `${year} - ${author} - ${title} [${stableFileToken(paperStateId(p))}].md`;
 }
 
 function getObsidianConfig() {
@@ -1287,7 +1947,8 @@ function sendPaperToObsidian(id, btn) {
   const cfg = getObsidianConfig();
   if (!cfg) return;
   const p = payload.paper;
-  const fileName = `${p.date || new Date().toISOString().slice(0,10)} - ${safeFileName(p.title)}.md`;
+  const stateId = paperStateId(p);
+  const fileName = paperNoteFileName(p);
   const filePath = `${cfg.folder.replace(/^\/+|\/+$/g, "")}/${fileName}`;
 
   // Put the full note on the clipboard first. The URI also carries content,
@@ -1299,6 +1960,16 @@ function sendPaperToObsidian(id, btn) {
   params.set("file", filePath);
   params.set("content", payload.markdown);
   params.set("overwrite", "false");
+  const openParams = new URLSearchParams();
+  if (cfg.vault) openParams.set("vault", cfg.vault);
+  openParams.set("file", filePath);
+  paperLinks[stateId] = {
+    ...getPaperLinks(stateId),
+    obsidianFile: filePath,
+    obsidianUri: `obsidian://open?${openParams.toString()}`,
+    obsidianLinkedAt: new Date().toISOString(),
+  };
+  localStorage.setItem("pr_paper_links", JSON.stringify(paperLinks));
   window.location.href = `obsidian://new?${params.toString()}`;
   flashButton(btn, "obsidian.sent");
 }
@@ -1307,7 +1978,7 @@ function exportResearchMemory() {
   const items = Object.values(researchMemory)
     .sort((a, b) => (b.updatedAt || b.rememberedAt || "").localeCompare(a.updatedAt || a.rememberedAt || ""));
   const body = items.map(item => paperToMarkdown(item.paper)).join("\n---\n\n");
-  const md = `# Paper Radar Research Memory
+  const md = `# Paper Radar Personal Library
 
 Exported: ${new Date().toISOString()}
 Count: ${items.length}
@@ -1318,7 +1989,7 @@ ${body}
   const url = URL.createObjectURL(blob);
   const a = document.createElement("a");
   a.href = url;
-  a.download = `paper-radar-memory-${new Date().toISOString().slice(0,10)}.md`;
+  a.download = `paper-radar-library-${new Date().toISOString().slice(0,10)}.md`;
   document.body.appendChild(a);
   a.click();
   a.remove();
@@ -1356,7 +2027,15 @@ async function syncToGist() {
   const gistId = document.getElementById("gistId").value.trim();
   if (!token) { setSyncStatus("请填写 Token", false); return; }
 
-  const payload = { notes, favorites, readStatus, researchMemory, exported_at: new Date().toISOString() };
+  const payload = {
+    schema_version: 3,
+    notes,
+    favorites,
+    readStatus,
+    researchMemory,
+    paperLinks,
+    exported_at: new Date().toISOString(),
+  };
   const body = { description: "Paper Radar backup", public: false,
     files: { "paper-radar-backup.json": { content: JSON.stringify(payload, null, 2) } } };
 
@@ -1394,6 +2073,12 @@ async function restoreFromGist() {
     if (data.favorites) { favorites = data.favorites; localStorage.setItem("pr_favs", JSON.stringify(favorites)); }
     if (data.readStatus) { readStatus = data.readStatus; localStorage.setItem("pr_status", JSON.stringify(readStatus)); }
     if (data.researchMemory) { researchMemory = data.researchMemory; localStorage.setItem("pr_memory", JSON.stringify(researchMemory)); }
+    if (data.paperLinks) { paperLinks = data.paperLinks; localStorage.setItem("pr_paper_links", JSON.stringify(paperLinks)); }
+    const allPapers = currentData
+      ? [...(currentData.research_papers || []), ...(currentData.ai_frontier || [])]
+      : [];
+    migrateLegacyState(allPapers);
+    updateStats();
     localStorage.setItem("pr_gist_token", token);
     localStorage.setItem("pr_gist_id", gistId);
     renderPapers();

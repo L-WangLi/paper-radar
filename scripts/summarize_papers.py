@@ -112,9 +112,15 @@ def summarize_papers(papers, token, budget):
         if p.get("summary"):
             continue
 
-        cached = get_cached_summary(p["id"])
+        stable_id = p.get("canonical_id") or p["id"]
+        cached = get_cached_summary(stable_id)
+        if not cached and stable_id != p["id"]:
+            # One-time compatibility with caches created before stable IDs.
+            cached = get_cached_summary(p["id"])
         if cached:
             p["summary"] = cached
+            if stable_id != p["id"]:
+                set_cached_summary(stable_id, cached)
             continue
 
         title, abstract = p.get("title", ""), p.get("abstract", "")
@@ -125,7 +131,7 @@ def summarize_papers(papers, token, budget):
         calls_made += 1
         if summary:
             p["summary"] = summary
-            set_cached_summary(p["id"], summary)
+            set_cached_summary(stable_id, summary)
         time.sleep(0.3)  # be polite to the free tier's per-minute limit
     return calls_made
 
