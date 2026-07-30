@@ -177,6 +177,7 @@ NEGATIVE_KEYWORDS = [
 ]
 
 SOURCE_SCORES = {
+    "Curated": 3,
     "arXiv": 3,
     "Semantic Scholar": 2,
     "CrossRef": 2,
@@ -236,6 +237,7 @@ BASE_DIR = Path(__file__).parent.parent
 DATA_DIR = BASE_DIR / "data"
 CACHE_DIR = DATA_DIR / "cache"
 SITE_DIR = BASE_DIR / "site"
+MANUAL_PAPERS_FILE = DATA_DIR / "manual_papers.json"
 
 DATA_DIR.mkdir(exist_ok=True)
 CACHE_DIR.mkdir(exist_ok=True)
@@ -576,6 +578,45 @@ def filter_relevant_papers(papers, min_score=6):
         if is_relevant_paper(p, min_score=min_score):
             filtered.append(p)
     return filtered
+
+
+def load_manual_papers():
+    """Load papers explicitly selected by the reader.
+
+    The daily fetch is intentionally a recent-paper radar, so older papers can
+    fall outside source query limits. This curated input keeps a small reading
+    queue in the generated feed without pretending it was discovered today.
+    """
+    if not MANUAL_PAPERS_FILE.exists():
+        return []
+    try:
+        items = json.loads(MANUAL_PAPERS_FILE.read_text("utf-8"))
+    except (json.JSONDecodeError, OSError) as exc:
+        print(f"  ✗ Manual papers: {exc}")
+        return []
+
+    if not isinstance(items, list):
+        print("  ✗ Manual papers: expected a JSON array")
+        return []
+
+    papers = []
+    for index, item in enumerate(items, start=1):
+        if not isinstance(item, dict) or not str(item.get("title") or "").strip():
+            print(f"  ✗ Manual papers: item {index} has no title")
+            continue
+        paper = dict(item)
+        paper.setdefault("id", canonical_paper_id(paper))
+        paper.setdefault("abstract", "")
+        paper.setdefault("authors", [])
+        paper.setdefault("date", "")
+        paper.setdefault("source", "Curated")
+        paper.setdefault("url", "")
+        paper.setdefault("pdf", "")
+        paper.setdefault("tags", compute_tags(paper["title"], paper["abstract"]))
+        paper["curated"] = True
+        papers.append(paper)
+    print(f"  ✓ Manual reading queue: {len(papers)} papers")
+    return papers
 
 
 # ============================================================
@@ -1298,6 +1339,14 @@ def deduplicate(papers):
             continue
         if norm in seen:
             existing = seen[norm]
+            if p.get("curated") and not existing.get("curated"):
+                unique.remove(existing)
+                merged = {**existing, **p}
+                unique.append(merged)
+                seen[norm] = merged
+                continue
+            if existing.get("curated"):
+                continue
             date_new = p.get("date", "") or ""
             date_old = existing.get("date", "") or ""
             if date_new and (not date_old or date_new > date_old):
@@ -1363,6 +1412,7 @@ def main():
     previous_summaries = load_previous_summaries()
 
     # 1. Fetch from all sources
+    manual_papers = load_manual_papers()
     arxiv_research = fetch_arxiv(RESEARCH_KEYWORDS, max_per_query=20)
     arxiv_ai = fetch_arxiv(AI_FRONTIER_KEYWORDS, max_per_query=10)
     for p in arxiv_ai:
@@ -1377,7 +1427,7 @@ def main():
     rss_items = fetch_rss_feeds()
 
     # 2. Combine, filter by RUL/PHM/time-series relevance, and deduplicate
-    all_papers = (arxiv_research + arxiv_ai + arxiv_rss + crossref_papers
+    all_papers = (manual_papers + arxiv_research + arxiv_ai + arxiv_rss + crossref_papers
                   + s2_papers + openalex_papers + or_papers + hf_papers + rss_items)
     all_papers = filter_relevant_papers(all_papers, min_score=6)
     all_papers = deduplicate(all_papers)
@@ -1390,7 +1440,12 @@ def main():
     # 3. Classify — sort by date descending, then relevance
     research_papers = sorted(
         [p for p in all_papers if not p.get("is_ai_frontier")],
-        key=lambda x: (x.get("date", ""), x.get("relevance_score", 0)),
+        key=lambda x: (
+            bool(x.get("curated")),
+            x.get("added_date", ""),
+            x.get("date", ""),
+            x.get("relevance_score", 0),
+        ),
         reverse=True,
     )
     ai_frontier = sorted(
@@ -1409,6 +1464,7 @@ def main():
             "ai_frontier": len(ai_frontier),
             "sources": {
                 "arxiv": len([p for p in all_papers if p["source"] == "arXiv"]),
+                "curated": len([p for p in all_papers if p.get("curated")]),
                 "crossref": len([p for p in all_papers if p["source"] == "CrossRef"]),
                 "semantic_scholar": len([p for p in all_papers if p["source"] == "Semantic Scholar"]),
                 "openalex": len([p for p in all_papers if p["source"] == "OpenAlex"]),

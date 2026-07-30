@@ -103,6 +103,18 @@ RSS_FEEDS = [
 ]
 ```
 
+### 添加指定阅读论文
+
+每日抓取只覆盖各数据源近期返回的有限结果。对已经明确要读、但没有出现在当天雷达中的论文，
+编辑 `data/manual_papers.json`。这些论文会作为 `Curated` 来源置顶显示，并在后续自动抓取时保留。
+
+只同步人工清单、不重新请求远程数据源：
+
+```bash
+python3 scripts/sync_manual_papers.py
+python3 scripts/build_site.py
+```
+
 ### 第四步：启用 GitHub Pages
 
 1. 进入仓库 **Settings → Pages**

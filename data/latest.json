@@ -2,8 +2,8 @@
   "date": "2026-07-30",
   "fetched_at": "2026-07-30T01:55:33.185909Z",
   "stats": {
-    "total": 349,
-    "research": 343,
+    "total": 352,
+    "research": 346,
     "ai_frontier": 6,
     "sources": {
       "arxiv": 150,
@@ -12,10 +12,189 @@
       "openalex": 50,
       "openreview": 18,
       "huggingface": 0,
-      "rss": 1
+      "rss": 1,
+      "curated": 4
     }
   },
   "research_papers": [
+    {
+      "id": "doi:10.1016/j.cjme.2026.100298",
+      "canonical_id": "doi:10.1016/j.cjme.2026.100298",
+      "doi": "10.1016/j.cjme.2026.100298",
+      "title": "Exploring Prior-Structured Low-Rank Adaptation for Predictive Maintenance based on Time Series Foundation Model",
+      "abstract": "A Prior-Structured Adapter augments a frozen Timer-XL foundation model with frequency-enhanced and degradation-trajectory priors. A condition-aware gate adjusts adapter strength for diagnosis and RUL tasks.",
+      "summary": "在冻结的 Timer-XL 上，用频率先验、退化轨迹先验和工况门控构造面向预测性维护的低秩适配器。",
+      "authors": [
+        "Dongpeng Li",
+        "Jing Liu",
+        "Jiaxian Chen",
+        "Zhuyun Chen",
+        "Guolin He",
+        "Pai Zheng",
+        "Xuning Zhang",
+        "Weihua Li"
+      ],
+      "date": "2026-04-27",
+      "added_date": "2026-07-30",
+      "source": "Curated",
+      "venue": "Chinese Journal of Mechanical Engineering",
+      "url": "https://doi.org/10.1016/j.cjme.2026.100298",
+      "pdf": "",
+      "tags": [
+        "remaining useful life",
+        "RUL prediction",
+        "predictive maintenance",
+        "time series foundation model",
+        "transfer learning"
+      ],
+      "curated": true,
+      "relevance_score": 46,
+      "score_breakdown": {
+        "topic": 24,
+        "time_series": 16,
+        "dataset": 0,
+        "method": 0,
+        "freshness": 3,
+        "source": 3,
+        "negative": 0,
+        "total": 46
+      },
+      "negative_hits": [],
+      "research_question": "core_rul_phm",
+      "recommendation": "精读",
+      "decision_reason": "主题相关 24；时间序列 16；近期 3；命中: remaining useful life, RUL prediction, predictive maintenance",
+      "snippet": "A Prior-Structured Adapter augments a frozen Timer-XL foundation model with frequency-enhanced and degradation-trajectory priors."
+    },
+    {
+      "id": "arxiv:2601.22631",
+      "canonical_id": "arxiv:2601.22631",
+      "title": "PEFT-MuTS: A Multivariate Parameter-Efficient Fine-Tuning Framework for Remaining Useful Life Prediction based on Cross-domain Time Series Representation Model",
+      "abstract": "PEFT-MuTS adapts a frozen cross-domain univariate time-series representation model to few-shot multivariate RUL prediction through independent feature tuning, low-rank meta-variable fusion, and a zero-initialized regressor.",
+      "summary": "将跨域单变量时序预训练骨干高效适配到多变量少样本 RUL，并用零初始化回归头提高微调稳定性。",
+      "authors": [
+        "En Fu",
+        "Yanyan Hu",
+        "Changhua Hu",
+        "Zengwang Jin",
+        "Kaixiang Peng"
+      ],
+      "date": "2026-01-30",
+      "added_date": "2026-07-30",
+      "source": "Curated",
+      "venue": "arXiv",
+      "url": "https://arxiv.org/abs/2601.22631",
+      "pdf": "https://arxiv.org/pdf/2601.22631.pdf",
+      "tags": [
+        "remaining useful life",
+        "RUL prediction",
+        "multivariate time series",
+        "time series representation",
+        "transfer learning"
+      ],
+      "curated": true,
+      "relevance_score": 42,
+      "score_breakdown": {
+        "topic": 18,
+        "time_series": 20,
+        "dataset": 0,
+        "method": 0,
+        "freshness": 1,
+        "source": 3,
+        "negative": 0,
+        "total": 42
+      },
+      "negative_hits": [],
+      "research_question": "core_rul_phm",
+      "recommendation": "精读",
+      "decision_reason": "主题相关 18；时间序列 20；近期 1；命中: remaining useful life, RUL prediction, multivariate time series",
+      "snippet": "PEFT-MuTS adapts a frozen cross-domain univariate time-series representation model to few-shot multivariate RUL prediction through independent feature tuning, low-rank meta-variable fusion, and a zero-initialized…"
+    },
+    {
+      "id": "doi:10.1016/j.ress.2025.112091",
+      "canonical_id": "doi:10.1016/j.ress.2025.112091",
+      "doi": "10.1016/j.ress.2025.112091",
+      "title": "FR-LLM: Multi-task large language model with signal-to-text encoding and adaptive optimization for joint fault diagnosis and RUL prediction",
+      "abstract": "FR-LLM unifies fault diagnosis and remaining useful life prediction. It converts vibration features into structured text, uses adaptive task-loss balancing to reduce multi-task conflicts, and applies low-rank adaptation for efficient training.",
+      "summary": "统一完成故障诊断与 RUL 预测，重点关注信号文本化、多任务损失平衡和低秩适配。",
+      "authors": [
+        "Yuming Lai",
+        "Zhangjun Wu",
+        "Mengyao Chen",
+        "Chao Liu",
+        "Haidong Shao"
+      ],
+      "date": "2026-01-01",
+      "date_precision": "year",
+      "added_date": "2026-07-30",
+      "source": "Curated",
+      "venue": "Reliability Engineering & System Safety",
+      "url": "https://doi.org/10.1016/j.ress.2025.112091",
+      "pdf": "",
+      "tags": [
+        "remaining useful life",
+        "RUL prediction",
+        "predictive maintenance",
+        "transfer learning"
+      ],
+      "curated": true,
+      "relevance_score": 33,
+      "score_breakdown": {
+        "topic": 29,
+        "time_series": 0,
+        "dataset": 0,
+        "method": 0,
+        "freshness": 1,
+        "source": 3,
+        "negative": 0,
+        "total": 33
+      },
+      "negative_hits": [],
+      "research_question": "core_rul_phm",
+      "recommendation": "精读",
+      "decision_reason": "主题相关 29；近期 1；命中: remaining useful life, RUL prediction, predictive maintenance",
+      "snippet": "FR-LLM unifies fault diagnosis and remaining useful life prediction."
+    },
+    {
+      "id": "doi:10.1016/j.ress.2025.111980",
+      "canonical_id": "doi:10.1016/j.ress.2025.111980",
+      "doi": "10.1016/j.ress.2025.111980",
+      "title": "A sample-efficient transfer learning framework for industrial remaining useful life prediction leveraging large language models",
+      "abstract": "The framework combines a transferable large-language-model backbone with dual-score sample selection to improve RUL learning under high-dimensional, multi-condition sensor data and limited labels.",
+      "summary": "用可迁移 LLM 骨干和双评分样本选择提高多工况、小样本 RUL 预测效率。",
+      "authors": [
+        "Yan Chen",
+        "Cheng Liu"
+      ],
+      "date": "2026-01-01",
+      "date_precision": "year",
+      "added_date": "2026-07-30",
+      "source": "Curated",
+      "venue": "Reliability Engineering & System Safety",
+      "url": "https://doi.org/10.1016/j.ress.2025.111980",
+      "pdf": "",
+      "tags": [
+        "remaining useful life",
+        "RUL prediction",
+        "transfer learning"
+      ],
+      "curated": true,
+      "relevance_score": 25,
+      "score_breakdown": {
+        "topic": 19,
+        "time_series": 0,
+        "dataset": 0,
+        "method": 2,
+        "freshness": 1,
+        "source": 3,
+        "negative": 0,
+        "total": 25
+      },
+      "negative_hits": [],
+      "research_question": "core_rul_phm",
+      "recommendation": "精读",
+      "decision_reason": "主题相关 19；方法可借鉴 2；近期 1；命中: remaining useful life, RUL prediction, transfer learning",
+      "snippet": "The framework combines a transferable large-language-model backbone with dual-score sample selection to improve RUL learning under high-dimensional, multi-condition sensor data and limited labels."
+    },
     {
       "id": "arxiv:2607.24809",
       "title": "Towards Real-World RUL Prediction for Aircraft Compressors Under Variable Conditions with Physics-Guided Domain Adaptation",
@@ -6874,49 +7053,6 @@
       "snippet": "Most plants rely on scheduled preventive maintenance, since existing predictive maintenance models, often based on opaque machine learning methods, lack interpretability and operator trust.",
       "canonical_id": "arxiv:2602.00659",
       "summary": "本研究提出了一种基于模糊相似推理的可解释性预测框架，用于估计超滤膜的剩余使用寿命（RUL），旨在解决现有预测维护模型缺乏可解释性的问题。该框架利用由跨膜压力、通量和阻力衍生的物理信息健康指数，捕捉膜的降解动态。"
-    },
-    {
-      "id": "arxiv:2601.22631v1",
-      "title": "PEFT-MuTS: A Multivariate Parameter-Efficient Fine-Tuning Framework for Remaining Useful Life Prediction based on Cross-domain Time Series Representation Model",
-      "abstract": "The application of data-driven remaining useful life (RUL) prediction has long been constrained by the availability of large amount of degradation data. Mainstream solutions such as domain adaptation and meta-learning still rely on large amounts of historical degradation data from equipment that is identical or similar to the target, which imposes significant limitations in practical applications. This study investigates PEFT-MuTS, a Parameter-Efficient Fine-Tuning framework for few-shot RUL prediction, built on cross-domain pre-trained time-series representation models. Contrary to the widely",
-      "authors": [
-        "En Fu",
-        "Yanyan Hu",
-        "Changhua Hu",
-        "Zengwang Jin",
-        "Kaixiang Peng"
-      ],
-      "date": "2026-01-30",
-      "source": "arXiv",
-      "url": "https://arxiv.org/abs/2601.22631v1",
-      "pdf": "https://arxiv.org/pdf/2601.22631v1",
-      "categories": [
-        "cs.LG",
-        "cs.AI"
-      ],
-      "relevance_score": 39,
-      "tags": [
-        "remaining useful life",
-        "RUL prediction",
-        "domain adaptation"
-      ],
-      "score_breakdown": {
-        "topic": 18,
-        "time_series": 16,
-        "dataset": 0,
-        "method": 1,
-        "freshness": 1,
-        "source": 3,
-        "negative": 0,
-        "total": 39
-      },
-      "negative_hits": [],
-      "research_question": "core_rul_phm",
-      "recommendation": "精读",
-      "decision_reason": "主题相关 18；时间序列 16；方法可借鉴 1；近期 1；命中: remaining useful life, RUL prediction, domain adaptation",
-      "snippet": "The application of data-driven remaining useful life (RUL) prediction has long been constrained by the availability of large amount of degradation data.",
-      "canonical_id": "arxiv:2601.22631",
-      "summary": "本研究提出了一种名为PEFT-MuTS的参数高效微调框架，用于基于跨域时间序列表示模型进行少量样本的剩余使用寿命预测。该方法旨在克服传统数据驱动RUL预测中对大量退化数据的依赖，从而提高实际应用的可行性。"
     },
     {
       "id": "arxiv:2601.21293v3",

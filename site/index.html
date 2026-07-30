@@ -776,6 +776,11 @@ function escapeHtml(text) {
   return String(text || "").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
 }
 
+function paperDisplayDate(p) {
+  const date = String(p?.date || "");
+  return p?.date_precision === "year" ? date.slice(0, 4) : date;
+}
+
 function questionLabel(key) {
   return (questionLabels[currentLang] || questionLabels.zh)[key] || (currentLang === "zh" ? "相关论文" : "Related Paper");
 }
@@ -908,7 +913,7 @@ function migrateLegacyState(allPapers) {
 function compactPaper(p) {
   return {
     id: p.id, canonical_id: paperStateId(p), title: p.title, abstract: p.abstract, authors: p.authors || [],
-    date: p.date || "", source: p.source || "", url: p.url || "", pdf: p.pdf || "",
+    date: p.date || "", date_precision: p.date_precision || "", source: p.source || "", url: p.url || "", pdf: p.pdf || "",
     venue: p.venue || "", doi: p.doi || "", arxiv_id: paperArxivId(p),
     tags: p.tags || [], citations: p.citations || 0,
     summary: p.summary || "", snippet: p.snippet || "",
@@ -1287,7 +1292,7 @@ function renderLibraryTimeline(papers) {
             <div class="timeline-card-meta">
               ${authors ? `<span>${authors}</span>` : ""}
               <span>${escapeHtml(p.source || "")}</span>
-              ${p.date ? `<span>${t("library.published")} ${escapeHtml(p.date)}</span>` : ""}
+              ${p.date ? `<span>${t("library.published")} ${escapeHtml(paperDisplayDate(p))}</span>` : ""}
               <span>${escapeHtml(statusLabel)}</span>
               ${item.sourceDate ? `<span>Radar ${escapeHtml(item.sourceDate)}</span>` : ""}
               ${obsidianUri ? `<a class="obsidian-note-link" href="${escapeHtml(obsidianUri)}">${escapeHtml(t("btn.open_obsidian"))}</a>` : ""}
@@ -1536,7 +1541,7 @@ function renderPapers() {
         <span>${authorsStr}</span>
         <span class="source">${escapeHtml(p.source)}</span>
         ${venueHtml}
-        <span>${p.date || ""}</span>
+        <span>${escapeHtml(paperDisplayDate(p))}</span>
         ${citationsHtml}
         ${upvotesHtml}
       </div>
