@@ -1,16 +1,16 @@
 {
-  "date": "2026-08-18",
-  "fetched_at": "2026-08-18T00:58:18.160837Z",
+  "date": "2026-08-19",
+  "fetched_at": "2026-08-19T00:58:18.517326Z",
   "stats": {
-    "total": 269,
-    "research": 264,
+    "total": 322,
+    "research": 317,
     "ai_frontier": 5,
     "sources": {
-      "arxiv": 148,
+      "arxiv": 152,
       "curated": 4,
       "crossref": 53,
-      "semantic_scholar": 1,
-      "openalex": 44,
+      "semantic_scholar": 46,
+      "openalex": 48,
       "openreview": 18,
       "huggingface": 0,
       "rss": 1
@@ -196,69 +196,577 @@
       "snippet": "The framework combines a transferable large-language-model backbone with dual-score sample selection to improve RUL learning under high-dimensional, multi-condition sensor data and limited labels."
     },
     {
-      "id": "arxiv:2608.14054",
-      "title": "Model-agnostic Retrieval-Augmented Extended Forecasting for time series",
-      "abstract": "arXiv:2608.14054v1 Announce Type: new \nAbstract: Time series forecasting with pretrained foundation models has demonstrated strong zero-shot capabilities. However, achieving optimal performance on time series with short or negligible historical data in domain-specific applications typically requires adaptation via either fine-tuning or RAG. While fine-tuning is effective, it incurs substantial computational costs. This work explores RAG within univariate time series (Retrieval Augmented Generation) as a more efficient alternative, in particular RAF (Retrieval Augmented Forecasting), and introd",
+      "id": "arxiv:2608.16098",
+      "title": "AsyTO: Asymmetric Temporal Operator for Parameter-Efficient Multivariate Time Series Forecasting",
+      "abstract": "arXiv:2608.16098v1 Announce Type: new \nAbstract: Multivariate time-series forecasting faces a structural dilemma: sharing one temporal predictor across variables is parameter-efficient but forces heterogeneous variables through an identical history-to-future map, whereas learning an independent predictor per variable restores flexibility at a cost that grows with the product of variable count, context length, and horizon. We argue that this dilemma dissolves once the object being compressed is the forecasting operator rather than the observed series. Auditing per-variable linear history-to-fut",
       "authors": [
-        "Juan Pablo Villa Serna, Rohan Asthana, Vasileios Belagiannis"
+        "Xiachong Lin, Du Yin, Hao Xue, Wen Hu, Imran Razzak, Arian Prabowo, Matthew Amos, Flora D. Salim"
       ],
-      "date": "2026-08-18",
+      "date": "2026-08-19",
       "source": "arXiv",
-      "url": "https://arxiv.org/abs/2608.14054",
-      "pdf": "https://arxiv.org/pdf/2608.14054.pdf",
-      "relevance_score": 22,
+      "url": "https://arxiv.org/abs/2608.16098",
+      "pdf": "https://arxiv.org/pdf/2608.16098.pdf",
+      "relevance_score": 35,
       "tags": [
         "time series forecasting",
-        "domain adaptation"
+        "multivariate time series"
       ],
       "score_breakdown": {
         "topic": 0,
-        "time_series": 11,
+        "time_series": 24,
         "dataset": 0,
         "method": 0,
         "freshness": 8,
         "source": 3,
         "negative": 0,
-        "total": 22
+        "total": 35
       },
       "negative_hits": [],
       "research_question": "time_series_method",
       "recommendation": "方法借鉴",
-      "decision_reason": "时间序列 11；近期 8；命中: time series forecasting, domain adaptation",
-      "snippet": "arXiv:2608.14054v1 Announce Type: new \nAbstract: Time series forecasting with pretrained foundation models has demonstrated strong zero-shot capabilities.",
-      "canonical_id": "arxiv:2608.14054"
+      "decision_reason": "时间序列 24；近期 8；命中: time series forecasting, multivariate time series",
+      "snippet": "arXiv:2608.16098v1 Announce Type: new \nAbstract: Multivariate time-series forecasting faces a structural dilemma: sharing one temporal predictor across variables is parameter-efficient but forces heterogeneous variables…",
+      "canonical_id": "arxiv:2608.16098"
     },
     {
-      "id": "arxiv:2608.14067",
-      "title": "When Denoising Hurts: Rethinking the Terminal Step of Diffusion Time Series Forecasters -- Extended Version",
-      "abstract": "arXiv:2608.14067v1 Announce Type: new \nAbstract: Diffusion models offer a natural way to model uncertainty in time series forecasting, yet their iterative sampling process is often treated as a uniformly beneficial refinement procedure. Our study challenges this view by examining how forecast quality evolves throughout reverse diffusion. We find that general temporal structure is often recovered at relatively high noise levels, whereas continued low-noise refinement can introduce statistical drift and degrade the final forecast. Our analysis further suggests that this behavior explains why pri",
+      "id": "arxiv:2504.20823",
+      "title": "Hybrid quantum recurrent neural network for remaining useful life prediction of turbofan engines",
+      "abstract": "arXiv:2504.20823v3 Announce Type: replace \nAbstract: Accurate remaining useful life (RUL) estimation underpins safe operation and cost-effective maintenance of aerospace propulsion systems. We propose a Hybrid Quantum Recurrent Neural Network (HQRNN) for jet-engine RUL forecasting on the NASA C-MAPSS FD001 benchmark. The HQRNN stacks Quantum Long Short-Term Memory (QLSTM) layers, replacing each LSTM gate's linear transformation with a Quantum Depth-Infused (QDI) circuit; this is followed by classical dense layers. Quantum and hybrid quantum-classical methods for turbofan RUL prediction are sti",
       "authors": [
-        "Dat Nguyen-Cong, Luong Tran, Tung Kieu"
+        "Olga Tsurkan, Aleksandra Konstantinova, Arsenii Senokosov, Asel Sagingalieva, Alexey Melnikov"
       ],
-      "date": "2026-08-18",
+      "date": "2026-08-19",
       "source": "arXiv",
-      "url": "https://arxiv.org/abs/2608.14067",
-      "pdf": "https://arxiv.org/pdf/2608.14067.pdf",
-      "relevance_score": 22,
+      "url": "https://arxiv.org/abs/2504.20823",
+      "pdf": "https://arxiv.org/pdf/2504.20823.pdf",
+      "relevance_score": 33,
+      "tags": [
+        "remaining useful life",
+        "C-MAPSS",
+        "RUL prediction"
+      ],
+      "score_breakdown": {
+        "topic": 18,
+        "time_series": 0,
+        "dataset": 4,
+        "method": 0,
+        "freshness": 8,
+        "source": 3,
+        "negative": 0,
+        "total": 33
+      },
+      "negative_hits": [],
+      "research_question": "core_rul_phm",
+      "recommendation": "精读",
+      "decision_reason": "主题相关 18；数据集相关 4；近期 8；命中: remaining useful life, C-MAPSS, RUL prediction",
+      "snippet": "arXiv:2504.20823v3 Announce Type: replace \nAbstract: Accurate remaining useful life (RUL) estimation underpins safe operation and cost-effective maintenance of aerospace propulsion systems.",
+      "canonical_id": "arxiv:2504.20823"
+    },
+    {
+      "id": "arxiv:2508.07195",
+      "title": "Adapting LLMs to Time Series Forecasting via Temporal Heterogeneity Modeling and Representation Alignment",
+      "abstract": "arXiv:2508.07195v2 Announce Type: replace-cross \nAbstract: Recent advances have demonstrated that Large Language Models (LLMs) can be effectively adapted for time series forecasting, revealing strong potential beyond natural language tasks. However, their performance remains constrained by two fundamental challenges: the inherent heterogeneity of temporal patterns and the modality gap between continuous numerical signals and discrete language representations. In this work, we propose \\textbf{TALON} (Temporal-heterogeneity And Language-Oriented Network), a unified framework that enhances LLM-ba",
+      "authors": [
+        "Yanru Sun, Emadeldeen Eldele, Zongxia Xie, Yucheng Wang, Wenzhe Niu, Qinghua Hu, Chee Keong Kwoh, Min Wu"
+      ],
+      "date": "2026-08-19",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2508.07195",
+      "pdf": "https://arxiv.org/pdf/2508.07195.pdf",
+      "relevance_score": 31,
+      "tags": [
+        "time series forecasting",
+        "multivariate time series"
+      ],
+      "score_breakdown": {
+        "topic": 0,
+        "time_series": 20,
+        "dataset": 0,
+        "method": 0,
+        "freshness": 8,
+        "source": 3,
+        "negative": 0,
+        "total": 31
+      },
+      "negative_hits": [],
+      "research_question": "time_series_method",
+      "recommendation": "方法借鉴",
+      "decision_reason": "时间序列 20；近期 8；命中: time series forecasting, multivariate time series",
+      "snippet": "arXiv:2508.07195v2 Announce Type: replace-cross \nAbstract: Recent advances have demonstrated that Large Language Models (LLMs) can be effectively adapted for time series forecasting, revealing strong potential beyond…",
+      "canonical_id": "arxiv:2508.07195"
+    },
+    {
+      "id": "arxiv:2608.14682",
+      "title": "RouteTS: Frequency-Time Routing for Time Series Forecasting",
+      "abstract": "arXiv:2608.14682v1 Announce Type: new \nAbstract: Real-world time series inherently intertwine global periodic structures with localized non-stationary variations. Existing approaches process these heterogeneous dynamics within a single computational domain, incurring fundamental limitations: time-domain models suffer from periodic misalignment over long horizons, while frequency-domain models over-smooth transient spikes. We argue that the optimal computational domain is not a property of the model, but of the data itself. Based on this principle, we propose RouteTS, a unified forecasting fram",
+      "authors": [
+        "Gaofeng Lin, Lei Duan"
+      ],
+      "date": "2026-08-19",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2608.14682",
+      "pdf": "https://arxiv.org/pdf/2608.14682.pdf",
+      "relevance_score": 27,
       "tags": [
         "time series forecasting"
       ],
       "score_breakdown": {
         "topic": 0,
-        "time_series": 11,
+        "time_series": 16,
         "dataset": 0,
         "method": 0,
         "freshness": 8,
         "source": 3,
         "negative": 0,
-        "total": 22
+        "total": 27
       },
       "negative_hits": [],
       "research_question": "time_series_method",
       "recommendation": "方法借鉴",
-      "decision_reason": "时间序列 11；近期 8；命中: time series forecasting",
-      "snippet": "arXiv:2608.14067v1 Announce Type: new \nAbstract: Diffusion models offer a natural way to model uncertainty in time series forecasting, yet their iterative sampling process is often treated as a uniformly beneficial…",
-      "canonical_id": "arxiv:2608.14067"
+      "decision_reason": "时间序列 16；近期 8；命中: time series forecasting",
+      "snippet": "arXiv:2608.14682v1 Announce Type: new \nAbstract: Real-world time series inherently intertwine global periodic structures with localized non-stationary variations.",
+      "canonical_id": "arxiv:2608.14682"
+    },
+    {
+      "id": "arxiv:2608.16612",
+      "title": "Degradation-Aligned Self-Supervised Learning for State of Health Estimation of Lithium-Ion Batteries under Label Sparsity",
+      "abstract": "arXiv:2608.16612v1 Announce Type: cross \nAbstract: An accurate estimation of the state of health (SOH) underpins a safe and optimized use of the battery system. Although compelling, data-driven SOH estimation models typically require large amounts of high-quality labeled cycling data, while in practice such labels are often sparse in both quantity and coverage. Therefore, in this work, we propose a degradation-aligned self-supervised learning (SSL) framework based on a convolutional neural network-gated recurrent unit (CNN-GRU) model, which learns aging-consistent representations from unlabele",
+      "authors": [
+        "Jiaqi Yao, Julia Kowal"
+      ],
+      "date": "2026-08-19",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2608.16612",
+      "pdf": "https://arxiv.org/pdf/2608.16612.pdf",
+      "relevance_score": 27,
+      "tags": [
+        "state of health",
+        "self-supervised learning"
+      ],
+      "score_breakdown": {
+        "topic": 14,
+        "time_series": 0,
+        "dataset": 0,
+        "method": 2,
+        "freshness": 8,
+        "source": 3,
+        "negative": 0,
+        "total": 27
+      },
+      "negative_hits": [],
+      "research_question": "method_transfer",
+      "recommendation": "方法借鉴",
+      "decision_reason": "主题相关 14；方法可借鉴 2；近期 8；命中: state of health, self-supervised learning",
+      "snippet": "arXiv:2608.16612v1 Announce Type: cross \nAbstract: An accurate estimation of the state of health (SOH) underpins a safe and optimized use of the battery system.",
+      "canonical_id": "arxiv:2608.16612"
+    },
+    {
+      "id": "arxiv:2602.12756",
+      "title": "Closing the Loop: A Control-Theoretic Framework for Provably Stable Time Series Forecasting with LLMs",
+      "abstract": "arXiv:2602.12756v2 Announce Type: replace \nAbstract: Large Language Models (LLMs) have recently shown exceptional potential in time series forecasting (TSF), leveraging their inherent sequential reasoning capabilities to model complex temporal dynamics. Existing approaches typically employ an autoregressive generation strategy to adapt LLMs for TSF. However, we identify a theoretical flaw in this paradigm: during inference, the model operates in an open-loop manner, recursively consuming its own generated outputs. This leads to error accumulation, where minor early deviations cascade into sign",
+      "authors": [
+        "Xingyu Zhang, Jingyao Wang, Zeen Song, Changwen Zheng, Wenwen Qiang"
+      ],
+      "date": "2026-08-19",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2602.12756",
+      "pdf": "https://arxiv.org/pdf/2602.12756.pdf",
+      "relevance_score": 27,
+      "tags": [
+        "time series forecasting"
+      ],
+      "score_breakdown": {
+        "topic": 0,
+        "time_series": 16,
+        "dataset": 0,
+        "method": 0,
+        "freshness": 8,
+        "source": 3,
+        "negative": 0,
+        "total": 27
+      },
+      "negative_hits": [],
+      "research_question": "time_series_method",
+      "recommendation": "方法借鉴",
+      "decision_reason": "时间序列 16；近期 8；命中: time series forecasting",
+      "snippet": "arXiv:2602.12756v2 Announce Type: replace \nAbstract: Large Language Models (LLMs) have recently shown exceptional potential in time series forecasting (TSF), leveraging their inherent sequential reasoning capabilities…",
+      "canonical_id": "arxiv:2602.12756"
+    },
+    {
+      "id": "arxiv:2608.14764",
+      "title": "Real-Time State-of-Health Estimation and Online Degradation Prognosis from Partial Battery Discharge Using Physics-Informed Neural Networks",
+      "abstract": "arXiv:2608.14764v1 Announce Type: new \nAbstract: With the increasing integration of renewable energy sources, energy storage systems have become essential, making the accurate estimation of their State of Health (SOH) and degradation behavior critical. In this work, we propose a physics-informed deep learning approach for lithium-ion battery SOH prediction using incomplete discharge curves extracted from arbitrary voltage ranges, thereby reflecting realistic and heterogeneous operating conditions. The proposed method combines data-driven learning with physically motivated degradation dynamics ",
+      "authors": [
+        "Bego\\~na Ispizua, Serio Gil-L\\'opez, Leire Arrizabalaga, Ibai La\\~na"
+      ],
+      "date": "2026-08-19",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2608.14764",
+      "pdf": "https://arxiv.org/pdf/2608.14764.pdf",
+      "relevance_score": 21,
+      "tags": [
+        "state of health",
+        "physics-informed"
+      ],
+      "score_breakdown": {
+        "topic": 8,
+        "time_series": 0,
+        "dataset": 0,
+        "method": 2,
+        "freshness": 8,
+        "source": 3,
+        "negative": 0,
+        "total": 21
+      },
+      "negative_hits": [],
+      "research_question": "method_transfer",
+      "recommendation": "方法借鉴",
+      "decision_reason": "主题相关 8；方法可借鉴 2；近期 8；命中: state of health, physics-informed",
+      "snippet": "arXiv:2608.14764v1 Announce Type: new \nAbstract: With the increasing integration of renewable energy sources, energy storage systems have become essential, making the accurate estimation of their State of Health (SOH)…",
+      "canonical_id": "arxiv:2608.14764"
+    },
+    {
+      "id": "arxiv:2608.14666",
+      "title": "Cross-Domain Industrial Fault Detection by Causal Mechanism Monitoring",
+      "abstract": "arXiv:2608.14666v1 Announce Type: new \nAbstract: Unsupervised fault detection in industrial systems is dominated by reconstruction based methods that monitor individual sensor marginal distributions. This misses coupling faults, where the physical relationship between sensor groups breaks while marginal statistics remain normal. Such faults evade marginal monitoring and persist as latent failures, with direct consequences for system reliability and safety. We propose CMR-Mamba (Causal Mechanism Representation Mamba), which trains per domain Mamba state-space encoders on healthy data. A causal ",
+      "authors": [
+        "Dhiraj Neupane, Mohamed Reda Bouadjenek, Richard Dazeley, Sunil Aryal"
+      ],
+      "date": "2026-08-19",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2608.14666",
+      "pdf": "https://arxiv.org/pdf/2608.14666.pdf",
+      "relevance_score": 21,
+      "tags": [
+        "Paderborn bearing",
+        "Paderborn"
+      ],
+      "score_breakdown": {
+        "topic": 0,
+        "time_series": 0,
+        "dataset": 10,
+        "method": 0,
+        "freshness": 8,
+        "source": 3,
+        "negative": 0,
+        "total": 21
+      },
+      "negative_hits": [],
+      "research_question": "dataset_benchmark",
+      "recommendation": "对比实验",
+      "decision_reason": "数据集相关 10；近期 8；命中: Paderborn bearing, Paderborn",
+      "snippet": "arXiv:2608.14666v1 Announce Type: new \nAbstract: Unsupervised fault detection in industrial systems is dominated by reconstruction based methods that monitor individual sensor marginal distributions.",
+      "canonical_id": "arxiv:2608.14666"
+    },
+    {
+      "id": "openalex:W7203600958",
+      "title": "Knowledge Transfer-Based Heterogeneous Distillation Network for Remaining Useful Life Prediction Under Cross-Working Conditions",
+      "abstract": "Remaining useful life (RUL) estimation is a fundamental task in Prognostics and Health Management (PHM), supporting condition-based and predictive maintenance of engineering systems. Data-driven methods contribute to many effective strategies for RUL prediction. However, two problems need to be solved when they are used in industrial applications: (1) The amount of data under one working condition is limited, and data from different working conditions suffer from domain discrepancies. These methods are constrained by distribution differences in data under different working conditions. (2) Ther",
+      "authors": [
+        "Jiehua Qi",
+        "Haoran Wang",
+        "Rui Wang",
+        "Xinxiao Wu",
+        "Hanhong Hu"
+      ],
+      "date": "2026-08-17",
+      "source": "OpenAlex",
+      "url": "https://doi.org/10.3390/make8080249",
+      "pdf": "",
+      "relevance_score": 49,
+      "tags": [
+        "remaining useful life",
+        "knowledge distillation",
+        "predictive maintenance",
+        "N-CMAPSS",
+        "prognostics and health management",
+        "RUL prediction",
+        "transfer learning",
+        "CMAPSS"
+      ],
+      "venue": "",
+      "doi": "https://doi.org/10.3390/make8080249",
+      "score_breakdown": {
+        "topic": 30,
+        "time_series": 0,
+        "dataset": 10,
+        "method": 0,
+        "freshness": 8,
+        "source": 1,
+        "negative": 0,
+        "total": 49
+      },
+      "negative_hits": [],
+      "research_question": "core_rul_phm",
+      "recommendation": "精读",
+      "decision_reason": "主题相关 30；数据集相关 10；近期 8；命中: remaining useful life, knowledge distillation, predictive maintenance",
+      "snippet": "Remaining useful life (RUL) estimation is a fundamental task in Prognostics and Health Management (PHM), supporting condition-based and predictive maintenance of engineering systems.",
+      "canonical_id": "doi:10.3390/make8080249"
+    },
+    {
+      "id": "openalex:W7203619904",
+      "title": "A Remaining Useful Life Prediction Method for Aero-Engines Based on Degradation-Aware Masked Augmentation and a CNN–Transformer Hybrid Network",
+      "abstract": "Accurate remaining useful life (RUL) prediction is essential for condition-based maintenance and safe aero-engine operation. To address non-stationary monitoring data, limited informative degradation samples, and the difficulty of jointly modeling local degradation patterns and temporal dependencies, this study proposes a degradation-aware dynamic masking augmentation method combined with a multiscale CNN–Transformer network. The 21 sensor variables in the NASA C-MAPSS dataset are first grouped by physical meaning and reconstructed into four-dimensional state features. A degradation-state scor",
+      "authors": [
+        "Xudong Song",
+        "Guohua Wu",
+        "Mengdan Wang",
+        "Jian Liu",
+        "Wenlin Wang"
+      ],
+      "date": "2026-08-17",
+      "source": "OpenAlex",
+      "url": "https://doi.org/10.3390/machines14080943",
+      "pdf": "",
+      "relevance_score": 33,
+      "tags": [
+        "remaining useful life",
+        "C-MAPSS",
+        "condition-based maintenance",
+        "transformer"
+      ],
+      "venue": "",
+      "doi": "https://doi.org/10.3390/machines14080943",
+      "score_breakdown": {
+        "topic": 18,
+        "time_series": 0,
+        "dataset": 4,
+        "method": 2,
+        "freshness": 8,
+        "source": 1,
+        "negative": 0,
+        "total": 33
+      },
+      "negative_hits": [],
+      "research_question": "core_rul_phm",
+      "recommendation": "精读",
+      "decision_reason": "主题相关 18；数据集相关 4；方法可借鉴 2；近期 8；命中: remaining useful life, C-MAPSS, condition-based maintenance",
+      "snippet": "Accurate remaining useful life (RUL) prediction is essential for condition-based maintenance and safe aero-engine operation.",
+      "canonical_id": "doi:10.3390/machines14080943"
+    },
+    {
+      "id": "openalex:W7203648911",
+      "title": "The Impact of Varying Speed on Remaining Useful Life Estimation for Rolling Element Bearing",
+      "abstract": "Most data-driven bearing remaining useful life (RUL) estimation studies assume constant rotational speed, which does not reflect real industrial operating conditions. In applications such as electric vehicle drivetrains, bearings operate under continuously varying speed profiles that modulate vibration signal characteristics and obscure degradation signatures, making RUL estimation significantly more challenging. This study presents an experimental investigation of the effect of speed non-stationarity on deep learning-based bearing RUL estimation. Two run-to-failure accelerated life tests were",
+      "authors": [
+        "Hilal Doğanay Katı",
+        "Adem Avcı",
+        "Gürkan Aydemır"
+      ],
+      "date": "2026-08-17",
+      "source": "OpenAlex",
+      "url": "https://doi.org/10.38088/jise.1906157",
+      "pdf": "",
+      "relevance_score": 29,
+      "tags": [
+        "remaining useful life",
+        "RUL estimation"
+      ],
+      "venue": "",
+      "doi": "https://doi.org/10.38088/jise.1906157",
+      "score_breakdown": {
+        "topic": 20,
+        "time_series": 0,
+        "dataset": 0,
+        "method": 0,
+        "freshness": 8,
+        "source": 1,
+        "negative": 0,
+        "total": 29
+      },
+      "negative_hits": [],
+      "research_question": "core_rul_phm",
+      "recommendation": "精读",
+      "decision_reason": "主题相关 20；近期 8；命中: remaining useful life, RUL estimation",
+      "snippet": "Most data-driven bearing remaining useful life (RUL) estimation studies assume constant rotational speed, which does not reflect real industrial operating conditions.",
+      "canonical_id": "doi:10.38088/jise.1906157"
+    },
+    {
+      "id": "arxiv:2608.16092v1",
+      "title": "Feedforward Active Speech Suppression Based on Time Series Prediction of Speech Signals Using Neural Networks",
+      "abstract": "A feedforward active noise control (ANC) method based on time-series prediction for speech signals is proposed. Although current ANC techniques are highly effective against stationary noise, suppressing highly non-stationary speech signals remains a challenging task. We propose an adaptive filtering algorithm for active speech suppression based on neural-network-based time-series prediction of future signals. The update value for the linear control filter is calculated based on the predicted signal, as well as the current and past signals. Numerical experiments indicated that the noise reducti",
+      "authors": [
+        "Manami Nishikata",
+        "Shoichi Koyama"
+      ],
+      "date": "2026-08-17",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2608.16092v1",
+      "pdf": "https://arxiv.org/pdf/2608.16092v1",
+      "categories": [
+        "eess.AS"
+      ],
+      "relevance_score": 27,
+      "tags": [
+        "time series prediction"
+      ],
+      "score_breakdown": {
+        "topic": 0,
+        "time_series": 16,
+        "dataset": 0,
+        "method": 0,
+        "freshness": 8,
+        "source": 3,
+        "negative": 0,
+        "total": 27
+      },
+      "negative_hits": [],
+      "research_question": "time_series_method",
+      "recommendation": "方法借鉴",
+      "decision_reason": "时间序列 16；近期 8；命中: time series prediction",
+      "snippet": "A feedforward active noise control (ANC) method based on time-series prediction for speech signals is proposed.",
+      "canonical_id": "arxiv:2608.16092"
+    },
+    {
+      "id": "openalex:W7203610840",
+      "title": "Decision-Bits, Not Fidelity-Bits: A Rate–Accuracy Comparison of a Task-Aware Single-Token Encoder Against General-Purpose Compression Codecs",
+      "abstract": "Decision-Bits, Not Fidelity-Bits: A Rate–Accuracy Comparison of a Task-Aware Single-Token Encoder Against General-Purpose Compression Codecs Randolph James Ferlic, M.D., and Kimberly Kate Ferlic — Fieldstone Analytics, LLC Correspondence: randolphf@fieldstoneanalyticsllc.com Preprint · Zenodo DOI: 10.5281/zenodo.21982600 · CC-BY 4.0 Abstract General-purpose compression codecs such as ZFP and SZ3 are reconstruction codecs: they spend bits to recover the input waveform to a bounded fidelity, and are judged by rate–distortion. Many edge and on-device applications, however, need only a decision fr",
+      "authors": [
+        "Randolph James Ferlic",
+        "Kimberly Kate Ferlic"
+      ],
+      "date": "2026-08-17",
+      "source": "OpenAlex",
+      "url": "https://doi.org/10.5281/zenodo.21982600",
+      "pdf": "",
+      "relevance_score": 27,
+      "tags": [
+        "condition monitoring",
+        "MFPT bearing",
+        "CWRU",
+        "MFPT"
+      ],
+      "venue": "",
+      "doi": "https://doi.org/10.5281/zenodo.21982600",
+      "score_breakdown": {
+        "topic": 3,
+        "time_series": 0,
+        "dataset": 15,
+        "method": 0,
+        "freshness": 8,
+        "source": 1,
+        "negative": 0,
+        "total": 27
+      },
+      "negative_hits": [],
+      "research_question": "dataset_benchmark",
+      "recommendation": "对比实验",
+      "decision_reason": "主题相关 3；数据集相关 15；近期 8；命中: condition monitoring, MFPT bearing, CWRU",
+      "snippet": "Decision-Bits, Not Fidelity-Bits: A Rate–Accuracy Comparison of a Task-Aware Single-Token Encoder Against General-Purpose Compression Codecs Randolph James Ferlic, M.D., and Kimberly Kate Ferlic — Fieldstone Analytics…",
+      "canonical_id": "doi:10.5281/zenodo.21982600"
+    },
+    {
+      "id": "openalex:W7203598291",
+      "title": "Harnessing artificial intelligence and machine learning for predictive maintenance and optimization in renewable energy systems: a mini-review",
+      "abstract": "The integration of Artificial Intelligence (AI) and Machine Learning (ML) into renewable energy systems (RES) is increasingly recognized as a practical pathway for improving operational efficiency, reliability, and sustainability. Renewable sources, such as solar, wind, and hydropower, as well as hybrid configurations, are inherently intermittent and operationally complex, creating persistent challenges for grid stability, asset reliability, and energy optimization. Conventional maintenance strategies, whether reactive or preventive, often lead to unplanned downtime, inefficient inspections, a",
+      "authors": [
+        "Ugwu Chinyere Nneoma",
+        "Ogenyi Fabian Chukwudi",
+        "Ugwu Jovita Nnenna",
+        "Ugwu Okechukwu Paul-Chima"
+      ],
+      "date": "2026-08-17",
+      "source": "OpenAlex",
+      "url": "https://doi.org/10.3389/fenrg.2026.1704126",
+      "pdf": "",
+      "relevance_score": 24,
+      "tags": [
+        "remaining useful life",
+        "predictive maintenance",
+        "federated learning"
+      ],
+      "venue": "",
+      "doi": "https://doi.org/10.3389/fenrg.2026.1704126",
+      "score_breakdown": {
+        "topic": 15,
+        "time_series": 0,
+        "dataset": 0,
+        "method": 0,
+        "freshness": 8,
+        "source": 1,
+        "negative": 0,
+        "total": 24
+      },
+      "negative_hits": [],
+      "research_question": "core_rul_phm",
+      "recommendation": "精读",
+      "decision_reason": "主题相关 15；近期 8；命中: remaining useful life, predictive maintenance, federated learning",
+      "snippet": "The integration of Artificial Intelligence (AI) and Machine Learning (ML) into renewable energy systems (RES) is increasingly recognized as a practical pathway for improving operational efficiency, reliability, and…",
+      "canonical_id": "doi:10.3389/fenrg.2026.1704126"
+    },
+    {
+      "id": "openalex:W7203588735",
+      "title": "Testing Frozen Time-Series Foundation Model Features for Remaining Useful Life Estimation",
+      "abstract": "One way to reuse a pretrained time-series foundation model is to keep the pretrained backbone fixed, use it to turn each sensor window into features, and train a small task-specific model on those features. We test this frozen-feature approach for Remaining Useful Life (RUL) estimation using the released Chronos-2 backbone and the public NASA C-MAPSS FD001 dataset. We ask three practical questions: what information the frozen representation preserves, whether pretraining improves RUL accuracy, and whether the model’s uncertainty can be trusted. First, a numerical channel-permutation test shows",
+      "authors": [
+        "Tanmay Deshpande"
+      ],
+      "date": "2026-08-16",
+      "source": "OpenAlex",
+      "url": "https://doi.org/10.5281/zenodo.21970343",
+      "pdf": "",
+      "relevance_score": 27,
+      "tags": [
+        "remaining useful life",
+        "C-MAPSS"
+      ],
+      "venue": "",
+      "doi": "https://doi.org/10.5281/zenodo.21970343",
+      "score_breakdown": {
+        "topic": 14,
+        "time_series": 0,
+        "dataset": 4,
+        "method": 0,
+        "freshness": 8,
+        "source": 1,
+        "negative": 0,
+        "total": 27
+      },
+      "negative_hits": [],
+      "research_question": "core_rul_phm",
+      "recommendation": "精读",
+      "decision_reason": "主题相关 14；数据集相关 4；近期 8；命中: remaining useful life, C-MAPSS",
+      "snippet": "We test this frozen-feature approach for Remaining Useful Life (RUL) estimation using the released Chronos-2 backbone and the public NASA C-MAPSS FD001 dataset.",
+      "canonical_id": "doi:10.5281/zenodo.21970343"
+    },
+    {
+      "id": "openalex:W7203574192",
+      "title": "A Study on Domain Generalization Methods for Rolling Bearing Fault Diagnosis Based on Mean Differences and Domain Adversarial Learning",
+      "abstract": "To address the issue that intelligent fault diagnosis models for rolling bearings are susceptible to the effects of load and speed variations, as well as shifts in data distribution, when applied across different operating conditions, this paper proposes a fault diagnosis domain generalization method that combines mean difference constraints with domain adversarial learning. Taking raw one-dimensional vibration signals as input, this method first employs a multiscale one-dimensional convolutional network to extract fault impact features and periodic features across different time scales; Subse",
+      "authors": [
+        "Jiabing Zhou",
+        "Xiang Gu",
+        "Bo Zhang",
+        "Xinrui Yu",
+        "Yining Xu"
+      ],
+      "date": "2026-08-16",
+      "source": "OpenAlex",
+      "url": "https://doi.org/10.63808/aepm.v2i3.425",
+      "pdf": "",
+      "relevance_score": 19,
+      "tags": [
+        "CWRU",
+        "Paderborn"
+      ],
+      "venue": "",
+      "doi": "https://doi.org/10.63808/aepm.v2i3.425",
+      "score_breakdown": {
+        "topic": 0,
+        "time_series": 0,
+        "dataset": 10,
+        "method": 0,
+        "freshness": 8,
+        "source": 1,
+        "negative": 0,
+        "total": 19
+      },
+      "negative_hits": [],
+      "research_question": "dataset_benchmark",
+      "recommendation": "对比实验",
+      "decision_reason": "数据集相关 10；近期 8；命中: CWRU, Paderborn",
+      "snippet": "To address the issue that intelligent fault diagnosis models for rolling bearings are susceptible to the effects of load and speed variations, as well as shifts in data distribution, when applied across different…",
+      "canonical_id": "doi:10.63808/aepm.v2i3.425"
     },
     {
       "id": "openalex:W7203540560",
@@ -305,7 +813,7 @@
       ],
       "date": "2026-08-15",
       "source": "OpenAlex",
-      "url": "https://doi.org/10.17605/osf.io/u76ze",
+      "url": "https://osf.io/u76ze",
       "pdf": "",
       "relevance_score": 33,
       "tags": [
@@ -366,6 +874,81 @@
       "decision_reason": "主题相关 15；近期 8；命中: remaining useful life, predictive maintenance",
       "snippet": "Among these innovations, predictive maintenance has emerged as a strategic approach for improving equipment reliability, minimizing unexpected failures, reducing maintenance costs, and enhancing production efficiency.",
       "canonical_id": "doi:10.59543/jidmis.v3.1791"
+    },
+    {
+      "id": "arxiv:2608.14067v1",
+      "title": "When Denoising Hurts: Rethinking the Terminal Step of Diffusion Time Series Forecasters -- Extended Version",
+      "abstract": "Diffusion models offer a natural way to model uncertainty in time series forecasting, yet their iterative sampling process is often treated as a uniformly beneficial refinement procedure. Our study challenges this view by examining how forecast quality evolves throughout reverse diffusion. We find that general temporal structure is often recovered at relatively high noise levels, whereas continued low-noise refinement can introduce statistical drift and degrade the final forecast. Our analysis further suggests that this behavior explains why prior methods often favor relatively narrow diffusio",
+      "authors": [
+        "Dat Nguyen-Cong",
+        "Luong Tran",
+        "Tung Kieu"
+      ],
+      "date": "2026-08-14",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2608.14067v1",
+      "pdf": "https://arxiv.org/pdf/2608.14067v1",
+      "categories": [
+        "cs.LG"
+      ],
+      "relevance_score": 22,
+      "tags": [
+        "time series forecasting"
+      ],
+      "score_breakdown": {
+        "topic": 0,
+        "time_series": 11,
+        "dataset": 0,
+        "method": 0,
+        "freshness": 8,
+        "source": 3,
+        "negative": 0,
+        "total": 22
+      },
+      "negative_hits": [],
+      "research_question": "time_series_method",
+      "recommendation": "方法借鉴",
+      "decision_reason": "时间序列 11；近期 8；命中: time series forecasting",
+      "snippet": "Diffusion models offer a natural way to model uncertainty in time series forecasting, yet their iterative sampling process is often treated as a uniformly beneficial refinement procedure.",
+      "canonical_id": "arxiv:2608.14067"
+    },
+    {
+      "id": "arxiv:2608.14054v1",
+      "title": "Model-agnostic Retrieval-Augmented Extended Forecasting for time series",
+      "abstract": "Time series forecasting with pretrained foundation models has demonstrated strong zero-shot capabilities. However, achieving optimal performance on time series with short or negligible historical data in domain-specific applications typically requires adaptation via either fine-tuning or RAG. While fine-tuning is effective, it incurs substantial computational costs. This work explores RAG within univariate time series (Retrieval Augmented Generation) as a more efficient alternative, in particular RAF (Retrieval Augmented Forecasting), and introduces RAEF (Retrieval-Augmented Extended Forecasti",
+      "authors": [
+        "Juan Pablo Villa Serna",
+        "Rohan Asthana",
+        "Vasileios Belagiannis"
+      ],
+      "date": "2026-08-14",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2608.14054v1",
+      "pdf": "https://arxiv.org/pdf/2608.14054v1",
+      "categories": [
+        "cs.LG"
+      ],
+      "relevance_score": 22,
+      "tags": [
+        "time series forecasting",
+        "domain adaptation"
+      ],
+      "score_breakdown": {
+        "topic": 0,
+        "time_series": 11,
+        "dataset": 0,
+        "method": 0,
+        "freshness": 8,
+        "source": 3,
+        "negative": 0,
+        "total": 22
+      },
+      "negative_hits": [],
+      "research_question": "time_series_method",
+      "recommendation": "方法借鉴",
+      "decision_reason": "时间序列 11；近期 8；命中: time series forecasting, domain adaptation",
+      "snippet": "Time series forecasting with pretrained foundation models has demonstrated strong zero-shot capabilities.",
+      "canonical_id": "arxiv:2608.14054"
     },
     {
       "id": "openalex:W7203465579",
@@ -783,43 +1366,6 @@
       "canonical_id": "doi:10.1088/1361-6501/ae989d"
     },
     {
-      "id": "openalex:W7202249793",
-      "title": "TimesFM temporal foundation framework for fast and accurate lithium-ion battery RUL prediction with zero-fine-tuning",
-      "abstract": "",
-      "authors": [
-        "Guang Yang",
-        "XinYang Liu",
-        "Nan Wang",
-        "Gang Yu"
-      ],
-      "date": "2026-08-12",
-      "source": "OpenAlex",
-      "url": "https://doi.org/10.1007/s43236-026-01389-y",
-      "pdf": "",
-      "relevance_score": 29,
-      "tags": [
-        "RUL prediction"
-      ],
-      "venue": "",
-      "doi": "https://doi.org/10.1007/s43236-026-01389-y",
-      "score_breakdown": {
-        "topic": 20,
-        "time_series": 0,
-        "dataset": 0,
-        "method": 0,
-        "freshness": 8,
-        "source": 1,
-        "negative": 0,
-        "total": 29
-      },
-      "negative_hits": [],
-      "research_question": "core_rul_phm",
-      "recommendation": "精读",
-      "decision_reason": "主题相关 20；近期 8；命中: RUL prediction",
-      "snippet": "",
-      "canonical_id": "doi:10.1007/s43236-026-01389-y"
-    },
-    {
       "id": "arxiv:2608.11623v1",
       "title": "FM-LLM: A frequency-enhanced mixture-of-experts framework for adapting LLMs to time series forecasting",
       "abstract": "Recent advances in Large Language Models (LLMs) have spurred cross-modal solutions for time-series forecasting. However, existing methods rely heavily on textual prompts for modality alignment-introducing nontrivial computational overhead and failing to leverage the rich spectral dynamics inherent in time-series data. To enable prompt-free, frequency-aware adaptation of frozen LLMs, we propose FM-LLM (Frequency-Enhanced Mixture-of-Experts for adapting LLMs to Time Series Forecasting), an autoregressive framework grounded in constrained asymmetric coupling. A Fourier Analysis Network (FAN)-base",
@@ -1134,46 +1680,6 @@
       "decision_reason": "数据集相关 10；近期 8；命中: CWRU bearing, CWRU",
       "snippet": "Abstract To address the challenges of conventional feature extraction methods in capturing nonlinear dependencies within fault signals and reducing feature redundancy during hydropower units fault diagnosis, this paper…",
       "canonical_id": "doi:10.1088/2631-8695/ae981f"
-    },
-    {
-      "id": "openalex:W7202079096",
-      "title": "Hybrid Quantum Recurrent Neural Network for Remaining Useful Life Prediction of Turbofan Engines",
-      "abstract": "Accurate remaining useful life (RUL) estimation underpins safe operation and cost-effective maintenance of aerospace propulsion systems. We propose a Hybrid Quantum Recurrent Neural Network (HQRNN) for jet-engine RUL forecasting on the NASA C-MAPSS FD001 benchmark. The HQRNN stacks Quantum Long Short-Term Memory (QLSTM) layers, replacing each LSTM gate’s linear transformation with a Quantum Depth-Infused (QDI) circuit; this is followed by classical dense layers. Quantum and hybrid quantum–classical methods for turbofan RUL prediction are still at an early stage. Our study is therefore among th",
-      "authors": [
-        "Olga Tsurkan",
-        "Aleksandra Konstantinova",
-        "Arsenii Senokosov",
-        "Asel Sagingalieva",
-        "Alexey Melnikov"
-      ],
-      "date": "2026-08-10",
-      "source": "OpenAlex",
-      "url": "https://doi.org/10.3390/a19080663",
-      "pdf": "",
-      "relevance_score": 31,
-      "tags": [
-        "remaining useful life",
-        "C-MAPSS",
-        "RUL prediction"
-      ],
-      "venue": "",
-      "doi": "https://doi.org/10.3390/a19080663",
-      "score_breakdown": {
-        "topic": 18,
-        "time_series": 0,
-        "dataset": 4,
-        "method": 0,
-        "freshness": 8,
-        "source": 1,
-        "negative": 0,
-        "total": 31
-      },
-      "negative_hits": [],
-      "research_question": "core_rul_phm",
-      "recommendation": "精读",
-      "decision_reason": "主题相关 18；数据集相关 4；近期 8；命中: remaining useful life, C-MAPSS, RUL prediction",
-      "snippet": "Accurate remaining useful life (RUL) estimation underpins safe operation and cost-effective maintenance of aerospace propulsion systems.",
-      "canonical_id": "doi:10.3390/a19080663"
     },
     {
       "id": "arxiv:2608.10149v1",
@@ -1797,45 +2303,6 @@
       "canonical_id": "arxiv:2608.05925"
     },
     {
-      "id": "arxiv:2608.06223v1",
-      "title": "TS-RAG: Retrieval Augmented Generation for Time Series Forecasting",
-      "abstract": "While deep learning models, particularly transformer-based architectures, have shown impressive performance in time series forecasting, the application of retrieval-augmented generation (RAG) in this domain remains limited. Since RAG has proven effective in enhancing the capabilities of large language models by incorporating relevant external information, retrieving similar time series sequences as references might also improve accuracy in time series forecasting tasks. However, most time series models are constrained by limited training data, smaller parameter scales, and a lack of the extens",
-      "authors": [
-        "Yixiong Xiao",
-        "Congxi Xiao",
-        "Jingbo Zhou"
-      ],
-      "date": "2026-08-06",
-      "source": "arXiv",
-      "url": "https://arxiv.org/abs/2608.06223v1",
-      "pdf": "https://arxiv.org/pdf/2608.06223v1",
-      "categories": [
-        "cs.AI",
-        "cs.LG"
-      ],
-      "relevance_score": 28,
-      "tags": [
-        "time series forecasting",
-        "transformer"
-      ],
-      "score_breakdown": {
-        "topic": 0,
-        "time_series": 16,
-        "dataset": 0,
-        "method": 1,
-        "freshness": 8,
-        "source": 3,
-        "negative": 0,
-        "total": 28
-      },
-      "negative_hits": [],
-      "research_question": "time_series_method",
-      "recommendation": "方法借鉴",
-      "decision_reason": "时间序列 16；方法可借鉴 1；近期 8；命中: time series forecasting, transformer",
-      "snippet": "While deep learning models, particularly transformer-based architectures, have shown impressive performance in time series forecasting, the application of retrieval-augmented generation (RAG) in this domain remains…",
-      "canonical_id": "arxiv:2608.06223"
-    },
-    {
       "id": "arxiv:2608.05221v1",
       "title": "A System for Train Condition Monitoring and Structural Health Assessment of Rail Vehicles",
       "abstract": "The ongoing digitalization of rail systems and the increasing use of artificial intelligence (AI) are fundamentally transforming the design, operation, and maintenance of rail vehicles. While fully automated operation at Grade of Automation 4 (GoA4) is well established in metro systems, its deployment in mainline rail remains limited. This is primarily due to stringent safety requirements and the complexity of open operational environments. Current perception systems based on cameras, radar, and lidar are effective in detecting objects but provide limited capability for reliably identifying im",
@@ -1964,7 +2431,7 @@
       "source": "OpenAlex",
       "url": "https://doi.org/10.3390/math14152786",
       "pdf": "",
-      "relevance_score": 41,
+      "relevance_score": 38,
       "tags": [
         "remaining useful life",
         "predictive maintenance",
@@ -1978,15 +2445,15 @@
         "time_series": 0,
         "dataset": 10,
         "method": 0,
-        "freshness": 8,
+        "freshness": 5,
         "source": 1,
         "negative": 0,
-        "total": 41
+        "total": 38
       },
       "negative_hits": [],
       "research_question": "core_rul_phm",
       "recommendation": "精读",
-      "decision_reason": "主题相关 22；数据集相关 10；近期 8；命中: remaining useful life, predictive maintenance, XJTU-SY",
+      "decision_reason": "主题相关 22；数据集相关 10；近期 5；命中: remaining useful life, predictive maintenance, XJTU-SY",
       "snippet": "Predictive maintenance of electric vehicle (EV) fleets requires accurate estimation of Remaining Useful Life (RUL), Time-to-Failure (TTF), and State-of-Health (SOH) from heterogeneous Internet of Things (IoT) telemetry.",
       "canonical_id": "doi:10.3390/math14152786"
     },
@@ -2005,7 +2472,7 @@
       "categories": [
         "cs.LG"
       ],
-      "relevance_score": 27,
+      "relevance_score": 24,
       "tags": [
         "time series classification"
       ],
@@ -2014,15 +2481,15 @@
         "time_series": 16,
         "dataset": 0,
         "method": 0,
-        "freshness": 8,
+        "freshness": 5,
         "source": 3,
         "negative": 0,
-        "total": 27
+        "total": 24
       },
       "negative_hits": [],
       "research_question": "time_series_method",
       "recommendation": "方法借鉴",
-      "decision_reason": "时间序列 16；近期 8；命中: time series classification",
+      "decision_reason": "时间序列 16；近期 5；命中: time series classification",
       "snippet": "Time series data are ubiquitous in practical applications, where classification (TSC) and extrinsic regression (TSER) have emerged as essential tasks for obtaining value from temporal sequences.",
       "canonical_id": "arxiv:2608.04174"
     },
@@ -2046,7 +2513,7 @@
         "cs.AI",
         "cs.CV"
       ],
-      "relevance_score": 26,
+      "relevance_score": 23,
       "tags": [
         "predictive maintenance",
         "time series anomaly detection"
@@ -2056,15 +2523,15 @@
         "time_series": 11,
         "dataset": 0,
         "method": 0,
-        "freshness": 8,
+        "freshness": 5,
         "source": 3,
         "negative": 0,
-        "total": 26
+        "total": 23
       },
       "negative_hits": [],
       "research_question": "time_series_method",
       "recommendation": "方法借鉴",
-      "decision_reason": "主题相关 4；时间序列 11；近期 8；命中: predictive maintenance, time series anomaly detection",
+      "decision_reason": "主题相关 4；时间序列 11；近期 5；命中: predictive maintenance, time series anomaly detection",
       "snippet": "Time series anomaly detection (TSAD) underpins applications in predictive maintenance, finance, and cloud computing, however performance remains sensitive to representation choices, especially in multivariate settings.",
       "canonical_id": "arxiv:2608.03926"
     },
@@ -2081,7 +2548,7 @@
       "source": "OpenAlex",
       "url": "https://doi.org/10.1007/s13042-026-03246-7",
       "pdf": "",
-      "relevance_score": 19,
+      "relevance_score": 16,
       "tags": [
         "remaining useful life"
       ],
@@ -2092,15 +2559,15 @@
         "time_series": 0,
         "dataset": 0,
         "method": 0,
-        "freshness": 8,
+        "freshness": 5,
         "source": 1,
         "negative": 0,
-        "total": 19
+        "total": 16
       },
       "negative_hits": [],
       "research_question": "core_rul_phm",
-      "recommendation": "精读",
-      "decision_reason": "主题相关 10；近期 8；命中: remaining useful life",
+      "recommendation": "快读",
+      "decision_reason": "主题相关 10；近期 5；命中: remaining useful life",
       "snippet": "",
       "canonical_id": "doi:10.1007/s13042-026-03246-7"
     },
@@ -2222,6 +2689,43 @@
       "decision_reason": "主题相关 24；数据集相关 10；近期 5；命中: remaining useful life, N-CMAPSS, RUL prediction",
       "snippet": "Abstract Remaining useful life prediction for rotating machinery under non-stationary operating conditions demands effective extraction of degradation features from multi-sensor signals with varying spectral…",
       "canonical_id": "doi:10.1088/2631-8695/ae8d85"
+    },
+    {
+      "id": "openalex:W7203645237",
+      "title": "Data-Model Interactive Remaining Useful Life Prediction with Physics-Informed Neural Network",
+      "abstract": "",
+      "authors": [
+        "Huiqin Li",
+        "Zhengxin Zhang",
+        "Xiaosheng Si"
+      ],
+      "date": "2026-08-01",
+      "source": "OpenAlex",
+      "url": "https://doi.org/10.1016/j.ress.2026.113328",
+      "pdf": "",
+      "relevance_score": 18,
+      "tags": [
+        "remaining useful life",
+        "physics-informed"
+      ],
+      "venue": "",
+      "doi": "https://doi.org/10.1016/j.ress.2026.113328",
+      "score_breakdown": {
+        "topic": 10,
+        "time_series": 0,
+        "dataset": 0,
+        "method": 2,
+        "freshness": 5,
+        "source": 1,
+        "negative": 0,
+        "total": 18
+      },
+      "negative_hits": [],
+      "research_question": "core_rul_phm",
+      "recommendation": "精读",
+      "decision_reason": "主题相关 10；方法可借鉴 2；近期 5；命中: remaining useful life, physics-informed",
+      "snippet": "",
+      "canonical_id": "doi:10.1016/j.ress.2026.113328"
     },
     {
       "id": "arxiv:2607.29459v1",
@@ -2468,46 +2972,6 @@
       "canonical_id": "arxiv:2607.28115"
     },
     {
-      "id": "openalex:W7171818209",
-      "title": "Temporal-sequential modeling for remaining useful life estimation of turbofan engine",
-      "abstract": "Abstract Accurate prediction of Remaining Useful Life (RUL) is essential for predictive maintenance of turbofan engines, as it helps reduce unexpected failures and maintenance costs while improving system reliability. The objective of this study is to develop an accurate and robust deep learning framework for RUL prediction using multivariate time-series sensor data and to investigate the influence of different optimization algorithms on prediction performance. A hybrid Convolutional Neural Network–Long Short-Term Memory (CNN–LSTM) model is proposed, where convolutional layers extract local de",
-      "authors": [
-        "Rajneesh Kumar",
-        "Shivam Ojha",
-        "Amit Shelke",
-        "Anowarul Habib"
-      ],
-      "date": "2026-07-30",
-      "source": "OpenAlex",
-      "url": "https://doi.org/10.1038/s41598-026-63783-7",
-      "pdf": "",
-      "relevance_score": 33,
-      "tags": [
-        "remaining useful life",
-        "C-MAPSS",
-        "predictive maintenance",
-        "RUL prediction"
-      ],
-      "venue": "",
-      "doi": "https://doi.org/10.1038/s41598-026-63783-7",
-      "score_breakdown": {
-        "topic": 22,
-        "time_series": 0,
-        "dataset": 5,
-        "method": 0,
-        "freshness": 5,
-        "source": 1,
-        "negative": 0,
-        "total": 33
-      },
-      "negative_hits": [],
-      "research_question": "core_rul_phm",
-      "recommendation": "精读",
-      "decision_reason": "主题相关 22；数据集相关 5；近期 5；命中: remaining useful life, C-MAPSS, predictive maintenance",
-      "snippet": "Abstract Accurate prediction of Remaining Useful Life (RUL) is essential for predictive maintenance of turbofan engines, as it helps reduce unexpected failures and maintenance costs while improving system reliability.",
-      "canonical_id": "doi:10.1038/s41598-026-63783-7"
-    },
-    {
       "id": "arxiv:2607.28035v1",
       "title": "Enhancing Irregular Time Series Forecasting with Continuous-Time Modeling Framework",
       "abstract": "Irregular multivariate time series are widely encountered in applications such as healthcare monitoring, human activity recognition, and environmental sensing. Their core challenges stem from asynchronous observations, non-uniform sampling intervals, and the fact that temporal patterns themselves carry critical dynamic information. Existing approaches either rely on discretization-based preprocessing (e.g., interpolation, imputation, or aggregation), which disrupts the underlying continuous-time semantics, or adopt continuous-time modeling via ODE-based frameworks, which typically require spec",
@@ -2674,47 +3138,6 @@
       "snippet": "Time-to-event modeling provides a systematic framework for estimating time-dependent failure risk, reliability, and remaining useful life (RUL) from longitudinal condition monitoring data.",
       "canonical_id": "arxiv:2607.26038",
       "summary": "本论文提出了一种基于联邦纵向生存建模的协作系统故障预测方法，旨在解决由于隐私或专有限制而无法集中存储的传感器轨迹和故障时间记录的问题。研究通过时间事件建模框架，估计故障风险、可靠性和剩余使用寿命。"
-    },
-    {
-      "id": "arxiv:2607.24399v1",
-      "title": "Multivariate Time Series Forecasting with Adaptive Non-Local Observables",
-      "abstract": "Multivariate time series forecasting (MTSF) predicts future values of multiple variables from historical data. While quantum neural networks have been increasingly applied to this task, they typically rely on fixed local measurements, which restrict their expressivity. We propose MTSF-ANO, a simple hybrid model for MTSF that integrates variational quantum circuits with adaptive non-local observables (ANO). On the four ETT datasets, MTSF-ANO ranks first or second in MSE in 17 of 20 settings, improving over the strongest baseline by up to 20% on ETTh1, and outperforms or matches its fixed local ",
-      "authors": [
-        "Yu-Ting Lee",
-        "Huan-Hsin Tseng",
-        "Samuel Yen-Chi Chen"
-      ],
-      "date": "2026-07-27",
-      "source": "arXiv",
-      "url": "https://arxiv.org/abs/2607.24399v1",
-      "pdf": "https://arxiv.org/pdf/2607.24399v1",
-      "categories": [
-        "quant-ph",
-        "cs.AI",
-        "cs.LG"
-      ],
-      "relevance_score": 32,
-      "tags": [
-        "time series forecasting",
-        "multivariate time series"
-      ],
-      "score_breakdown": {
-        "topic": 0,
-        "time_series": 24,
-        "dataset": 0,
-        "method": 0,
-        "freshness": 5,
-        "source": 3,
-        "negative": 0,
-        "total": 32
-      },
-      "negative_hits": [],
-      "research_question": "time_series_method",
-      "recommendation": "方法借鉴",
-      "decision_reason": "时间序列 24；近期 5；命中: time series forecasting, multivariate time series",
-      "snippet": "Multivariate time series forecasting (MTSF) predicts future values of multiple variables from historical data.",
-      "canonical_id": "arxiv:2607.24399",
-      "summary": "本论文提出了一种名为MTSF-ANO的混合模型，用于多变量时间序列预测，结合了变分量子电路和自适应非局部观测。实验结果显示，该模型在四个ETT数据集上，在20种设置中有17种情况下在均方误差（MSE）上排名第一或第二，较最强基线提高了最多20%。"
     },
     {
       "id": "openalex:W7171443212",
@@ -3890,45 +4313,6 @@
       "summary": "本文提出了一种基于扩散模型的异步时间序列预测方法ReDiTT，旨在预测下一个事件的时间间隔和类型。该模型通过在潜在空间中检索结构相似的潜在序列，并利用交叉注意力将其作为参考条件，从而处理未来事件的不确定性。"
     },
     {
-      "id": "openalex:W7168285578",
-      "title": "Quantum machine learning in predictive maintenance: A comprehensive state-of-the-art review",
-      "abstract": "Predictive maintenance (PdM), a widely used approach for improving reliability, safety, and cost-efficiency in industrial operations, relies on advanced analytics and data-driven insights to detect incipient failures and optimize system performance. While conventional machine learning (ML) techniques are widely applied in PdM, they often struggle with noisy, high-dimensional sensor data. Recent progress in quantum machine learning (QML) offers potentially useful directions for improving fault diagnosis and predictive accuracy. This motivates a systematic literature review that assesses QML app",
-      "authors": [
-        "Zadid Al Lisan",
-        "Md. Sulyman Islam Sifat",
-        "Md Alamgir Kabir",
-        "Arif Mahmud",
-        "Atiq ur Rehman"
-      ],
-      "date": "2026-07-14",
-      "source": "OpenAlex",
-      "url": "https://doi.org/10.1016/j.compeleceng.2026.111374",
-      "pdf": "",
-      "relevance_score": 16,
-      "tags": [
-        "predictive maintenance"
-      ],
-      "venue": "",
-      "doi": "https://doi.org/10.1016/j.compeleceng.2026.111374",
-      "score_breakdown": {
-        "topic": 10,
-        "time_series": 0,
-        "dataset": 0,
-        "method": 0,
-        "freshness": 5,
-        "source": 1,
-        "negative": 0,
-        "total": 16
-      },
-      "negative_hits": [],
-      "research_question": "related",
-      "recommendation": "快读",
-      "decision_reason": "主题相关 10；近期 5；命中: predictive maintenance",
-      "snippet": "Predictive maintenance (PdM), a widely used approach for improving reliability, safety, and cost-efficiency in industrial operations, relies on advanced analytics and data-driven insights to detect incipient failures…",
-      "canonical_id": "doi:10.1016/j.compeleceng.2026.111374",
-      "summary": "本文对量子机器学习在预测性维护中的应用进行了系统文献综述，探讨了其在提高故障诊断和预测准确性方面的潜力，尤其是在处理噪声和高维传感器数据时的优势。研究表明，量子机器学习可能为传统机器学习在预测性维护中的局限性提供有效的解决方案。"
-    },
-    {
       "id": "arxiv:2607.24809v1",
       "title": "Towards Real-World RUL Prediction for Aircraft Compressors Under Variable Conditions with Physics-Guided Domain Adaptation",
       "abstract": "Remaining useful life prediction for aircraft centrifugal air compressors in real commercial operations poses challenges that controlled benchmark datasets do not expose. In-flight sensor signals superimpose genuine degradation on continuously varying operating conditions, and no channel can be assumed a priori to carry a reliable degradation signature. Moreover, models trained on one subset of a fleet generalize poorly to unseen aircraft and installation positions, a cross-domain problem of underappreciated practical severity. This paper presents a framework combining physics-guided processin",
@@ -4710,7 +5094,7 @@
       "categories": [
         "cs.LG"
       ],
-      "relevance_score": 24,
+      "relevance_score": 22,
       "tags": [
         "time series classification"
       ],
@@ -4719,15 +5103,15 @@
         "time_series": 16,
         "dataset": 0,
         "method": 0,
-        "freshness": 5,
+        "freshness": 3,
         "source": 3,
         "negative": 0,
-        "total": 24
+        "total": 22
       },
       "negative_hits": [],
       "research_question": "time_series_method",
       "recommendation": "方法借鉴",
-      "decision_reason": "时间序列 16；近期 5；命中: time series classification",
+      "decision_reason": "时间序列 16；近期 3；命中: time series classification",
       "snippet": "We introduce RocketPFN, a training-free pipeline for time series classification that combines random convolutional feature extraction (Rocket) with in-context classification via a pretrained tabular foundation model…",
       "canonical_id": "arxiv:2606.21786"
     },
@@ -4771,6 +5155,48 @@
       "snippet": "Current Transformer- and large-model-based detection approaches incur excessive computational overhead, while existing lightweight alternatives are constrained by insufficient feature extraction and inadequate modeling…",
       "canonical_id": "arxiv:2606.20055",
       "summary": "本研究提出了一种轻量级的异常检测模型PaAno，旨在解决现有基于Transformer和大模型的方法在时间序列异常检测中存在的计算开销过大和轻量级方法在特征提取及多变量依赖建模不足的问题。该模型采用了基于补丁的表示学习范式，以提高异常检测的效率和效果。"
+    },
+    {
+      "id": "s2:38861f34cb5af1a7e79a",
+      "title": "A Multi-Class Predictive Maintenance Framework for Jet Engines Using the C-MAPSS Dataset",
+      "abstract": "Aero-engine predictive maintenance is challenged by heterogeneous operating conditions, complex degradation patterns, and the need for interpretable maintenance alerts rather than solely numerical life estimates. This study investigates a condition-aware data-driven framework for jet engine health assessment using the NASA C-MAPSS dataset, which contains four benchmark subsets (FD001–FD004) with different operating conditions and fault modes. Instead of formulating the task as conventional remaining useful life regression, this study reformulates degradation assessment as a three-class health ",
+      "authors": [
+        "Bowen Dong",
+        "Xinyu Zhang",
+        "Lingmin Hou",
+        "Chaoya Yan",
+        "Yifan Feng"
+      ],
+      "date": "2026-06-17",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/38861f34cb5af1a7e79a47eb298a6017555098b3",
+      "pdf": "",
+      "venue": "Machines",
+      "citations": 0,
+      "doi": "10.3390/machines14060695",
+      "relevance_score": 29,
+      "tags": [
+        "remaining useful life",
+        "C-MAPSS",
+        "predictive maintenance"
+      ],
+      "score_breakdown": {
+        "topic": 14,
+        "time_series": 0,
+        "dataset": 10,
+        "method": 0,
+        "freshness": 3,
+        "source": 2,
+        "negative": 0,
+        "total": 29
+      },
+      "negative_hits": [],
+      "research_question": "core_rul_phm",
+      "recommendation": "精读",
+      "decision_reason": "主题相关 14；数据集相关 10；近期 3；命中: remaining useful life, C-MAPSS, predictive maintenance",
+      "snippet": "Aero-engine predictive maintenance is challenged by heterogeneous operating conditions, complex degradation patterns, and the need for interpretable maintenance alerts rather than solely numerical life estimates.",
+      "canonical_id": "doi:10.3390/machines14060695",
+      "summary": "本研究基于NASA C-MAPSS数据集，提出了一种针对喷气发动机的多类预测性维护框架，旨在通过条件感知的数据驱动方法进行发动机健康评估。研究将退化评估重新定义为三类健康状态的分类任务，以应对异质操作条件和复杂退化模式的挑战。"
     },
     {
       "id": "arxiv:2606.18898v1",
@@ -5208,47 +5634,6 @@
       "snippet": "Data-driven Prognostics and Health Management (PHM) uses time-varying condition-monitoring data to diagnose system states and estimate remaining useful life in engineered assets.",
       "canonical_id": "arxiv:2606.05481",
       "summary": "本文提出了一种框架，旨在利用表格基础模型实现统一且数据高效的预测与健康管理（PHM），以应对工业PHM数据的碎片化、部分观察和标签不全的问题。研究表明，该框架能够改善系统状态诊断和剩余使用寿命估计的准确性。"
-    },
-    {
-      "id": "arxiv:2606.04686v1",
-      "title": "Digital Quantum Reservoir Computing for ATM Time Series Prediction",
-      "abstract": "We investigate a digital quantum reservoir computing (QRC) framework for multi-step forecasting of automated teller machine (ATM) cash demand time series on near-term quantum devices. The proposed approach uses parametrized four-qubit reservoirs with a fixed structure exploiting partial measurement and reset, where temporal data is encoded in rotation angles. Training is restricted to a classical Ridge-regression readout. We systematically analyze the impact of the circuit ansatzë, reservoir memory, measurement-derived observables, and the execution backend on the forecasting performance. Expe",
-      "authors": [
-        "Chiara Vercellino",
-        "Giacomo Vitali",
-        "Valeria Zaffaroni",
-        "Francesca Cibrario",
-        "Emanuele Dri"
-      ],
-      "date": "2026-06-03",
-      "source": "arXiv",
-      "url": "https://arxiv.org/abs/2606.04686v1",
-      "pdf": "https://arxiv.org/pdf/2606.04686v1",
-      "categories": [
-        "quant-ph",
-        "cs.CE"
-      ],
-      "relevance_score": 22,
-      "tags": [
-        "time series prediction"
-      ],
-      "score_breakdown": {
-        "topic": 0,
-        "time_series": 16,
-        "dataset": 0,
-        "method": 0,
-        "freshness": 3,
-        "source": 3,
-        "negative": 0,
-        "total": 22
-      },
-      "negative_hits": [],
-      "research_question": "time_series_method",
-      "recommendation": "方法借鉴",
-      "decision_reason": "时间序列 16；近期 3；命中: time series prediction",
-      "snippet": "We investigate a digital quantum reservoir computing (QRC) framework for multi-step forecasting of automated teller machine (ATM) cash demand time series on near-term quantum devices.",
-      "canonical_id": "arxiv:2606.04686",
-      "summary": "本文研究了一种数字量子水库计算框架，用于对自动取款机现金需求时间序列进行多步预测。该方法利用参数化的四量子比特水库，通过部分测量和重置来编码时间数据，并采用经典的岭回归进行训练，系统分析了电路结构、记忆效应、测量导出的可观测量和执行后端对预测性能的影响。"
     },
     {
       "id": "arxiv:2606.09874v1",
@@ -5756,43 +6141,6 @@
       "summary": "本论文提出了一种基于拓扑的注意力框架，用于时间序列预测，该框架结合了持久同调、欧拉特征变换和核-希尔伯特通道，以增强标准点积注意力在表示几何结构方面的能力。通过验证门控局部残差，该方法能够捕捉局部拓扑信号，提升预测性能。"
     },
     {
-      "id": "doi:10.4018/979-8-3693-9430-4.ch005",
-      "title": "Predictive Maintenance Approaches and Goals",
-      "abstract": "This paper aims to present what are the main approaches in predictive maintenance paradigm from selected literatures review. There are at least 10 predictive approaches in predictive maintenance literatures, 4 main approaches are knowledge-based models, physical models, data-driven models, and hybrid models. It was found that the data-driven approach is the most often used currently. Based on the same literatures surveyed, the first two of the predictive maintenance goals from literature were failure prediction and remaining useful life.",
-      "authors": [
-        "Lasman Parulian Purba",
-        "Mokh. Suef",
-        "Udisubakti Ciptomulyono"
-      ],
-      "date": "2026-05-02",
-      "source": "CrossRef",
-      "url": "https://doi.org/10.4018/979-8-3693-9430-4.ch005",
-      "pdf": "",
-      "relevance_score": 19,
-      "tags": [
-        "remaining useful life",
-        "predictive maintenance"
-      ],
-      "venue": "Improving Sustainability and Industrial Efficiency Through Modern Engineering Advancements",
-      "score_breakdown": {
-        "topic": 14,
-        "time_series": 0,
-        "dataset": 0,
-        "method": 0,
-        "freshness": 3,
-        "source": 2,
-        "negative": 0,
-        "total": 19
-      },
-      "negative_hits": [],
-      "research_question": "core_rul_phm",
-      "recommendation": "精读",
-      "decision_reason": "主题相关 14；近期 3；命中: remaining useful life, predictive maintenance",
-      "snippet": "Based on the same literatures surveyed, the first two of the predictive maintenance goals from literature were failure prediction and remaining useful life.",
-      "canonical_id": "title:predictivemaintenanceapproachesandgoals",
-      "summary": "本文通过文献综述介绍了预测性维护领域的主要方法，包括知识基础模型、物理模型、数据驱动模型和混合模型等十种方法，发现数据驱动方法是当前使用最频繁的。同时，文献中提到的预测性维护的主要目标包括故障预测和剩余使用寿命。"
-    },
-    {
       "id": "arxiv:2604.27234v1",
       "title": "Remaining Useful Life Estimation for Turbofan Engines: A Comparative Study of Classical, CNN, and LSTM Approaches",
       "abstract": "Remaining Useful Life (RUL) estimation is a critical component of Prognostics and Health Management (PHM), enabling proactive maintenance scheduling and reducing unplanned failures in industrial equipment. This paper presents a comparative study of machine learning approaches for RUL estimation on the NASA C-MAPSS turbofan engine dataset: classical baselines (Ridge Regression, Polynomial Ridge, and XGBoost), a 1D Convolutional Neural Network (CNN), and a Long Short-Term Memory (LSTM) network. All models are evaluated on the FD001 and FD003 subsets under an identical preprocessing pipeline to e",
@@ -5915,43 +6263,6 @@
       "summary": "本文提出了一种量子增强的递归框架QLSTM，通过将变分量子电路嵌入长短期记忆网络的门控机制中，以提高锂离子电池健康状态的预测精度。该模型通过用参数化的单位操作替代经典的仿射变换，引入了结构化的非线性变换，旨在解决电池状态估计中的复杂性和长期依赖性问题。"
     },
     {
-      "id": "arxiv:2604.16769v2",
-      "title": "Experimental Characterization Data for Battery Modules with Parallel-Connected Cells across Diverse Module-Level State of Health and Cell-to-Cell Variations",
-      "abstract": "This experimental dataset presents both module-level and cell-level characterization data for lithium-ion battery modules composed of three parallel-connected inhomogeneous cells across a wide range of module-level state of health (M-SoH) and cell-to-cell variation (CtCV). First, 70 cells are aged to establish an inventory with cell-level state of health (C-SoH) ranging approximately from 100% to 80% (80% is considered as the end-of-life for automotive applications). From this inventory, 78 battery modules are then assembled, each exhibiting a distinct M-SoH value (from 100% to 80.98%) and a u",
-      "authors": [
-        "Qinan Zhou",
-        "Daniel Stephens",
-        "Jing Sun"
-      ],
-      "date": "2026-04-18",
-      "source": "arXiv",
-      "url": "https://arxiv.org/abs/2604.16769v2",
-      "pdf": "https://arxiv.org/pdf/2604.16769v2",
-      "categories": [
-        "eess.SY"
-      ],
-      "relevance_score": 20,
-      "tags": [
-        "state of health"
-      ],
-      "score_breakdown": {
-        "topic": 14,
-        "time_series": 0,
-        "dataset": 0,
-        "method": 0,
-        "freshness": 3,
-        "source": 3,
-        "negative": 0,
-        "total": 20
-      },
-      "negative_hits": [],
-      "research_question": "related",
-      "recommendation": "快读",
-      "decision_reason": "主题相关 14；近期 3；命中: state of health",
-      "snippet": "This experimental dataset presents both module-level and cell-level characterization data for lithium-ion battery modules composed of three parallel-connected inhomogeneous cells across a wide range of module-level…",
-      "canonical_id": "arxiv:2604.16769"
-    },
-    {
       "id": "arxiv:2604.16580v1",
       "title": "Continuous ageing trajectory representations for knee-aware lifetime prediction of lithium-ion batteries across heterogeneous dataset",
       "abstract": "Accurate assessment of lithium-ion battery ageing is challenged by cell-to-cell variability, heterogeneous cycling protocols, and limited transferability of data-driven models across datasets. In particular, robust identification of degradation transitions, such as the knee point, and reliable early-life prediction of remaining useful life (RUL) remain open problems. This study proposes a unified framework for battery ageing analysis based on continuous representations of voltage-capacity and capacity-cycle trajectories learned from heterogeneous public datasets (NASA, CALCE, ISU-ILCC). The co",
@@ -6067,46 +6378,6 @@
       "snippet": "Turbofan engine degradation under sustained operational stress necessitates robust prognostic systems capable of accurately estimating the Remaining Useful Life (RUL) of critical components.",
       "canonical_id": "arxiv:2604.13459",
       "summary": "本研究提出了一种混合模型，结合了双阶段一维卷积神经网络（1D-CNN）和双向长短期记忆网络（BiLSTM），用于工业设备剩余使用寿命（RUL）预测，并通过不对称损失函数改善了对过度估计剩余寿命的惩罚。该模型能够同时捕捉多传感器的空间相关性和长时间的时间依赖性，并生成可解释的故障热图。"
-    },
-    {
-      "id": "arxiv:2604.10362v2",
-      "title": "Battery health prognosis using Physics-informed neural network with Quantum Feature mapping",
-      "abstract": "Accurate battery health prognosis using State of Health (SOH) estimation is essential for the reliability of multi-scale battery energy storage, yet existing methods are limited in generalizability across diverse battery chemistries and operating conditions. The inability of standard neural networks to capture the complex, high-dimensional physics of battery degradation is a major contributor to these limitations. To address this, a physics-informed neural network with the Quantum Feature Mapping(QFM) technique (QPINN) is proposed. QPINN projects raw battery sensor data into a high-dimensional",
-      "authors": [
-        "Muhammad Imran Hossain",
-        "Md Fazley Rafy",
-        "Sarika Khushalani Solanki",
-        "Anurag K. Srivastava"
-      ],
-      "date": "2026-04-11",
-      "source": "arXiv",
-      "url": "https://arxiv.org/abs/2604.10362v2",
-      "pdf": "https://arxiv.org/pdf/2604.10362v2",
-      "categories": [
-        "cs.LG"
-      ],
-      "relevance_score": 16,
-      "tags": [
-        "state of health",
-        "physics-informed"
-      ],
-      "score_breakdown": {
-        "topic": 8,
-        "time_series": 0,
-        "dataset": 0,
-        "method": 2,
-        "freshness": 3,
-        "source": 3,
-        "negative": 0,
-        "total": 16
-      },
-      "negative_hits": [],
-      "research_question": "method_transfer",
-      "recommendation": "方法借鉴",
-      "decision_reason": "主题相关 8；方法可借鉴 2；近期 3；命中: state of health, physics-informed",
-      "snippet": "Accurate battery health prognosis using State of Health (SOH) estimation is essential for the reliability of multi-scale battery energy storage, yet existing methods are limited in generalizability across diverse…",
-      "canonical_id": "arxiv:2604.10362",
-      "summary": "本文提出了一种基于量子特征映射的物理信息神经网络（QPINN），用于准确预测电池健康状况（SOH），旨在克服现有方法在不同电池化学和操作条件下的通用性限制。研究表明，QPINN能够有效捕捉电池退化的复杂高维物理特性。"
     },
     {
       "id": "arxiv:2604.08474v1",
@@ -6721,6 +6992,43 @@
       "summary": "本研究提出了一种正常行为模型（NBM），用于预测ASTRI-Horn切伦科夫望远镜在正常操作条件下的监测时间序列数据。分析集中于2022年9月至2024年7月期间由望远镜控制单元获取的15个物理变量，通过数据清洗、重采样、特征选择和相关性分析，构建了模型的输入序列。"
     },
     {
+      "id": "s2:e8e6a8b7e4c0b9b39a06",
+      "title": "Predictive maintenance in aircraft engine maintenance using the C-MAPSS dataset: performance comparison and evaluation of machine learning classification algorithms",
+      "abstract": "Abstract This study assesses classification-based predictive maintenance (PdM) for aircraft engines on the NASA Commercial Modular Aero-Propulsion System Simulation dataset and addresses the lack of wide-scope, unified benchmarks. PdM is cast as a short-term binary task – predicting whether an engine will fail within the next 30 cycles – and a comparison is conducted across 10 machine-learning models (Logistic Regression, Decision Tree, Random Forest, Support Vector Machine, k-Nearest Neighbor, Naïve Bayes, Extreme Gradient Boosting, LightGBM, CatBoost, and Gradient Boosting) and 3 deep-learni",
+      "authors": [
+        "Hikmetcan Özcan"
+      ],
+      "date": "2026-02-20",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/e8e6a8b7e4c0b9b39a06a4a923623f6daf3ff82a",
+      "pdf": "",
+      "venue": "Artificial intelligence for engineering design, analysis and manufacturing",
+      "citations": 3,
+      "doi": "10.1017/S0890060426100249",
+      "relevance_score": 25,
+      "tags": [
+        "C-MAPSS",
+        "predictive maintenance"
+      ],
+      "score_breakdown": {
+        "topic": 10,
+        "time_series": 0,
+        "dataset": 10,
+        "method": 0,
+        "freshness": 3,
+        "source": 2,
+        "negative": 0,
+        "total": 25
+      },
+      "negative_hits": [],
+      "research_question": "dataset_benchmark",
+      "recommendation": "对比实验",
+      "decision_reason": "主题相关 10；数据集相关 10；近期 3；命中: C-MAPSS, predictive maintenance",
+      "snippet": "Abstract This study assesses classification-based predictive maintenance (PdM) for aircraft engines on the NASA Commercial Modular Aero-Propulsion System Simulation dataset and addresses the lack of wide-scope, unified…",
+      "canonical_id": "doi:10.1017/s0890060426100249",
+      "summary": "本研究评估了基于分类的飞机发动机预测性维护，使用NASA的C-MAPSS数据集，旨在填补广泛统一基准的缺乏。研究将预测性维护视为一个短期二元任务，比较了10种机器学习模型的性能。"
+    },
+    {
       "id": "arxiv:2602.00659v1",
       "title": "Predictive Maintenance for Ultrafiltration Membranes Using Explainable Similarity-Based Prognostics",
       "abstract": "In reverse osmosis desalination, ultrafiltration (UF) membranes degrade due to fouling, leading to performance loss and costly downtime. Most plants rely on scheduled preventive maintenance, since existing predictive maintenance models, often based on opaque machine learning methods, lack interpretability and operator trust. This study proposes an explainable prognostic framework for UF membrane remaining useful life (RUL) estimation using fuzzy similarity reasoning. A physics-informed Health Index, derived from transmembrane pressure, flux, and resistance, captures degradation dynamics, which",
@@ -6999,6 +7307,51 @@
       "summary": "本文提出了一种异方差贝叶斯物理信息神经网络（B-PINN）框架，旨在联合建模物理信息神经网络中的认知不确定性和随机不确定性，以提高其在预测和健康管理中的不确定性量化能力。研究表明，该方法能够更好地支持风险意识决策。"
     },
     {
+      "id": "s2:b1afa836254fc68ad3dd",
+      "title": "STARNet: Stacked Transfer-Aware for Robust Remaining Useful Life Prediction for C-MAPSS Multi-Regime Engines",
+      "abstract": "Predictive Maintenance (PdM) plays a critical role in reducing unplanned downtime and extending asset longevity in industrial systems like aircraft engines, manufacturing equipment, and energy infrastructure. Proper estimation of the Remaining Useful Life (RUL) of parts allows for preventive maintenance scheduling and increased operational efficiency, safety, and cost savings. However, the development of robust RUL prediction models remains challenging due to high variability in operating conditions and fault modes. Existing deep learning models tend to demonstrate exceptionally good performan",
+      "authors": [
+        "Dimple Kapoor",
+        "Deepali Gupta",
+        "Shivani Agarwal",
+        "Mudita Uppal",
+        "Sapna Juneja"
+      ],
+      "date": "2026-01-01",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/b1afa836254fc68ad3dd76b7689b710f006fa7e6",
+      "pdf": "",
+      "venue": "IEEE Access",
+      "citations": 2,
+      "doi": "10.1109/ACCESS.2026.3663754",
+      "relevance_score": 40,
+      "tags": [
+        "remaining useful life",
+        "C-MAPSS",
+        "predictive maintenance",
+        "RUL prediction",
+        "transfer learning",
+        "CMAPSS"
+      ],
+      "score_breakdown": {
+        "topic": 22,
+        "time_series": 0,
+        "dataset": 15,
+        "method": 0,
+        "freshness": 1,
+        "source": 2,
+        "negative": 0,
+        "total": 40
+      },
+      "negative_hits": [],
+      "research_question": "core_rul_phm",
+      "recommendation": "精读",
+      "decision_reason": "主题相关 22；数据集相关 15；近期 1；命中: remaining useful life, C-MAPSS, predictive maintenance",
+      "snippet": "Predictive Maintenance (PdM) plays a critical role in reducing unplanned downtime and extending asset longevity in industrial systems like aircraft engines, manufacturing equipment, and energy infrastructure.",
+      "canonical_id": "doi:10.1109/access.2026.3663754",
+      "summary": "本文提出了一种名为STARNet的模型，用于在多模式发动机的剩余使用寿命（RUL）预测中提高鲁棒性。该模型通过堆叠转移学习的方法，旨在应对操作条件和故障模式的高变异性，从而改善预测准确性。"
+    },
+    {
       "id": "doi:10.1007/978-3-032-15677-8_7",
       "title": "Prognostics and Remaining Useful Life (RUL) Prediction",
       "abstract": "",
@@ -7244,6 +7597,50 @@
       "summary": "本论文提出了一种“意识到不对称的路由框架”，通过三步诊断程序（单模态性能差距、门权重归因、模态损坏测试）系统性地确定在工业多模态监测中何时应选择融合策略，以优化检测性能。该框架在涵盖两种路由结果的三个数据集上进行了验证。"
     },
     {
+      "id": "s2:65b2ef65416a0c0e51d9",
+      "title": "A Deployable IIoT Framework for Condition-Based Maintenance: Case Study on LSTM RUL Prediction with NASA C-MAPSS",
+      "abstract": "Condition-Based Maintenance (CBM) is basically the backbone of keeping industrial IoT (IIoT) setups running smoothly and steadily. Less downtime, more reliability—what’s not to love? Yeah, we’ve got all these slick machine learning (ML) and deep learning (DL) models for predicting Remaining Useful Life (RUL), but honestly, actually getting this stuff working out in the real world? That’s a whole other headache. There’s the mess of scaling, getting different systems to talk to each other, and wrangling real-time data—just to name a few. In this paper, we roll out a hands-on IIoT framework for C",
+      "authors": [
+        "Sasmita Pani",
+        "B. Pattanayak",
+        "B. Gupta",
+        "Sudeepta Pal",
+        "Omkar Pattnaik"
+      ],
+      "date": "2025-12-27",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/65b2ef65416a0c0e51d9f5ff766c6f546d6ef34e",
+      "pdf": "",
+      "venue": "Tikrit Journal of Engineering Sciences",
+      "citations": 0,
+      "doi": "10.25130/tjes.sp1.2025.6",
+      "relevance_score": 52,
+      "tags": [
+        "remaining useful life",
+        "C-MAPSS",
+        "predictive maintenance",
+        "RUL prediction",
+        "condition-based maintenance"
+      ],
+      "score_breakdown": {
+        "topic": 39,
+        "time_series": 0,
+        "dataset": 10,
+        "method": 0,
+        "freshness": 1,
+        "source": 2,
+        "negative": 0,
+        "total": 52
+      },
+      "negative_hits": [],
+      "research_question": "core_rul_phm",
+      "recommendation": "精读",
+      "decision_reason": "主题相关 39；数据集相关 10；近期 1；命中: remaining useful life, C-MAPSS, predictive maintenance",
+      "snippet": "Condition-Based Maintenance (CBM) is basically the backbone of keeping industrial IoT (IIoT) setups running smoothly and steadily.",
+      "canonical_id": "doi:10.25130/tjes.sp1.2025.6",
+      "summary": "本论文提出了一个可部署的工业物联网（IIoT）框架，用于基于状态的维护（CBM），并通过对NASA C-MAPSS数据集的长短期记忆（LSTM）模型进行剩余使用寿命（RUL）预测的案例研究，展示了该框架的应用效果。研究旨在解决在实际环境中实施机器学习和深度学习模型所面临的挑战。"
+    },
+    {
       "id": "doi:10.1109/camsap66162.2025.11423976",
       "title": "Bayesian Koopman Time Series Forecasting",
       "abstract": "",
@@ -7312,6 +7709,47 @@
       "decision_reason": "时间序列 16；近期 1；命中: time series forecasting",
       "snippet": "",
       "canonical_id": "title:tsforecasttimeseriesforecastingfunctions"
+    },
+    {
+      "id": "s2:e663aef4208281d063d6",
+      "title": "HPC-Aware Feature Engineering for Predictive Maintenance Using NASA C-MAPSS FD001",
+      "abstract": "PdM uses sensor measurements to predict equipment failures and schedules interventions before any breakdowns can occur. In this work, we present an HPC-aware feature engineering design for the NASA C-MAPSS FD001 turbofan dataset. The proposed pipeline decreases the feature extraction time by about 88% compared with a serial implementation and improves the remaining useful life prediction by approximately 20-25% in terms of RMSE over a standard feature baseline. We present two window-based features: a normalized trend slope and a low-frequency spectral energy ratio that capture complementary as",
+      "authors": [
+        "Harsh Rastogi",
+        "N. Rao",
+        "Priyanshu",
+        "Garima Singh"
+      ],
+      "date": "2025-12-11",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/e663aef4208281d063d65d1b28dbefe2b903611d",
+      "pdf": "",
+      "venue": "2025 Modern Electronics Devices and Intelligent Communication Systems (MEDCOM)",
+      "citations": 0,
+      "doi": "10.1109/MEDCOM67532.2025.11405422",
+      "relevance_score": 27,
+      "tags": [
+        "remaining useful life",
+        "C-MAPSS",
+        "predictive maintenance"
+      ],
+      "score_breakdown": {
+        "topic": 14,
+        "time_series": 0,
+        "dataset": 10,
+        "method": 0,
+        "freshness": 1,
+        "source": 2,
+        "negative": 0,
+        "total": 27
+      },
+      "negative_hits": [],
+      "research_question": "core_rul_phm",
+      "recommendation": "精读",
+      "decision_reason": "主题相关 14；数据集相关 10；近期 1；命中: remaining useful life, C-MAPSS, predictive maintenance",
+      "snippet": "In this work, we present an HPC-aware feature engineering design for the NASA C-MAPSS FD001 turbofan dataset.",
+      "canonical_id": "doi:10.1109/medcom67532.2025.11405422",
+      "summary": "本研究针对NASA C-MAPSS FD001涡扇发动机数据集，提出了一种高性能计算（HPC）感知的特征工程设计，显著减少了特征提取时间约88%，并在剩余使用寿命预测方面相较于标准特征基线提高了约20-25%的均方根误差（RMSE）。研究中引入了两种基于窗口的特征：归一化趋势斜率和低频谱能量比，以捕捉互补信息。"
     },
     {
       "id": "arxiv:2512.08499v3",
@@ -7393,6 +7831,83 @@
       "snippet": "Estimating the Remaining Useful Life (RUL) of mechanical systems is pivotal in Prognostics and Health Management (PHM).",
       "canonical_id": "arxiv:2512.06708",
       "summary": "本文提出了一种新颖的多模态剩余使用寿命（RUL）框架，通过结合图像表示和多通道非平稳振动信号的时频表示来估计机械系统的剩余使用寿命。该方法旨在克服现有方法在泛化能力、鲁棒性、数据需求和可解释性方面的不足。"
+    },
+    {
+      "id": "s2:ab4f2fc37995a9a3f3b8",
+      "title": "Evaluating Machine Learning Models for IIoT Driven Predictive Maintenance Using NASA C-MAPSS Dataset",
+      "abstract": "The integration of the Industrial Internet of Things (IIoT) and predictive maintenance (PdM) models is transforming industrial asset management via condition-based monitoring and failure prediction. The successful execution of predictive maintenance (PdM) solutions in Industrial Internet of Things (IIoT) settings necessitates the evaluation of suitable machine learning (ML) and deep learning (DL) models capable of handling high-dimensional sensor data. This study proposes a PdM methodology driven by IIoT and evaluates four data-driven models: Random Forest (RF), Support Vector Machine (SVM), k",
+      "authors": [
+        "Dimple Kapoor",
+        "Deepali Gupta",
+        "Mudita Uppal",
+        "S. Mapari",
+        "S. Ganesh"
+      ],
+      "date": "2025-11-28",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/ab4f2fc37995a9a3f3b8611815ecb355bf210ea5",
+      "pdf": "",
+      "venue": "International Conference on Computing, Communication and Automation",
+      "citations": 0,
+      "doi": "10.1109/ICCCA66364.2025.11325291",
+      "relevance_score": 23,
+      "tags": [
+        "C-MAPSS",
+        "predictive maintenance"
+      ],
+      "score_breakdown": {
+        "topic": 10,
+        "time_series": 0,
+        "dataset": 10,
+        "method": 0,
+        "freshness": 1,
+        "source": 2,
+        "negative": 0,
+        "total": 23
+      },
+      "negative_hits": [],
+      "research_question": "dataset_benchmark",
+      "recommendation": "对比实验",
+      "decision_reason": "主题相关 10；数据集相关 10；近期 1；命中: C-MAPSS, predictive maintenance",
+      "snippet": "The integration of the Industrial Internet of Things (IIoT) and predictive maintenance (PdM) models is transforming industrial asset management via condition-based monitoring and failure prediction.",
+      "canonical_id": "doi:10.1109/iccca66364.2025.11325291",
+      "summary": "本研究提出了一种基于工业互联网物联网（IIoT）的预测性维护（PdM）方法，并评估了四种数据驱动模型：随机森林（RF）、支持向量机（SVM）等，以处理高维传感器数据。研究使用NASA C-MAPSS数据集进行实验，旨在优化工业资产管理中的故障预测能力。"
+    },
+    {
+      "id": "doi:10.1007/978-981-96-9033-6_15",
+      "title": "Relevance Vector Machine-Based Remaining Useful Life Prediction",
+      "abstract": "",
+      "authors": [
+        "Xiuli Wang",
+        "Zehui Mao",
+        "Bin Jiang"
+      ],
+      "date": "2025-11-28",
+      "source": "CrossRef",
+      "url": "https://doi.org/10.1007/978-981-96-9033-6_15",
+      "pdf": "",
+      "relevance_score": 13,
+      "tags": [
+        "remaining useful life"
+      ],
+      "venue": "Lecture Notes in Control and Information Sciences",
+      "score_breakdown": {
+        "topic": 10,
+        "time_series": 0,
+        "dataset": 0,
+        "method": 0,
+        "freshness": 1,
+        "source": 2,
+        "negative": 0,
+        "total": 13
+      },
+      "negative_hits": [],
+      "research_question": "core_rul_phm",
+      "recommendation": "快读",
+      "decision_reason": "主题相关 10；近期 1；命中: remaining useful life",
+      "snippet": "",
+      "canonical_id": "title:relevancevectormachinebasedremainingusefullifeprediction",
+      "summary": "本论文提出了一种基于相关向量机的剩余使用寿命预测方法，旨在提高对设备剩余寿命的准确预测。研究通过对相关数据进行建模和分析，验证了该方法在实际应用中的有效性。"
     },
     {
       "id": "doi:10.1002/9781394367023.ch10",
@@ -7535,41 +8050,6 @@
       "decision_reason": "数据集相关 15；方法可借鉴 2；近期 1；命中: lightweight model, SEU bearing, CWRU",
       "snippet": "Furthermore, a novel Cheap Channel Obfuscation module is introduced to suppress noise, decouple feature channels, and preserve the critical information within lightweight models.",
       "canonical_id": "doi:10.3390/pr13113600"
-    },
-    {
-      "id": "doi:10.1002/9781394303021.ch6",
-      "title": "Remaining Useful Life (RUL) Prediction for EV Batteries",
-      "abstract": "",
-      "authors": [
-        "Anbuselvi Mathivanan",
-        "Saravanan Palaniswamy",
-        "M. Arul Mozhi"
-      ],
-      "date": "2025-10-31",
-      "source": "CrossRef",
-      "url": "https://doi.org/10.1002/9781394303021.ch6",
-      "pdf": "",
-      "relevance_score": 23,
-      "tags": [
-        "remaining useful life"
-      ],
-      "venue": "Artificial Intelligence for Energy Management",
-      "score_breakdown": {
-        "topic": 20,
-        "time_series": 0,
-        "dataset": 0,
-        "method": 0,
-        "freshness": 1,
-        "source": 2,
-        "negative": 0,
-        "total": 23
-      },
-      "negative_hits": [],
-      "research_question": "core_rul_phm",
-      "recommendation": "精读",
-      "decision_reason": "主题相关 20；近期 1；命中: remaining useful life",
-      "snippet": "",
-      "canonical_id": "title:remainingusefulliferulpredictionforevbatteries"
     },
     {
       "id": "doi:10.1007/978-981-96-8901-9_29",
@@ -7997,6 +8477,48 @@
       "summary": "本文研究了邻近类星体Mkn 501的GeV伽马射线发射，以探讨星际磁场（IGMF）的存在。通过法拉第旋转测量和次级伽马射线的非检测，设定了IGMF的上下限。"
     },
     {
+      "id": "s2:18fd719b0a1f0fabf9a9",
+      "title": "Linear Methods for Predictive Maintenance: The Case of NASA C-MAPSS Datasets",
+      "abstract": "Predictive maintenance systems increasingly leverage diverse sensor modalities to improve failure prognostics and remaining useful life (RUL) estimation. However, integrating heterogeneous data types—vibration, temperature, acoustic, and visual sensors—typically requires complex fusion architectures. This paper proposes a unified linear classification–regression framework that addresses predictive maintenance through a shared measurement space approach. The developed method employs Linear Discriminant Analysis to establish hyperplane boundaries partitioning the measurement space into nominal, ",
+      "authors": [
+        "U. Yıldırım",
+        "Huseyin Afser"
+      ],
+      "date": "2025-09-11",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/18fd719b0a1f0fabf9a93a84824a501c11e38560",
+      "pdf": "",
+      "venue": "Applied Sciences",
+      "citations": 11,
+      "doi": "10.3390/app15189945",
+      "relevance_score": 44,
+      "tags": [
+        "remaining useful life",
+        "C-MAPSS",
+        "predictive maintenance",
+        "RUL prediction",
+        "RUL estimation",
+        "turbofan engine degradation"
+      ],
+      "score_breakdown": {
+        "topic": 31,
+        "time_series": 0,
+        "dataset": 10,
+        "method": 0,
+        "freshness": 1,
+        "source": 2,
+        "negative": 0,
+        "total": 44
+      },
+      "negative_hits": [],
+      "research_question": "core_rul_phm",
+      "recommendation": "精读",
+      "decision_reason": "主题相关 31；数据集相关 10；近期 1；命中: remaining useful life, C-MAPSS, predictive maintenance",
+      "snippet": "Predictive maintenance systems increasingly leverage diverse sensor modalities to improve failure prognostics and remaining useful life (RUL) estimation.",
+      "canonical_id": "doi:10.3390/app15189945",
+      "summary": "本论文提出了一种统一的线性分类-回归框架，通过共享测量空间的方法来解决预测性维护问题，旨在简化不同传感器数据（如振动、温度、声学和视觉传感器）的融合。研究中采用线性判别分析建立超平面边界，将测量空间划分为正常和异常状态。"
+    },
+    {
       "id": "or:xao0xuDoK0",
       "title": "Accuracy Law for the Future of Deep Time Series Forecasting",
       "abstract": "Deep time series forecasting has emerged as a booming direction in recent years. Despite the exponential growth of community interests, researchers are sometimes confused about the direction of their efforts due to minor improvements on standard benchmarks. In this paper, we notice that, unlike image recognition, whose well-acknowledged and realizable goal is 100\\% accuracy, time series forecasting inherently faces a non-zero error lower bound due to its partially observable and uncertain nature. To pinpoint the research objective and release researchers from saturated tasks, this paper focuse",
@@ -8106,6 +8628,81 @@
       "summary": "本文探讨了多种时间序列预测技术，比较了不同方法的性能，并分析了它们在实际应用中的适用性和效果。研究结果表明，不同技术在不同数据集和预测任务中表现各异。"
     },
     {
+      "id": "s2:de0397e76c2acf5d381e",
+      "title": "A Comparative Study of CNN-Based Predictive Maintenance Techniques on C-MAPSS Dataset",
+      "abstract": "In this study, convolutional neural network (CNNs) based predictive maintenance ($\\mathbf{P d M}$) techniques are performed on the well-known jet engine data called the Commercial Modular Aero-Propulsion System Simulation (C-MAPSS). We first employ the one-dimensional CNN (1D-CNN) for predicting the remaining useful life (RUL) of the jet engines. Then, to further improve the prediction performance, we combine the long shortterm memory (LSTM), bidirectional LSTM (BiLSTM), and gated recurrent unit (GRU) layers with the 1D-CNN. The performances of all CNN architectures are comparatively evaluated",
+      "authors": [
+        "Ilyas Çiçek",
+        "Engin Cemal Mengüç",
+        "Nurettin Acır"
+      ],
+      "date": "2025-08-09",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/de0397e76c2acf5d381ee5fa6e52d77cca4d9b77",
+      "pdf": "",
+      "venue": "International Conference on Smart City and Informatization",
+      "citations": 0,
+      "doi": "10.1109/ISCI65687.2025.11167805",
+      "relevance_score": 36,
+      "tags": [
+        "remaining useful life",
+        "C-MAPSS",
+        "predictive maintenance",
+        "RUL prediction"
+      ],
+      "score_breakdown": {
+        "topic": 23,
+        "time_series": 0,
+        "dataset": 10,
+        "method": 0,
+        "freshness": 1,
+        "source": 2,
+        "negative": 0,
+        "total": 36
+      },
+      "negative_hits": [],
+      "research_question": "core_rul_phm",
+      "recommendation": "精读",
+      "decision_reason": "主题相关 23；数据集相关 10；近期 1；命中: remaining useful life, C-MAPSS, predictive maintenance",
+      "snippet": "In this study, convolutional neural network (CNNs) based predictive maintenance ($\\mathbf{P d M}$) techniques are performed on the well-known jet engine data called the Commercial Modular Aero-Propulsion System…",
+      "canonical_id": "doi:10.1109/isci65687.2025.11167805",
+      "summary": "本研究对基于卷积神经网络（CNN）的预测性维护技术进行了比较，使用了著名的喷气发动机数据集C-MAPSS。研究首先采用一维CNN预测喷气发动机的剩余使用寿命（RUL），然后结合长短期记忆（LSTM）、双向LSTM（BiLSTM）和门控循环单元（GRU）层以提高预测性能，并对所有CNN架构的表现进行了比较评估。"
+    },
+    {
+      "id": "doi:10.1002/9781394272426.ch5",
+      "title": "Predictive Maintenance in Industrial Settings",
+      "abstract": "",
+      "authors": [
+        "Madala Guru Brahmam",
+        "R. Vijay Anand"
+      ],
+      "date": "2025-07-25",
+      "source": "CrossRef",
+      "url": "https://doi.org/10.1002/9781394272426.ch5",
+      "pdf": "",
+      "relevance_score": 13,
+      "tags": [
+        "predictive maintenance"
+      ],
+      "venue": "Automated Machine Learning and Industrial Applications",
+      "score_breakdown": {
+        "topic": 10,
+        "time_series": 0,
+        "dataset": 0,
+        "method": 0,
+        "freshness": 1,
+        "source": 2,
+        "negative": 0,
+        "total": 13
+      },
+      "negative_hits": [],
+      "research_question": "related",
+      "recommendation": "快读",
+      "decision_reason": "主题相关 10；近期 1；命中: predictive maintenance",
+      "snippet": "",
+      "canonical_id": "title:predictivemaintenanceinindustrialsettings"
+    },
+    {
       "id": "arxiv:2507.18027v1",
       "title": "Nitrogen-vacancy centre formation via local femto-second laser annealing of diamond",
       "abstract": "Emerging quantum technologies based on the nitrogen-vacancy (NV) centre in diamond require carefully engineered material with controlled defect density, optimised NV formation processes, and minimal crystal strain. The choice of NV generation technique plays a crucial role in determining the quality and performance of these centres. In this work, we investigate NV centre formation in nitrogen-doped diamond using femtosecond (fs) laser processing. We systematically examine the effect of laser pulse energy on NV production and quality using photoluminescence and optically detected magnetic reson",
@@ -8145,6 +8742,50 @@
       "snippet": "In this work, we investigate NV centre formation in nitrogen-doped diamond using femtosecond (fs) laser processing.",
       "canonical_id": "arxiv:2507.18027",
       "summary": "本研究通过飞秒激光处理探讨了氮掺杂金刚石中氮-空位中心（NV中心）的形成，系统地分析了激光脉冲能量对NV产量和质量的影响，采用光致发光和光学探测磁共振技术进行评估。研究结果为优化NV中心的生成过程提供了重要数据。"
+    },
+    {
+      "id": "s2:17fc6085fd8c881d1cbd",
+      "title": "A deep learning-based prognostic approach for predicting turbofan engine degradation and remaining useful life",
+      "abstract": "Predicting the Remaining Useful Life (RUL) of turbofan engines can prevent air disasters caused by component degradation. It is an important procedure in prognostics and health management (PHM). Therefore, a deep learning-based RUL prediction approach is proposed. The CMAPSS benchmark dataset is used to determine the RUL of aviation engines, focusing specifically on the FD001 and FD003 sub-datasets.In this study, we propose a CAELSTM (Convolutional Autoencoder and Attention-based LSTM) hybrid model for RUL prediction. First, the sub-datasets are preprocessed, and a piecewise linear degradation",
+      "authors": [
+        "Samiha M. Elsherif",
+        "B. Hafiz",
+        "M. Makhlouf",
+        "Osama Farouk"
+      ],
+      "date": "2025-07-19",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/17fc6085fd8c881d1cbd9bbf8d0be964ae07cb4c",
+      "pdf": "",
+      "venue": "Scientific Reports",
+      "citations": 29,
+      "doi": "10.1038/s41598-025-09155-z",
+      "relevance_score": 44,
+      "tags": [
+        "remaining useful life",
+        "predictive maintenance",
+        "prognostics and health management",
+        "RUL prediction",
+        "turbofan engine degradation",
+        "CMAPSS"
+      ],
+      "score_breakdown": {
+        "topic": 37,
+        "time_series": 0,
+        "dataset": 4,
+        "method": 0,
+        "freshness": 1,
+        "source": 2,
+        "negative": 0,
+        "total": 44
+      },
+      "negative_hits": [],
+      "research_question": "core_rul_phm",
+      "recommendation": "精读",
+      "decision_reason": "主题相关 37；数据集相关 4；近期 1；命中: remaining useful life, predictive maintenance, prognostics and health management",
+      "snippet": "Predicting the Remaining Useful Life (RUL) of turbofan engines can prevent air disasters caused by component degradation.",
+      "canonical_id": "doi:10.1038/s41598-025-09155-z",
+      "summary": "本论文提出了一种基于深度学习的涡扇发动机剩余使用寿命（RUL）预测方法，利用CMAPSS基准数据集中的FD001和FD003子数据集进行研究。研究中采用了CAELSTM（卷积自编码器和基于注意力的长短期记忆网络）混合模型进行RUL预测，并对子数据集进行了预处理。"
     },
     {
       "id": "arxiv:2507.06672v1",
@@ -8399,6 +9040,47 @@
       "snippet": "Precise estimation of the Remaining Useful Life (RUL) of rolling bearings is an important consideration to avoid unexpected failures, reduce downtime, and promote safety and efficiency in industrial systems.",
       "canonical_id": "arxiv:2505.14897",
       "summary": "本文提出了一种结合小波包分解和定制多通道Swin Transformer模型的框架，用于精确预测滚动轴承的剩余使用寿命（RUL），旨在解决降解趋势复杂、噪声干扰及提前检测故障等挑战。研究表明，该方法能够有效提高RUL的预测精度。"
+    },
+    {
+      "id": "s2:6d3a2b57731d89c28d39",
+      "title": "Temporal Query Network for Efficient Multivariate Time Series Forecasting",
+      "abstract": "Sufficiently modeling the correlations among variables (aka channels) is crucial for achieving accurate multivariate time series forecasting (MTSF). In this paper, we propose a novel technique called Temporal Query (TQ) to more effectively capture multivariate correlations, thereby improving model performance in MTSF tasks. Technically, the TQ technique employs periodically shifted learnable vectors as queries in the attention mechanism to capture global inter-variable patterns, while the keys and values are derived from the raw input data to encode local, sample-level correlations. Building u",
+      "authors": [
+        "Shengsheng Lin",
+        "Haojun Chen",
+        "Haijie Wu",
+        "Chunyu Qiu",
+        "Weiwei Lin"
+      ],
+      "date": "2025-05-19",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/6d3a2b57731d89c28d39cca589e84118c9055a6f",
+      "pdf": "https://arxiv.org/pdf/2505.12917",
+      "venue": "International Conference on Machine Learning",
+      "citations": 53,
+      "doi": "10.48550/arXiv.2505.12917",
+      "relevance_score": 27,
+      "tags": [
+        "time series forecasting",
+        "multivariate time series"
+      ],
+      "score_breakdown": {
+        "topic": 0,
+        "time_series": 24,
+        "dataset": 0,
+        "method": 0,
+        "freshness": 1,
+        "source": 2,
+        "negative": 0,
+        "total": 27
+      },
+      "negative_hits": [],
+      "research_question": "time_series_method",
+      "recommendation": "方法借鉴",
+      "decision_reason": "时间序列 24；近期 1；命中: time series forecasting, multivariate time series",
+      "snippet": "Sufficiently modeling the correlations among variables (aka channels) is crucial for achieving accurate multivariate time series forecasting (MTSF).",
+      "canonical_id": "doi:10.48550/arxiv.2505.12917",
+      "summary": "本论文提出了一种名为Temporal Query（TQ）的新技术，以有效捕捉多变量时间序列预测中的变量间相关性，从而提高模型在多变量时间序列预测任务中的性能。TQ技术通过在注意力机制中使用周期性移动的可学习向量作为查询，同时从原始输入数据中提取键和值，以编码局部样本级相关性。"
     },
     {
       "id": "or:ifneY2bnlQ",
@@ -8909,6 +9591,47 @@
       "summary": "本论文提出了一种基于约束引导的深度学习框架，用于在轴承预测和健康管理中开发物理一致的健康指标。通过将领域知识融入深度学习，论文确保了健康指标的单调性、输出值的界限以及信号能量趋势与健康指标估计之间的一致性。"
     },
     {
+      "id": "s2:f80af545da0de98dd641",
+      "title": "Remaining Useful Life Prediction of Turbofan Engines Using CNN-GRU: A Comparative Study on C-MAPSS Dataset",
+      "abstract": "Accurate prediction of Remaining Useful Life (RUL) is crucial for effective predictive maintenance strategies in various industries. This study investigated the application of a combined Convolutional Neural Network (CNN) and Gated Recurrent Unit (GRU) architecture for predicting the RUL of turbofan engines using the C-MAPSS dataset. The CNN-GRU model leverages the complementary strengths of both components, with the CNN extracting spatial features from sensor data and the GRU capturing temporal dependencies in sequential engine data. Preprocessing techniques such as windowing and data reshapi",
+      "authors": [
+        "Adryan Fitra Azyus",
+        "Sastra Kusuma Wijaya",
+        "Budhy Kurniawan",
+        "Adryan Fitra"
+      ],
+      "date": "2025-02-24",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/f80af545da0de98dd6416c46a2381af62d420c98",
+      "pdf": "",
+      "venue": "Journal of Mechanical Civil and Industrial Engineering",
+      "citations": 5,
+      "doi": "10.32996/jmcie.2025.6.1.3",
+      "relevance_score": 31,
+      "tags": [
+        "remaining useful life",
+        "C-MAPSS",
+        "predictive maintenance"
+      ],
+      "score_breakdown": {
+        "topic": 18,
+        "time_series": 0,
+        "dataset": 10,
+        "method": 0,
+        "freshness": 1,
+        "source": 2,
+        "negative": 0,
+        "total": 31
+      },
+      "negative_hits": [],
+      "research_question": "core_rul_phm",
+      "recommendation": "精读",
+      "decision_reason": "主题相关 18；数据集相关 10；近期 1；命中: remaining useful life, C-MAPSS, predictive maintenance",
+      "snippet": "Accurate prediction of Remaining Useful Life (RUL) is crucial for effective predictive maintenance strategies in various industries.",
+      "canonical_id": "doi:10.32996/jmcie.2025.6.1.3",
+      "summary": "本研究探讨了结合卷积神经网络（CNN）和门控循环单元（GRU）架构在C-MAPSS数据集上预测涡扇发动机剩余使用寿命（RUL）的应用。该模型利用CNN提取传感器数据的空间特征，并通过GRU捕捉序列数据中的时间依赖性。"
+    },
+    {
       "id": "arxiv:2504.03649v1",
       "title": "Diagnostic Method for Hydropower Plant Condition-based Maintenance combining Autoencoder with Clustering Algorithms",
       "abstract": "The French company EDF uses supervisory control and data acquisition systems in conjunction with a data management platform to monitor hydropower plant, allowing engineers and technicians to analyse the time-series collected. Depending on the strategic importance of the monitored hydropower plant, the number of time-series collected can vary greatly making it difficult to generate valuable information from the extracted data. In an attempt to provide an answer to this particular problem, a condition detection and diagnosis method combining clustering algorithms and autoencoder neural networks ",
@@ -8991,6 +9714,45 @@
       "snippet": "The prediction of the Remaining Useful Life of aircraft engines is a critical area in high-reliability sectors such as aerospace and defense.",
       "canonical_id": "arxiv:2502.15772",
       "summary": "本文研究了航空发动机剩余使用寿命的预测问题，提出了一种基于Rashomon视角的新方法，通过考虑多个生存模型来处理审查数据，从而提高维护过程中的预测准确性。"
+    },
+    {
+      "id": "s2:b31b4d9e2d4314ca6711",
+      "title": "Multi-modal framework for battery state of health evaluation using open-source electric vehicle data",
+      "abstract": "Accurate, practical, and robust evaluation of the battery state of health is crucial to the efficient and reliable operation of electric vehicles. However, the limited availability of large-scale, high-quality field data hinders the development of the battery management system for state of health estimation, lifetime prediction, and fault detection in various applications. In this work, to gain insights into underlying factors limiting battery management system performance in real-world vehicles, we analyze the operational data of 300 diverse electric vehicles over three years to understand th",
+      "authors": [
+        "Hongao Liu",
+        "Chang Li",
+        "Xiaosong Hu",
+        "Jinwen Li",
+        "Kai Zhang"
+      ],
+      "date": "2025-01-29",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/b31b4d9e2d4314ca6711faf0f980edcbace77ba1",
+      "pdf": "",
+      "venue": "Nature Communications",
+      "citations": 187,
+      "doi": "10.1038/s41467-025-56485-7",
+      "relevance_score": 23,
+      "tags": [
+        "state of health"
+      ],
+      "score_breakdown": {
+        "topic": 20,
+        "time_series": 0,
+        "dataset": 0,
+        "method": 0,
+        "freshness": 1,
+        "source": 2,
+        "negative": 0,
+        "total": 23
+      },
+      "negative_hits": [],
+      "research_question": "core_rul_phm",
+      "recommendation": "精读",
+      "decision_reason": "主题相关 20；近期 1；命中: state of health",
+      "snippet": "Accurate, practical, and robust evaluation of the battery state of health is crucial to the efficient and reliable operation of electric vehicles.",
+      "canonical_id": "doi:10.1038/s41467-025-56485-7"
     },
     {
       "id": "doi:10.1109/rams48127.2025.10935143",
@@ -9182,6 +9944,46 @@
       "summary": "本文介绍了Sundial，一个灵活且可扩展的时间序列基础模型系列，提出了一种基于流匹配的TimeFlow Loss，用于在不进行离散标记的情况下对连续值时间序列进行原生预训练。该模型能够在任意长度的时间序列上进行预训练，生成多个可能的预测，从而在表示学习中实现更大的灵活性。"
     },
     {
+      "id": "s2:f642d2fa83b8531ad7d1",
+      "title": "A multiscale model for multivariate time series forecasting",
+      "abstract": "Transformer based models for time-series forecasting have shown promising performance and during the past few years different Transformer variants have been proposed in time-series forecasting domain. However, most of the existing methods, mainly represent the time-series from a single scale, making it challenging to capture various time granularities or ignore inter-series correlations between the series which might lead to inaccurate forecasts. In this paper, we address the above mentioned shortcomings and propose a Transformer based model which integrates multi-scale patch-wise temporal mod",
+      "authors": [
+        "Vahid Naghashi",
+        "Mounir Boukadoum",
+        "A. Diallo"
+      ],
+      "date": "2025-01-10",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/f642d2fa83b8531ad7d1a88c9da0cd91f1bb714c",
+      "pdf": "",
+      "venue": "Scientific Reports",
+      "citations": 44,
+      "doi": "10.1038/s41598-024-82417-4",
+      "relevance_score": 28,
+      "tags": [
+        "time series forecasting",
+        "multivariate time series",
+        "transformer"
+      ],
+      "score_breakdown": {
+        "topic": 0,
+        "time_series": 24,
+        "dataset": 0,
+        "method": 1,
+        "freshness": 1,
+        "source": 2,
+        "negative": 0,
+        "total": 28
+      },
+      "negative_hits": [],
+      "research_question": "time_series_method",
+      "recommendation": "方法借鉴",
+      "decision_reason": "时间序列 24；方法可借鉴 1；近期 1；命中: time series forecasting, multivariate time series, transformer",
+      "snippet": "Transformer based models for time-series forecasting have shown promising performance and during the past few years different Transformer variants have been proposed in time-series forecasting domain.",
+      "canonical_id": "doi:10.1038/s41598-024-82417-4",
+      "summary": "本论文提出了一种基于Transformer的多尺度模型，用于多变量时间序列预测，以解决现有方法在捕捉不同时间粒度和系列间相关性方面的不足。通过集成多尺度的时间补丁，该模型旨在提高预测的准确性。"
+    },
+    {
       "id": "doi:10.1201/9781003188377-32",
       "title": "Risk-Based Prognostics and Health Management",
       "abstract": "",
@@ -9216,26 +10018,27 @@
       "summary": "本文研究了基于风险的预测与健康管理方法，探讨了如何通过评估系统的风险因素来优化设备的维护和管理策略，以提高其可靠性和安全性。研究采用了定量分析和模型构建的方法，得出了有效的风险管理框架。"
     },
     {
-      "id": "doi:10.1109/tkde.2025.3556940",
-      "title": "Inconsistent Multivariate Time Series Forecasting",
+      "id": "s2:cb7acffa30bb126c8915",
+      "title": "SimpleTM: A Simple Baseline for Multivariate Time Series Forecasting",
       "abstract": "",
       "authors": [
-        "Li Shen",
-        "Yangzhu Wang",
-        "Xuyi Fan",
-        "Xu Yang",
-        "Huaxin Qiu"
+        "Hui Chen",
+        "Viet Luong",
+        "L. Mukherjee",
+        "Vikas Singh"
       ],
       "date": "2025-01-01",
-      "source": "CrossRef",
-      "url": "https://doi.org/10.1109/tkde.2025.3556940",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/cb7acffa30bb126c8915c59c6257baaddfe79935",
       "pdf": "",
+      "venue": "International Conference on Learning Representations",
+      "citations": 35,
+      "doi": "",
       "relevance_score": 27,
       "tags": [
         "time series forecasting",
         "multivariate time series"
       ],
-      "venue": "IEEE Transactions on Knowledge and Data Engineering",
       "score_breakdown": {
         "topic": 0,
         "time_series": 24,
@@ -9251,8 +10054,7 @@
       "recommendation": "方法借鉴",
       "decision_reason": "时间序列 24；近期 1；命中: time series forecasting, multivariate time series",
       "snippet": "",
-      "canonical_id": "title:inconsistentmultivariatetimeseriesforecasting",
-      "summary": "本文研究了多元时间序列预测中的不一致性问题，提出了一种新的方法来提高预测的准确性和一致性。通过实证分析，验证了该方法在不同数据集上的有效性。"
+      "canonical_id": "title:simpletmasimplebaselineformultivariatetimeseriesforecasting"
     },
     {
       "id": "doi:10.1007/978-981-96-2677-9_11",
@@ -9291,6 +10093,82 @@
       "snippet": "",
       "canonical_id": "title:rulpredictionwithdegradationshockdependency",
       "summary": "本论文研究了在考虑退化与冲击依赖关系的情况下，剩余使用寿命（RUL）预测的方法。通过建立模型，分析了退化过程与外部冲击对设备寿命的影响，提出了相应的预测策略。"
+    },
+    {
+      "id": "s2:e725b39906251f9e47bf",
+      "title": "A Survey of Deep Anomaly Detection in Multivariate Time Series: Taxonomy, Applications, and Directions",
+      "abstract": "Multivariate time series anomaly detection (MTSAD) can effectively identify and analyze anomalous behavior in complex systems, which is particularly important in fields such as financial monitoring, industrial equipment fault detection, and cybersecurity. MTSAD requires simultaneously analyze temporal dependencies and inter-variable relationships have prompted researchers to develop specialized deep learning models to detect anomalous patterns. In this paper, we conducted a structured and comprehensive overview of the latest techniques in deep learning for multivariate time series anomaly dete",
+      "authors": [
+        "Fengling Wang",
+        "Yiyue Jiang",
+        "Rongjie Zhang",
+        "Aimin Wei",
+        "Jingming Xie"
+      ],
+      "date": "2025-01-01",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/e725b39906251f9e47bf99e06ad11015856fba3d",
+      "pdf": "",
+      "venue": "Italian National Conference on Sensors",
+      "citations": 106,
+      "doi": "10.3390/s25010190",
+      "relevance_score": 22,
+      "tags": [
+        "multivariate time series",
+        "time series anomaly detection"
+      ],
+      "score_breakdown": {
+        "topic": 0,
+        "time_series": 19,
+        "dataset": 0,
+        "method": 0,
+        "freshness": 1,
+        "source": 2,
+        "negative": 0,
+        "total": 22
+      },
+      "negative_hits": [],
+      "research_question": "time_series_method",
+      "recommendation": "方法借鉴",
+      "decision_reason": "时间序列 19；近期 1；命中: multivariate time series, time series anomaly detection",
+      "snippet": "Multivariate time series anomaly detection (MTSAD) can effectively identify and analyze anomalous behavior in complex systems, which is particularly important in fields such as financial monitoring, industrial equipment…",
+      "canonical_id": "doi:10.3390/s25010190"
+    },
+    {
+      "id": "doi:10.1007/978-981-96-4706-4_7",
+      "title": "Time Series Forecasting with Transformers",
+      "abstract": "",
+      "authors": [
+        "Pradeep Singh",
+        "Balasubramanian Raman"
+      ],
+      "date": "2025-01-01",
+      "source": "CrossRef",
+      "url": "https://doi.org/10.1007/978-981-96-4706-4_7",
+      "pdf": "",
+      "relevance_score": 21,
+      "tags": [
+        "time series forecasting",
+        "transformer"
+      ],
+      "venue": "Studies in Big Data",
+      "score_breakdown": {
+        "topic": 0,
+        "time_series": 16,
+        "dataset": 0,
+        "method": 2,
+        "freshness": 1,
+        "source": 2,
+        "negative": 0,
+        "total": 21
+      },
+      "negative_hits": [],
+      "research_question": "time_series_method",
+      "recommendation": "方法借鉴",
+      "decision_reason": "时间序列 16；方法可借鉴 2；近期 1；命中: time series forecasting, transformer",
+      "snippet": "",
+      "canonical_id": "title:timeseriesforecastingwithtransformers",
+      "summary": "本论文研究了使用变换器（Transformers）进行时间序列预测的方法，提出了一种新的模型架构，并通过实验证明其在多个数据集上的有效性和优越性。"
     },
     {
       "id": "doi:10.2139/ssrn.5106657",
@@ -10266,6 +11144,1220 @@
       "summary": "本论文研究了可解释的异常检测，利用反事实驱动的“如果...会怎样”分析方法，探讨了在预测性维护中如何识别异常及其原因，并提出将数据点转变为“健康”类别的建议。研究指出，虽然反事实解释能够提供信息，但这些建议并不总是可操作的。"
     },
     {
+      "id": "s2:c3757ed9eddff3264995",
+      "title": "Predicting Aircraft Turbofan Engine Degradation with Recurrent Neural Networks",
+      "abstract": "Machine learning and deep learning models can be developed to forecast the possibility of a particular outcome in a phenomenon with the help of available data. The paper tackles the problem of predicting the Remaining Useful Life of Aircraft Turbofan engine. The paper's goal is to use machine learning to estimate remaining useful life, or RUL. RUL is the amount of time that a component has left to operate satisfactorily before failing. The model needs to be thoroughly validated using Prognostics metrics and provide forecast uncertainty. When using Remaining Useful Life in conjunction with Pred",
+      "authors": [
+        "Shivansh Sharma",
+        "Akash Pandit",
+        "S. S."
+      ],
+      "date": "2024-06-28",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/c3757ed9eddff32649952ce83f52192797aafe2a",
+      "pdf": "",
+      "venue": "2024 IEEE International Conference on Information Technology, Electronics and Intelligent Communication Systems (ICITEICS)",
+      "citations": 7,
+      "doi": "10.1109/ICITEICS61368.2024.10625502",
+      "relevance_score": 26,
+      "tags": [
+        "remaining useful life",
+        "predictive maintenance",
+        "RUL prediction",
+        "turbofan engine degradation"
+      ],
+      "score_breakdown": {
+        "topic": 24,
+        "time_series": 0,
+        "dataset": 0,
+        "method": 0,
+        "freshness": 0,
+        "source": 2,
+        "negative": 0,
+        "total": 26
+      },
+      "negative_hits": [],
+      "research_question": "core_rul_phm",
+      "recommendation": "精读",
+      "decision_reason": "主题相关 24；命中: remaining useful life, predictive maintenance, RUL prediction",
+      "snippet": "The paper tackles the problem of predicting the Remaining Useful Life of Aircraft Turbofan engine.",
+      "canonical_id": "doi:10.1109/iciteics61368.2024.10625502",
+      "summary": "本文研究了利用递归神经网络预测飞机涡扇发动机的剩余使用寿命（RUL），旨在通过机器学习模型估计发动机在故障前的可操作时间，并对模型进行验证以提供预测的不确定性。"
+    },
+    {
+      "id": "s2:74ddda9ce85112b8239b",
+      "title": "Uncertainty in Aircraft Turbofan Engine Prognostics on the C-MAPSS Dataset",
+      "abstract": "Prognostics and Health Management (PHM) plays a crucial role in maximizing operational efficiency, minimizing maintenance costs, and enhancing system  reliability. Predicting Remaining Useful Life (RUL) is a key aspect of PHM, inherently incorporating uncertainty. This paper focuses on uncertainty quantification (UQ) within Data-Driven Models (DDMs), particularly Machine Learning (ML), such as Long Short-Term Memory (LSTMs), and stochastic models namely Hidden Markov Models (HMMs). While ML models emphasize accuracy, stochastic models offer a different paradigm for prognostics, directly addres",
+      "authors": [
+        "Mariana Salinas-Camus",
+        "Nick Eleftheroglou"
+      ],
+      "date": "2024-06-27",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/74ddda9ce85112b8239b9df87e645825a53bbe1c",
+      "pdf": "",
+      "venue": "PHM Society European Conference",
+      "citations": 9,
+      "doi": "10.36001/phme.2024.v8i1.4007",
+      "relevance_score": 28,
+      "tags": [
+        "remaining useful life",
+        "C-MAPSS",
+        "prognostics and health management"
+      ],
+      "score_breakdown": {
+        "topic": 16,
+        "time_series": 0,
+        "dataset": 10,
+        "method": 0,
+        "freshness": 0,
+        "source": 2,
+        "negative": 0,
+        "total": 28
+      },
+      "negative_hits": [],
+      "research_question": "core_rul_phm",
+      "recommendation": "精读",
+      "decision_reason": "主题相关 16；数据集相关 10；命中: remaining useful life, C-MAPSS, prognostics and health management",
+      "snippet": "Prognostics and Health Management (PHM) plays a crucial role in maximizing operational efficiency, minimizing maintenance costs, and enhancing system  reliability.",
+      "canonical_id": "doi:10.36001/phme.2024.v8i1.4007",
+      "summary": "本论文研究了在数据驱动模型（如长短期记忆网络和隐马尔可夫模型）中对飞机涡扇发动机剩余使用寿命预测的不确定性量化。通过比较机器学习模型与随机模型，探讨了不同方法在预测中的应用及其对不确定性的处理。"
+    },
+    {
+      "id": "s2:047594ccb5ed723ab999",
+      "title": "A Comprehensive Survey of Predictive Maintenance Techniques for Aircraft Engines Utilizing the C-MAPSS Dataset",
+      "abstract": "The application of deep learning and sophisticated machine learning techniques is driving the rapid advancement of aircraft engine prognostics and predictive maintenance. Remain ing Useful Life (RUL) of aviation engines has been the subject of numerous studies aimed at improving prediction accuracy and efficacy to improve aviation safety and maintenance plans. Innovative approaches and technologies are demonstrated by these projects, which use a variety of methodologies and datasets, including C-MAPSS and N-CMAPSS. Combining feature engi neering, ensemble learning, and deep learning models suc",
+      "authors": [
+        "M. Pathan"
+      ],
+      "date": "2024-05-25",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/047594ccb5ed723ab99967a64122ee534bee86bf",
+      "pdf": "",
+      "venue": "INTERANTIONAL JOURNAL OF SCIENTIFIC RESEARCH IN ENGINEERING AND MANAGEMENT",
+      "citations": 2,
+      "doi": "10.55041/ijsrem34660",
+      "relevance_score": 39,
+      "tags": [
+        "remaining useful life",
+        "C-MAPSS",
+        "predictive maintenance",
+        "N-CMAPSS",
+        "CMAPSS"
+      ],
+      "score_breakdown": {
+        "topic": 19,
+        "time_series": 0,
+        "dataset": 18,
+        "method": 0,
+        "freshness": 0,
+        "source": 2,
+        "negative": 0,
+        "total": 39
+      },
+      "negative_hits": [],
+      "research_question": "core_rul_phm",
+      "recommendation": "精读",
+      "decision_reason": "主题相关 19；数据集相关 18；命中: remaining useful life, C-MAPSS, predictive maintenance",
+      "snippet": "Innovative approaches and technologies are demonstrated by these projects, which use a variety of methodologies and datasets, including C-MAPSS and N-CMAPSS.",
+      "canonical_id": "doi:10.55041/ijsrem34660",
+      "summary": "本文对航空发动机的预测性维护技术进行了全面调查，重点分析了利用C-MAPSS数据集的深度学习和机器学习方法。研究表明，通过特征工程、集成学习和深度学习模型的结合，可以提高航空发动机剩余使用寿命的预测准确性和有效性。"
+    },
+    {
+      "id": "s2:94a310a7328b9155f0d6",
+      "title": "SOFTS: Efficient Multivariate Time Series Forecasting with Series-Core Fusion",
+      "abstract": "Multivariate time series forecasting plays a crucial role in various fields such as finance, traffic management, energy, and healthcare. Recent studies have highlighted the advantages of channel independence to resist distribution drift but neglect channel correlations, limiting further enhancements. Several methods utilize mechanisms like attention or mixer to address this by capturing channel correlations, but they either introduce excessive complexity or rely too heavily on the correlation to achieve satisfactory results under distribution drifts, particularly with a large number of channel",
+      "authors": [
+        "Lu Han",
+        "Xu-Yang Chen",
+        "Han-Jia Ye",
+        "De-Chuan Zhan"
+      ],
+      "date": "2024-04-22",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/94a310a7328b9155f0d6936dd18622f3769220d4",
+      "pdf": "https://arxiv.org/pdf/2404.14197",
+      "venue": "Neural Information Processing Systems",
+      "citations": 185,
+      "doi": "10.48550/arXiv.2404.14197",
+      "relevance_score": 26,
+      "tags": [
+        "time series forecasting",
+        "multivariate time series"
+      ],
+      "score_breakdown": {
+        "topic": 0,
+        "time_series": 24,
+        "dataset": 0,
+        "method": 0,
+        "freshness": 0,
+        "source": 2,
+        "negative": 0,
+        "total": 26
+      },
+      "negative_hits": [],
+      "research_question": "time_series_method",
+      "recommendation": "方法借鉴",
+      "decision_reason": "时间序列 24；命中: time series forecasting, multivariate time series",
+      "snippet": "Multivariate time series forecasting plays a crucial role in various fields such as finance, traffic management, energy, and healthcare.",
+      "canonical_id": "doi:10.48550/arxiv.2404.14197",
+      "summary": "本文提出了一种名为SOFTS的方法，用于高效的多变量时间序列预测，旨在同时考虑通道独立性和通道相关性，以应对分布漂移带来的挑战。研究表明，该方法在处理大量通道时能够有效捕捉相关性，避免了过度复杂性的问题。"
+    },
+    {
+      "id": "s2:a94c306ae74012b35414",
+      "title": "A dual attention LSTM lightweight model based on exponential smoothing for remaining useful life prediction",
+      "abstract": "",
+      "authors": [
+        "Jiayu Shi",
+        "Jingshu Zhong",
+        "Yuxuan Zhang",
+        "Bin Xiao",
+        "Lei Xiao"
+      ],
+      "date": "2024-03-01",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/a94c306ae74012b3541471a99149214fccaadaff",
+      "pdf": "",
+      "venue": "Reliability Engineering & System Safety",
+      "citations": 151,
+      "doi": "10.1016/j.ress.2023.109821",
+      "relevance_score": 14,
+      "tags": [
+        "remaining useful life",
+        "lightweight model"
+      ],
+      "score_breakdown": {
+        "topic": 10,
+        "time_series": 0,
+        "dataset": 0,
+        "method": 2,
+        "freshness": 0,
+        "source": 2,
+        "negative": 0,
+        "total": 14
+      },
+      "negative_hits": [],
+      "research_question": "core_rul_phm",
+      "recommendation": "快读",
+      "decision_reason": "主题相关 10；方法可借鉴 2；命中: remaining useful life, lightweight model",
+      "snippet": "",
+      "canonical_id": "doi:10.1016/j.ress.2023.109821"
+    },
+    {
+      "id": "s2:32f89c00bb088afd264f",
+      "title": "A Novel Customised Load Adaptive Framework for Induction Motor Fault Classification Utilising MFPT Bearing Dataset",
+      "abstract": "This research presents a novel Customised Load Adaptive Framework (CLAF) for fault classification in Induction Motors (IMs), utilising the Machinery Fault Prevention Technology (MFPT) bearing dataset. CLAF represents a pioneering approach that extends traditional fault classification methodologies by accounting for load variations and dataset customisation. Through a meticulous two-phase process, it unveils load-dependent fault subclasses that have not been readily identified in traditional approaches. Additionally, new classes are created to accommodate the dataset’s unique characteristics. P",
+      "authors": [
+        "S. Hejazi",
+        "M. Packianather",
+        "Ying Liu"
+      ],
+      "date": "2024-01-08",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/32f89c00bb088afd264fc229d300c43ac30656dd",
+      "pdf": "",
+      "venue": "Machines",
+      "citations": 17,
+      "doi": "10.3390/machines12010044",
+      "relevance_score": 29,
+      "tags": [
+        "condition monitoring",
+        "MFPT bearing",
+        "IMS",
+        "MFPT"
+      ],
+      "score_breakdown": {
+        "topic": 3,
+        "time_series": 0,
+        "dataset": 24,
+        "method": 0,
+        "freshness": 0,
+        "source": 2,
+        "negative": 0,
+        "total": 29
+      },
+      "negative_hits": [],
+      "research_question": "dataset_benchmark",
+      "recommendation": "对比实验",
+      "decision_reason": "主题相关 3；数据集相关 24；命中: condition monitoring, MFPT bearing, IMS",
+      "snippet": "This research presents a novel Customised Load Adaptive Framework (CLAF) for fault classification in Induction Motors (IMs), utilising the Machinery Fault Prevention Technology (MFPT) bearing dataset.",
+      "canonical_id": "doi:10.3390/machines12010044",
+      "summary": "本研究提出了一种新颖的定制负载自适应框架（CLAF），用于感应电动机的故障分类，利用机械故障预防技术（MFPT）轴承数据集。该框架通过考虑负载变化和数据集定制，识别出传统方法未能识别的负载依赖故障子类，并创建了新的类别以适应数据集的独特特征。"
+    },
+    {
+      "id": "s2:a0958dff51ccde9a71cb",
+      "title": "Physics-Informed Neural Networks for State of Health Estimation in Lithium-Ion Batteries",
+      "abstract": "One of the most challenging tasks of modern battery management systems is the accurate state of health estimation. While physico-chemical models are accurate, they have high computational cost. Neural networks lack physical interpretability but are efficient. Physics-informed neural networks tackle the aforementioned shortcomings by combining the efficiency of neural networks with the accuracy of physico-chemical models. A physics-informed neural network is developed and evaluated against three different datasets: A pseudo-two-dimensional Newman model generates data at various state of health ",
+      "authors": [
+        "Tobias Hofmann",
+        "J. Hamar",
+        "Marcel Rogge",
+        "C. Zoerr",
+        "Simon Erhard"
+      ],
+      "date": "2023-09-01",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/a0958dff51ccde9a71cb00b40d05d0bd0f4a46b5",
+      "pdf": "",
+      "venue": "Journal of the Electrochemical Society",
+      "citations": 85,
+      "doi": "10.1149/1945-7111/acf0ef",
+      "relevance_score": 14,
+      "tags": [
+        "state of health",
+        "physics-informed"
+      ],
+      "score_breakdown": {
+        "topic": 10,
+        "time_series": 0,
+        "dataset": 0,
+        "method": 2,
+        "freshness": 0,
+        "source": 2,
+        "negative": 0,
+        "total": 14
+      },
+      "negative_hits": [],
+      "research_question": "method_transfer",
+      "recommendation": "方法借鉴",
+      "decision_reason": "主题相关 10；方法可借鉴 2；命中: state of health, physics-informed",
+      "snippet": "A physics-informed neural network is developed and evaluated against three different datasets: A pseudo-two-dimensional Newman model generates data at various state of health",
+      "canonical_id": "doi:10.1149/1945-7111/acf0ef",
+      "summary": "本文开发了一种物理信息神经网络，用于锂离子电池的健康状态估计，旨在结合神经网络的高效性与物理化学模型的准确性。研究通过三个不同的数据集对该网络进行了评估，验证了其在健康状态估计中的有效性。"
+    },
+    {
+      "id": "s2:665d8a0796124fdbf6bc",
+      "title": "Remaining useful life prediction of turbofan engine using global health degradation representation in federated learning",
+      "abstract": "",
+      "authors": [
+        "Xi Chen",
+        "Haibo Wang",
+        "Siliang Lu",
+        "Jiawen Xu",
+        "Ruqiang Yan"
+      ],
+      "date": "2023-07-01",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/665d8a0796124fdbf6bcfff32d0274d46ef532ef",
+      "pdf": "",
+      "venue": "Reliability Engineering & System Safety",
+      "citations": 34,
+      "doi": "10.1016/j.ress.2023.109511",
+      "relevance_score": 14,
+      "tags": [
+        "remaining useful life",
+        "federated learning"
+      ],
+      "score_breakdown": {
+        "topic": 10,
+        "time_series": 0,
+        "dataset": 0,
+        "method": 2,
+        "freshness": 0,
+        "source": 2,
+        "negative": 0,
+        "total": 14
+      },
+      "negative_hits": [],
+      "research_question": "core_rul_phm",
+      "recommendation": "快读",
+      "decision_reason": "主题相关 10；方法可借鉴 2；命中: remaining useful life, federated learning",
+      "snippet": "",
+      "canonical_id": "doi:10.1016/j.ress.2023.109511"
+    },
+    {
+      "id": "s2:312c8b879784286c6ad7",
+      "title": "A denoising semi-supervised deep learning model for remaining useful life prediction of turbofan engine degradation",
+      "abstract": "",
+      "authors": [
+        "Youming Wang",
+        "Yue Wang"
+      ],
+      "date": "2023-06-30",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/312c8b879784286c6ad7b1f35371854b937047f2",
+      "pdf": "",
+      "venue": "Applied intelligence (Boston)",
+      "citations": 19,
+      "doi": "10.1007/s10489-023-04777-0",
+      "relevance_score": 18,
+      "tags": [
+        "remaining useful life",
+        "turbofan engine degradation"
+      ],
+      "score_breakdown": {
+        "topic": 16,
+        "time_series": 0,
+        "dataset": 0,
+        "method": 0,
+        "freshness": 0,
+        "source": 2,
+        "negative": 0,
+        "total": 18
+      },
+      "negative_hits": [],
+      "research_question": "core_rul_phm",
+      "recommendation": "精读",
+      "decision_reason": "主题相关 16；命中: remaining useful life, turbofan engine degradation",
+      "snippet": "",
+      "canonical_id": "doi:10.1007/s10489-023-04777-0",
+      "summary": "本论文提出了一种去噪半监督深度学习模型，用于预测涡扇发动机的剩余使用寿命。通过该模型，研究者能够有效处理发动机退化数据，以提高预测准确性。"
+    },
+    {
+      "id": "s2:94c266ad7133a04610eb",
+      "title": "Attention and Long Short-Term Memory Network for Remaining Useful Lifetime Predictions of Turbofan Engine Degradation",
+      "abstract": "Machine Prognostics and Health Management (PHM) is often concerned with the prediction of the Remaining Useful Lifetime (RUL) of assets. Accurate real-time RUL predictions enable equipment health assessment and maintenance planning. In this work, we propose a Long Short-Term Memory (LSTM) network combined with global Attention mechanisms to learn RUL relationships directly from time-series sensor data. We use the NASA Commercial Modular Aero- Propulsion System Simulation (C-MAPPS) datasets to assess the performance of our proposed method. We compare our approach with current state-of-the-art m",
+      "authors": [
+        "P. D. Costa",
+        "A. Akçay",
+        "Yingqian Zhang",
+        "U. Kaymak"
+      ],
+      "date": "2023-06-04",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/94c266ad7133a04610ebc3bc5e0ca70ea0be554c",
+      "pdf": "",
+      "venue": "International Journal of Prognostics and Health Management",
+      "citations": 46,
+      "doi": "10.36001/ijphm.2019.v10i4.2623",
+      "relevance_score": 34,
+      "tags": [
+        "remaining useful life",
+        "prognostics and health management",
+        "RUL prediction",
+        "turbofan engine degradation"
+      ],
+      "score_breakdown": {
+        "topic": 32,
+        "time_series": 0,
+        "dataset": 0,
+        "method": 0,
+        "freshness": 0,
+        "source": 2,
+        "negative": 0,
+        "total": 34
+      },
+      "negative_hits": [],
+      "research_question": "core_rul_phm",
+      "recommendation": "精读",
+      "decision_reason": "主题相关 32；命中: remaining useful life, prognostics and health management, RUL prediction",
+      "snippet": "Machine Prognostics and Health Management (PHM) is often concerned with the prediction of the Remaining Useful Lifetime (RUL) of assets.",
+      "canonical_id": "doi:10.36001/ijphm.2019.v10i4.2623",
+      "summary": "本论文提出了一种结合全局注意力机制的长短期记忆网络（LSTM），用于从时间序列传感器数据中直接学习涡扇发动机剩余使用寿命（RUL）的关系。研究使用NASA的商业模块化航空推进系统仿真（C-MAPPS）数据集评估所提方法的性能，并与现有的最先进技术进行了比较。"
+    },
+    {
+      "id": "s2:cfe1e5d3e29e81333897",
+      "title": "Deep learning to estimate lithium-ion battery state of health without additional degradation experiments",
+      "abstract": "Estimation of Li-ion battery state of health is crucial but requires time- and resource-consuming degradation tests for development. Here, authors propose a deep-learning method that enables accurate estimations without additional tests, ensuring absolute errors of less than 3% for 89.4% of samples. State of health is a critical state which evaluates the degradation level of batteries. However, it cannot be measured directly but requires estimation. While accurate state of health estimation has progressed markedly, the time- and resource-consuming degradation experiments to generate target bat",
+      "authors": [
+        "Jiahuan Lu",
+        "R. Xiong",
+        "Jinpeng Tian",
+        "Chenxu Wang",
+        "Fengchun Sun"
+      ],
+      "date": "2023-05-13",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/cfe1e5d3e29e8133389777d177eacc8e4ad1c2c3",
+      "pdf": "",
+      "venue": "Nature Communications",
+      "citations": 353,
+      "doi": "10.1038/s41467-023-38458-w",
+      "relevance_score": 22,
+      "tags": [
+        "state of health",
+        "domain adaptation"
+      ],
+      "score_breakdown": {
+        "topic": 20,
+        "time_series": 0,
+        "dataset": 0,
+        "method": 0,
+        "freshness": 0,
+        "source": 2,
+        "negative": 0,
+        "total": 22
+      },
+      "negative_hits": [],
+      "research_question": "core_rul_phm",
+      "recommendation": "精读",
+      "decision_reason": "主题相关 20；命中: state of health, domain adaptation",
+      "snippet": "Estimation of Li-ion battery state of health is crucial but requires time- and resource-consuming degradation tests for development.",
+      "canonical_id": "doi:10.1038/s41467-023-38458-w"
+    },
+    {
+      "id": "s2:f64889d9454c0b6a059d",
+      "title": "Data-Driven Methods for Predicting the State of Health, State of Charge, and Remaining Useful Life of Li-Ion Batteries: A Comprehensive Review",
+      "abstract": "",
+      "authors": [
+        "Eunsong Kim",
+        "Minseon Kim",
+        "Juo Kim",
+        "Joonchul Kim",
+        "Jung-Hwan Park"
+      ],
+      "date": "2023-05-09",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/f64889d9454c0b6a059de7f50795ad71fdc17ca8",
+      "pdf": "",
+      "venue": "International Journal of Precision Engineering and Manufacturing",
+      "citations": 80,
+      "doi": "10.1007/s12541-023-00832-5",
+      "relevance_score": 22,
+      "tags": [
+        "remaining useful life",
+        "state of health"
+      ],
+      "score_breakdown": {
+        "topic": 20,
+        "time_series": 0,
+        "dataset": 0,
+        "method": 0,
+        "freshness": 0,
+        "source": 2,
+        "negative": 0,
+        "total": 22
+      },
+      "negative_hits": [],
+      "research_question": "core_rul_phm",
+      "recommendation": "精读",
+      "decision_reason": "主题相关 20；命中: remaining useful life, state of health",
+      "snippet": "",
+      "canonical_id": "doi:10.1007/s12541-023-00832-5"
+    },
+    {
+      "id": "s2:1eb0a38e16ce13cf6771",
+      "title": "State of Health Estimation Methods for Lithium‐Ion Batteries",
+      "abstract": "Contemporary lithium‐ion batteries (LIBs) are one of the main components of energy storage systems that need effective management to extend service life and increase reliability and safety. Their characteristics depend highly on internal and external conditions (ageing, temperature, and chemistry). Currently, the state of batteries is determined using two parameters: the state of charge (SOC) and the state of health (SOH). Applying these two parameters makes it possible to calculate the expected battery life and a battery’s performance. There are many methods for estimating the SOH of batterie",
+      "authors": [
+        "Gulzat Nuroldayeva",
+        "Yerkin Serik",
+        "D. Adair",
+        "B. Uzakbaiuly",
+        "Z. Bakenov"
+      ],
+      "date": "2023-03-03",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/1eb0a38e16ce13cf6771acc621540644edff70ba",
+      "pdf": "",
+      "venue": "International Journal of Energy Research",
+      "citations": 92,
+      "doi": "10.1155/2023/4297545",
+      "relevance_score": 16,
+      "tags": [
+        "state of health"
+      ],
+      "score_breakdown": {
+        "topic": 14,
+        "time_series": 0,
+        "dataset": 0,
+        "method": 0,
+        "freshness": 0,
+        "source": 2,
+        "negative": 0,
+        "total": 16
+      },
+      "negative_hits": [],
+      "research_question": "related",
+      "recommendation": "快读",
+      "decision_reason": "主题相关 14；命中: state of health",
+      "snippet": "Currently, the state of batteries is determined using two parameters: the state of charge (SOC) and the state of health (SOH).",
+      "canonical_id": "doi:10.1155/2023/4297545",
+      "summary": "本文探讨了锂离子电池的健康状态（SOH）估计方法，指出其性能受内部和外部条件的影响，并强调通过充电状态（SOC）和健康状态（SOH）这两个参数来评估电池的预期寿命和性能。"
+    },
+    {
+      "id": "s2:b4c180cd65e8c2aec08f",
+      "title": "State of Health Estimation for Lithium-Ion Battery via Recursive Feature Elimination on Partial Charging Curves",
+      "abstract": "Knowing the batteries’ health state in electric vehicles (EVs) accurately and effectively would directly enhance the system’s reliability and safety. Accordingly, this article proposes a state of health (SOH) estimation method based on the collaboration of feature selection and machine learning methods. Specifically, actual EV data from more than 1200 charging processes are analyzed to designate the constrained voltage range for data processing. Features are then derived, extracted, and selected from the capacity-based curves to depict the battery degradation process and estimate the SOH. Afte",
+      "authors": [
+        "Ji Wu",
+        "Hao Su",
+        "Jinhao Meng",
+        "Mingqiang Lin"
+      ],
+      "date": "2023-02-01",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/b4c180cd65e8c2aec08feebffaeb3f8335da59f2",
+      "pdf": "",
+      "venue": "IEEE Journal of Emerging and Selected Topics in Power Electronics",
+      "citations": 52,
+      "doi": "10.1109/JESTPE.2022.3177451",
+      "relevance_score": 16,
+      "tags": [
+        "state of health"
+      ],
+      "score_breakdown": {
+        "topic": 14,
+        "time_series": 0,
+        "dataset": 0,
+        "method": 0,
+        "freshness": 0,
+        "source": 2,
+        "negative": 0,
+        "total": 16
+      },
+      "negative_hits": [],
+      "research_question": "related",
+      "recommendation": "快读",
+      "decision_reason": "主题相关 14；命中: state of health",
+      "snippet": "Accordingly, this article proposes a state of health (SOH) estimation method based on the collaboration of feature selection and machine learning methods.",
+      "canonical_id": "doi:10.1109/jestpe.2022.3177451",
+      "summary": "本文提出了一种基于特征选择和机器学习的方法来估计电动车锂离子电池的健康状态（SOH），通过分析1200多个充电过程的实际数据，提取和选择与电池退化过程相关的特征，以提高SOH估计的准确性。"
+    },
+    {
+      "id": "s2:dab8d3398902a4c8ee00",
+      "title": "A Hybrid Evolutionary CNN-LSTM Model for Prognostics of C-MAPSS Aircraft Dataset",
+      "abstract": "Summary & ConclusionsThe fundamental concept of prognostics and health management (PHM) is to find an approach to evaluate the system's health and predict its remaining useful life (RUL). In the era of digital transformation, many methods and algorithms from the data science world have been applied to use for PHM modeling. One of the leading algorithms is deep learning. Many of the PHM models proposed during the past few years have shown a significant increasing trend of employing hybrid deep neural network schemes. The hybrid modeling approach is using the combination of multiple types of neu",
+      "authors": [
+        "Phattara Khumprom",
+        "Alex Davila-Frias",
+        "D. Grewell",
+        "Dollaya Buakum"
+      ],
+      "date": "2023-01-23",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/dab8d3398902a4c8ee00430a60a7c4886f10a986",
+      "pdf": "",
+      "venue": "Reliability and Maintainability Symposium",
+      "citations": 6,
+      "doi": "10.1109/RAMS51473.2023.10088251",
+      "relevance_score": 33,
+      "tags": [
+        "remaining useful life",
+        "C-MAPSS",
+        "prognostics and health management",
+        "RUL prediction"
+      ],
+      "score_breakdown": {
+        "topic": 21,
+        "time_series": 0,
+        "dataset": 10,
+        "method": 0,
+        "freshness": 0,
+        "source": 2,
+        "negative": 0,
+        "total": 33
+      },
+      "negative_hits": [],
+      "research_question": "core_rul_phm",
+      "recommendation": "精读",
+      "decision_reason": "主题相关 21；数据集相关 10；命中: remaining useful life, C-MAPSS, prognostics and health management",
+      "snippet": "Summary & ConclusionsThe fundamental concept of prognostics and health management (PHM) is to find an approach to evaluate the system's health and predict its remaining useful life (RUL).",
+      "canonical_id": "doi:10.1109/rams51473.2023.10088251",
+      "summary": "本论文提出了一种混合进化的卷积神经网络-长短期记忆网络（CNN-LSTM）模型，用于对C-MAPSS航空数据集进行健康管理和剩余使用寿命（RUL）预测。研究表明，该混合深度神经网络方法在系统健康评估和预测方面具有有效性。"
+    },
+    {
+      "id": "s2:fb45d31cc89207aec392",
+      "title": "Crossformer: Transformer Utilizing Cross-Dimension Dependency for Multivariate Time Series Forecasting",
+      "abstract": "",
+      "authors": [
+        "Yunhao Zhang",
+        "Junchi Yan"
+      ],
+      "date": "2023-01-01",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/fb45d31cc89207aec392dbac8908cc24db2df871",
+      "pdf": "",
+      "venue": "International Conference on Learning Representations",
+      "citations": 1389,
+      "doi": "",
+      "relevance_score": 28,
+      "tags": [
+        "time series forecasting",
+        "multivariate time series",
+        "transformer"
+      ],
+      "score_breakdown": {
+        "topic": 0,
+        "time_series": 24,
+        "dataset": 0,
+        "method": 2,
+        "freshness": 0,
+        "source": 2,
+        "negative": 0,
+        "total": 28
+      },
+      "negative_hits": [],
+      "research_question": "time_series_method",
+      "recommendation": "方法借鉴",
+      "decision_reason": "时间序列 24；方法可借鉴 2；命中: time series forecasting, multivariate time series, transformer",
+      "snippet": "",
+      "canonical_id": "title:crossformertransformerutilizingcrossdimensiondependencyformultivariatetimeseriesforecasting",
+      "summary": "本论文提出了一种名为Crossformer的模型，旨在通过利用跨维依赖关系来进行多变量时间序列预测。研究通过实验验证了该模型在处理多维时间序列数据时的有效性。"
+    },
+    {
+      "id": "s2:dad15404d372a23b4b3b",
+      "title": "A Time Series is Worth 64 Words: Long-term Forecasting with Transformers",
+      "abstract": "We propose an efficient design of Transformer-based models for multivariate time series forecasting and self-supervised representation learning. It is based on two key components: (i) segmentation of time series into subseries-level patches which are served as input tokens to Transformer; (ii) channel-independence where each channel contains a single univariate time series that shares the same embedding and Transformer weights across all the series. Patching design naturally has three-fold benefit: local semantic information is retained in the embedding; computation and memory usage of the att",
+      "authors": [
+        "Yuqi Nie",
+        "Nam H. Nguyen",
+        "Phanwadee Sinthong",
+        "J. Kalagnanam"
+      ],
+      "date": "2022-11-27",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/dad15404d372a23b4b3bf9a63b3124693df3c85e",
+      "pdf": "https://arxiv.org/pdf/2211.14730",
+      "venue": "International Conference on Learning Representations",
+      "citations": 4278,
+      "doi": "10.48550/arXiv.2211.14730",
+      "relevance_score": 19,
+      "tags": [
+        "time series forecasting",
+        "multivariate time series",
+        "transformer"
+      ],
+      "score_breakdown": {
+        "topic": 0,
+        "time_series": 14,
+        "dataset": 0,
+        "method": 3,
+        "freshness": 0,
+        "source": 2,
+        "negative": 0,
+        "total": 19
+      },
+      "negative_hits": [],
+      "research_question": "time_series_method",
+      "recommendation": "方法借鉴",
+      "decision_reason": "时间序列 14；方法可借鉴 3；命中: time series forecasting, multivariate time series, transformer",
+      "snippet": "We propose an efficient design of Transformer-based models for multivariate time series forecasting and self-supervised representation learning.",
+      "canonical_id": "doi:10.48550/arxiv.2211.14730"
+    },
+    {
+      "id": "s2:93f0d2fc31e9d0a10ea3",
+      "title": "Remaining Useful Life Prediction on C-MAPSS Dataset via Joint Autoencoder-Regression Architecture",
+      "abstract": "The maintenance costs of industrial systems often exceed the initial investment cost. Predictive maintenance, one of the most effective methods in reducing overall maintenance costs, has become an area of interest for data-driven researchers after the increasing automation, monitoring capabilities and development techniques introduced with the new industrial revolution. In this study we introduce joint autoencoder-regression architecture for remaining useful life prediction, and demonstrate it on the NASA Turbofan Engine Degredation Dataset. The architecture incorporates InceptionTime networks",
+      "authors": [
+        "Kürsat Ince",
+        "Uğur Ceylan",
+        "Yakup Genç"
+      ],
+      "date": "2022-05-15",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/93f0d2fc31e9d0a10ea3bd00fa168ba4bafbcd2a",
+      "pdf": "",
+      "venue": "Signal Processing and Communications Applications Conference",
+      "citations": 2,
+      "doi": "10.1109/SIU55565.2022.9864796",
+      "relevance_score": 26,
+      "tags": [
+        "remaining useful life",
+        "C-MAPSS",
+        "predictive maintenance"
+      ],
+      "score_breakdown": {
+        "topic": 14,
+        "time_series": 0,
+        "dataset": 10,
+        "method": 0,
+        "freshness": 0,
+        "source": 2,
+        "negative": 0,
+        "total": 26
+      },
+      "negative_hits": [],
+      "research_question": "core_rul_phm",
+      "recommendation": "精读",
+      "decision_reason": "主题相关 14；数据集相关 10；命中: remaining useful life, C-MAPSS, predictive maintenance",
+      "snippet": "Predictive maintenance, one of the most effective methods in reducing overall maintenance costs, has become an area of interest for data-driven researchers after the increasing automation, monitoring capabilities and…",
+      "canonical_id": "doi:10.1109/siu55565.2022.9864796",
+      "summary": "本论文提出了一种联合自编码器-回归架构用于预测剩余使用寿命，并在NASA涡扇发动机退化数据集上进行了验证。该架构结合了InceptionTime网络，以提高预测性能。"
+    },
+    {
+      "id": "s2:802b915cf3241da93990",
+      "title": "A Deep Learning Model for Remaining Useful Life Prediction of Aircraft Turbofan Engine on C-MAPSS Dataset",
+      "abstract": "In the era of industry 4.0, safety, efficiency and reliability of industrial machinery is an elementary concern in trade sectors. The accurate remaining useful life (RUL) prediction of an equipment in due time allows us to effectively plan the maintenance operation and mitigate the downtime to raise the revenue of business. In the past decade, data driven based RUL prognostic methods had gained a lot of interest among the researchers. There exist various deep learning-based techniques which have been used for accurate RUL estimation. One of the widely used technique in this regard is the long ",
+      "authors": [
+        "Owais Asif",
+        "S. A. Haider",
+        "S. R. Naqvi",
+        "John Zaki",
+        "K. Kwak"
+      ],
+      "date": "2022-01-01",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/802b915cf3241da93990981b33dd629d08427b1e",
+      "pdf": "",
+      "venue": "IEEE Access",
+      "citations": 84,
+      "doi": "10.1109/ACCESS.2022.3203406",
+      "relevance_score": 38,
+      "tags": [
+        "remaining useful life",
+        "C-MAPSS",
+        "RUL prediction",
+        "RUL estimation",
+        "turbofan engine degradation"
+      ],
+      "score_breakdown": {
+        "topic": 26,
+        "time_series": 0,
+        "dataset": 10,
+        "method": 0,
+        "freshness": 0,
+        "source": 2,
+        "negative": 0,
+        "total": 38
+      },
+      "negative_hits": [],
+      "research_question": "core_rul_phm",
+      "recommendation": "精读",
+      "decision_reason": "主题相关 26；数据集相关 10；命中: remaining useful life, C-MAPSS, RUL prediction",
+      "snippet": "The accurate remaining useful life (RUL) prediction of an equipment in due time allows us to effectively plan the maintenance operation and mitigate the downtime to raise the revenue of business.",
+      "canonical_id": "doi:10.1109/access.2022.3203406",
+      "summary": "本文提出了一种基于深度学习的模型，用于预测飞机涡扇发动机的剩余使用寿命（RUL），并利用C-MAPSS数据集进行验证。研究表明，该模型能够有效提高RUL预测的准确性，从而为维护操作的规划提供支持。"
+    },
+    {
+      "id": "s2:5cb5302ed93ffef3250a",
+      "title": "A review on online state of charge and state of health estimation for lithium-ion batteries in electric vehicles",
+      "abstract": "Abstract With electric vehicles (EVs) being widely accepted as a clean technology to solve carbon emissions in modern transportation, lithium-ion batteries (LIBs) have emerged as the dominant energy storage medium in EVs due to their superior properties, like high energy density, long lifespan, and low self-discharge. Performing real-time condition monitoring of LIBs, especially accurately estimating the state of charge (SOC) and state of health (SOH), is crucial to keep the LIBs work under safe state and maximize their performance. However, due to the non-linear dynamics caused by the electro",
+      "authors": [
+        "Z. Wang",
+        "Guojin Feng",
+        "D. Zhen",
+        "F. Gu",
+        "A. Ball"
+      ],
+      "date": "2021-11-01",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/5cb5302ed93ffef3250a2be34071457683f8063a",
+      "pdf": "",
+      "venue": "",
+      "citations": 364,
+      "doi": "10.1016/J.EGYR.2021.08.113",
+      "relevance_score": 18,
+      "tags": [
+        "state of health",
+        "condition monitoring"
+      ],
+      "score_breakdown": {
+        "topic": 16,
+        "time_series": 0,
+        "dataset": 0,
+        "method": 0,
+        "freshness": 0,
+        "source": 2,
+        "negative": 0,
+        "total": 18
+      },
+      "negative_hits": [],
+      "research_question": "core_rul_phm",
+      "recommendation": "精读",
+      "decision_reason": "主题相关 16；命中: state of health, condition monitoring",
+      "snippet": "Performing real-time condition monitoring of LIBs, especially accurately estimating the state of charge (SOC) and state of health (SOH), is crucial to keep the LIBs work under safe state and maximize their performance.",
+      "canonical_id": "doi:10.1016/j.egyr.2021.08.113",
+      "summary": "本文综述了在电动汽车中对锂离子电池的在线充电状态（SOC）和健康状态（SOH）估计的方法，强调了实时监测的重要性以及因电池非线性动态特性带来的挑战。研究指出，准确的SOC和SOH估计对于确保电池安全运行和优化性能至关重要。"
+    },
+    {
+      "id": "s2:874e5b273073bbcc6f06",
+      "title": "Challenges of machine learning-based RUL prognosis: A review on NASA's C-MAPSS data set",
+      "abstract": "The estimation of a system's or a component's remaining useful life (RUL) is considered the most complex task in predictive maintenance, at the same time the most beneficial one. In this brief review paper, we survey the state-of-the-art in machine learning-based RUL prognosis based on research on NASA's C-MAPSS data set. We identify the frequently used models, comparatively evaluate model performance and survey the used feature extraction methods. As a main contribution, we formulate challenges in the field, independently of the C-MAPSS data set. Among the challenges are interpretability, mod",
+      "authors": [
+        "Simon Vollert",
+        "Andreas Theissler"
+      ],
+      "date": "2021-09-07",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/874e5b273073bbcc6f068dd0d1a6649be4678fbe",
+      "pdf": "",
+      "venue": "IEEE International Conference on Emerging Technologies and Factory Automation",
+      "citations": 61,
+      "doi": "10.1109/ETFA45728.2021.9613682",
+      "relevance_score": 30,
+      "tags": [
+        "remaining useful life",
+        "C-MAPSS",
+        "predictive maintenance",
+        "transfer learning",
+        "domain adaptation"
+      ],
+      "score_breakdown": {
+        "topic": 18,
+        "time_series": 0,
+        "dataset": 10,
+        "method": 0,
+        "freshness": 0,
+        "source": 2,
+        "negative": 0,
+        "total": 30
+      },
+      "negative_hits": [],
+      "research_question": "core_rul_phm",
+      "recommendation": "精读",
+      "decision_reason": "主题相关 18；数据集相关 10；命中: remaining useful life, C-MAPSS, predictive maintenance",
+      "snippet": "The estimation of a system's or a component's remaining useful life (RUL) is considered the most complex task in predictive maintenance, at the same time the most beneficial one.",
+      "canonical_id": "doi:10.1109/etfa45728.2021.9613682",
+      "summary": "本文对基于机器学习的剩余使用寿命（RUL）预测进行了综述，主要基于NASA的C-MAPSS数据集，评估了常用模型的性能和特征提取方法，并提出了该领域面临的挑战，如可解释性等。"
+    },
+    {
+      "id": "s2:96aad4c64fa9d02a43a7",
+      "title": "Remaining useful life predictions for turbofan engine degradation based on concurrent semi-supervised model",
+      "abstract": "",
+      "authors": [
+        "Tiancheng Wang",
+        "Di Guo",
+        "Ximing Sun"
+      ],
+      "date": "2021-05-24",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/96aad4c64fa9d02a43a72a60345fe6ecb740af0b",
+      "pdf": "",
+      "venue": "Neural computing & applications (Print)",
+      "citations": 37,
+      "doi": "10.1007/s00521-021-06089-1",
+      "relevance_score": 18,
+      "tags": [
+        "remaining useful life",
+        "turbofan engine degradation"
+      ],
+      "score_breakdown": {
+        "topic": 16,
+        "time_series": 0,
+        "dataset": 0,
+        "method": 0,
+        "freshness": 0,
+        "source": 2,
+        "negative": 0,
+        "total": 18
+      },
+      "negative_hits": [],
+      "research_question": "core_rul_phm",
+      "recommendation": "精读",
+      "decision_reason": "主题相关 16；命中: remaining useful life, turbofan engine degradation",
+      "snippet": "",
+      "canonical_id": "doi:10.1007/s00521-021-06089-1",
+      "summary": "本文研究了涡扇发动机退化的剩余使用寿命预测，采用了并行半监督模型进行分析。研究结果表明，该模型能够有效提高预测精度。"
+    },
+    {
+      "id": "s2:a427c42db24b3ad379c9",
+      "title": "A review on state of health estimations and remaining useful life prognostics of lithium-ion batteries",
+      "abstract": "Abstract Lithium-ion batteries have been generally used in industrial applications. In order to ensure the safety of the power system and reduce the operation cost, it is particularly important to accurately and timely estimate the state of health (SOH) and predict the remaining useful life (RUL) of lithium-ion batteries. With the development of intelligent tools such as artificial intelligence, big data analysis and the Internet of Things, the methods of battery health assessment have been gradually diversified. Here, we have compiled four publicly available battery datasets. The SOH estimati",
+      "authors": [
+        "Ming‐Feng Ge",
+        "Yiben Liu",
+        "Xingxing Jiang",
+        "Jie Liu"
+      ],
+      "date": "2021-04-01",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/a427c42db24b3ad379c9c3fd91b56e1d574cde51",
+      "pdf": "",
+      "venue": "",
+      "citations": 359,
+      "doi": "10.1016/J.MEASUREMENT.2021.109057",
+      "relevance_score": 30,
+      "tags": [
+        "remaining useful life",
+        "state of health"
+      ],
+      "score_breakdown": {
+        "topic": 28,
+        "time_series": 0,
+        "dataset": 0,
+        "method": 0,
+        "freshness": 0,
+        "source": 2,
+        "negative": 0,
+        "total": 30
+      },
+      "negative_hits": [],
+      "research_question": "core_rul_phm",
+      "recommendation": "精读",
+      "decision_reason": "主题相关 28；命中: remaining useful life, state of health",
+      "snippet": "In order to ensure the safety of the power system and reduce the operation cost, it is particularly important to accurately and timely estimate the state of health (SOH) and predict the remaining useful life (RUL) of…",
+      "canonical_id": "doi:10.1016/j.measurement.2021.109057",
+      "summary": "本文综述了锂离子电池的健康状态估计和剩余使用寿命预测的方法，强调了准确及时评估电池健康状态的重要性，并整理了四个公开的电池数据集以支持相关研究。"
+    },
+    {
+      "id": "s2:2051548f7681c96d603d",
+      "title": "A Transformer-based Framework for Multivariate Time Series Representation Learning",
+      "abstract": "We present a novel framework for multivariate time series representation learning based on the transformer encoder architecture. The framework includes an unsupervised pre-training scheme, which can offer substantial performance benefits over fully supervised learning on downstream tasks, both with but even without leveraging additional unlabeled data, i.e., by reusing the existing data samples. Evaluating our framework on several public multivariate time series datasets from various domains and with diverse characteristics, we demonstrate that it performs significantly better than the best cu",
+      "authors": [
+        "George Zerveas",
+        "Srideepika Jayaraman",
+        "Dhaval Patel",
+        "A. Bhamidipaty",
+        "Carsten Eickhoff"
+      ],
+      "date": "2020-10-06",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/2051548f7681c96d603de932ee23406c525276f9",
+      "pdf": "https://arxiv.org/pdf/2010.02803",
+      "venue": "Knowledge Discovery and Data Mining",
+      "citations": 1501,
+      "doi": "10.1145/3447548.3467401",
+      "relevance_score": 28,
+      "tags": [
+        "multivariate time series",
+        "transformer"
+      ],
+      "score_breakdown": {
+        "topic": 0,
+        "time_series": 24,
+        "dataset": 0,
+        "method": 2,
+        "freshness": 0,
+        "source": 2,
+        "negative": 0,
+        "total": 28
+      },
+      "negative_hits": [],
+      "research_question": "time_series_method",
+      "recommendation": "方法借鉴",
+      "decision_reason": "时间序列 24；方法可借鉴 2；命中: multivariate time series, transformer",
+      "snippet": "We present a novel framework for multivariate time series representation learning based on the transformer encoder architecture.",
+      "canonical_id": "doi:10.1145/3447548.3467401",
+      "summary": "本文提出了一种基于变换器编码器架构的多变量时间序列表示学习新框架，该框架包含无监督预训练方案，能够在下游任务中显著提升性能。通过在多个公共多变量时间序列数据集上的评估，结果表明该框架的表现优于现有的最佳方法。"
+    },
+    {
+      "id": "s2:75e924bd79d27a23f3f9",
+      "title": "Connecting the Dots: Multivariate Time Series Forecasting with Graph Neural Networks",
+      "abstract": "Modeling multivariate time series has long been a subject that has attracted researchers from a diverse range of fields including economics, finance, and traffic. A basic assumption behind multivariate time series forecasting is that its variables depend on one another but, upon looking closely, it is fair to say that existing methods fail to fully exploit latent spatial dependencies between pairs of variables. In recent years, meanwhile, graph neural networks (GNNs) have shown high capability in handling relational dependencies. GNNs require well-defined graph structures for information propa",
+      "authors": [
+        "Zonghan Wu",
+        "Shirui Pan",
+        "Guodong Long",
+        "Jing Jiang",
+        "Xiaojun Chang"
+      ],
+      "date": "2020-05-24",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/75e924bd79d27a23f3f93d9b1ab62a779505c8d2",
+      "pdf": "https://arxiv.org/pdf/2005.11650",
+      "venue": "Knowledge Discovery and Data Mining",
+      "citations": 2242,
+      "doi": "10.1145/3394486.3403118",
+      "relevance_score": 26,
+      "tags": [
+        "time series forecasting",
+        "multivariate time series"
+      ],
+      "score_breakdown": {
+        "topic": 0,
+        "time_series": 24,
+        "dataset": 0,
+        "method": 0,
+        "freshness": 0,
+        "source": 2,
+        "negative": 0,
+        "total": 26
+      },
+      "negative_hits": [],
+      "research_question": "time_series_method",
+      "recommendation": "方法借鉴",
+      "decision_reason": "时间序列 24；命中: time series forecasting, multivariate time series",
+      "snippet": "A basic assumption behind multivariate time series forecasting is that its variables depend on one another but, upon looking closely, it is fair to say that existing methods fail to fully exploit latent spatial…",
+      "canonical_id": "doi:10.1145/3394486.3403118",
+      "summary": "本论文研究了多变量时间序列预测，提出利用图神经网络（GNNs）来更好地捕捉变量之间的潜在空间依赖关系。通过构建适当的图结构，GNNs能够有效处理变量之间的关系，从而提高预测性能。"
+    },
+    {
+      "id": "s2:17880e430005888b01e3",
+      "title": "Remaining Useful Life Predictions for Turbofan Engine Degradation Using Online Long Short-Term Memory Network",
+      "abstract": "\n In any industrial system, accurate prediction of Remaining Useful Life (RUL) is important for Prognostics and Health Management (PHM), so as to detect breakdown of system well in advance and take proper measures. Different methods are available in the literature that have been proposed for prediction of RUL. Among these methods, the data driven method is accepted to be the most reliable by many researchers, due to the use of real time sensor based vibrational and/or pressure data. These data are acquired in time domain. Methods such as Recurrent Neural Networks (RNNs), Convolutional Neural N",
+      "authors": [
+        "Pallabi Kakati",
+        "D. Dandotiya",
+        "B. Pal"
+      ],
+      "date": "2019-12-05",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/17880e430005888b01e35e3ac6d410a6a09664a3",
+      "pdf": "",
+      "venue": "Volume 2: Combustion, Fuels, and Emissions; Renewable Energy: Solar and Wind; Inlets and Exhausts; Emerging Technologies: Hybrid Electric Propulsion and Alternate Power Generation; GT Operation and Maintenance; Materials and Manufacturing (Including Coatings, Composites, CMCs, Additive Manufacturing",
+      "citations": 5,
+      "doi": "10.1115/gtindia2019-2368",
+      "relevance_score": 40,
+      "tags": [
+        "remaining useful life",
+        "C-MAPSS",
+        "prognostics and health management",
+        "RUL estimation",
+        "turbofan engine degradation"
+      ],
+      "score_breakdown": {
+        "topic": 33,
+        "time_series": 0,
+        "dataset": 5,
+        "method": 0,
+        "freshness": 0,
+        "source": 2,
+        "negative": 0,
+        "total": 40
+      },
+      "negative_hits": [],
+      "research_question": "core_rul_phm",
+      "recommendation": "精读",
+      "decision_reason": "主题相关 33；数据集相关 5；命中: remaining useful life, C-MAPSS, prognostics and health management",
+      "snippet": "In any industrial system, accurate prediction of Remaining Useful Life (RUL) is important for Prognostics and Health Management (PHM), so as to detect breakdown of system well in advance and take proper measures.",
+      "canonical_id": "doi:10.1115/gtindia2019-2368",
+      "summary": "本论文研究了涡扇发动机退化的剩余使用寿命（RUL）预测，采用在线长短期记忆网络（LSTM）方法，利用实时传感器获取的振动和压力数据进行分析。研究结果表明，该方法在预测RUL方面具有较高的准确性。"
+    },
+    {
+      "id": "s2:440d248d148f7e36dad2",
+      "title": "Robust Anomaly Detection for Multivariate Time Series through Stochastic Recurrent Neural Network",
+      "abstract": "Industry devices (i.e., entities) such as server machines, spacecrafts, engines, etc., are typically monitored with multivariate time series, whose anomaly detection is critical for an entity's service quality management. However, due to the complex temporal dependence and stochasticity of multivariate time series, their anomaly detection remains a big challenge. This paper proposes OmniAnomaly, a stochastic recurrent neural network for multivariate time series anomaly detection that works well robustly for various devices. Its core idea is to capture the normal patterns of multivariate time s",
+      "authors": [
+        "Ya Su",
+        "Youjian Zhao",
+        "Chenhao Niu",
+        "Rong Liu",
+        "Wei Sun"
+      ],
+      "date": "2019-07-25",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/440d248d148f7e36dad232e48f1c5c1cbc556d86",
+      "pdf": "",
+      "venue": "Knowledge Discovery and Data Mining",
+      "citations": 1960,
+      "doi": "10.1145/3292500.3330672",
+      "relevance_score": 21,
+      "tags": [
+        "multivariate time series",
+        "time series anomaly detection"
+      ],
+      "score_breakdown": {
+        "topic": 0,
+        "time_series": 19,
+        "dataset": 0,
+        "method": 0,
+        "freshness": 0,
+        "source": 2,
+        "negative": 0,
+        "total": 21
+      },
+      "negative_hits": [],
+      "research_question": "time_series_method",
+      "recommendation": "方法借鉴",
+      "decision_reason": "时间序列 19；命中: multivariate time series, time series anomaly detection",
+      "snippet": "This paper proposes OmniAnomaly, a stochastic recurrent neural network for multivariate time series anomaly detection that works well robustly for various devices.",
+      "canonical_id": "doi:10.1145/3292500.3330672"
+    },
+    {
+      "id": "s2:5177be422e9eadcc8065",
+      "title": "Remaining useful life predictions for turbofan engine degradation using semi-supervised deep architecture",
+      "abstract": "Abstract In recent years, research has proposed several deep learning (DL) approaches to providing reliable remaining useful life (RUL) predictions in Prognostics and Health Management (PHM) applications. Although supervised DL techniques, such as Convolutional Neural Network and Long-Short Term Memory, have outperformed traditional prognosis algorithms, they are still dependent on large labeled training datasets. With respect to real-life PHM applications, high-quality labeled training data might be both challenging and time-consuming to acquire. Alternatively, unsupervised DL techniques intr",
+      "authors": [
+        "A. L. Ellefsen",
+        "Emil Bjørlykhaug",
+        "V. Æsøy",
+        "Sergey Ushakov",
+        "Houxiang Zhang"
+      ],
+      "date": "2019-03-01",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/5177be422e9eadcc806551c78430173e5a4a3f42",
+      "pdf": "",
+      "venue": "Reliability Engineering & System Safety",
+      "citations": 464,
+      "doi": "10.1016/J.RESS.2018.11.027",
+      "relevance_score": 40,
+      "tags": [
+        "remaining useful life",
+        "C-MAPSS",
+        "prognostics and health management",
+        "RUL prediction",
+        "turbofan engine degradation"
+      ],
+      "score_breakdown": {
+        "topic": 33,
+        "time_series": 0,
+        "dataset": 5,
+        "method": 0,
+        "freshness": 0,
+        "source": 2,
+        "negative": 0,
+        "total": 40
+      },
+      "negative_hits": [],
+      "research_question": "core_rul_phm",
+      "recommendation": "精读",
+      "decision_reason": "主题相关 33；数据集相关 5；命中: remaining useful life, C-MAPSS, prognostics and health management",
+      "snippet": "Abstract In recent years, research has proposed several deep learning (DL) approaches to providing reliable remaining useful life (RUL) predictions in Prognostics and Health Management (PHM) applications.",
+      "canonical_id": "doi:10.1016/j.ress.2018.11.027",
+      "summary": "本论文提出了一种半监督深度学习架构，用于涡扇发动机退化的剩余使用寿命预测。研究表明，该方法在缺乏大量标注训练数据的情况下，仍能提供可靠的预测结果。"
+    },
+    {
+      "id": "s2:fbe6c0f413f7da98dda1",
+      "title": "Towards a smarter battery management system: A critical review on battery state of health monitoring methods",
+      "abstract": "Abstract To ensure the driving safety and avoid potential failures for electric vehicles, evaluating the health state of the battery properly is of significant importance. This study aims to serve as a useful support for researchers and practitioners by systematically reviewing the available literature on state of health estimation methods. These methods can be divided into two types: experimental and model-based estimation methods. Experimental methods are conducted in a laboratory environment to analyze battery aging process and provide theoretical support for model-based methods. Based on a",
+      "authors": [
+        "R. Xiong",
+        "Linlin Li",
+        "Jinpeng Tian"
+      ],
+      "date": "2018-11-01",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/fbe6c0f413f7da98dda19dec169bf03b5bb69262",
+      "pdf": "",
+      "venue": "Journal of Power Sources",
+      "citations": 885,
+      "doi": "10.1016/J.JPOWSOUR.2018.10.019",
+      "relevance_score": 28,
+      "tags": [
+        "state of health"
+      ],
+      "score_breakdown": {
+        "topic": 26,
+        "time_series": 0,
+        "dataset": 0,
+        "method": 0,
+        "freshness": 0,
+        "source": 2,
+        "negative": 0,
+        "total": 28
+      },
+      "negative_hits": [],
+      "research_question": "core_rul_phm",
+      "recommendation": "精读",
+      "decision_reason": "主题相关 26；命中: state of health",
+      "snippet": "This study aims to serve as a useful support for researchers and practitioners by systematically reviewing the available literature on state of health estimation methods.",
+      "canonical_id": "doi:10.1016/j.jpowsour.2018.10.019"
+    },
+    {
+      "id": "s2:bd723bc768baa78b7bd3",
+      "title": "Recurrent Neural Networks for Multivariate Time Series with Missing Values",
+      "abstract": "Multivariate time series data in practical applications, such as health care, geoscience, and biology, are characterized by a variety of missing values. In time series prediction and other related tasks, it has been noted that missing values and their missing patterns are often correlated with the target labels, a.k.a., informative missingness. There is very limited work on exploiting the missing patterns for effective imputation and improving prediction performance. In this paper, we develop novel deep learning models, namely GRU-D, as one of the early attempts. GRU-D is based on Gated Recurr",
+      "authors": [
+        "Zhengping Che",
+        "S. Purushotham",
+        "Kyunghyun Cho",
+        "D. Sontag",
+        "Yan Liu"
+      ],
+      "date": "2016-06-06",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/bd723bc768baa78b7bd3e6f28a401d6d5cfe87f8",
+      "pdf": "https://arxiv.org/pdf/1606.01865",
+      "venue": "Scientific Reports",
+      "citations": 2509,
+      "doi": "10.1038/s41598-018-24271-9",
+      "relevance_score": 25,
+      "tags": [
+        "time series prediction",
+        "time series classification",
+        "multivariate time series"
+      ],
+      "score_breakdown": {
+        "topic": 0,
+        "time_series": 23,
+        "dataset": 0,
+        "method": 0,
+        "freshness": 0,
+        "source": 2,
+        "negative": 0,
+        "total": 25
+      },
+      "negative_hits": [],
+      "research_question": "time_series_method",
+      "recommendation": "方法借鉴",
+      "decision_reason": "时间序列 23；命中: time series prediction, time series classification, multivariate time series",
+      "snippet": "Multivariate time series data in practical applications, such as health care, geoscience, and biology, are characterized by a variety of missing values.",
+      "canonical_id": "doi:10.1038/s41598-018-24271-9",
+      "summary": "本论文针对多变量时间序列数据中的缺失值问题，提出了一种基于门控循环单元（GRU）的深度学习模型GRU-D，旨在利用缺失模式进行有效的填补和提升预测性能。研究表明，缺失值及其模式与目标标签之间存在相关性，即信息性缺失。"
+    },
+    {
       "id": "openalex:W7140163800",
       "title": "Time Series Forecasting with Prophet using Python coding",
       "abstract": "",
@@ -10398,7 +12490,7 @@
         "cs.LG",
         "cs.AI"
       ],
-      "relevance_score": 18,
+      "relevance_score": 16,
       "tags": [
         "transformer"
       ],
@@ -10408,15 +12500,15 @@
         "time_series": 11,
         "dataset": 0,
         "method": 1,
-        "freshness": 3,
+        "freshness": 1,
         "source": 3,
         "negative": 0,
-        "total": 18
+        "total": 16
       },
       "negative_hits": [],
       "research_question": "time_series_method",
       "recommendation": "方法借鉴",
-      "decision_reason": "时间序列 11；方法可借鉴 1；近期 3；命中: transformer",
+      "decision_reason": "时间序列 11；方法可借鉴 1；近期 1；命中: transformer",
       "snippet": "Normalization and scaling are fundamental preprocessing steps in time series modeling, yet their role in Transformer-based models remains underexplored from a theoretical perspective.",
       "canonical_id": "arxiv:2602.17568",
       "summary": "本论文对时间序列建模中不同归一化策略（实例基础和全局缩放）对基于Transformer架构的表达能力的影响进行了首次正式分析，并提出了一种新的时间序列表达能力框架，以量化模型区分相似和不相似输入的能力。"
