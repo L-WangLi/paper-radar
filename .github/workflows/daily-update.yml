@@ -30,11 +30,21 @@ jobs:
         with:
           python-version: "3.11"
 
+      - name: Get UTC date
+        id: date
+        run: echo "date=$(date -u +%Y-%m-%d)" >> "$GITHUB_OUTPUT"
+
       - name: Restore data cache
         uses: actions/cache@v4
         with:
           path: data/cache
-          key: paper-cache-${{ github.run_number }}
+          # Each cache entry's items are themselves keyed by UTC date internally
+          # (see get_cache/set_cache in fetch_papers.py), so a cache saved under a
+          # given date can only ever produce hits for reruns on that same date.
+          # Keying the Actions cache by date too means same-day reruns actually
+          # reuse it, instead of every run_number minting a brand-new cache entry
+          # that piles up until GitHub's 10GB-per-repo limit starts evicting them.
+          key: paper-cache-${{ steps.date.outputs.date }}
           restore-keys: |
             paper-cache-
 

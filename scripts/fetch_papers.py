@@ -5,6 +5,7 @@ Sources: arXiv, Semantic Scholar, OpenReview, OpenAlex, CrossRef, HuggingFace Da
 Outputs date-based JSON files + index.json for the static site.
 """
 
+import concurrent.futures
 import json
 import hashlib
 import os
@@ -12,6 +13,7 @@ import re
 import time
 import urllib.request
 import urllib.parse
+import urllib.error
 import xml.etree.ElementTree as ET
 from datetime import datetime, timedelta
 from pathlib import Path
@@ -20,8 +22,11 @@ from pathlib import Path
 # Configuration
 # ============================================================
 
-RESEARCH_KEYWORDS = [
-    # ── 第一梯队：每个研究方向各出一个代表词，保证任意限额下均匀覆盖 ──────
+# 第一梯队：每个研究方向各出一个代表词，保证任意限额下均匀覆盖（32 个）。
+# 用于限额较紧的源（Semantic Scholar/OpenAlex）：这些源按关键词逐个请求且限速较严，
+# 只用第一梯队可以在预算内跑完；不要用切片下标去截断 RESEARCH_KEYWORDS，
+# 那样每次调整下面的列表都要同步改下标，容易悄悄漏词或越界。
+RESEARCH_KEYWORDS_TIER1 = [
     # 位置  1 — RUL/PHM 领域
     "remaining useful life",
     "state of health",
@@ -51,7 +56,7 @@ RESEARCH_KEYWORDS = [
     "XJTU-SY",
     "condition monitoring",
     "IMS bearing",
-    # 位置 21-31 — 剩余数据集 + 细分领域词
+    # 位置 21-32 — 剩余数据集 + 细分领域词
     "CWRU bearing",
     "Paderborn bearing",
     "SEU bearing",
@@ -62,13 +67,19 @@ RESEARCH_KEYWORDS = [
     "turbofan engine degradation",
     "condition-based maintenance",
     "condition based maintenance",
-    # ── 第二梯队：方法×领域复合词（按研究问题描述，不含具体架构名）─────────
+]
+
+# 第二梯队：方法×领域复合词（按研究问题描述，不含具体架构名）。只喂给限额宽松的源
+# （arXiv/CrossRef 走全量 RESEARCH_KEYWORDS）。
+RESEARCH_KEYWORDS_TIER2 = [
     "physics-informed degradation",
     "self-supervised prognostics",
     "federated learning predictive maintenance",
     "time series anomaly detection",
     "time series foundation model",
 ]
+
+RESEARCH_KEYWORDS = RESEARCH_KEYWORDS_TIER1 + RESEARCH_KEYWORDS_TIER2
 
 AI_FRONTIER_KEYWORDS = [
     "time series foundation model",
@@ -149,12 +160,6 @@ TIME_SERIES_TERMS = [
     "time series representation", "multivariate time series", "time series",
 ]
 
-TIME_SERIES_RESEARCH_TERMS = [
-    "time series forecasting", "time series prediction", "time series classification",
-    "time series anomaly detection", "time series foundation model",
-    "time series representation",
-]
-
 DOMAIN_CONTEXT_TERMS = [
     "degradation prediction", "degradation modeling", "turbofan engine degradation",
     "turbofan degradation", "bearing degradation", "condition monitoring",
@@ -229,7 +234,6 @@ RSS_FEEDS = [
     # Chinese AI Media
     {"name": "量子位", "url": "https://www.qbitai.com/feed", "category": "ai_frontier"},
     {"name": "机器之心", "url": "https://www.jiqizhixin.com/rss", "category": "ai_frontier"},
-    {"name": "AI科技评论", "url": "https://aitechtalk.com/feed", "category": "ai_frontier"},
     {"name": "36氪 AI", "url": "https://36kr.com/feed", "category": "ai_frontier"},
 ]
 
@@ -250,7 +254,8 @@ CACHE_EXPIRY_DAYS = 7
 # ============================================================
 
 def safe_request(url, headers=None, max_retries=3, delay=2):
-    """HTTP request with retries."""
+    """HTTP request with retries. Client errors other than 429 (rate-limited) are not
+    retried — a 404/403 won't start working on attempt 2, so retrying just burns time."""
     req = urllib.request.Request(url)
     req.add_header("User-Agent", "PaperRadar/1.0 (research-tool)")
     if headers:
@@ -261,6 +266,13 @@ def safe_request(url, headers=None, max_retries=3, delay=2):
         try:
             with urllib.request.urlopen(req, timeout=30) as resp:
                 return resp.read().decode("utf-8")
+        except urllib.error.HTTPError as e:
+            if 400 <= e.code < 500 and e.code != 429:
+                print(f"  [skip] {url[:80]}... → HTTP {e.code} (not retryable)")
+                return None
+            print(f"  [retry {attempt+1}/{max_retries}] {url[:80]}... → HTTP {e.code}")
+            if attempt < max_retries - 1:
+                time.sleep(delay * (attempt + 1))
         except Exception as e:
             print(f"  [retry {attempt+1}/{max_retries}] {url[:80]}... → {e}")
             if attempt < max_retries - 1:
@@ -318,10 +330,6 @@ def term_in_text(text, term):
     if term.upper() in SHORT_KEYWORDS or len(term_l) <= 4:
         return re.search(rf"\b{re.escape(term_l)}\b", text_l) is not None
     return term_l in text_l
-
-
-def has_any_term(text, terms):
-    return any(term_in_text(text, term) for term in terms)
 
 
 def matched_terms(text, terms):
@@ -566,7 +574,14 @@ def is_relevant_paper(paper, min_score=6):
     has_strong_positive = (
         score_breakdown["topic"] >= 8
         or score_breakdown["dataset"] >= 10
-        or (score_breakdown["time_series"] >= 8 and has_any_term(text, TIME_SERIES_RESEARCH_TERMS))
+        or (
+            # A time-series-forecasting title alone isn't evidence of RUL/PHM relevance —
+            # also require a (however weak) RUL/PHM/domain or dataset signal elsewhere in
+            # the paper, so generic time-series-methods papers with no equipment/health
+            # angle get excluded instead of auto-passing on the title match alone.
+            score_breakdown["time_series"] >= 8
+            and (score_breakdown["topic"] > 0 or score_breakdown["dataset"] > 0)
+        )
     )
     return score >= min_score and has_strong_positive
 
@@ -868,8 +883,7 @@ def fetch_openreview(venues=None, max_per_venue=30):
                     "relevance_score": 0,
                     "tags": tags,
                 }
-                if is_relevant_paper(paper_item, min_score=6):
-                    batch.append(paper_item)
+                batch.append(paper_item)
 
             time.sleep(3)  # OpenReview rate limit
 
@@ -934,11 +948,10 @@ def fetch_huggingface_daily():
             "tags": tags,
             "is_ai_frontier": True,
         }
-        if is_relevant_paper(paper_item, min_score=6):
-            papers.append(paper_item)
+        papers.append(paper_item)
 
     set_cache(cache_key, papers)
-    print(f"  ✓ {len(papers)} relevant daily papers")
+    print(f"  ✓ {len(papers)} daily papers fetched (final relevance gate runs later)")
     return papers
 
 
@@ -997,8 +1010,7 @@ def fetch_rss_feeds():
                     "is_ai_frontier": True,
                     "is_blog": True,
                 }
-                if is_relevant_paper(rss_item, min_score=6):
-                    batch.append(rss_item)
+                batch.append(rss_item)
 
             # Try Atom format if no items found
             if not batch:
@@ -1026,8 +1038,7 @@ def fetch_rss_feeds():
                         "is_ai_frontier": True,
                         "is_blog": True,
                     }
-                    if is_relevant_paper(rss_item, min_score=6):
-                        batch.append(rss_item)
+                    batch.append(rss_item)
 
         except ET.ParseError:
             print(f"  ✗ {feed_info['name']}: XML parse error")
@@ -1234,8 +1245,7 @@ def fetch_openalex(keywords, max_per_kw=15):
                 "venue": venue,
                 "doi": item.get("doi", ""),
             }
-            if is_relevant_paper(paper_item, min_score=6):
-                batch.append(paper_item)
+            batch.append(paper_item)
 
         set_cache(cache_key, batch)
         papers.extend(batch)
@@ -1330,37 +1340,33 @@ def fetch_arxiv_rss(categories=None):
 # ============================================================
 
 def deduplicate(papers):
-    """Remove duplicates by normalized title."""
-    seen = {}
-    unique = []
+    """Remove duplicates by normalized title, keeping the most useful record: a curated
+    entry always wins (merged with any richer fields the auto-fetched duplicate has),
+    otherwise the freshest/most complete record wins. Output order is arbitrary — every
+    caller re-sorts by date/relevance right after this, so there's no need to preserve
+    insertion order (and thus no need for the O(n) list.remove that an order-preserving
+    version costs per duplicate)."""
+    best = {}
     for p in papers:
         norm = normalize_title(p["title"])
         if not norm:
             continue
-        if norm in seen:
-            existing = seen[norm]
-            if p.get("curated") and not existing.get("curated"):
-                unique.remove(existing)
-                merged = {**existing, **p}
-                unique.append(merged)
-                seen[norm] = merged
-                continue
-            if existing.get("curated"):
-                continue
-            date_new = p.get("date", "") or ""
-            date_old = existing.get("date", "") or ""
-            if date_new and (not date_old or date_new > date_old):
-                unique.remove(existing)
-                unique.append(p)
-                seen[norm] = p
-            elif (p.get("pdf") and not existing.get("pdf")):
-                unique.remove(existing)
-                unique.append(p)
-                seen[norm] = p
-        else:
-            seen[norm] = p
-            unique.append(p)
-    return unique
+        existing = best.get(norm)
+        if existing is None:
+            best[norm] = p
+            continue
+        if p.get("curated") and not existing.get("curated"):
+            best[norm] = {**existing, **p}
+            continue
+        if existing.get("curated"):
+            continue
+        date_new = p.get("date", "") or ""
+        date_old = existing.get("date", "") or ""
+        if date_new and (not date_old or date_new > date_old):
+            best[norm] = p
+        elif p.get("pdf") and not existing.get("pdf"):
+            best[norm] = p
+    return list(best.values())
 
 
 def canonical_paper_id(paper):
@@ -1411,24 +1417,43 @@ def main():
     today = datetime.utcnow().strftime("%Y-%m-%d")
     previous_summaries = load_previous_summaries()
 
-    # 1. Fetch from all sources
+    # 1. Fetch from all sources. Each job below talks to a different API/domain with its
+    # own rate limit, so the jobs run concurrently — this is what actually shrinks the
+    # ~5-8 min wall-clock time, since the per-keyword sleeps inside each job are each
+    # source's own politeness requirement, not something concurrency can skip.
+    # Everything that hits arxiv.org (abstract search + RSS) stays inside one job so
+    # requests to that one domain remain serialized.
     manual_papers = load_manual_papers()
-    arxiv_research = fetch_arxiv(RESEARCH_KEYWORDS, max_per_query=20)
-    arxiv_ai = fetch_arxiv(AI_FRONTIER_KEYWORDS, max_per_query=10)
-    for p in arxiv_ai:
-        p["is_ai_frontier"] = True
 
-    arxiv_rss = fetch_arxiv_rss(["cs.LG", "cs.AI", "eess.SP", "eess.SY", "stat.ML", "cs.RO"])
-    crossref_papers = fetch_crossref()
-    s2_papers = fetch_semantic_scholar(RESEARCH_KEYWORDS[:31], max_per_query=15)
-    openalex_papers = fetch_openalex(RESEARCH_KEYWORDS[:31], max_per_kw=15)
-    or_papers = fetch_openreview()
-    hf_papers = fetch_huggingface_daily()
-    rss_items = fetch_rss_feeds()
+    def fetch_arxiv_group():
+        arxiv_research = fetch_arxiv(RESEARCH_KEYWORDS, max_per_query=20)
+        arxiv_ai = fetch_arxiv(AI_FRONTIER_KEYWORDS, max_per_query=10)
+        for p in arxiv_ai:
+            p["is_ai_frontier"] = True
+        arxiv_rss = fetch_arxiv_rss(["cs.LG", "cs.AI", "eess.SP", "eess.SY", "stat.ML", "cs.RO"])
+        return arxiv_research + arxiv_ai + arxiv_rss
 
-    # 2. Combine, filter by RUL/PHM/time-series relevance, and deduplicate
-    all_papers = (manual_papers + arxiv_research + arxiv_ai + arxiv_rss + crossref_papers
-                  + s2_papers + openalex_papers + or_papers + hf_papers + rss_items)
+    jobs = {
+        "arxiv": fetch_arxiv_group,
+        "crossref": fetch_crossref,
+        "semantic_scholar": lambda: fetch_semantic_scholar(RESEARCH_KEYWORDS_TIER1, max_per_query=15),
+        "openalex": lambda: fetch_openalex(RESEARCH_KEYWORDS_TIER1, max_per_kw=15),
+        "openreview": fetch_openreview,
+        "huggingface": fetch_huggingface_daily,
+        "rss": fetch_rss_feeds,
+    }
+
+    all_papers = list(manual_papers)
+    with concurrent.futures.ThreadPoolExecutor(max_workers=len(jobs)) as executor:
+        futures = {executor.submit(fn): name for name, fn in jobs.items()}
+        for future in concurrent.futures.as_completed(futures):
+            name = futures[future]
+            try:
+                all_papers.extend(future.result())
+            except Exception as e:
+                print(f"  ✗ [{name}] job failed, skipping this source for today: {e}")
+
+    # 2. Filter by RUL/PHM/time-series relevance, and deduplicate
     all_papers = filter_relevant_papers(all_papers, min_score=6)
     all_papers = deduplicate(all_papers)
     for paper in all_papers:
