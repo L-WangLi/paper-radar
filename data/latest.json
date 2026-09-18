@@ -1,16 +1,16 @@
 {
-  "date": "2026-09-17",
-  "fetched_at": "2026-09-17T02:44:56.397540Z",
+  "date": "2026-09-18",
+  "fetched_at": "2026-09-18T02:30:23.290004Z",
   "stats": {
-    "total": 105,
-    "research": 105,
+    "total": 124,
+    "research": 124,
     "ai_frontier": 0,
     "sources": {
       "arxiv": 0,
       "curated": 4,
       "crossref": 44,
-      "semantic_scholar": 10,
-      "openalex": 46,
+      "semantic_scholar": 28,
+      "openalex": 47,
       "openreview": 1,
       "huggingface": 0,
       "rss": 0
@@ -196,6 +196,203 @@
       "snippet": "The framework combines a transferable large-language-model backbone with dual-score sample selection to improve RUL learning under high-dimensional, multi-condition sensor data and limited labels."
     },
     {
+      "id": "openalex:W7213463999",
+      "title": "Toward accurate remaining useful life and state of health estimation using reinforced graph-based physics-informed neural networks enhanced with dynamic weights",
+      "abstract": "Accurate estimation of Remaining Useful Life (RUL) and State of Health (SoH) is essential for reliable Prognostics and Health Management (PHM), supporting timely maintenance and dependable industrial operation. However, hybrid models that combine data-driven learning with physics-based regularization often rely on fixed loss weights and can be difficult to calibrate when separately applied to assets with different degradation behaviors. This study introduces Reinforced Graph based Physics-informed Networks with Dynamic Weighting (RGPD), a unified framework for spatio-temporal degradation model",
+      "authors": [
+        "Mohammad Mohammadi Pour",
+        "Ali Ghasemzadeh",
+        "Mohamad Ali Bijarchi",
+        "Mohammad Behshad Shafii"
+      ],
+      "date": "2026-09-17",
+      "source": "OpenAlex",
+      "url": "https://doi.org/10.1016/j.aei.2026.105232",
+      "pdf": "",
+      "relevance_score": 55,
+      "tags": [
+        "remaining useful life",
+        "state of health",
+        "C-MAPSS",
+        "prognostics and health management",
+        "degradation modeling",
+        "physics-informed"
+      ],
+      "venue": "",
+      "doi": "https://doi.org/10.1016/j.aei.2026.105232",
+      "score_breakdown": {
+        "topic": 39,
+        "time_series": 0,
+        "dataset": 5,
+        "method": 2,
+        "freshness": 8,
+        "source": 1,
+        "negative": 0,
+        "total": 55
+      },
+      "negative_hits": [],
+      "research_question": "core_rul_phm",
+      "recommendation": "精读",
+      "decision_reason": "主题相关 39；数据集相关 5；方法可借鉴 2；近期 8；命中: remaining useful life, state of health, C-MAPSS",
+      "snippet": "Accurate estimation of Remaining Useful Life (RUL) and State of Health (SoH) is essential for reliable Prognostics and Health Management (PHM), supporting timely maintenance and dependable industrial operation.",
+      "canonical_id": "doi:10.1016/j.aei.2026.105232"
+    },
+    {
+      "id": "openalex:W7213470706",
+      "title": "Autoregressive Semi‐Connected Autoencoder for Remaining Useful Life Prediction of Rolling Bearings With Threshold‐Free First Prediction Time Detection",
+      "abstract": "ABSTRACT Remaining useful life (RUL) prediction of rolling bearings is critical for machinery prognostics. Accurately constructing health indicators (HIs) is a vital prerequisite, yet physical HIs are highly susceptible to noise. To address this, we propose a novel framework based on the Autoregressive Semi‐Connected Autoencoder (ARSCAE). As the core architecture, ARSCAE integrates semi‐connected weight constraints and autoregressive temporal mechanisms, overcoming traditional fully‐connected limitations while reducing parameters and overfitting risks. Specifically, the decoder utilizes fully ",
+      "authors": [
+        "Jiachen Pang",
+        "Tian Han",
+        "Weizhong Wang"
+      ],
+      "date": "2026-09-17",
+      "source": "OpenAlex",
+      "url": "https://doi.org/10.1002/qre.70396",
+      "pdf": "",
+      "relevance_score": 28,
+      "tags": [
+        "remaining useful life",
+        "RUL prediction"
+      ],
+      "venue": "",
+      "doi": "https://doi.org/10.1002/qre.70396",
+      "score_breakdown": {
+        "topic": 19,
+        "time_series": 0,
+        "dataset": 0,
+        "method": 0,
+        "freshness": 8,
+        "source": 1,
+        "negative": 0,
+        "total": 28
+      },
+      "negative_hits": [],
+      "research_question": "core_rul_phm",
+      "recommendation": "精读",
+      "decision_reason": "主题相关 19；近期 8；命中: remaining useful life, RUL prediction",
+      "snippet": "ABSTRACT Remaining useful life (RUL) prediction of rolling bearings is critical for machinery prognostics.",
+      "canonical_id": "doi:10.1002/qre.70396"
+    },
+    {
+      "id": "openalex:W7172492855",
+      "title": "Transfer learning-based fault diagnosis of wind turbine high-speed shaft bearings using CWRU pretraining and public run-to-failure data",
+      "abstract": "Fault diagnosis of wind turbine high-speed shaft bearings (HSSBs) is hindered by the distribution gap between laboratory data and field signals, and by the lack of labeled run-to-failure recordings. This study proposes a three-stage transfer learning framework to address both problems. Stage 1 pretrains a lightweight convolutional backbone with a frequency-domain attention module (FAM) on the CWRU bearing dataset. Stage 2 applies a hybrid alignment strategy combining maximum mean discrepancy and adversarial training to reduce marginal and class-conditional domain divergence. Stage 3 fine-tunes",
+      "authors": [
+        "Yongting Zhang"
+      ],
+      "date": "2026-09-16",
+      "source": "OpenAlex",
+      "url": "https://doi.org/10.1038/s41598-026-70915-6",
+      "pdf": "",
+      "relevance_score": 41,
+      "tags": [
+        "PRONOSTIA",
+        "XJTU-SY",
+        "CWRU bearing",
+        "transfer learning",
+        "CWRU"
+      ],
+      "venue": "",
+      "doi": "https://doi.org/10.1038/s41598-026-70915-6",
+      "score_breakdown": {
+        "topic": 6,
+        "time_series": 0,
+        "dataset": 24,
+        "method": 2,
+        "freshness": 8,
+        "source": 1,
+        "negative": 0,
+        "total": 41
+      },
+      "negative_hits": [],
+      "research_question": "dataset_benchmark",
+      "recommendation": "对比实验",
+      "decision_reason": "主题相关 6；数据集相关 24；方法可借鉴 2；近期 8；命中: PRONOSTIA, XJTU-SY, CWRU bearing",
+      "snippet": "Stage 1 pretrains a lightweight convolutional backbone with a frequency-domain attention module (FAM) on the CWRU bearing dataset.",
+      "canonical_id": "doi:10.1038/s41598-026-70915-6"
+    },
+    {
+      "id": "openalex:W7213392574",
+      "title": "Chebyshev change-point detection with meta-learning adaptive boundary correction for few-shot multi-stage rolling bearing RUL prediction",
+      "abstract": "Rolling bearings exhibit multi-stage degradation patterns. Traditional prediction methods struggle to accurately locate stage boundaries and generalize poorly under few-shot conditions. This paper proposes a stage-aware remaining useful life (RUL) prediction method that combines Chebyshev inequality-based state identification with few-shot adaptive boundary correction to achieve reliable stage division. First, a health indicator (HI) time series is constructed for the bearings. Chebyshev inequality is used to identify state change points and remove outliers, thereby obtaining stable degradatio",
+      "authors": [
+        "Xin Zhang",
+        "Jianfei Zheng",
+        "Yan Zhang",
+        "Hong Pei",
+        "Qihui Han"
+      ],
+      "date": "2026-09-16",
+      "source": "OpenAlex",
+      "url": "https://doi.org/10.1177/10775463261485228",
+      "pdf": "",
+      "relevance_score": 41,
+      "tags": [
+        "remaining useful life",
+        "RUL prediction",
+        "RUL estimation"
+      ],
+      "venue": "",
+      "doi": "https://doi.org/10.1177/10775463261485228",
+      "score_breakdown": {
+        "topic": 29,
+        "time_series": 3,
+        "dataset": 0,
+        "method": 0,
+        "freshness": 8,
+        "source": 1,
+        "negative": 0,
+        "total": 41
+      },
+      "negative_hits": [],
+      "research_question": "core_rul_phm",
+      "recommendation": "精读",
+      "decision_reason": "主题相关 29；时间序列 3；近期 8；命中: remaining useful life, RUL prediction, RUL estimation",
+      "snippet": "This paper proposes a stage-aware remaining useful life (RUL) prediction method that combines Chebyshev inequality-based state identification with few-shot adaptive boundary correction to achieve reliable stage division.",
+      "canonical_id": "doi:10.1177/10775463261485228"
+    },
+    {
+      "id": "openalex:W7213422895",
+      "title": "Remaining useful life prediction under noisy conditions via adaptive degradation modeling incorporating memory effects",
+      "abstract": "Accurate modeling of degradation processes is fundamental to reliable remaining useful life (RUL) prediction for mechanical systems. However, practical degradation processes are often affected by measurement uncertainty, non-Markovian degradation characteristics, and evolving degradation mechanisms, which may limit the prediction performance of existing methods. To address these challenges, this paper proposes an adaptive degradation modeling framework that jointly considers measurement uncertainty, memory effects, and online model adaptation. The proposed method first constructs an initial de",
+      "authors": [
+        "Xiangyu Wang",
+        "Xiaosheng Si",
+        "Xiaopeng Xi",
+        "Donghua Zhou"
+      ],
+      "date": "2026-09-16",
+      "source": "OpenAlex",
+      "url": "https://doi.org/10.1016/j.ymssp.2026.114970",
+      "pdf": "",
+      "relevance_score": 39,
+      "tags": [
+        "remaining useful life",
+        "C-MAPSS",
+        "RUL prediction",
+        "degradation modeling"
+      ],
+      "venue": "",
+      "doi": "https://doi.org/10.1016/j.ymssp.2026.114970",
+      "score_breakdown": {
+        "topic": 25,
+        "time_series": 0,
+        "dataset": 5,
+        "method": 0,
+        "freshness": 8,
+        "source": 1,
+        "negative": 0,
+        "total": 39
+      },
+      "negative_hits": [],
+      "research_question": "core_rul_phm",
+      "recommendation": "精读",
+      "decision_reason": "主题相关 25；数据集相关 5；近期 8；命中: remaining useful life, C-MAPSS, RUL prediction",
+      "snippet": "Accurate modeling of degradation processes is fundamental to reliable remaining useful life (RUL) prediction for mechanical systems.",
+      "canonical_id": "doi:10.1016/j.ymssp.2026.114970"
+    },
+    {
       "id": "openalex:W7213338173",
       "title": "A Multi-Sensor Fusion-Based Remaining Useful Life Prediction Model for UAV Engines",
       "abstract": "With the widespread application of unmanned aerial vehicles (UAVs) across various domains, the reliability and lifespan prediction of their core power units—the engines—has become a critical research focus. This study addresses the degradation characteristics of UAV engines under complex operating conditions, including high temperature, high pressure, high rotational speed, and severe vibration, and proposes a remaining useful life (RUL) prediction model based on multi-sensor data fusion. First, a multi-sensor data acquisition platform for UAV engines was established, enabling synchronized col",
@@ -235,6 +432,44 @@
       "decision_reason": "主题相关 24；近期 8；命中: remaining useful life, predictive maintenance, RUL prediction",
       "snippet": "This study addresses the degradation characteristics of UAV engines under complex operating conditions, including high temperature, high pressure, high rotational speed, and severe vibration, and proposes a remaining…",
       "canonical_id": "doi:10.3390/drones10090705"
+    },
+    {
+      "id": "openalex:W7213415407",
+      "title": "A time-frequency Koopman-constrained variational encoder for interpretable remaining useful life prediction",
+      "abstract": "Abstract Remaining useful life (RUL) prediction supports failure prevention and maintenance planning for industrial equipment. Although variational autoencoder-based methods provide a latentspace pathway for interpretable RUL prediction, their encoders still mainly rely on timedomain information, which makes it difficult to capture frequency-domain features associated with global degradation trends. In addition, latent degradation trajectories often lack explicit dynamic constraints, weakening the trend consistency and interpretability of the learned representations. To address these issues, t",
+      "authors": [
+        "Tianwei Yang",
+        "Hongru Li",
+        "Xing Feng"
+      ],
+      "date": "2026-09-16",
+      "source": "OpenAlex",
+      "url": "https://doi.org/10.1088/1361-6501/aea88c",
+      "pdf": "",
+      "relevance_score": 27,
+      "tags": [
+        "remaining useful life",
+        "RUL prediction",
+        "transformer"
+      ],
+      "venue": "",
+      "doi": "https://doi.org/10.1088/1361-6501/aea88c",
+      "score_breakdown": {
+        "topic": 18,
+        "time_series": 0,
+        "dataset": 0,
+        "method": 0,
+        "freshness": 8,
+        "source": 1,
+        "negative": 0,
+        "total": 27
+      },
+      "negative_hits": [],
+      "research_question": "core_rul_phm",
+      "recommendation": "精读",
+      "decision_reason": "主题相关 18；近期 8；命中: remaining useful life, RUL prediction, transformer",
+      "snippet": "Abstract Remaining useful life (RUL) prediction supports failure prevention and maintenance planning for industrial equipment.",
+      "canonical_id": "doi:10.1088/1361-6501/aea88c"
     },
     {
       "id": "openalex:W7213359157",
@@ -318,6 +553,119 @@
       "canonical_id": "doi:10.3390/s26185861"
     },
     {
+      "id": "openalex:W7213414184",
+      "title": "Deployment-Oriented Deep Learning for Predictive Maintenance of Electric Motor-Driven Rotating Systems: A Review of Robustness, Trustworthiness, and Industrial Readiness",
+      "abstract": "",
+      "authors": [
+        "Mohamed Mohandes",
+        "Ali Al‐Shaikhi",
+        "Hasan Ali Gamal Al-Kaf",
+        "Nicolas Salguero",
+        "Shafiqur Rehman"
+      ],
+      "date": "2026-09-16",
+      "source": "OpenAlex",
+      "url": "https://doi.org/10.1007/s13369-026-11670-8",
+      "pdf": "",
+      "relevance_score": 19,
+      "tags": [
+        "predictive maintenance"
+      ],
+      "venue": "",
+      "doi": "https://doi.org/10.1007/s13369-026-11670-8",
+      "score_breakdown": {
+        "topic": 10,
+        "time_series": 0,
+        "dataset": 0,
+        "method": 0,
+        "freshness": 8,
+        "source": 1,
+        "negative": 0,
+        "total": 19
+      },
+      "negative_hits": [],
+      "research_question": "related",
+      "recommendation": "快读",
+      "decision_reason": "主题相关 10；近期 8；命中: predictive maintenance",
+      "snippet": "",
+      "canonical_id": "doi:10.1007/s13369-026-11670-8"
+    },
+    {
+      "id": "openalex:W7213403280",
+      "title": "Redundancy Allocation and Condition-Based Maintenance Optimization in Heterogeneous Multi-State Systems under Imperfect Monitoring and Maintenance",
+      "abstract": "Existing redundancy allocation and maintenance optimization models commonly neglect imperfect monitoring and maintenance conditions and often rely on sequential decision approaches. This study proposes a joint optimization framework for redundancy allocation and CBM in heterogeneous repairable multi-state weighted k-out-of-n systems. The objective is to minimize life-cycle cost while satisfying availability requirements under imperfect monitoring and maintenance conditions. Semi-Markov processes and universal generating functions are jointly used to model degradation, false alarms, missed dete",
+      "authors": [
+        "Sebastian Miranda",
+        "Fredy Kristjanpoller",
+        "Pablo Viveros",
+        "Rodrigo Mena",
+        "Esteban Salgado"
+      ],
+      "date": "2026-09-16",
+      "source": "OpenAlex",
+      "url": "https://doi.org/10.17531/ein/236719",
+      "pdf": "",
+      "relevance_score": 19,
+      "tags": [
+        "condition-based maintenance"
+      ],
+      "venue": "",
+      "doi": "https://doi.org/10.17531/ein/236719",
+      "score_breakdown": {
+        "topic": 10,
+        "time_series": 0,
+        "dataset": 0,
+        "method": 0,
+        "freshness": 8,
+        "source": 1,
+        "negative": 0,
+        "total": 19
+      },
+      "negative_hits": [],
+      "research_question": "related",
+      "recommendation": "快读",
+      "decision_reason": "主题相关 10；近期 8；命中: condition-based maintenance",
+      "snippet": "Existing redundancy allocation and maintenance optimization models commonly neglect imperfect monitoring and maintenance conditions and often rely on sequential decision approaches.",
+      "canonical_id": "doi:10.17531/ein/236719"
+    },
+    {
+      "id": "openalex:W7213426990",
+      "title": "PhyAgent-TWM: Reproducibility package for physics-grounded agentic tool-wear management",
+      "abstract": "PhyAgent-TWM is a fully reproducible research package accompanying the study From Prognosis to Action: A Physics-Grounded Agentic AI Framework for Autonomous and Uncertainty-Aware Tool-Wear Management in Smart Manufacturing. The framework integrates multimodal condition evidence, physics-grounded degradation modelling, remaining useful life (RUL) prognosis, tool-group-aware conformal uncertainty quantification, explicit engineering knowledge, sequential decision logic, and deterministic safety constraints for tool-management actions. The repository provides the complete reproducibility benchma",
+      "authors": [
+        "Obinna Onyebuchi Barah",
+        "Abdulrazak Jinadu Otaru",
+        "Bori Ige",
+        "Khalil,, Sami F."
+      ],
+      "date": "2026-09-16",
+      "source": "OpenAlex",
+      "url": "https://doi.org/10.5281/zenodo.22792705",
+      "pdf": "",
+      "relevance_score": 17,
+      "tags": [
+        "remaining useful life"
+      ],
+      "venue": "",
+      "doi": "https://doi.org/10.5281/zenodo.22792705",
+      "score_breakdown": {
+        "topic": 8,
+        "time_series": 0,
+        "dataset": 0,
+        "method": 0,
+        "freshness": 8,
+        "source": 1,
+        "negative": 0,
+        "total": 17
+      },
+      "negative_hits": [],
+      "research_question": "core_rul_phm",
+      "recommendation": "快读",
+      "decision_reason": "主题相关 8；近期 8；命中: remaining useful life",
+      "snippet": "The framework integrates multimodal condition evidence, physics-grounded degradation modelling, remaining useful life (RUL) prognosis, tool-group-aware conformal uncertainty quantification, explicit engineering…",
+      "canonical_id": "doi:10.5281/zenodo.22792705"
+    },
+    {
       "id": "openalex:W7165648928",
       "title": "LLM-RUL-CMAPSS: an evaluation protocol for large language models on turbofan RUL prediction",
       "abstract": "Large Language Models as Implicit Classifiers in Predictive Maintenance: A Diagnostic Study on Turbofan Remaining Useful Life Code, inference traces and analysis for a four-part protocol for evaluating large language models on remaining useful life prediction: no-skill baselines, rank correlation, output entropy, and a faithfulness test for the generated explanations, with cluster-aware inference throughout and a hand-validated claim extractor. Five open-weight model configurations were evaluated on FD001, including Llama 3.1 8B at two quantisation levels, with the reference model run on all f",
@@ -393,42 +741,6 @@
       "decision_reason": "主题相关 21；数据集相关 15；近期 8；命中: remaining useful life, C-MAPSS, predictive maintenance",
       "snippet": "Structural health monitoring (SHM) of civil aircraft is a critical enabler of aviation safety and operational reliability.",
       "canonical_id": "doi:10.54254/2755-2721/2026.36952"
-    },
-    {
-      "id": "openalex:W7213348405",
-      "title": "Remaining Useful Life Prediction of Electric-Vehicle Traction-Motor Winding Insulation Using a Dominant-Frequency Impedance Feature and Gaussian Process Regression",
-      "abstract": "The reliability of traction-motor winding insulation directly affects the safe operation of electric vehicles. This study proposes a remaining-useful-life (RUL) prediction method for traction-motor main insulation using bipolar-pulse response measurements and Gaussian process regression (GPR). Simulated winding modules were subjected to full-lifecycle accelerated thermal aging at 300 °C. During the diagnostic stage of each aging subcycle, bipolar high-voltage pulses were applied, and synchronized insulation-voltage and insulation-current waveforms were acquired at 50 MSPS. A 2 μs oscillatory s",
-      "authors": [
-        "Qibiao Shi",
-        "Tao Fan"
-      ],
-      "date": "2026-09-15",
-      "source": "OpenAlex",
-      "url": "https://doi.org/10.20944/preprints202609.1252.v1",
-      "pdf": "",
-      "relevance_score": 28,
-      "tags": [
-        "remaining useful life",
-        "RUL prediction"
-      ],
-      "venue": "",
-      "doi": "https://doi.org/10.20944/preprints202609.1252.v1",
-      "score_breakdown": {
-        "topic": 19,
-        "time_series": 0,
-        "dataset": 0,
-        "method": 0,
-        "freshness": 8,
-        "source": 1,
-        "negative": 0,
-        "total": 28
-      },
-      "negative_hits": [],
-      "research_question": "core_rul_phm",
-      "recommendation": "精读",
-      "decision_reason": "主题相关 19；近期 8；命中: remaining useful life, RUL prediction",
-      "snippet": "The reliability of traction-motor winding insulation directly affects the safe operation of electric vehicles.",
-      "canonical_id": "doi:10.20944/preprints202609.1252.v1"
     },
     {
       "id": "openalex:W7213311752",
@@ -537,82 +849,6 @@
       "decision_reason": "主题相关 12；数据集相关 4；近期 8；命中: remaining useful life, C-MAPSS",
       "snippet": "Every maintenance event is anchored as a tamper-evident, multi-organisation ledger entry; a two-layer GRU trained on the NASA C-MAPSS FD001 turbofan degradation dataset predicts Remaining Useful Life before each…",
       "canonical_id": "doi:10.5281/zenodo.22771553"
-    },
-    {
-      "id": "openalex:W7213267980",
-      "title": "Method for missing data imputation of aero-engines using multistrategy improved generative adversarial imputation network",
-      "abstract": "To solve the problem that missing aero-engine sensor data under complex conditions degrades condition assessment and RUL prediction, this work presents a multi-strategy improved GAIN for imputation under MCAR conditions on the CMAPSS dataset. It first injects latent class information into adversarial training through \"pretraining-clustering-pseudolabeling\". Then, a correlation constraint is added to the generator loss to preserve feature correlations, and gradient penalty is introduced to the discriminator to stabilize training. Experiments show that our method reduces average NRMSE by 3.06% o",
-      "authors": [
-        "Ziyun Wang",
-        "Wenjun Liu",
-        "Jiahong Weng",
-        "Xiaomei Hu"
-      ],
-      "date": "2026-09-15",
-      "source": "OpenAlex",
-      "url": "https://doi.org/10.1117/12.3122707",
-      "pdf": "",
-      "relevance_score": 24,
-      "tags": [
-        "RUL prediction",
-        "condition monitoring",
-        "CMAPSS"
-      ],
-      "venue": "",
-      "doi": "https://doi.org/10.1117/12.3122707",
-      "score_breakdown": {
-        "topic": 11,
-        "time_series": 0,
-        "dataset": 4,
-        "method": 0,
-        "freshness": 8,
-        "source": 1,
-        "negative": 0,
-        "total": 24
-      },
-      "negative_hits": [],
-      "research_question": "core_rul_phm",
-      "recommendation": "精读",
-      "decision_reason": "主题相关 11；数据集相关 4；近期 8；命中: RUL prediction, condition monitoring, CMAPSS",
-      "snippet": "To solve the problem that missing aero-engine sensor data under complex conditions degrades condition assessment and RUL prediction, this work presents a multi-strategy improved GAIN for imputation under MCAR conditions…",
-      "canonical_id": "doi:10.1117/12.3122707"
-    },
-    {
-      "id": "openalex:W7213272206",
-      "title": "Federated Physics-Informed Neural Networks for Privacy-Preserving Lithium-Ion Battery Degradation Prognostics Under Sparse Data Conditions",
-      "abstract": "Lithium-ion batteries (LIBs) are widely used in electric vehicles (EVs), renewable energy storage systems (ESSs), and smart grids, but accurate degradation and remaining useful life (RUL) prediction remains challenging under sparse data and distributed data-storage conditions. This study proposes a Federated Physics-Informed Neural Network (F-PINN) framework that combines federated learning with reduced-order physics-informed constraints for privacy-preserving battery degradation prognostics. The framework incorporates degradation monotonicity, a reduced-order Fickian lithium-diffusion constra",
-      "authors": [
-        "Ali M. Eltamaly",
-        "S. Al-Senaidi"
-      ],
-      "date": "2026-09-15",
-      "source": "OpenAlex",
-      "url": "https://doi.org/10.3390/electronics15184177",
-      "pdf": "",
-      "relevance_score": 20,
-      "tags": [
-        "remaining useful life",
-        "federated learning",
-        "physics-informed"
-      ],
-      "venue": "",
-      "doi": "https://doi.org/10.3390/electronics15184177",
-      "score_breakdown": {
-        "topic": 8,
-        "time_series": 0,
-        "dataset": 0,
-        "method": 3,
-        "freshness": 8,
-        "source": 1,
-        "negative": 0,
-        "total": 20
-      },
-      "negative_hits": [],
-      "research_question": "core_rul_phm",
-      "recommendation": "精读",
-      "decision_reason": "主题相关 8；方法可借鉴 3；近期 8；命中: remaining useful life, federated learning, physics-informed",
-      "snippet": "This study proposes a Federated Physics-Informed Neural Network (F-PINN) framework that combines federated learning with reduced-order physics-informed constraints for privacy-preserving battery degradation prognostics.",
-      "canonical_id": "doi:10.3390/electronics15184177"
     },
     {
       "id": "openalex:W7213363554",
@@ -805,40 +1041,6 @@
       "canonical_id": "doi:10.1038/s41597-026-07435-5"
     },
     {
-      "id": "openalex:W7212608683",
-      "title": "Fırçalı DA Motorlarda Açık Veri Seti İle Makine Öğrenmesi Tabanlı Kestirimci Bakım ve Arıza Teşhisi",
-      "abstract": "Fırçalı Doğru Akım (FDA) motorları, endüstriyel otomasyon sistemlerinde ve tahrik mekanizmalarında yaygın olarak kullanılmakta olup, fırça aşınması ve sargı deformasyonları beklenmedik duruşlara ve yüksek bakım maliyetlerine neden olabilmektedir. Bu çalışmada, fırçalı DA motorların durum teşhisi ve Kalan Faydalı Ömür (Remaining Useful Life, RUL) tahmini için veri odaklı, ağaç tabanlı toplu öğrenme yöntemleri önerilmiştir. F.A.I.R veri setinden çoklu sensörlerden elde edilen akım, gerilim, devir, motor-ortam sıcaklık farkı ve spektral titreşim öznitelikleri kullanılarak motor ömrü; Evre I (Sağl",
-      "authors": [
-        "Erdoğan Özel"
-      ],
-      "date": "2026-09-14",
-      "source": "OpenAlex",
-      "url": "https://doi.org/10.34248/bsengineering.1990452",
-      "pdf": "",
-      "relevance_score": 17,
-      "tags": [
-        "remaining useful life"
-      ],
-      "venue": "",
-      "doi": "https://doi.org/10.34248/bsengineering.1990452",
-      "score_breakdown": {
-        "topic": 8,
-        "time_series": 0,
-        "dataset": 0,
-        "method": 0,
-        "freshness": 8,
-        "source": 1,
-        "negative": 0,
-        "total": 17
-      },
-      "negative_hits": [],
-      "research_question": "core_rul_phm",
-      "recommendation": "快读",
-      "decision_reason": "主题相关 8；近期 8；命中: remaining useful life",
-      "snippet": "Bu çalışmada, fırçalı DA motorların durum teşhisi ve Kalan Faydalı Ömür (Remaining Useful Life, RUL) tahmini için veri odaklı, ağaç tabanlı toplu öğrenme yöntemleri önerilmiştir.",
-      "canonical_id": "doi:10.34248/bsengineering.1990452"
-    },
-    {
       "id": "openalex:W7212363904",
       "title": "A SCADA-integrated predictive maintenance architecture for aircraft engines: comparative AI modelling and economic assessment",
       "abstract": "Purpose This study proposes a SCADA-integrated predictive maintenance framework for aircraft engine health monitoring by leveraging machine learning and deep learning models. The objective is to enhance early fault detection capability, reduce unexpected failures, and support cost-efficient maintenance strategies within aviation operations. Design/methodology/approach A synthetic but operationally realistic time-series dataset was generated using temperature, vibration and fan-speed parameters that are commonly monitored in turbofan engines via SCADA systems. Four algorithms – Support Vector M",
@@ -945,122 +1147,6 @@
       "decision_reason": "主题相关 12；近期 8；命中: remaining useful life, RUL prediction",
       "snippet": "Abstract Accurate modeling of multi-timeseries measurements (MTM) is the key to remaining useful life (RUL) prediction of advanced equipment.",
       "canonical_id": "doi:10.1088/1361-6501/aea635"
-    },
-    {
-      "id": "openalex:W7212308166",
-      "title": "Deploying machine learning for remaining useful life prediction of lithium-ion batteries on Coral Dev Board",
-      "abstract": "",
-      "authors": [
-        "Mariem Boujneh",
-        "Nesrine Majdoub",
-        "Taoufik Ladhari",
-        "Ali Serdar Atalay",
-        "Anis Sakly"
-      ],
-      "date": "2026-09-11",
-      "source": "OpenAlex",
-      "url": "https://doi.org/10.21203/rs.3.rs-10618105/v1",
-      "pdf": "",
-      "relevance_score": 19,
-      "tags": [
-        "remaining useful life"
-      ],
-      "venue": "",
-      "doi": "https://doi.org/10.21203/rs.3.rs-10618105/v1",
-      "score_breakdown": {
-        "topic": 10,
-        "time_series": 0,
-        "dataset": 0,
-        "method": 0,
-        "freshness": 8,
-        "source": 1,
-        "negative": 0,
-        "total": 19
-      },
-      "negative_hits": [],
-      "research_question": "core_rul_phm",
-      "recommendation": "精读",
-      "decision_reason": "主题相关 10；近期 8；命中: remaining useful life",
-      "snippet": "",
-      "canonical_id": "doi:10.21203/rs.3.rs-10618105/v1"
-    },
-    {
-      "id": "openalex:W7212155481",
-      "title": "Availability-Aware Remaining Useful Life Prediction for Aero-Engines with Unavailable Sensor Channels",
-      "abstract": "Aero-engine remaining useful life (RUL) prediction supports condition-based maintenance, yet most data-driven models assume fixed sensor availability. Power-supply, acquisition, or communication failures can invalidate this assumption. We propose the Remaining Useful Life Dual-Attention Robust Network (RUL-DARNet), which combines a convolutional neural network–long short-term memory (CNN–LSTM) backbone with training-stage whole-channel Sensor Dropout (SD), Mask-Aware (MA) feature attention, and temporal attention. SD exposes the model to reduced sensor sets, whereas MA excludes unavailable cha",
-      "authors": [
-        "Qi Wang",
-        "Zhiquan Liu",
-        "Zean Jin",
-        "Wei Liu",
-        "Zhufeng Yue"
-      ],
-      "date": "2026-09-10",
-      "source": "OpenAlex",
-      "url": "https://doi.org/10.3390/aerospace13090826",
-      "pdf": "",
-      "relevance_score": 32,
-      "tags": [
-        "remaining useful life",
-        "C-MAPSS",
-        "condition-based maintenance"
-      ],
-      "venue": "",
-      "doi": "https://doi.org/10.3390/aerospace13090826",
-      "score_breakdown": {
-        "topic": 18,
-        "time_series": 0,
-        "dataset": 5,
-        "method": 0,
-        "freshness": 8,
-        "source": 1,
-        "negative": 0,
-        "total": 32
-      },
-      "negative_hits": [],
-      "research_question": "core_rul_phm",
-      "recommendation": "精读",
-      "decision_reason": "主题相关 18；数据集相关 5；近期 8；命中: remaining useful life, C-MAPSS, condition-based maintenance",
-      "snippet": "Aero-engine remaining useful life (RUL) prediction supports condition-based maintenance, yet most data-driven models assume fixed sensor availability.",
-      "canonical_id": "doi:10.3390/aerospace13090826"
-    },
-    {
-      "id": "openalex:W7212178673",
-      "title": "Aero-engine RUL Prediction Method Based on Deep Equilibrium Network with Degradation Alignment and Domain Adaptation",
-      "abstract": "",
-      "authors": [
-        "Yun Liu",
-        "Qi Zhang",
-        "Lihao Yang",
-        "Zhang Zhengyang"
-      ],
-      "date": "2026-09-10",
-      "source": "OpenAlex",
-      "url": "https://doi.org/10.21203/rs.3.rs-10626383/v1",
-      "pdf": "",
-      "relevance_score": 31,
-      "tags": [
-        "RUL prediction",
-        "domain adaptation"
-      ],
-      "venue": "",
-      "doi": "https://doi.org/10.21203/rs.3.rs-10626383/v1",
-      "score_breakdown": {
-        "topic": 20,
-        "time_series": 0,
-        "dataset": 0,
-        "method": 2,
-        "freshness": 8,
-        "source": 1,
-        "negative": 0,
-        "total": 31
-      },
-      "negative_hits": [],
-      "research_question": "core_rul_phm",
-      "recommendation": "精读",
-      "decision_reason": "主题相关 20；方法可借鉴 2；近期 8；命中: RUL prediction, domain adaptation",
-      "snippet": "",
-      "canonical_id": "doi:10.21203/rs.3.rs-10626383/v1"
     },
     {
       "id": "openalex:W7212170577",
@@ -1223,42 +1309,41 @@
       "canonical_id": "doi:10.26599/tst.2026.9010088"
     },
     {
-      "id": "openalex:W7212083128",
+      "id": "doi:10.1002/qre.70386",
       "title": "Weibull Variational Autoencoder for Remaining Useful Life Prediction",
-      "abstract": "ABSTRACT Remaining useful life (RUL) prediction is a critical technology for preventing unexpected failures and reducing maintenance costs in modern industrial systems. However, traditional model‐based approaches are limited by the need for explicit mathematical modeling of degradation mechanisms, while data‐driven methods often require large‐scale datasets and lack interpretability. To address these challenges, this study proposes a Weibull Variational Autoencoder (WVAE). The WVAE is designed to learn probabilistic characteristics grounded in the Weibull distribution from failure history data",
+      "abstract": "ABSTRACT\n                  Remaining useful life (RUL) prediction is a critical technology for preventing unexpected failures and reducing maintenance costs in modern industrial systems. However, traditional model‐based approaches are limited by the need for explicit mathematical modeling of degradation mechanisms, while data‐driven methods often require large‐scale datasets and lack interpretability. To address these challenges, this study proposes a Weibull Variational Autoencoder (WVAE). The WVAE is designed to learn probabilistic characteristics grounded in the Weibull distribution from fa",
       "authors": [
         "JunWoo Yu",
         "Yoojin Jang",
         "Kwanghui Shin",
-        "JinSoo Jeong",
+        "Jinsoo Jeong",
         "Yong Soo Kim"
       ],
       "date": "2026-09-08",
-      "source": "OpenAlex",
+      "source": "CrossRef",
       "url": "https://doi.org/10.1002/qre.70386",
       "pdf": "",
-      "relevance_score": 23,
+      "relevance_score": 24,
       "tags": [
         "remaining useful life"
       ],
-      "venue": "",
-      "doi": "https://doi.org/10.1002/qre.70386",
+      "venue": "Quality and Reliability Engineering International",
       "score_breakdown": {
         "topic": 14,
         "time_series": 0,
         "dataset": 0,
         "method": 0,
         "freshness": 8,
-        "source": 1,
+        "source": 2,
         "negative": 0,
-        "total": 23
+        "total": 24
       },
       "negative_hits": [],
       "research_question": "core_rul_phm",
       "recommendation": "精读",
       "decision_reason": "主题相关 14；近期 8；命中: remaining useful life",
-      "snippet": "ABSTRACT Remaining useful life (RUL) prediction is a critical technology for preventing unexpected failures and reducing maintenance costs in modern industrial systems.",
-      "canonical_id": "doi:10.1002/qre.70386"
+      "snippet": "ABSTRACT\n                  Remaining useful life (RUL) prediction is a critical technology for preventing unexpected failures and reducing maintenance costs in modern industrial systems.",
+      "canonical_id": "title:weibullvariationalautoencoderforremainingusefullifeprediction"
     },
     {
       "id": "openalex:W7208815826",
@@ -1383,7 +1468,7 @@
       "source": "OpenAlex",
       "url": "https://doi.org/10.3389/fcomp.2026.1833609",
       "pdf": "",
-      "relevance_score": 41,
+      "relevance_score": 38,
       "tags": [
         "remaining useful life",
         "prognostics and health management",
@@ -1396,15 +1481,15 @@
         "time_series": 0,
         "dataset": 0,
         "method": 0,
-        "freshness": 8,
+        "freshness": 5,
         "source": 1,
         "negative": 0,
-        "total": 41
+        "total": 38
       },
       "negative_hits": [],
       "research_question": "core_rul_phm",
       "recommendation": "精读",
-      "decision_reason": "主题相关 32；近期 8；命中: remaining useful life, prognostics and health management, RUL prediction",
+      "decision_reason": "主题相关 32；近期 5；命中: remaining useful life, prognostics and health management, RUL prediction",
       "snippet": "Accurate prediction of the remaining useful life (RUL) of rolling element bearings under target-bearing data scarcity remains a critical challenge in prognostics and health management (PHM).",
       "canonical_id": "doi:10.3389/fcomp.2026.1833609"
     },
@@ -1606,6 +1691,46 @@
       "canonical_id": "doi:10.1007/s44163-026-01928-3"
     },
     {
+      "id": "openalex:W7213426485",
+      "title": "Remaining Useful Life Prediction of Bearings Using Cross-Axis Vibration Trend Agreement and TE-LSTM",
+      "abstract": "최근 회전기계의 고속화와 무인 운전 확대로 베어링 잔여수명 예측의 중요성이 증가하고 있다. 그러나 진동 신호는 운전조건과 측정 방향에 따라 변화하여 단일 특징이나 측정 방향만으로 열화 경향을 일관되게 표현하기 어렵다. 본 연구에서는 교차축 진동 추세 정합성 기반 특징 선정과 Transformer Encoder-LSTM (TE-LSTM)을 결합한 잔여수명 예측 프레임워크를 제안한다. 수평·수직 진동 신호에서 다영역 특징을 추출하고, 교차축 진동 추세 정합성, 단조성, 추세성 및 강건성을 결합한 AMTR 점수로 특징을 선정한 후 누적합 변환을 적용하여 모델 입력으로 사용하였다. PRONOSTIA 데이터셋의 베어링 단위 교차검증과 기준 모델 비교, 절제 실험을 통해 예측 성능과 구성요소의 유효성을 검증하였다. 제안 프레임워크는 베어링별 열화 양상 및 운전조건 변화가 존재하는 환경에서 활용될 수 있으며, 향후 산업용 회전기계의 온라인 상태감시 및 예지보전 시스템 발전에 기여할 수 있을 것으로 기대된다.",
+      "authors": [
+        "Seong-Rok Park",
+        "Kwang-Ho Cho",
+        "Ye-Ri Han",
+        "Jin-Ho Jeong",
+        "Ki-Yong Oh"
+      ],
+      "date": "2026-08-31",
+      "source": "OpenAlex",
+      "url": "https://doi.org/10.7779/jksnt.2026.46.4.308",
+      "pdf": "",
+      "relevance_score": 21,
+      "tags": [
+        "remaining useful life",
+        "PRONOSTIA",
+        "transformer"
+      ],
+      "venue": "",
+      "doi": "https://doi.org/10.7779/jksnt.2026.46.4.308",
+      "score_breakdown": {
+        "topic": 10,
+        "time_series": 0,
+        "dataset": 4,
+        "method": 1,
+        "freshness": 5,
+        "source": 1,
+        "negative": 0,
+        "total": 21
+      },
+      "negative_hits": [],
+      "research_question": "core_rul_phm",
+      "recommendation": "精读",
+      "decision_reason": "主题相关 10；数据集相关 4；方法可借鉴 1；近期 5；命中: remaining useful life, PRONOSTIA, transformer",
+      "snippet": "본 연구에서는 교차축 진동 추세 정합성 기반 특징 선정과 Transformer Encoder-LSTM (TE-LSTM)을 결합한 잔여수명 예측 프레임워크를 제안한다.",
+      "canonical_id": "doi:10.7779/jksnt.2026.46.4.308"
+    },
+    {
       "id": "openalex:W7204580862",
       "title": "A hierarchical refined representation with degradation-guided alignment network for rolling bearings remaining useful life prediction under unseen conditions",
       "abstract": "Abstract Domain generalization (DG) has been widely applied in bearing remaining useful life (RUL) prediction owing to its capacity for generalizing prior diagnostic knowledge toward unseen operating conditions. However, numerous DG methods are often constrained by the limited domain-invariant feature generalization capabilities and information redundancy issues. Additionally, common methods used to measure distances between data distributions may encounter the gradient vanishing problem. To address these challenges, a hierarchical refined representation with degradation-guided alignment netwo",
@@ -1729,75 +1854,44 @@
       "canonical_id": "doi:10.48550/arxiv.2608.26433"
     },
     {
-      "id": "openalex:W7204024602",
-      "title": "Experiment harness for: Fisher Information-Guided Label Design for Remaining Useful Life Prediction",
-      "abstract": "Code, result files and figure scripts for the paper \"Fisher Information-Guided Label Design for Remaining Useful Life Prediction: Closing the Gap Between Degradation Physics and Learning Targets\" (Mechanical Systems and Signal Processing, manuscript MSSP26-2154, under review). Every table and figure in the paper is produced by a script in this deposit, and the result files those tables are read from are included, so each number can be checked without re-running the training. README.md maps each table and figure to the script that produces it. The C-MAPSS, NASA AMES battery and PRONOSTIA datase",
+      "id": "openalex:W7213467219",
+      "title": "Health Index Modelling of Turbofan Engines Using Residual Dilated Convolutional Neural Networks for Predictive Maintenance",
+      "abstract": "Data-driven prognostics and health management (PHM) for turbofan engines requires a Health Index (HI) that is learnable from multivariate telemetry and credible as a basis for maintenance decisions. This study presents a deep learning-based HI modelling framework on the N-CMAPSS benchmark that converts operating conditions and sensor streams into a bounded HI and, subsequently, into decision-oriented outputs for predictive maintenance. A baseline convolutional model is benchmarked against a residual dilated CNN to capture multi-scale degradation signatures from fixed-length temporal windows. T",
       "authors": [
-        "Huy Hoang Le",
-        "Kim Anh Nguyen"
+        "Alfia Nurlaili Tahiyat",
+        "Lusiana Efrizoni",
+        "Triyani Arita Fitri",
+        "Susanti Susanti"
       ],
-      "date": "2026-08-23",
+      "date": "2026-08-18",
       "source": "OpenAlex",
-      "url": "https://doi.org/10.5281/zenodo.22069298",
+      "url": "https://doi.org/10.52436/1.jutif.2026.7.4.5636",
       "pdf": "",
-      "relevance_score": 24,
+      "relevance_score": 32,
       "tags": [
-        "remaining useful life",
-        "C-MAPSS",
-        "PRONOSTIA"
+        "predictive maintenance",
+        "N-CMAPSS",
+        "prognostics and health management",
+        "CMAPSS"
       ],
       "venue": "",
-      "doi": "https://doi.org/10.5281/zenodo.22069298",
+      "doi": "https://doi.org/10.52436/1.jutif.2026.7.4.5636",
       "score_breakdown": {
-        "topic": 10,
+        "topic": 18,
         "time_series": 0,
         "dataset": 8,
         "method": 0,
         "freshness": 5,
         "source": 1,
         "negative": 0,
-        "total": 24
+        "total": 32
       },
       "negative_hits": [],
       "research_question": "core_rul_phm",
       "recommendation": "精读",
-      "decision_reason": "主题相关 10；数据集相关 8；近期 5；命中: remaining useful life, C-MAPSS, PRONOSTIA",
-      "snippet": "The C-MAPSS, NASA AMES battery and PRONOSTIA datase",
-      "canonical_id": "doi:10.5281/zenodo.22069298"
-    },
-    {
-      "id": "openalex:W7204129721",
-      "title": "Research Review on AI-Enhanced Machine Vision and Robotics for Predictive Maintenance & Quality Inspection in Automated Manufacturing",
-      "abstract": "With automated manufacturing advancing toward high precision and high efficiency, the integration of artificial intelligence, machine vision and industrial robots has become the core pillar of intelligent manufacturing. Traditional manual inspection and scheduled maintenance suffer from high missing detection rates, delayed response and excessive operating costs, failing to satisfy strict quality control standards of modern manufacturing. Deep learning empowers machine vision to extract defect features and realize automatic classification efficiently, while industrial robots break free from fi",
-      "authors": [
-        "Y. Wang"
-      ],
-      "date": "2026-08-21",
-      "source": "OpenAlex",
-      "url": "https://doi.org/10.7716/aem.v15i3.4256",
-      "pdf": "",
-      "relevance_score": 16,
-      "tags": [
-        "predictive maintenance"
-      ],
-      "venue": "",
-      "doi": "https://doi.org/10.7716/aem.v15i3.4256",
-      "score_breakdown": {
-        "topic": 10,
-        "time_series": 0,
-        "dataset": 0,
-        "method": 0,
-        "freshness": 5,
-        "source": 1,
-        "negative": 0,
-        "total": 16
-      },
-      "negative_hits": [],
-      "research_question": "related",
-      "recommendation": "快读",
-      "decision_reason": "主题相关 10；近期 5；命中: predictive maintenance",
-      "snippet": "With automated manufacturing advancing toward high precision and high efficiency, the integration of artificial intelligence, machine vision and industrial robots has become the core pillar of intelligent manufacturing.",
-      "canonical_id": "doi:10.7716/aem.v15i3.4256"
+      "decision_reason": "主题相关 18；数据集相关 8；近期 5；命中: predictive maintenance, N-CMAPSS, prognostics and health management",
+      "snippet": "This study presents a deep learning-based HI modelling framework on the N-CMAPSS benchmark that converts operating conditions and sensor streams into a bounded HI and, subsequently, into decision-oriented outputs for…",
+      "canonical_id": "doi:10.52436/1.jutif.2026.7.4.5636"
     },
     {
       "id": "openalex:W7203600958",
@@ -1955,42 +2049,6 @@
       "canonical_id": "title:afailureefficientpredictionofremainingusefullife"
     },
     {
-      "id": "s2:062d51402097eb01ff3d",
-      "title": "Protocol and Implementation Sensitivity in Raw-Index-Audited Few-Shot Bearing Fault Diagnosis Benchmarking: Evidence from CWRU and HUSTbearing",
-      "abstract": "Sliding-window few-shot evaluations can place support and query windows over shared raw samples. We audited episode-internal overlap, source-noise policy, normalization, and fixed-feature construction using Case Western Reserve University (CWRU) data and a HUSTbearing cross-speed task reconstructed from raw files. In the primary CWRU 0 hp to 3 hp (0 to approximately 2.24 kW), 10-way, 5-shot evaluation at a signal-to-noise ratio (SNR) of −5 dB across 20 seeds, common-pool construction increased log-compressed fast Fourier transform prototype (Log-FFT) accuracy by 3.83 percentage points (95% con",
-      "authors": [
-        "Jianxin Zhang",
-        "Gui-Xiang Shen"
-      ],
-      "date": "2026-08-05",
-      "source": "Semantic Scholar",
-      "url": "https://www.semanticscholar.org/paper/062d51402097eb01ff3dfc510bebdba6e59655d4",
-      "pdf": "",
-      "venue": "Machines",
-      "citations": 0,
-      "doi": "10.3390/machines14080891",
-      "relevance_score": 17,
-      "tags": [
-        "CWRU"
-      ],
-      "score_breakdown": {
-        "topic": 0,
-        "time_series": 0,
-        "dataset": 10,
-        "method": 0,
-        "freshness": 5,
-        "source": 2,
-        "negative": 0,
-        "total": 17
-      },
-      "negative_hits": [],
-      "research_question": "dataset_benchmark",
-      "recommendation": "对比实验",
-      "decision_reason": "数据集相关 10；近期 5；命中: CWRU",
-      "snippet": "We audited episode-internal overlap, source-noise policy, normalization, and fixed-feature construction using Case Western Reserve University (CWRU) data and a HUSTbearing cross-speed task reconstructed from raw files.",
-      "canonical_id": "doi:10.3390/machines14080891"
-    },
-    {
       "id": "doi:10.1109/rtcsa71153.2026.00042",
       "title": "Demo: Predictive Maintenance without Maintenance",
       "abstract": "",
@@ -2026,47 +2084,6 @@
       "decision_reason": "主题相关 10；近期 5；命中: predictive maintenance",
       "snippet": "",
       "canonical_id": "title:demopredictivemaintenancewithoutmaintenance"
-    },
-    {
-      "id": "s2:d195a545a9ed85716f24",
-      "title": "PIDL-Edge: A Physics-Informed Convolutional Neural Network for Real-Time Bearing Fault Detection in Smart Manufacturing Using the CWRU Dataset",
-      "abstract": "",
-      "authors": [
-        "I. Arivazhagi",
-        "S. Sajini",
-        "S. Gopalakrishnan",
-        "C. Q. Jaslin",
-        "G. S. N. Rao"
-      ],
-      "date": "2026-06-23",
-      "source": "Semantic Scholar",
-      "url": "https://www.semanticscholar.org/paper/d195a545a9ed85716f249aec6e3a46ef60071f2e",
-      "pdf": "",
-      "venue": "SN Computer Science",
-      "citations": 0,
-      "doi": "10.1007/s42979-026-05169-0",
-      "relevance_score": 17,
-      "tags": [
-        "physics-informed",
-        "CWRU"
-      ],
-      "score_breakdown": {
-        "topic": 0,
-        "time_series": 0,
-        "dataset": 10,
-        "method": 2,
-        "freshness": 3,
-        "source": 2,
-        "negative": 0,
-        "total": 17
-      },
-      "negative_hits": [],
-      "research_question": "dataset_benchmark",
-      "recommendation": "对比实验",
-      "decision_reason": "数据集相关 10；方法可借鉴 2；近期 3；命中: physics-informed, CWRU",
-      "snippet": "",
-      "canonical_id": "doi:10.1007/s42979-026-05169-0",
-      "summary": "本论文提出了一种名为PIDL-Edge的物理信息卷积神经网络，用于基于CWRU数据集在智能制造中实时检测轴承故障。研究通过结合物理知识和深度学习方法，提高了故障检测的准确性和效率。"
     },
     {
       "id": "doi:10.1201/9781003729525-9",
@@ -2240,40 +2257,6 @@
       "snippet": "",
       "canonical_id": "title:predictivemaintenancedevice",
       "summary": "本论文研究了一种预测性维护设备，旨在通过数据分析和机器学习方法提高设备的维护效率和可靠性。研究结果表明，该设备能够有效预测故障并优化维护计划。"
-    },
-    {
-      "id": "doi:10.21203/rs.3.rs-9385956/v1",
-      "title": "IGBT Remaining Useful Life Prediction Using Optimized ELM",
-      "abstract": "Abstract\n                To achieve accurate remaining useful life (RUL) estimation of Insulated Gate Bipolar Transistors (IGBTs), this study presents an enhanced Extreme Learning Machine (ELM) model optimized using an improved Nutcracker Optimization Algorithm with mixed strategies (NOAM). Experimental data obtained from NASA’s accelerated aging tests of IGBTs are employed, where the peak collector–emitter voltage is identified as the key degradation indicator for failure characterization. Traditional NOAM suffers from premature convergence during the early optimization stage and insufficient",
-      "authors": [
-        "Mohanad Mohammed",
-        "Ibraheem Abdullah Mohammed Shayea"
-      ],
-      "date": "2026-04-29",
-      "source": "CrossRef",
-      "url": "https://doi.org/10.21203/rs.3.rs-9385956/v1",
-      "pdf": "",
-      "relevance_score": 19,
-      "tags": [
-        "remaining useful life"
-      ],
-      "venue": "",
-      "score_breakdown": {
-        "topic": 14,
-        "time_series": 0,
-        "dataset": 0,
-        "method": 0,
-        "freshness": 3,
-        "source": 2,
-        "negative": 0,
-        "total": 19
-      },
-      "negative_hits": [],
-      "research_question": "core_rul_phm",
-      "recommendation": "精读",
-      "decision_reason": "主题相关 14；近期 3；命中: remaining useful life",
-      "snippet": "Abstract\n                To achieve accurate remaining useful life (RUL) estimation of Insulated Gate Bipolar Transistors (IGBTs), this study presents an enhanced Extreme Learning Machine (ELM) model optimized using an…",
-      "canonical_id": "title:igbtremainingusefullifepredictionusingoptimizedelm"
     },
     {
       "id": "doi:10.55592/cilamce2025.v5i.14273",
@@ -2632,45 +2615,6 @@
       "summary": "本文探讨了预测与健康管理（PHM）的相关方法和技术，分析了其在设备故障预测和维护决策中的应用。研究表明，PHM能够有效提高设备的可靠性和降低维护成本。"
     },
     {
-      "id": "s2:83df2e4a426365e0dd0a",
-      "title": "Robust Bearing Fault Detection and Classification Using Deep Neural Networks: A Comprehensive Study on the CWRU Dataset",
-      "abstract": "",
-      "authors": [
-        "S. Bensaoucha",
-        "Gharib Gharib",
-        "Maha Al Soudi",
-        "Ali Teta",
-        "Samia Benzita"
-      ],
-      "date": "2025-11-30",
-      "source": "Semantic Scholar",
-      "url": "https://www.semanticscholar.org/paper/83df2e4a426365e0dd0a31ea3d14c91e27e4feba",
-      "pdf": "",
-      "venue": "Journal Europeen des Systemes Automatises",
-      "citations": 3,
-      "doi": "10.18280/jesa.581120",
-      "relevance_score": 13,
-      "tags": [
-        "CWRU"
-      ],
-      "score_breakdown": {
-        "topic": 0,
-        "time_series": 0,
-        "dataset": 10,
-        "method": 0,
-        "freshness": 1,
-        "source": 2,
-        "negative": 0,
-        "total": 13
-      },
-      "negative_hits": [],
-      "research_question": "dataset_benchmark",
-      "recommendation": "对比实验",
-      "decision_reason": "数据集相关 10；近期 1；命中: CWRU",
-      "snippet": "",
-      "canonical_id": "doi:10.18280/jesa.581120"
-    },
-    {
       "id": "doi:10.1007/978-981-96-9033-6_15",
       "title": "Relevance Vector Machine-Based Remaining Useful Life Prediction",
       "abstract": "",
@@ -2808,6 +2752,47 @@
       "summary": "本文探讨了基于事件数据的预测与健康管理（PHM）系统，指出相较于传统的连续数据，事件数据在降低维护成本方面具有更高的性价比和有效性。研究表明，利用事件模式可以提升诊断、预测和预警的能力。"
     },
     {
+      "id": "s2:95721a5c4767aee6e8b6",
+      "title": "MTCAT: A Modern Temporal Convolution and Enhanced Attention Transformer Model for Remaining Useful Life Prediction of Aerospace Self-Lubricating Bearings",
+      "abstract": "As mission-critical components in aircraft flap actuation systems, aerospace self-lubricating bearings play a pivotal role in ensuring operational safety during critical flight phases. Conventional machine learning approaches for remaining useful life (RUL) prediction suffer from limited time-series and nonlinear modeling capabilities. Especially individual models, built on a single algorithmic paradigm, struggle to address the complex, multidimensional challenges of RUL prediction. To solve the above challenge, this study proposes an innovative hybrid deep learning method integrating moderniz",
+      "authors": [
+        "Yuheng Wang",
+        "Shuo Wang",
+        "Shi-Chang Du",
+        "Xiaoxiao Shen",
+        "Shanshan Li"
+      ],
+      "date": "2025-10-01",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/95721a5c4767aee6e8b69bfb1e0da2c2cdad3709",
+      "pdf": "",
+      "venue": "IEEE Sensors Journal",
+      "citations": 91,
+      "doi": "10.1109/JSEN.2025.3597796",
+      "relevance_score": 23,
+      "tags": [
+        "remaining useful life",
+        "RUL prediction",
+        "transformer"
+      ],
+      "score_breakdown": {
+        "topic": 18,
+        "time_series": 0,
+        "dataset": 0,
+        "method": 2,
+        "freshness": 1,
+        "source": 2,
+        "negative": 0,
+        "total": 23
+      },
+      "negative_hits": [],
+      "research_question": "core_rul_phm",
+      "recommendation": "精读",
+      "decision_reason": "主题相关 18；方法可借鉴 2；近期 1；命中: remaining useful life, RUL prediction, transformer",
+      "snippet": "Conventional machine learning approaches for remaining useful life (RUL) prediction suffer from limited time-series and nonlinear modeling capabilities.",
+      "canonical_id": "doi:10.1109/jsen.2025.3597796"
+    },
+    {
       "id": "doi:10.1201/9781003362135-4",
       "title": "Condition Monitoring and Condition-Based Maintenance",
       "abstract": "",
@@ -2924,46 +2909,6 @@
       "summary": "本论文研究了剩余使用寿命（RUL）预测在制造业维护规划中的应用，特别关注油田设备（如人工举升系统）的健康监测。通过数据驱动的方法，论文探讨了如何基于当前操作特征预测设备故障，从而优化维护调度、减少意外中断和降低成本。"
     },
     {
-      "id": "s2:d5f9b91c48d98c58956a",
-      "title": "Real-Time Bearing Fault Detection and Visualization Using 1D CNN: A Simulated Deployment with the CWRU Dataset",
-      "abstract": "Reliable real-time fault detection and diagnosis (RT-FDD) of rotating machinery is critical for reducing downtime and improving industrial productivity. While many studies emphasize fast prediction times, they often overlook a complete framework integrating data acquisition, low-latency processing, and intuitive visualization. This paper presents a fully integrated RT-FDD system for bearing fault detection, combining continuous vibration data acquisition, real-time processing, and a graphical user interface (GUI) displaying live signals, fault classification results, and confidence levels. A 1",
-      "authors": [
-        "Barathan Pubalan",
-        "Mohd Syahril Ramadhan Mohd Saufi",
-        "Mohd Salman Leong",
-        "A. Jamali"
-      ],
-      "date": "2025-09-10",
-      "source": "Semantic Scholar",
-      "url": "https://www.semanticscholar.org/paper/d5f9b91c48d98c58956a8b5ec883c37e54d62d01",
-      "pdf": "",
-      "venue": "2025 IEEE 11th International Conference on Smart Instrumentation, Measurement and Applications (ICSIMA)",
-      "citations": 0,
-      "doi": "10.1109/ICSIMA66552.2025.11233248",
-      "relevance_score": 13,
-      "tags": [
-        "transfer learning",
-        "CWRU"
-      ],
-      "score_breakdown": {
-        "topic": 0,
-        "time_series": 0,
-        "dataset": 10,
-        "method": 0,
-        "freshness": 1,
-        "source": 2,
-        "negative": 0,
-        "total": 13
-      },
-      "negative_hits": [],
-      "research_question": "dataset_benchmark",
-      "recommendation": "对比实验",
-      "decision_reason": "数据集相关 10；近期 1；命中: transfer learning, CWRU",
-      "snippet": "Reliable real-time fault detection and diagnosis (RT-FDD) of rotating machinery is critical for reducing downtime and improving industrial productivity.",
-      "canonical_id": "doi:10.1109/icsima66552.2025.11233248",
-      "summary": "本文提出了一种集成的实时轴承故障检测与诊断系统，结合了连续振动数据采集、实时处理和图形用户界面，能够实时显示信号、故障分类结果及置信度。研究使用了CWRU数据集进行模拟部署，旨在提高旋转机械的故障检测效率。"
-    },
-    {
       "id": "doi:10.1109/eites66543.2025.00013",
       "title": "Predictive Maintenance using Anomaly detection",
       "abstract": "",
@@ -2998,6 +2943,45 @@
       "decision_reason": "主题相关 10；近期 1；命中: predictive maintenance",
       "snippet": "",
       "canonical_id": "title:predictivemaintenanceusinganomalydetection"
+    },
+    {
+      "id": "s2:e14028c2234f2077395b",
+      "title": "Federated transfer learning for remaining useful life prediction in prognostics with data privacy",
+      "abstract": "Collaborative model training with multiple clients is becoming an effective solution for prognostic problems, due to the scarcity of the machine run-to-failure data in the real industries. However, direct data sharing and centralized learning are usually not feasible in practice, since the private local data basically cannot be exposed to the other commercial clients. Furthermore, the machines at different clients mostly have different degradation patterns and failure modes, resulting in different data distributions. That poses great challenges for data-driven knowledge transfer across clients",
+      "authors": [
+        "Wei Zhang",
+        "Nan Jiang",
+        "Shao-Jie Yang",
+        "Xiang Li"
+      ],
+      "date": "2025-06-17",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/e14028c2234f2077395b9d7b7101dcf7f90b9a16",
+      "pdf": "",
+      "venue": "Measurement science and technology",
+      "citations": 67,
+      "doi": "10.1088/1361-6501/ade552",
+      "relevance_score": 17,
+      "tags": [
+        "remaining useful life",
+        "transfer learning"
+      ],
+      "score_breakdown": {
+        "topic": 12,
+        "time_series": 0,
+        "dataset": 0,
+        "method": 2,
+        "freshness": 1,
+        "source": 2,
+        "negative": 0,
+        "total": 17
+      },
+      "negative_hits": [],
+      "research_question": "core_rul_phm",
+      "recommendation": "快读",
+      "decision_reason": "主题相关 12；方法可借鉴 2；近期 1；命中: remaining useful life, transfer learning",
+      "snippet": "Collaborative model training with multiple clients is becoming an effective solution for prognostic problems, due to the scarcity of the machine run-to-failure data in the real industries.",
+      "canonical_id": "doi:10.1088/1361-6501/ade552"
     },
     {
       "id": "doi:10.4028/p-3vqcf6",
@@ -3035,6 +3019,162 @@
       "summary": "本文提出了一种基于AdaBoost算法的剩余使用寿命（RUL）预测方法，该方法通过迭代提升预测准确性，能够处理二分类和多分类问题，以区分不同的退化阶段，从而提供更细致的组件健康状态洞察。"
     },
     {
+      "id": "s2:49fce9c5269f71afb4a1",
+      "title": "A hybrid deep learning model for robust aeroengine remaining useful life prediction",
+      "abstract": "",
+      "authors": [
+        "An-Ping Wan",
+        "Hua Zhang",
+        "Ting Chen",
+        "Khalil al-Bukhaiti",
+        "Wenhui Wang"
+      ],
+      "date": "2025-05-12",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/49fce9c5269f71afb4a13aa11eb07cc44976183e",
+      "pdf": "",
+      "venue": "Signal, Image and Video Processing",
+      "citations": 41,
+      "doi": "10.1007/s11760-025-04150-3",
+      "relevance_score": 13,
+      "tags": [
+        "remaining useful life"
+      ],
+      "score_breakdown": {
+        "topic": 10,
+        "time_series": 0,
+        "dataset": 0,
+        "method": 0,
+        "freshness": 1,
+        "source": 2,
+        "negative": 0,
+        "total": 13
+      },
+      "negative_hits": [],
+      "research_question": "core_rul_phm",
+      "recommendation": "快读",
+      "decision_reason": "主题相关 10；近期 1；命中: remaining useful life",
+      "snippet": "",
+      "canonical_id": "doi:10.1007/s11760-025-04150-3"
+    },
+    {
+      "id": "s2:bebf896cfc109195c7d1",
+      "title": "Prediction of bearing remaining useful life based on a two-stage updated digital twin",
+      "abstract": "",
+      "authors": [
+        "De-Qiang He",
+        "Jia-Yang Zhao",
+        "Zhen-Zhen Jin",
+        "Chenggeng Huang",
+        "Fan Zhang"
+      ],
+      "date": "2025-05-01",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/bebf896cfc109195c7d1e3ce5cc24d7204417ae1",
+      "pdf": "",
+      "venue": "Advanced Engineering Informatics",
+      "citations": 120,
+      "doi": "10.1016/j.aei.2025.103123",
+      "relevance_score": 13,
+      "tags": [
+        "remaining useful life"
+      ],
+      "score_breakdown": {
+        "topic": 10,
+        "time_series": 0,
+        "dataset": 0,
+        "method": 0,
+        "freshness": 1,
+        "source": 2,
+        "negative": 0,
+        "total": 13
+      },
+      "negative_hits": [],
+      "research_question": "core_rul_phm",
+      "recommendation": "快读",
+      "decision_reason": "主题相关 10；近期 1；命中: remaining useful life",
+      "snippet": "",
+      "canonical_id": "doi:10.1016/j.aei.2025.103123"
+    },
+    {
+      "id": "s2:82ab9c9fd609ace994f0",
+      "title": "Attention-guided graph isomorphism learning: A multi-task framework for fault diagnosis and remaining useful life prediction",
+      "abstract": "",
+      "authors": [
+        "Jun-Yu Qi",
+        "Zhu-Yun Chen",
+        "Yun Kong",
+        "Wu Qin",
+        "Yi Qin"
+      ],
+      "date": "2025-05-01",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/82ab9c9fd609ace994f05042da3cc38ef08861a9",
+      "pdf": "",
+      "venue": "Reliability Engineering & System Safety",
+      "citations": 77,
+      "doi": "10.1016/j.ress.2025.111209",
+      "relevance_score": 13,
+      "tags": [
+        "remaining useful life"
+      ],
+      "score_breakdown": {
+        "topic": 10,
+        "time_series": 0,
+        "dataset": 0,
+        "method": 0,
+        "freshness": 1,
+        "source": 2,
+        "negative": 0,
+        "total": 13
+      },
+      "negative_hits": [],
+      "research_question": "core_rul_phm",
+      "recommendation": "快读",
+      "decision_reason": "主题相关 10；近期 1；命中: remaining useful life",
+      "snippet": "",
+      "canonical_id": "doi:10.1016/j.ress.2025.111209"
+    },
+    {
+      "id": "s2:296cfb2c19c042286ff4",
+      "title": "Detection of cyber attacks in electric vehicle charging systems using a remaining useful life generative adversarial network",
+      "abstract": "Cybersecurity attacks targeting electric vehicle supply equipment (EVSE) and the broader electric vehicle (EV) ecosystem have become an escalating concern with the increasing adoption of EVs and the growing connectivity of the infrastructure supporting them. The present research aims to contribute to continuing cybersecurity studies on electric vehicle charging stations. In line with this objective, this study proposes the remaining useful life (RUL) approach to demonstrate the potential impact of estimating the remaining time of a cyber attack on EVSE and what revolutionary changes it can bri",
+      "authors": [
+        "Hayriye Tanyıldız",
+        "C. Şahín",
+        "Ö. Dinler",
+        "Hazem Migdady",
+        "K. Saleem"
+      ],
+      "date": "2025-03-24",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/296cfb2c19c042286ff43e7a7b055f2c0e961d75",
+      "pdf": "",
+      "venue": "Scientific Reports",
+      "citations": 56,
+      "doi": "10.1038/s41598-025-92895-9",
+      "relevance_score": 17,
+      "tags": [
+        "remaining useful life"
+      ],
+      "score_breakdown": {
+        "topic": 14,
+        "time_series": 0,
+        "dataset": 0,
+        "method": 0,
+        "freshness": 1,
+        "source": 2,
+        "negative": 0,
+        "total": 17
+      },
+      "negative_hits": [],
+      "research_question": "core_rul_phm",
+      "recommendation": "快读",
+      "decision_reason": "主题相关 14；近期 1；命中: remaining useful life",
+      "snippet": "In line with this objective, this study proposes the remaining useful life (RUL) approach to demonstrate the potential impact of estimating the remaining time of a cyber attack on EVSE and what revolutionary changes it…",
+      "canonical_id": "doi:10.1038/s41598-025-92895-9"
+    },
+    {
       "id": "doi:10.1142/s0218539325500068",
       "title": "A Data-Driven Maintenance Framework Incorporating Prognostics Distance and Prognostics and Health Management Methods",
       "abstract": " Prognostics and health management transform predictive maintenance by identifying which components need maintenance and when they should be performed. While there are several metrics to quantitatively assess the accuracy of remaining useful life predictions, fewer studies have explicitly modeled the economic benefits of implementing prognostics and health management, such as return on investment, cost reduction in the life cycle, and maintenance metrics driven by data over a period. We extend data-driven metrics from renewal theory, such as average cost per unit time, utilization per unit tim",
@@ -3070,6 +3210,160 @@
       "snippet": "Prognostics and health management transform predictive maintenance by identifying which components need maintenance and when they should be performed.",
       "canonical_id": "title:adatadrivenmaintenanceframeworkincorporatingprognosticsdistanceandprognosticsandhealthmanagementmethods",
       "summary": "本文提出了一种数据驱动的维护框架，结合了预测距离和预测健康管理方法，旨在量化预测维护的经济效益，如投资回报、生命周期成本降低等，并扩展了基于更新理论的数据驱动指标。"
+    },
+    {
+      "id": "s2:730ce6cca77d22c6524e",
+      "title": "DCAGGCN: A novel method for remaining useful life prediction of bearings",
+      "abstract": "",
+      "authors": [
+        "De-Qiang He",
+        "Jia-Yang Zhao",
+        "Zhen-Zhen Jin",
+        "Chenggeng Huang",
+        "Cai Yi"
+      ],
+      "date": "2025-03-01",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/730ce6cca77d22c6524e346718fc447708c33bf4",
+      "pdf": "",
+      "venue": "Reliability Engineering & System Safety",
+      "citations": 107,
+      "doi": "10.1016/j.ress.2025.110978",
+      "relevance_score": 13,
+      "tags": [
+        "remaining useful life"
+      ],
+      "score_breakdown": {
+        "topic": 10,
+        "time_series": 0,
+        "dataset": 0,
+        "method": 0,
+        "freshness": 1,
+        "source": 2,
+        "negative": 0,
+        "total": 13
+      },
+      "negative_hits": [],
+      "research_question": "core_rul_phm",
+      "recommendation": "快读",
+      "decision_reason": "主题相关 10；近期 1；命中: remaining useful life",
+      "snippet": "",
+      "canonical_id": "doi:10.1016/j.ress.2025.110978"
+    },
+    {
+      "id": "s2:708a5e239417c1127a65",
+      "title": "Enhanced fault diagnosis and remaining useful life prediction of rolling bearings using a hybrid multilayer perceptron and LSTM network model",
+      "abstract": "",
+      "authors": [
+        "Kumaran Bharatheedasan",
+        "Tanmoy Maity",
+        "L. Kumaraswamidhas",
+        "Muruganandam Durairaj"
+      ],
+      "date": "2025-03-01",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/708a5e239417c1127a65c7919f47219e98fde092",
+      "pdf": "",
+      "venue": "Alexandria Engineering Journal",
+      "citations": 71,
+      "doi": "10.1016/j.aej.2024.12.007",
+      "relevance_score": 13,
+      "tags": [
+        "remaining useful life"
+      ],
+      "score_breakdown": {
+        "topic": 10,
+        "time_series": 0,
+        "dataset": 0,
+        "method": 0,
+        "freshness": 1,
+        "source": 2,
+        "negative": 0,
+        "total": 13
+      },
+      "negative_hits": [],
+      "research_question": "core_rul_phm",
+      "recommendation": "快读",
+      "decision_reason": "主题相关 10；近期 1；命中: remaining useful life",
+      "snippet": "",
+      "canonical_id": "doi:10.1016/j.aej.2024.12.007"
+    },
+    {
+      "id": "s2:9db58521c68ad7e09b9b",
+      "title": "Remaining useful life prediction of PEMFC based on matrix long short-term memory",
+      "abstract": "",
+      "authors": [
+        "Fengyan Yi",
+        "Xing Shu",
+        "Jia-Ming Zhou",
+        "Jin-Ming Zhang",
+        "Chunxiao Feng"
+      ],
+      "date": "2025-03-01",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/9db58521c68ad7e09b9ba000bd8906052001aa57",
+      "pdf": "",
+      "venue": "International journal of hydrogen energy",
+      "citations": 62,
+      "doi": "10.1016/j.ijhydene.2025.02.302",
+      "relevance_score": 13,
+      "tags": [
+        "remaining useful life"
+      ],
+      "score_breakdown": {
+        "topic": 10,
+        "time_series": 0,
+        "dataset": 0,
+        "method": 0,
+        "freshness": 1,
+        "source": 2,
+        "negative": 0,
+        "total": 13
+      },
+      "negative_hits": [],
+      "research_question": "core_rul_phm",
+      "recommendation": "快读",
+      "decision_reason": "主题相关 10；近期 1；命中: remaining useful life",
+      "snippet": "",
+      "canonical_id": "doi:10.1016/j.ijhydene.2025.02.302"
+    },
+    {
+      "id": "s2:3455be426af77f62199f",
+      "title": "Physics-guided degradation trajectory modeling for remaining useful life prediction of rolling bearings",
+      "abstract": "",
+      "authors": [
+        "Chen Yin",
+        "Yuqing Li",
+        "Yulin Wang",
+        "Yining Dong"
+      ],
+      "date": "2025-02-01",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/3455be426af77f62199fe949e7c9a58e39d3e9be",
+      "pdf": "",
+      "venue": "Mechanical systems and signal processing",
+      "citations": 70,
+      "doi": "10.1016/j.ymssp.2024.112192",
+      "relevance_score": 13,
+      "tags": [
+        "remaining useful life"
+      ],
+      "score_breakdown": {
+        "topic": 10,
+        "time_series": 0,
+        "dataset": 0,
+        "method": 0,
+        "freshness": 1,
+        "source": 2,
+        "negative": 0,
+        "total": 13
+      },
+      "negative_hits": [],
+      "research_question": "core_rul_phm",
+      "recommendation": "快读",
+      "decision_reason": "主题相关 10；近期 1；命中: remaining useful life",
+      "snippet": "",
+      "canonical_id": "doi:10.1016/j.ymssp.2024.112192"
     },
     {
       "id": "doi:10.1109/rams48127.2025.10935143",
@@ -3110,6 +3404,44 @@
       "summary": "本论文研究了用于预测和健康管理的传导性迁移学习特征，提出了一种新的方法来提高在不同但相关任务之间的知识转移。通过实验验证，该方法在多种应用场景中表现出较好的性能。"
     },
     {
+      "id": "s2:bec0599b514f3db69ae0",
+      "title": "Battery Health Monitoring and Remaining Useful Life Prediction Techniques: A Review of Technologies",
+      "abstract": "Lithium-ion (Li-ion) batteries have become essential in modern industries and domestic applications due to their high energy density and efficiency. However, they experience gradual degradation over time, which presents significant challenges in maintaining optimal battery performance and increases the risk of unexpected system failures. To ensure the reliability and longevity of Li-ion batteries in applications, various methods have been proposed for battery health monitoring and remaining useful life (RUL) prediction. This paper provides a comprehensive review and analysis of the primary app",
+      "authors": [
+        "Mohamed Ahwiadi",
+        "Wilson Wang"
+      ],
+      "date": "2025-01-17",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/bec0599b514f3db69ae089dc5b42d8b9fbc90e9a",
+      "pdf": "",
+      "venue": "Batteries",
+      "citations": 62,
+      "doi": "10.3390/batteries11010031",
+      "relevance_score": 33,
+      "tags": [
+        "remaining useful life",
+        "RUL prediction",
+        "RUL estimation"
+      ],
+      "score_breakdown": {
+        "topic": 30,
+        "time_series": 0,
+        "dataset": 0,
+        "method": 0,
+        "freshness": 1,
+        "source": 2,
+        "negative": 0,
+        "total": 33
+      },
+      "negative_hits": [],
+      "research_question": "core_rul_phm",
+      "recommendation": "精读",
+      "decision_reason": "主题相关 30；近期 1；命中: remaining useful life, RUL prediction, RUL estimation",
+      "snippet": "To ensure the reliability and longevity of Li-ion batteries in applications, various methods have been proposed for battery health monitoring and remaining useful life (RUL) prediction.",
+      "canonical_id": "doi:10.3390/batteries11010031"
+    },
+    {
       "id": "doi:10.1201/9781003188377-32",
       "title": "Risk-Based Prognostics and Health Management",
       "abstract": "",
@@ -3142,6 +3474,90 @@
       "snippet": "",
       "canonical_id": "title:riskbasedprognosticsandhealthmanagement",
       "summary": "本文研究了基于风险的预测与健康管理方法，探讨了如何通过评估系统的风险因素来优化设备的维护和管理策略，以提高其可靠性和安全性。研究采用了定量分析和模型构建的方法，得出了有效的风险管理框架。"
+    },
+    {
+      "id": "s2:3cbf73d3908621b2135f",
+      "title": "Remaining Useful Life Prediction Methodologies With Health Indicator Dependence for Rotating Machinery: A Comprehensive Review",
+      "abstract": "Facilitated by artificial intelligence (AI) technologies such as deep learning (DL), predictive maintenance (PdM) has emerged as the most cost-effective maintenance approach for significantly enhancing the safety and availability of industrial equipment. Remaining useful life (RUL) prediction of rotating machinery (RM) is one of the core tasks of PdM, which can assist in maintenance decision-making and optimize asset allocation. Among them, the prognostic approach with health indicator (HI) as an intermediate bridge has attracted increasing attention due to its advantages in combining health c",
+      "authors": [
+        "Jianghong Zhou",
+        "Jiahong Yang",
+        "Shengwu Xiang",
+        "Yi Qin"
+      ],
+      "date": "2025-01-01",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/3cbf73d3908621b2135f3d07a008aad97bc1dd7f",
+      "pdf": "",
+      "venue": "IEEE Transactions on Instrumentation and Measurement",
+      "citations": 65,
+      "doi": "10.1109/TIM.2025.3556919",
+      "relevance_score": 37,
+      "tags": [
+        "remaining useful life",
+        "time series prediction",
+        "predictive maintenance",
+        "RUL prediction",
+        "condition monitoring"
+      ],
+      "score_breakdown": {
+        "topic": 26,
+        "time_series": 8,
+        "dataset": 0,
+        "method": 0,
+        "freshness": 1,
+        "source": 2,
+        "negative": 0,
+        "total": 37
+      },
+      "negative_hits": [],
+      "research_question": "core_rul_phm",
+      "recommendation": "精读",
+      "decision_reason": "主题相关 26；时间序列 8；近期 1；命中: remaining useful life, time series prediction, predictive maintenance",
+      "snippet": "Facilitated by artificial intelligence (AI) technologies such as deep learning (DL), predictive maintenance (PdM) has emerged as the most cost-effective maintenance approach for significantly enhancing the safety and…",
+      "canonical_id": "doi:10.1109/tim.2025.3556919"
+    },
+    {
+      "id": "s2:2b1eef628e3dcf96b416",
+      "title": "A Remaining Useful Life Prediction Method for Rolling Bearing Based on TCN-Transformer",
+      "abstract": "Predicting the remaining useful life (RUL) of rolling bearings is crucial to ensure the stable operation of equipment. In recent years, predictive methodologies that leverage intelligent models have witnessed widespread development, significantly enhancing the precision of equipment prognostication. However, operating environments are inherently complex and can cause stochastic fluctuations in the characteristic indicators extracted during the rolling bearing degradation stage, leading to uncertainty in prediction outcomes. This study presents a TCN-transformer model and a two-stage degradatio",
+      "authors": [
+        "Wei Cao",
+        "Zong Meng",
+        "Jimeng Li",
+        "Jie Wu",
+        "Fengjie Fan"
+      ],
+      "date": "2025-01-01",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/2b1eef628e3dcf96b416ac883fddc54bc8286d8b",
+      "pdf": "",
+      "venue": "IEEE Transactions on Instrumentation and Measurement",
+      "citations": 65,
+      "doi": "10.1109/TIM.2024.3502878",
+      "relevance_score": 31,
+      "tags": [
+        "remaining useful life",
+        "RUL prediction",
+        "XJTU-SY",
+        "transformer"
+      ],
+      "score_breakdown": {
+        "topic": 21,
+        "time_series": 0,
+        "dataset": 5,
+        "method": 2,
+        "freshness": 1,
+        "source": 2,
+        "negative": 0,
+        "total": 31
+      },
+      "negative_hits": [],
+      "research_question": "core_rul_phm",
+      "recommendation": "精读",
+      "decision_reason": "主题相关 21；数据集相关 5；方法可借鉴 2；近期 1；命中: remaining useful life, RUL prediction, XJTU-SY",
+      "snippet": "Predicting the remaining useful life (RUL) of rolling bearings is crucial to ensure the stable operation of equipment.",
+      "canonical_id": "doi:10.1109/tim.2024.3502878"
     },
     {
       "id": "doi:10.1007/978-981-96-2677-9_11",
@@ -3180,6 +3596,46 @@
       "snippet": "",
       "canonical_id": "title:rulpredictionwithdegradationshockdependency",
       "summary": "本论文研究了在考虑退化与冲击依赖关系的情况下，剩余使用寿命（RUL）预测的方法。通过建立模型，分析了退化过程与外部冲击对设备寿命的影响，提出了相应的预测策略。"
+    },
+    {
+      "id": "s2:c53e65d0801f53cf74f3",
+      "title": "Remaining Useful Life Prediction of Rolling Bearings Based on CBAM-CNN-LSTM",
+      "abstract": "Predicting the Remaining Useful Life (RUL) is vital for ensuring the reliability and safety of equipment and components. This study introduces a novel method for predicting RUL that utilizes the Convolutional Block Attention Module (CBAM) to address the problem that Convolutional Neural Networks (CNNs) do not effectively leverage data channel features and spatial features in residual life prediction. Firstly, Fast Fourier Transform (FFT) is applied to convert the data into the frequency domain. The resulting frequency domain data is then used as input to the convolutional neural network for fe",
+      "authors": [
+        "Bo Sun",
+        "Wenting Hu",
+        "Hao Wang",
+        "Lei Wang",
+        "C. Deng"
+      ],
+      "date": "2025-01-01",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/c53e65d0801f53cf74f3020c5782426082e8fb68",
+      "pdf": "",
+      "venue": "Italian National Conference on Sensors",
+      "citations": 30,
+      "doi": "10.3390/s25020554",
+      "relevance_score": 22,
+      "tags": [
+        "remaining useful life",
+        "RUL prediction"
+      ],
+      "score_breakdown": {
+        "topic": 19,
+        "time_series": 0,
+        "dataset": 0,
+        "method": 0,
+        "freshness": 1,
+        "source": 2,
+        "negative": 0,
+        "total": 22
+      },
+      "negative_hits": [],
+      "research_question": "core_rul_phm",
+      "recommendation": "精读",
+      "decision_reason": "主题相关 19；近期 1；命中: remaining useful life, RUL prediction",
+      "snippet": "Predicting the Remaining Useful Life (RUL) is vital for ensuring the reliability and safety of equipment and components.",
+      "canonical_id": "doi:10.3390/s25020554"
     },
     {
       "id": "doi:10.37648/ijrst.v15i04.001",
@@ -3253,23 +3709,23 @@
       "summary": "本论文研究了基于深度学习的方法来预测轴承的剩余使用寿命。通过对轴承故障数据的分析，提出了一种有效的预测模型，并验证了其在实际应用中的有效性。"
     },
     {
-      "id": "doi:10.1007/978-3-031-90758-6_9",
-      "title": "FNN-LSTM Model for Remaining Useful Life Estimation",
+      "id": "doi:10.1007/978-981-96-7218-9_5",
+      "title": "Optimization Based Prediction for IGBT Remaining Useful Life",
       "abstract": "",
       "authors": [
-        "Samira Abderrezek",
-        "Abdelhabib Bourouis",
-        "Naouel Ouafek"
+        "Hui Liu",
+        "Fang Cheng",
+        "Yanfei Li"
       ],
       "date": "2025-01-01",
       "source": "CrossRef",
-      "url": "https://doi.org/10.1007/978-3-031-90758-6_9",
+      "url": "https://doi.org/10.1007/978-981-96-7218-9_5",
       "pdf": "",
       "relevance_score": 13,
       "tags": [
         "remaining useful life"
       ],
-      "venue": "Information Systems Engineering and Management",
+      "venue": "Prognostics and Health Management for Intelligent Electromechanical Systems",
       "score_breakdown": {
         "topic": 10,
         "time_series": 0,
@@ -3285,8 +3741,8 @@
       "recommendation": "快读",
       "decision_reason": "主题相关 10；近期 1；命中: remaining useful life",
       "snippet": "",
-      "canonical_id": "title:fnnlstmmodelforremainingusefullifeestimation",
-      "summary": "本文提出了一种基于前馈神经网络（FNN）和长短期记忆网络（LSTM）的模型，用于剩余使用寿命的估计。研究通过该模型对设备的剩余使用寿命进行预测，验证了其有效性。"
+      "canonical_id": "title:optimizationbasedpredictionforigbtremainingusefullife",
+      "summary": "本论文研究了基于优化方法的绝缘栅双极晶体管（IGBT）剩余使用寿命预测。通过建立预测模型，分析了影响IGBT寿命的关键因素，并提出了相应的优化策略。"
     },
     {
       "id": "doi:10.4236/ica.2025.161001",
@@ -3687,41 +4143,44 @@
       "summary": "本论文研究了基于人工智能的预测性维护方法，利用机器学习算法分析设备数据，以预测故障并优化维护计划。研究结果表明，该方法能够提高设备的可靠性和降低维护成本。"
     },
     {
-      "id": "s2:d05ca4ea36b4c57f2f92",
-      "title": "Benchmarking deep learning models for bearing fault diagnosis using the CWRU dataset: A multi-label approach",
-      "abstract": "This paper proposes a novel approach for modeling the problem of fault diagnosis using the Case Western Reserve University (CWRU) bearing fault dataset. Although the dataset is considered a standard reference for testing new algorithms, the typical dataset division suffers from data leakage, as shown by Hendriks et al. (2022) and Abburi et al. (2023), leading to papers reporting over-optimistic results. While their proposed division significantly mitigates this issue, it does not eliminate it entirely. Moreover, their proposed multi-class classification task can still lead to an unrealistic sc",
+      "id": "s2:a94c306ae74012b35414",
+      "title": "A dual attention LSTM lightweight model based on exponential smoothing for remaining useful life prediction",
+      "abstract": "",
       "authors": [
-        "R. K. Rosa",
-        "Danilo Braga",
-        "Danilo Silva"
+        "Jia-Yu Shi",
+        "Jingshu Zhong",
+        "Yuxuan Zhang",
+        "Bin Xiao",
+        "Lei Xiao"
       ],
-      "date": "2024-07-19",
+      "date": "2024-03-01",
       "source": "Semantic Scholar",
-      "url": "https://www.semanticscholar.org/paper/d05ca4ea36b4c57f2f9274e5eb3e439a8c82682d",
-      "pdf": "https://arxiv.org/pdf/2407.14625",
-      "venue": "",
-      "citations": 11,
-      "doi": "",
-      "relevance_score": 12,
+      "url": "https://www.semanticscholar.org/paper/a94c306ae74012b3541471a99149214fccaadaff",
+      "pdf": "",
+      "venue": "Reliability Engineering & System Safety",
+      "citations": 156,
+      "doi": "10.1016/j.ress.2023.109821",
+      "relevance_score": 14,
       "tags": [
-        "CWRU"
+        "remaining useful life",
+        "lightweight model"
       ],
       "score_breakdown": {
-        "topic": 0,
+        "topic": 10,
         "time_series": 0,
-        "dataset": 10,
-        "method": 0,
+        "dataset": 0,
+        "method": 2,
         "freshness": 0,
         "source": 2,
         "negative": 0,
-        "total": 12
+        "total": 14
       },
       "negative_hits": [],
-      "research_question": "dataset_benchmark",
-      "recommendation": "对比实验",
-      "decision_reason": "数据集相关 10；命中: CWRU",
-      "snippet": "This paper proposes a novel approach for modeling the problem of fault diagnosis using the Case Western Reserve University (CWRU) bearing fault dataset.",
-      "canonical_id": "arxiv:2407.14625"
+      "research_question": "core_rul_phm",
+      "recommendation": "快读",
+      "decision_reason": "主题相关 10；方法可借鉴 2；命中: remaining useful life, lightweight model",
+      "snippet": "",
+      "canonical_id": "doi:10.1016/j.ress.2023.109821"
     },
     {
       "id": "s2:32f89c00bb088afd264f",
@@ -3765,65 +4224,68 @@
       "summary": "本研究提出了一种新颖的定制负载自适应框架（CLAF），用于感应电动机的故障分类，利用机械故障预防技术（MFPT）轴承数据集。该框架通过考虑负载变化和数据集定制，识别出传统方法未能识别的负载依赖故障子类，并创建了新的类别以适应数据集的独特特征。"
     },
     {
-      "id": "s2:215c4d9081fa703cb6a5",
-      "title": "Bearing Fault Diagnosis With Envelope Analysis and Machine Learning Approaches Using CWRU Dataset",
-      "abstract": "Current intelligent rotor-bearing system failure diagnostic approaches rely heavily on vibration analysis during stable operation, which limits their applicability to novel settings. In this research, we offer a novel framework for defect detection in rotor-bearing systems utilizing an altered AlexNet neural network and transfer learning, which may be used in a wide range of operational contexts. To begin, thermal infrared photos are taken to assess the state of the rotor bearings. To solve the issues with traditional CNN's training, Next, we use probabilistic pooled and a Leaking rectified li",
+      "id": "s2:f96aa173e36163c5b9c3",
+      "title": "A Hybrid Prognostics Approach for Estimating Remaining Useful Life of Rolling Element Bearings",
+      "abstract": "Remaining useful life (RUL) prediction of rolling element bearings plays a pivotal role in reducing costly unplanned maintenance and increasing the reliability, availability, and safety of machines. This paper proposes a hybrid prognostics approach for RUL prediction of rolling element bearings. First, degradation data of bearings are sparsely represented using relevance vector machine regressions with different kernel parameters. Then, exponential degradation models coupled with the Fréchet distance are employed to estimate the RUL adaptively. The proposed approach is evaluated using the vibr",
       "authors": [
-        "Lovish Dhingra"
+        "Biao Wang",
+        "Yaguo Lei",
+        "Nai-Peng Li",
+        "Ning-Bo Li"
       ],
-      "date": "2023-07-28",
+      "date": "2020-03-01",
       "source": "Semantic Scholar",
-      "url": "https://www.semanticscholar.org/paper/215c4d9081fa703cb6a56726e9f173e49ec8ae49",
+      "url": "https://www.semanticscholar.org/paper/f96aa173e36163c5b9c31b4107b539462bbdd3b4",
       "pdf": "",
-      "venue": "2023 International Conference on Data Science and Network Security (ICDSNS)",
-      "citations": 0,
-      "doi": "10.1109/ICDSNS58469.2023.10244972",
-      "relevance_score": 13,
+      "venue": "IEEE Transactions on Reliability",
+      "citations": 1638,
+      "doi": "10.1109/TR.2018.2882682",
+      "relevance_score": 25,
       "tags": [
-        "transfer learning",
-        "CWRU"
+        "remaining useful life",
+        "PRONOSTIA",
+        "RUL prediction"
       ],
       "score_breakdown": {
-        "topic": 0,
+        "topic": 18,
         "time_series": 0,
-        "dataset": 10,
-        "method": 1,
+        "dataset": 5,
+        "method": 0,
         "freshness": 0,
         "source": 2,
         "negative": 0,
-        "total": 13
+        "total": 25
       },
       "negative_hits": [],
-      "research_question": "dataset_benchmark",
-      "recommendation": "对比实验",
-      "decision_reason": "数据集相关 10；方法可借鉴 1；命中: transfer learning, CWRU",
-      "snippet": "In this research, we offer a novel framework for defect detection in rotor-bearing systems utilizing an altered AlexNet neural network and transfer learning, which may be used in a wide range of operational contexts.",
-      "canonical_id": "doi:10.1109/icdsns58469.2023.10244972"
+      "research_question": "core_rul_phm",
+      "recommendation": "精读",
+      "decision_reason": "主题相关 18；数据集相关 5；命中: remaining useful life, PRONOSTIA, RUL prediction",
+      "snippet": "Remaining useful life (RUL) prediction of rolling element bearings plays a pivotal role in reducing costly unplanned maintenance and increasing the reliability, availability, and safety of machines.",
+      "canonical_id": "doi:10.1109/tr.2018.2882682",
+      "summary": "本文提出了一种混合预测方法，用于估计滚动元件轴承的剩余使用寿命（RUL）。该方法首先利用相关向量机回归对轴承的退化数据进行稀疏表示，然后结合指数退化模型和Fréchet距离进行自适应RUL估计。"
     },
     {
-      "id": "s2:3665ca99024f58c22e28",
-      "title": "Lite and Efficient Deep Learning Model for Bearing Fault Diagnosis Using the CWRU Dataset",
-      "abstract": "Bearing defects are a common problem in rotating machines and equipment that can lead to unexpected downtime, costly repairs, and even safety hazards. Diagnosing bearing defects is crucial for preventative maintenance, and deep learning models have shown promising results in this field. On the other hand, the high complexity of these models can lead to high computational and data processing costs, making their practical implementation challenging. Recent studies have focused on optimizing these models by reducing their size and complexity, but these methods often compromise classification perf",
+      "id": "s2:eff74a2de2babca58f34",
+      "title": "The analysis of Return on Investment for PHM applied to electronic systems",
+      "abstract": "",
       "authors": [
-        "Yubin Yoo",
-        "Hangyeol Jo",
-        "Sang-Woo Ban"
+        "Kiri Feldman",
+        "P. Sandborn",
+        "T. Jazouli"
       ],
-      "date": "2023-03-01",
+      "date": "2008-12-12",
       "source": "Semantic Scholar",
-      "url": "https://www.semanticscholar.org/paper/3665ca99024f58c22e2800ee3214a4e23bbe5462",
+      "url": "https://www.semanticscholar.org/paper/eff74a2de2babca58f34f6173cbb669556817e8f",
       "pdf": "",
-      "venue": "Italian National Conference on Sensors",
-      "citations": 71,
-      "doi": "10.3390/s23063157",
+      "venue": "International Conference on Prognostics and Health Management",
+      "citations": 39,
+      "doi": "10.1109/PHM.2008.4711415",
       "relevance_score": 12,
-      "tags": [
-        "CWRU"
-      ],
+      "tags": [],
       "score_breakdown": {
-        "topic": 0,
+        "topic": 10,
         "time_series": 0,
-        "dataset": 10,
+        "dataset": 0,
         "method": 0,
         "freshness": 0,
         "source": 2,
@@ -3831,37 +4293,189 @@
         "total": 12
       },
       "negative_hits": [],
-      "research_question": "dataset_benchmark",
-      "recommendation": "对比实验",
-      "decision_reason": "数据集相关 10；命中: CWRU",
-      "snippet": "Bearing defects are a common problem in rotating machines and equipment that can lead to unexpected downtime, costly repairs, and even safety hazards.",
-      "canonical_id": "doi:10.3390/s23063157"
+      "research_question": "related",
+      "recommendation": "快读",
+      "decision_reason": "主题相关 10",
+      "snippet": "",
+      "canonical_id": "doi:10.1109/phm.2008.4711415",
+      "summary": "本文分析了在电子系统中应用预测性健康管理（PHM）的投资回报率（ROI），通过定量方法评估其经济效益和实施效果。研究结果表明，PHM能够显著提高系统的可靠性和降低维护成本。"
     },
     {
-      "id": "s2:0df2f709ef7c3cead291",
-      "title": "Towards better benchmarking using the CWRU bearing fault dataset",
+      "id": "s2:d3d631baf08f6df03bdb",
+      "title": "A similarity-based prognostics approach for Remaining Useful Life estimation of engineered systems",
       "abstract": "",
       "authors": [
-        "Jacob Hendriks",
-        "P. Dumond",
-        "D. Knox"
+        "Tianyi Wang",
+        "Jianbo Yu",
+        "David Siegel",
+        "J. Lee"
       ],
-      "date": "2022-01-01",
+      "date": "2008-12-12",
       "source": "Semantic Scholar",
-      "url": "https://www.semanticscholar.org/paper/0df2f709ef7c3cead2915bee96b494dcd3ccb634",
+      "url": "https://www.semanticscholar.org/paper/d3d631baf08f6df03bdbadcfdc8938206ea96c5f",
       "pdf": "",
-      "venue": "Mechanical systems and signal processing",
-      "citations": 166,
-      "doi": "10.1016/j.ymssp.2021.108732",
-      "relevance_score": 22,
+      "venue": "International Conference on Prognostics and Health Management",
+      "citations": 478,
+      "doi": "10.1109/PHM.2008.4711421",
+      "relevance_score": 12,
       "tags": [
-        "CWRU bearing",
-        "CWRU"
+        "remaining useful life"
       ],
       "score_breakdown": {
-        "topic": 0,
+        "topic": 10,
         "time_series": 0,
-        "dataset": 20,
+        "dataset": 0,
+        "method": 0,
+        "freshness": 0,
+        "source": 2,
+        "negative": 0,
+        "total": 12
+      },
+      "negative_hits": [],
+      "research_question": "core_rul_phm",
+      "recommendation": "快读",
+      "decision_reason": "主题相关 10；命中: remaining useful life",
+      "snippet": "",
+      "canonical_id": "doi:10.1109/phm.2008.4711421",
+      "summary": "本文提出了一种基于相似性的预测方法，用于估计工程系统的剩余使用寿命。研究通过分析历史数据和相似案例，建立模型以提高预测的准确性。"
+    },
+    {
+      "id": "s2:313e74e3b8c168a2d5c0",
+      "title": "IEEE standards for prognostics and health management",
+      "abstract": "",
+      "authors": [
+        "John W. Sheppard",
+        "M. Kaufman",
+        "T. Wilmering"
+      ],
+      "date": "2008-10-31",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/313e74e3b8c168a2d5c01f88b7ed358f1a953450",
+      "pdf": "",
+      "venue": "2008 IEEE AUTOTESTCON",
+      "citations": 152,
+      "doi": "10.1109/MAES.2009.5282287",
+      "relevance_score": 12,
+      "tags": [
+        "prognostics and health management"
+      ],
+      "score_breakdown": {
+        "topic": 10,
+        "time_series": 0,
+        "dataset": 0,
+        "method": 0,
+        "freshness": 0,
+        "source": 2,
+        "negative": 0,
+        "total": 12
+      },
+      "negative_hits": [],
+      "research_question": "related",
+      "recommendation": "快读",
+      "decision_reason": "主题相关 10；命中: prognostics and health management",
+      "snippet": "",
+      "canonical_id": "doi:10.1109/maes.2009.5282287",
+      "summary": "本文探讨了IEEE标准在预测和健康管理（PHM）领域的应用，分析了相关标准的制定过程及其对PHM实践的影响，旨在为行业提供统一的框架和指导。通过对现有标准的评估，论文总结了其在提高系统可靠性和维护效率方面的潜力。"
+    },
+    {
+      "id": "s2:01ef9a6ed662ed8a8cd7",
+      "title": "Substituted Hippurates and Hippurate Analogs as Substrates and Inhibitors of Peptidylglycine α-Hydroxylating Monooxygenase (PHM)",
+      "abstract": "Peptidyl α-hydroxylating monooxygenase (PHM) functions in vivo towards the biosynthesis of α-amidated peptide hormones in mammals and insects. PHM is a potential target for the development of inhibitors as drugs for the treatment of human disease and as insecticides for the management of insect pests. We show here that relatively simple ground state analogs of the PHM substrate hippuric acid (C6H5-CO-NH-CH2-COOH) inhibit the enzyme with Ki values as low as 0.5 μM. Substitution of sulfur atom(s) into the hippuric acid analog increases the affinity of PHM for the inhibitor. Replacement of the ac",
+      "authors": [
+        "D. Merkler",
+        "Alexander S. Asser",
+        "L. E. Baumgart",
+        "N. Carballo",
+        "S. E. Carpenter"
+      ],
+      "date": "2008-10-11",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/01ef9a6ed662ed8a8cd72ee3f4ee6399bf50d351",
+      "pdf": "",
+      "venue": "Bioorganic & Medicinal Chemistry",
+      "citations": 15,
+      "doi": "10.1016/j.bmc.2008.10.013",
+      "relevance_score": 12,
+      "tags": [],
+      "score_breakdown": {
+        "topic": 10,
+        "time_series": 0,
+        "dataset": 0,
+        "method": 0,
+        "freshness": 0,
+        "source": 2,
+        "negative": 0,
+        "total": 12
+      },
+      "negative_hits": [],
+      "research_question": "related",
+      "recommendation": "快读",
+      "decision_reason": "主题相关 10",
+      "snippet": "Peptidyl α-hydroxylating monooxygenase (PHM) functions in vivo towards the biosynthesis of α-amidated peptide hormones in mammals and insects.",
+      "canonical_id": "doi:10.1016/j.bmc.2008.10.013",
+      "summary": "本文研究了取代的氨基酸和氨基酸类似物作为肽基甘氨酸α-羟化单氧化酶（PHM）的底物和抑制剂，发现简单的氨基酸类似物能有效抑制PHM，且硫原子的替代能增强抑制剂的亲和力。研究结果表明，这些化合物有潜力作为药物和农药的开发靶点。"
+    },
+    {
+      "id": "s2:15b3acec65d471619083",
+      "title": "Automated Failure Effect Analysis for PHM of UAV",
+      "abstract": "",
+      "authors": [
+        "C. Downes",
+        "N. Snooke",
+        "C. Price",
+        "Carol Aspey"
+      ],
+      "date": "2008-07-22",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/15b3acec65d471619083aaf69d1eb3799cdc26f1",
+      "pdf": "",
+      "venue": "",
+      "citations": 15,
+      "doi": "10.1007/978-90-481-9707-1_40",
+      "relevance_score": 12,
+      "tags": [],
+      "score_breakdown": {
+        "topic": 10,
+        "time_series": 0,
+        "dataset": 0,
+        "method": 0,
+        "freshness": 0,
+        "source": 2,
+        "negative": 0,
+        "total": 12
+      },
+      "negative_hits": [],
+      "research_question": "related",
+      "recommendation": "快读",
+      "decision_reason": "主题相关 10",
+      "snippet": "",
+      "canonical_id": "doi:10.1007/978-90-481-9707-1_40",
+      "summary": "本文研究了无人机的自动化故障影响分析方法，旨在通过故障模式和影响分析（FMEA）来支持无人机的预测性健康管理（PHM）。研究采用了自动化工具和算法，以提高故障分析的效率和准确性。"
+    },
+    {
+      "id": "s2:2ad09468f7b071aaec01",
+      "title": "Feature Extraction for Bearing Prognostics and Health Management (PHM) - A Survey (Preprint)",
+      "abstract": "",
+      "authors": [
+        "Weizhong Yan",
+        "Hai Qiu",
+        "Naresh Iyer"
+      ],
+      "date": "2008-05-01",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/2ad09468f7b071aaec013e9027ab0921f9c1cba2",
+      "pdf": "",
+      "venue": "",
+      "citations": 29,
+      "doi": "",
+      "relevance_score": 22,
+      "tags": [
+        "prognostics and health management"
+      ],
+      "score_breakdown": {
+        "topic": 20,
+        "time_series": 0,
+        "dataset": 0,
         "method": 0,
         "freshness": 0,
         "source": 2,
@@ -3869,37 +4483,71 @@
         "total": 22
       },
       "negative_hits": [],
-      "research_question": "dataset_benchmark",
-      "recommendation": "对比实验",
-      "decision_reason": "数据集相关 20；命中: CWRU bearing, CWRU",
+      "research_question": "core_rul_phm",
+      "recommendation": "精读",
+      "decision_reason": "主题相关 20；命中: prognostics and health management",
       "snippet": "",
-      "canonical_id": "doi:10.1016/j.ymssp.2021.108732"
+      "canonical_id": "title:featureextractionforbearingprognosticsandhealthmanagementphmasurveypreprint"
     },
     {
-      "id": "s2:604ac069b53b34204a48",
-      "title": "Performance of Envelope Demodulation for Bearing Damage Detection on CWRU Accelerometric Data: Kurtogram and Traditional Indicators vs. Targeted a Posteriori Band Indicators",
-      "abstract": "Envelope demodulation of vibration signals is surely one of the most successful methods of analysis for highlighting diagnostic information of rolling element bearings incipient faults. From a mathematical perspective, the selection of a proper demodulation band can be regarded as an optimization problem involving a utility function to assess the demodulation performance in a particular band and a scheme to move within the search space of all the possible frequency bands {f, Δf} (center frequency and band size) towards the optimal one. In most of cases, kurtosis-based indices are used to selec",
+      "id": "s2:31a7980755fe0eba70aa",
+      "title": "The Role of Reliability Data Bases in Deploying CBM+, RCM and PHM with TLCSM",
+      "abstract": "The total life cycle systems management [TLCSM] imperative for military systems holds the program manager accountable for ldquototal system performance (hardware, software, and human), operational effectiveness, and suitability, survivability, safety, and affordabilityrdquo. Condition Based Maintenance Plus [CBM+], Reliability Centered Maintenance [RCM] and prognostic health management [PHM] for critical subsystems, such as propulsion, are considered essential program elements in meeting this responsibility for total life cycle sustainability. A key enabler for CBM+, RCM and PHM is adequate an",
       "authors": [
-        "Daga Alessandro Paolo",
-        "Garibaldi Luigi",
-        "Fasana Alessandro",
-        "Marchesiello Stefano"
+        "Richard Millar"
       ],
-      "date": "2021-07-06",
+      "date": "2008-03-01",
       "source": "Semantic Scholar",
-      "url": "https://www.semanticscholar.org/paper/604ac069b53b34204a48722e42e3d9df85ec4a39",
+      "url": "https://www.semanticscholar.org/paper/31a7980755fe0eba70aa5a60c3d35a8a9c3ba044",
       "pdf": "",
-      "venue": "Applied Sciences",
-      "citations": 11,
-      "doi": "10.3390/APP11146262",
-      "relevance_score": 12,
+      "venue": "IEEE Aerospace Conference",
+      "citations": 14,
+      "doi": "10.1109/AERO.2008.4526633",
+      "relevance_score": 20,
       "tags": [
-        "CWRU"
+        "condition based maintenance"
       ],
       "score_breakdown": {
-        "topic": 0,
+        "topic": 18,
         "time_series": 0,
-        "dataset": 10,
+        "dataset": 0,
+        "method": 0,
+        "freshness": 0,
+        "source": 2,
+        "negative": 0,
+        "total": 20
+      },
+      "negative_hits": [],
+      "research_question": "core_rul_phm",
+      "recommendation": "精读",
+      "decision_reason": "主题相关 18；命中: condition based maintenance",
+      "snippet": "Condition Based Maintenance Plus [CBM+], Reliability Centered Maintenance [RCM] and prognostic health management [PHM] for critical subsystems, such as propulsion, are considered essential program elements in meeting…",
+      "canonical_id": "doi:10.1109/aero.2008.4526633",
+      "summary": "本文探讨了在军事系统的全生命周期系统管理中，可靠性数据库在实施基于状态的维护（CBM+）、可靠性中心维护（RCM）和预测健康管理（PHM）中的作用，强调这些方法对于确保系统性能和可持续性的重要性。研究指出，可靠性数据库是支持这些维护策略的关键因素。"
+    },
+    {
+      "id": "s2:e5d4538cab6a6a1c10ae",
+      "title": "Cost-Benefit Analysis Methodology for PHM Applied to Legacy Commercial Aircraft",
+      "abstract": "",
+      "authors": [
+        "B. P. Leao",
+        "K. Fitzgibbon",
+        "L. Puttini",
+        "G. P. B. de Melo"
+      ],
+      "date": "2008-03-01",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/e5d4538cab6a6a1c10ae5fde7e36f04df4a4f572",
+      "pdf": "",
+      "venue": "IEEE Aerospace Conference",
+      "citations": 51,
+      "doi": "10.1109/AERO.2008.4526599",
+      "relevance_score": 12,
+      "tags": [],
+      "score_breakdown": {
+        "topic": 10,
+        "time_series": 0,
+        "dataset": 0,
         "method": 0,
         "freshness": 0,
         "source": 2,
@@ -3907,12 +4555,117 @@
         "total": 12
       },
       "negative_hits": [],
-      "research_question": "dataset_benchmark",
-      "recommendation": "对比实验",
-      "decision_reason": "数据集相关 10；命中: CWRU",
-      "snippet": "Envelope demodulation of vibration signals is surely one of the most successful methods of analysis for highlighting diagnostic information of rolling element bearings incipient faults.",
-      "canonical_id": "doi:10.3390/app11146262",
-      "summary": "本论文研究了在CWRU加速度数据上使用包络解调方法进行滚动轴承损伤检测的性能，比较了基于峭度的传统指标与针对后验带指标的效果。研究表明，选择合适的解调频带可以通过优化问题来实现，以提高故障诊断的准确性。"
+      "research_question": "related",
+      "recommendation": "快读",
+      "decision_reason": "主题相关 10",
+      "snippet": "",
+      "canonical_id": "doi:10.1109/aero.2008.4526599",
+      "summary": "本文提出了一种针对老旧商用飞机的预测性健康管理（PHM）成本效益分析方法，旨在评估实施PHM技术的经济性和效益。研究通过案例分析和模型构建，量化了PHM对飞机运营和维护成本的影响。"
+    },
+    {
+      "id": "s2:a43d77b54763afe3e05b",
+      "title": "A Robust Laser Interferometer (RLI) for Prognostics and Health Management (PHM)",
+      "abstract": "",
+      "authors": [
+        "M. Karchnak"
+      ],
+      "date": "2008-01-01",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/a43d77b54763afe3e05b330310e2ca9582c7a9d9",
+      "pdf": "",
+      "venue": "",
+      "citations": 2,
+      "doi": "10.1115/DETC2008-49421",
+      "relevance_score": 22,
+      "tags": [
+        "prognostics and health management"
+      ],
+      "score_breakdown": {
+        "topic": 20,
+        "time_series": 0,
+        "dataset": 0,
+        "method": 0,
+        "freshness": 0,
+        "source": 2,
+        "negative": 0,
+        "total": 22
+      },
+      "negative_hits": [],
+      "research_question": "core_rul_phm",
+      "recommendation": "精读",
+      "decision_reason": "主题相关 20；命中: prognostics and health management",
+      "snippet": "",
+      "canonical_id": "doi:10.1115/detc2008-49421"
+    },
+    {
+      "id": "s2:4e15603df9e583c99909",
+      "title": "Evolution and Application of PHM Technologies",
+      "abstract": "",
+      "authors": [
+        "Bao-Zhen Zhang"
+      ],
+      "date": "2008-01-01",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/4e15603df9e583c999096308eab30707ef951c2a",
+      "pdf": "",
+      "venue": "",
+      "citations": 19,
+      "doi": "",
+      "relevance_score": 12,
+      "tags": [],
+      "score_breakdown": {
+        "topic": 10,
+        "time_series": 0,
+        "dataset": 0,
+        "method": 0,
+        "freshness": 0,
+        "source": 2,
+        "negative": 0,
+        "total": 12
+      },
+      "negative_hits": [],
+      "research_question": "related",
+      "recommendation": "快读",
+      "decision_reason": "主题相关 10",
+      "snippet": "",
+      "canonical_id": "title:evolutionandapplicationofphmtechnologies",
+      "summary": "本文回顾了PHM（ Prognostics and Health Management）技术的发展历程，分析了其在不同领域的应用情况，并探讨了未来的发展方向和挑战。研究通过文献综述和案例分析的方法，系统总结了PHM技术的演变及其实际应用效果。"
+    },
+    {
+      "id": "s2:4d3f02f77898d10819ca",
+      "title": "The Maintenance Aware Design environment: Development of an Aerospace PHM Software Tool",
+      "abstract": "",
+      "authors": [
+        "A. Hess",
+        "J. Stecki",
+        "Shoshanna Rudov-Clark"
+      ],
+      "date": "2008-01-01",
+      "source": "Semantic Scholar",
+      "url": "https://www.semanticscholar.org/paper/4d3f02f77898d10819ca434eb7cfc8a0f036be9d",
+      "pdf": "",
+      "venue": "",
+      "citations": 23,
+      "doi": "",
+      "relevance_score": 12,
+      "tags": [],
+      "score_breakdown": {
+        "topic": 10,
+        "time_series": 0,
+        "dataset": 0,
+        "method": 0,
+        "freshness": 0,
+        "source": 2,
+        "negative": 0,
+        "total": 12
+      },
+      "negative_hits": [],
+      "research_question": "related",
+      "recommendation": "快读",
+      "decision_reason": "主题相关 10",
+      "snippet": "",
+      "canonical_id": "title:themaintenanceawaredesignenvironmentdevelopmentofanaerospacephmsoftwaretool",
+      "summary": "本文开发了一种航空航天领域的PHM（预测健康管理）软件工具，旨在实现维护意识设计环境。研究通过该工具的应用，探讨了在航空航天系统中如何有效地进行维护管理和故障预测。"
     },
     {
       "id": "openalex:W7203455470",
